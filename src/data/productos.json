@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "nombre": "Pala Power",
+    "tipo": "Ofensiva",
+    "precio": 150,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 2,
+    "nombre": "Pala Control",
+    "tipo": "Defensiva",
+    "precio": 120,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Pala All Round",
+    "tipo": "Equilibrada",
+    "precio": 130,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 4,
+    "nombre": "Pala Pro",
+    "tipo": "Ofensiva",
+    "precio": 180,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Pala Novata",
+    "tipo": "Principiante",
+    "precio": 80,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 6,
+    "nombre": "Pala Avanzada",
+    "tipo": "Defensiva",
+    "precio": 170,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 7,
+    "nombre": "Pala Elite",
+    "tipo": "Equilibrada",
+    "precio": 200,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 8,
+    "nombre": "Pala Titan",
+    "tipo": "Ofensiva",
+    "precio": 220,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 9,
+    "nombre": "Pala Mach",
+    "tipo": "Defensiva",
+    "precio": 140,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 10,
+    "nombre": "Pala Ultra",
+    "tipo": "Ofensiva",
+    "precio": 210,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 11,
+    "nombre": "Pala Rookie",
+    "tipo": "Principiante",
+    "precio": 90,
+    "img": "src/assets/pala.png"
+  },
+  {
+    "id": 12,
+    "nombre": "Pala Master",
+    "tipo": "Equilibrada",
+    "precio": 195,
+    "img": "src/assets/pala.png"
+  }
+]

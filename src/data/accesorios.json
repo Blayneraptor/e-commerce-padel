@@ -1,0 +1,114 @@
+[
+    {
+      "id": 1,
+      "nombre": "Overgrip Clásico",
+      "tipo": "Overgrip",
+      "precio": 10,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 2,
+      "nombre": "Overgrip Premium",
+      "tipo": "Overgrip",
+      "precio": 12,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 3,
+      "nombre": "Pelota de Pádel ST",
+      "tipo": "Pelotas",
+      "precio": 15,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 4,
+      "nombre": "Pelota de Pádel Pro",
+      "tipo": "Pelotas",
+      "precio": 20,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 5,
+      "nombre": "Bolsa de Pádel Básica",
+      "tipo": "Bolsas",
+      "precio": 30,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 6,
+      "nombre": "Bolsa de Pádel Sport",
+      "tipo": "Bolsas",
+      "precio": 40,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 7,
+      "nombre": "Muñequeras Ajustables",
+      "tipo": "Muñequeras",
+      "precio": 12,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 8,
+      "nombre": "Muñequeras Deportivas",
+      "tipo": "Muñequeras",
+      "precio": 15,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 9,
+      "nombre": "Protector de Pala",
+      "tipo": "Protector",
+      "precio": 20,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 10,
+      "nombre": "Protector de Codo",
+      "tipo": "Protector",
+      "precio": 22,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 11,
+      "nombre": "Protector Facial",
+      "tipo": "Protector",
+      "precio": 35,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 12,
+      "nombre": "Protector para Muñecas",
+      "tipo": "Protector",
+      "precio": 18,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 13,
+      "nombre": "Camiseta de Pádel",
+      "tipo": "Ropa",
+      "precio": 25,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 14,
+      "nombre": "Calcetines de Pádel",
+      "tipo": "Ropa",
+      "precio": 18,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 15,
+      "nombre": "Gorra de Pádel",
+      "tipo": "Ropa",
+      "precio": 25,
+      "img": "src/assets/accesorios.png"
+    },
+    {
+      "id": 16,
+      "nombre": "Toalla Deportiva",
+      "tipo": "Ropa",
+      "precio": 12,
+      "img": "src/assets/accesorios.png"
+    }
+  ]
