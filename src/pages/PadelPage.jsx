@@ -25,7 +25,7 @@ const PadelPage = () => {
   };
 
   return (
-    <div id="productos" className="container mx-auto p-4">
+    <div id="productos" className="border p-4 flex flex-col items-center">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
         <h1 className="text-3xl font-bold text-gray-800">Palas de Pádel</h1>
         {/* Filtros y búsqueda */}
