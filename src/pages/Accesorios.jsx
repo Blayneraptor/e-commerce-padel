@@ -17,21 +17,17 @@ const Accesorios = () => {
         .includes(busqueda.toLowerCase());
       return tipoCondicion && busquedaCondicion;
     });
-
     // Ordena según el precio
     filtrados.sort((a, b) =>
       ordenPrecio === "asc" ? a.precio - b.precio : b.precio - a.precio
     );
-
     return filtrados;
   };
 
   return (
     <div id="productos" className="container mx-auto p-12">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
-        <h1 className="text-3xl font-bold text-gray-800">
-          Accesorios de Pádel
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-800">Accesorios de Pádel</h1>
         {/* Filtros y búsqueda */}
         <div className="flex space-x-4">
           <select
@@ -64,30 +60,49 @@ const Accesorios = () => {
           />
         </div>
       </div>
-    {/* Lista de accesorios */}
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-        {filtrarAccesorios().map((accesorio) => (
-          <div
-            key={accesorio.id}
-            className="bg-white p-3 rounded-md shadow-md text-sm"
-          >
-            <img
-              src={accesorio.img}
-              alt={accesorio.nombre}
-              className="w-full h-max object-cover rounded-md mb-3"
-            />
-            <h3 className="text-lg font-semibold text-gray-700">
-              {accesorio.nombre}
-            </h3>
-            <p className="text-gray-500">{accesorio.tipo}</p>
-            <p className="text-md font-bold text-blue-600">
-              ${accesorio.precio}
-            </p>
-            <button className="mt-3 w-full py-1.5 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition text-sm">
-              Añadir al carrito
-            </button>
+
+      {/* Nueva estructura de lista de productos */}
+      <div className="mx-auto py-8 px-4 sm:px-6 w-full max-w-7xl bg-white">
+        <div className="mx-auto max-w-2xl lg:max-w-none">
+          
+          {/* :PRODUCT LIST */}
+          <div className="mt-6">
+            <ul className="grid grid-cols-4 gap-10">
+              {filtrarAccesorios().map((accesorio) => (
+                <li
+                  key={accesorio.id}
+                  className="col-span-full sm:col-span-2 lg:col-span-1 group shadow-sm rounded border border-gray-50 hover:shadow-md"
+                >
+                  <a
+                    href={`/accesorios/${accesorio.id}`}
+                    className="p-2 flex flex-col"
+                  >
+                    {/* ::Picture */}
+                    <div className="aspect-w-1 aspect-h-1 w-full h-full overflow-hidden filter group-hover:brightness-110">
+                      <img
+                        src={accesorio.img}
+                        alt={accesorio.nombre}
+                        className="w-full h-full object-cover object-center"
+                      />
+                    </div>
+                    {/* ::Product Details */}
+                    <div className="mt-5 pt-4 pb-2 border-t-2 border-gray-100 flex flex-col items-center">
+                      <h3 className="text-base text-gray-500 font-medium">
+                        {accesorio.nombre}
+                      </h3>
+                      <p className="text-lg text-gray-700 font-semibold">
+                        {accesorio.precio}€
+                      </p>
+                      <button className="mt-4 py-1.5 w-full rounded-md bg-gray-200 text-sm text-gray-600 font-semibold tracking-wide hover:bg-gray-300 hover:text-gray-800">
+                        Añadir al carrito
+                      </button>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   content: [
     "./src/**/*.{html,js,jsx,ts,tsx}",
@@ -5,7 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        sky: colors.sky,
+      },
+    },
   },
   plugins: [],
-}
 }

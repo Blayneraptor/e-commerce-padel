@@ -80,7 +80,7 @@ const ProductPage = () => {
               <h3 className="text-xl font-semibold text-center">
                 {accesorio.nombre}
               </h3>
-              <p className="text-gray-700 text-center">${accesorio.precio}</p>
+              <p className= "text-gray-700 text-center">${accesorio.precio}</p>
             </div>
           ))}
         </div>
