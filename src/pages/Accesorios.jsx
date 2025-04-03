@@ -27,7 +27,9 @@ const Accesorios = () => {
   return (
     <div id="productos" className="container mx-auto p-12">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
-        <h1 className="text-3xl font-bold text-gray-800">Accesorios de Pádel</h1>
+        <h1 className="text-3xl font-bold text-gray-800">
+          Accesorios de Pádel
+        </h1>
         {/* Filtros y búsqueda */}
         <div className="flex space-x-4">
           <select
@@ -64,7 +66,6 @@ const Accesorios = () => {
       {/* Nueva estructura de lista de productos */}
       <div className="mx-auto py-8 px-4 sm:px-6 w-full max-w-7xl bg-white">
         <div className="mx-auto max-w-2xl lg:max-w-none">
-          
           {/* :PRODUCT LIST */}
           <div className="mt-6">
             <ul className="grid grid-cols-4 gap-10">
@@ -90,11 +91,30 @@ const Accesorios = () => {
                       <h3 className="text-base text-gray-500 font-medium">
                         {accesorio.nombre}
                       </h3>
-                      <p className="text-lg text-gray-700 font-semibold">
+                      <p className="p-1.5 text-lg text-gray-700 font-semibold">
                         {accesorio.precio}€
                       </p>
-                      <button className="mt-4 py-1.5 w-full rounded-md bg-gray-200 text-sm text-gray-600 font-semibold tracking-wide hover:bg-gray-300 hover:text-gray-800">
+                      {/* :BIG BUTTON 1 */}
+                      <button className="group relative inline-flex items-center px-16 py-1 rounded shadow-lg outline-none bg-gray-200 text-md text-gray-900 font-medium transition-all duration-200 ease-out hover:text-gray-700 hover:from-transparent hover:to-transparent hover:shadow-none active:top-0.5 focus:outline-none">
+                        {/* span::before */}
+                        <span
+                          className="absolute h-0 w-0.5 right-0 top-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out group-hover:h-full"
+                          aria-hidden="true"
+                        />
+                        <span
+                          className="absolute left-0 bottom-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out w-0.5 h-0 group-hover:h-full"
+                          aria-hidden="true"
+                        />
                         Añadir al carrito
+                        {/* span::after */}
+                        <span
+                          className="absolute left-0 bottom-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out w-0 h-0.5 group-hover:w-full"
+                          aria-hidden="true"
+                        />
+                        <span
+                          className="absolute w-0 h-0.5 right-0 top-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out group-hover:w-full"
+                          aria-hidden="true"
+                        />
                       </button>
                     </div>
                   </a>
