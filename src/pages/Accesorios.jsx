@@ -48,13 +48,13 @@ const Accesorios = () => {
             <option value="Ropa">Ropa</option>
           </select>
           <select
-            value={ordenPrecio}
-            onChange={(e) => setOrdenPrecio(e.target.value)}
-            className="p-2 border border-gray-300 rounded"
-          >
-            <option value="desc">Mayor a Menor</option>
-            <option value="asc">Menor a Mayor</option>
-          </select>
+  value={ordenPrecio}
+  onChange={(e) => setOrdenPrecio(e.target.value)}
+  className="p-2 border border-gray-300 rounded"
+>
+  <option value="desc">Precio: Mayor a Menor</option>
+  <option value="asc">Precio: Menor a Mayor</option>
+</select>
           <input
             type="text"
             placeholder="Buscar accesorio..."
