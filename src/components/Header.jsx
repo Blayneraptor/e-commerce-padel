@@ -163,8 +163,7 @@ function Header() {
               Palas de padel
             </a>
             {/* Dropdown de primer nivel con menús más grandes y con imágenes */}
-            <ul className="absolute left-0 mt-2 w-72 bg-black bg-opacity-50 rounded-md shadow-lg py-6 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300">
-              <li>
+            <ul className="absolute left-[-80px] mt-4 w-72 bg-black bg-opacity-50 rounded-md shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300">              <li>
                 <a
                   href="/palas-de-padel/iniciacion"
                   className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
@@ -172,7 +171,7 @@ function Header() {
                   <img
                     src={iniciacionImg}
                     alt="Iniciacion"
-                    className="w-10 h-10"
+                     className="w-10 h-10 rounded-3xl"
                   />
                   <span className="flex-1 text-center">INICIACION</span>
                 </a>
@@ -185,7 +184,7 @@ function Header() {
                   <img
                     src={intermedioImg}
                     alt="Intermedio"
-                    className="w-10 h-10"
+                    className="w-10 h-10 rounded-3xl"
                   />
                   <span className="flex-1 text-center">INTERMEDIO</span>
                 </a>
@@ -195,7 +194,7 @@ function Header() {
                   href="/palas-de-padel/avanzado"
                   className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
                 >
-                  <img src={avanzadoImg} alt="Avanzado" className="w-10 h-10" />
+                  <img src={avanzadoImg} alt="Avanzado"  className="w-10 h-10 rounded-3xl" />
                   <span className="flex-1 text-center">AVANZADO</span>
                 </a>
               </li>
@@ -204,7 +203,7 @@ function Header() {
                   href="/palas-de-padel/control"
                   className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
                 >
-                  <img src={controlImg} alt="Control" className="w-10 h-10" />
+                  <img src={controlImg} alt="Control"  className="w-10 h-10 rounded-3xl" />
                   <span className="flex-1 text-center">CONTROL</span>
                 </a>
               </li>
@@ -213,7 +212,7 @@ function Header() {
                   href="/palas-de-padel/potencia"
                   className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
                 >
-                  <img src={potenciaImg} alt="Potencia" className="w-10 h-10" />
+                  <img src={potenciaImg} alt="Potencia"  className="w-10 h-10 rounded-3xl" />
                   <span className="flex-1 text-center">POTENCIA</span>
                 </a>
               </li>
@@ -223,16 +222,16 @@ function Header() {
                   href="/palas-de-padel/marcas"
                   className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
                 >
-                  <img src={marcasImg} alt="Marcas" className="w-10 h-10" />
+                  <img src={marcasImg} alt="Marcas"  className="w-10 h-10 rounded-3xl" />
                   <span className="flex-1 text-center">MARCAS</span>
                 </a>
-                <ul className="absolute left-full top-4 w-56 bg-black bg-opacity-50 rounded-md shadow-lg py-4 opacity-0 invisible group-hover:visible group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 ease-in-out">
+                <ul className="absolute left-full top-[-10px] w-56 bg-black bg-opacity-50 rounded-md shadow-lg py-4 opacity-0 invisible group-hover:visible group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 ease-in-out">
                   <li>
                     <a
                       href="/palas-de-padel/marcas/babolat"
                       className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
                     >
-                      <img src={babolatImg} alt="Babolat" className="w-8 h-8" />
+                      <img src={babolatImg} alt="Babolat" className="w-10 h-10 rounded-3xl" />
                       BABOLAT
                     </a>
                   </li>
@@ -241,7 +240,7 @@ function Header() {
                       href="/palas-de-padel/marcas/adidas"
                       className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
                     >
-                      <img src={adidasImg} alt="Adidas" className="w-8 h-8" />
+                      <img src={adidasImg} alt="Adidas" className="w-10 h-10 rounded-3xl" />
                       ADIDAS
                     </a>
                   </li>
@@ -253,7 +252,7 @@ function Header() {
                       <img
                         src={bullpadelImg}
                         alt="Bullpadel"
-                        className="w-8 h-8"
+                        className="w-10 h-10 rounded-3xl"
                       />
                       BULLPADEL
                     </a>
@@ -263,7 +262,7 @@ function Header() {
                       href="/palas-de-padel/marcas/head"
                       className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
                     >
-                      <img src={headImg} alt="Head" className="w-8 h-8" />
+                      <img src={headImg} alt="Head" className="w-10 h-10 rounded-3xl" />
                       HEAD
                     </a>
                   </li>
@@ -272,7 +271,7 @@ function Header() {
                       href="/palas-de-padel/marcas/nox"
                       className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
                     >
-                      <img src={noxImg} alt="Nox" className="w-8 h-8" />
+                      <img src={noxImg} alt="Nox" className="w-10 h-10 rounded-3xl" />
                       NOX
                     </a>
                   </li>

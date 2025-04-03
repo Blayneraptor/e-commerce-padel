@@ -59,7 +59,7 @@ const PadelPage = () => {
         </div>
       </div>
       {/* Lista de productos */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         {filtrarProductos().map((producto) => (
           <div key={producto.id} className="bg-white p-4 rounded-lg shadow-lg">
             <img
