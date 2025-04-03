@@ -44,47 +44,87 @@ const ProductPage = () => {
         )}
       </section>
 
-      {/* Sección de Palas de Pádel */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-center">Palas de Pádel</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {palas.slice(0, 5).map((pala) => (
-            <div key={pala.id} className="border p-2 flex flex-col items-center">
-              <div className="w-48 h-48 flex items-center justify-center mb-2">
-                <img
-                  src={palaImg}
-                  alt={pala.nombre}
-                  className="max-w-full max-h-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-center">{pala.nombre}</h3>
-              <p className="text-gray-700 text-center">${pala.precio}</p>
+     {/* Sección de Palas de Pádel */}
+<section className="mb-12">
+  <h2 className="text-2xl font-bold mb-4 text-center">Palas de Pádel</h2>
+  <div className="mt-6">
+    <ul className="grid grid-cols-5 gap-10">
+      {palas.slice(0, 5).map((pala) => (
+        <li
+          key={pala.id}
+          className="col-span-full sm:col-span-2 lg:col-span-1 group shadow-sm rounded border border-gray-50 hover:shadow-md"
+        >
+          <a
+            href={`/palas-de-padel/${pala.id}`}
+            className="p-2 flex flex-col"
+          >
+            {/* ::Picture */}
+            <div className="aspect-w-1 aspect-h-1 w-full h-full overflow-hidden filter group-hover:brightness-110">
+              <img
+                src={pala.img}  // Asegúrate de que el JSON tenga la ruta correcta, por ejemplo "/assets/pala.png"
+                alt={pala.nombre}
+                className="w-full h-full object-cover object-center"
+              />
             </div>
-          ))}
-        </div>
-      </section>
+            {/* ::Product Details */}
+            <div className="mt-5 pt-4 pb-2 border-t-2 border-gray-100 flex flex-col items-center">
+              <h3 className="text-base text-gray-500 font-medium">
+                {pala.nombre}
+              </h3>
+              <p className="text-lg text-gray-700 font-semibold">
+                {pala.precio}€
+              </p>
+              <button className="mt-4 py-1.5 w-full rounded-md bg-gray-200 text-sm text-gray-600 font-semibold tracking-wide hover:bg-gray-300 hover:text-gray-800">
+                Añadir al carrito
+              </button>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
 
       {/* Sección de Accesorios */}
-      <section>
-        <h2 className="text-2xl font-bold mb-4 text-center">Accesorios</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {accesorios.slice(0, 5).map((accesorio) => (
-            <div key={accesorio.id} className="border p-2 flex flex-col items-center">
-              <div className="w-48 h-48 flex items-center justify-center mb-2">
-                <img
-                  src={accesorioImg}
-                  alt={accesorio.nombre}
-                  className="max-w-full max-h-full"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-center">
+      <section className="mb-12">
+  <h2 className="text-2xl font-bold mb-4 text-center">Accesorios de Pádel</h2>
+  <div className="mt-6">
+    <ul className="grid grid-cols-5 gap-10">
+      {accesorios.slice(0, 5).map((accesorio) => (
+        <li
+          key={accesorio.id}
+          className="col-span-full sm:col-span-2 lg:col-span-1 group shadow-sm rounded border border-gray-50 hover:shadow-md"
+        >
+          <a
+            href={`/accesorios/${accesorio.id}`}
+            className="p-2 flex flex-col"
+          >
+            {/* ::Picture */}
+            <div className="aspect-w-1 aspect-h-1 w-full h-full overflow-hidden filter group-hover:brightness-110">
+              <img
+                src={accesorio.img}  // Asegúrate de que el JSON tenga la ruta correcta, por ejemplo "/assets/pala.png"
+                alt={accesorio.nombre}
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+            {/* ::Product Details */}
+            <div className="mt-5 pt-4 pb-2 border-t-2 border-gray-100 flex flex-col items-center">
+              <h3 className="text-base text-gray-500 font-medium">
                 {accesorio.nombre}
               </h3>
-              <p className= "text-gray-700 text-center">${accesorio.precio}</p>
+              <p className="text-lg text-gray-700 font-semibold">
+                {accesorio.precio}€
+              </p>
+              <button className="mt-4 py-1.5 w-full rounded-md bg-gray-200 text-sm text-gray-600 font-semibold tracking-wide hover:bg-gray-300 hover:text-gray-800">
+                Añadir al carrito
+              </button>
             </div>
-          ))}
-        </div>
-      </section>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
     </div>
   );
 };
