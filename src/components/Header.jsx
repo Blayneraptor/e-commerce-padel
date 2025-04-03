@@ -1,7 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "../assets/logoblayne.svg";
-import aboutusImg from "../assets/aboutus.png"; // Importa la imagen de About Us
+import aboutusImg from "../assets/aboutus.png"; // Imagen de About Us
+
+// Importa las imágenes para el dropdown
+import iniciacionImg from "../assets/iniciacion.png";
+import intermedioImg from "../assets/intermedio.png";
+import avanzadoImg from "../assets/avanzado.png";
+import controlImg from "../assets/control.png";
+import potenciaImg from "../assets/potencia.png";
+
+// Importa las imágenes para el submenu de MARCAS, incluyendo una imagen para el enlace principal
+import babolatImg from "../assets/iniciacion.png";
+import adidasImg from "../assets/intermedio.png";
+import bullpadelImg from "../assets/avanzado.png";
+import headImg from "../assets/control.png";
+import noxImg from "../assets/potencia.png";
+import marcasImg from "../assets/potencia.png"; // Imagen para el enlace MARCAS
 
 function Header() {
   const location = useLocation();
@@ -9,7 +24,6 @@ function Header() {
   const [navVisible, setNavVisible] = useState(false);
 
   useEffect(() => {
-    // Si no estamos en "/" o ya se mostró el navbar, se muestra inmediatamente.
     if (
       location.pathname !== "/" ||
       sessionStorage.getItem("navShown") === "true"
@@ -51,9 +65,9 @@ function Header() {
           <iframe
             className="block"
             style={{
-              width: "100vw", // Ocupa el ancho del viewport
-              height: "100vh", // Altura completa de la ventana
-              transform: "scale(1.2)", // Zoom 1.2
+              width: "100vw",
+              height: "100vh",
+              transform: "scale(1.2)",
               transformOrigin: "50% 50%",
             }}
             src="https://www.youtube.com/embed/mPgQqRzhNrA?autoplay=1&disablekb=1&controls=0&modestbranding=1&loop=1&playlist=mPgQqRzhNrA&fs=0&enablejsapi=1&start=0&end=50&mute=1&showinfo=0&rel=0&playsinline=1&vq=hd2160"
@@ -73,7 +87,7 @@ function Header() {
         }`}
       >
         <a className="text-3xl font-bold leading-none" href="/">
-          <div className="text-3xl font-bold leading-none flex items-center">
+          <div className="flex items-center">
             <img className="h-10 mr-2" alt="logo" src={logo} />
             <span className="text-xl text-gray-800">Blayne</span>
           </div>
@@ -100,6 +114,7 @@ function Header() {
             </a>
           </li>
           <li className="text-gray-300">
+            {/* Separador */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -111,7 +126,7 @@ function Header() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                d="M12 5v0m0 7v0m0 7v0"
               />
             </svg>
           </li>
@@ -135,18 +150,136 @@ function Header() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                d="M12 5v0m0 7v0m0 7v0"
               />
             </svg>
           </li>
-          <li>
-  <a
-    className="text-sm text-gray-200 hover:text-gray-500 font-bold"
-    href="/palas-de-padel"
-  >
-    Palas de padel
-  </a>
-</li>
+          {/* Menú de Palas de padel con dropdown */}
+          <li className="relative group">
+            <a
+              className="text-sm text-gray-200 hover:text-gray-500 font-bold"
+              href="/palas-de-padel"
+            >
+              Palas de padel
+            </a>
+            {/* Dropdown de primer nivel con menús más grandes y con imágenes */}
+            <ul className="absolute left-0 mt-2 w-72 bg-black bg-opacity-50 rounded-md shadow-lg py-6 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300">
+              <li>
+                <a
+                  href="/palas-de-padel/iniciacion"
+                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                >
+                  <img
+                    src={iniciacionImg}
+                    alt="Iniciacion"
+                    className="w-10 h-10"
+                  />
+                  <span className="flex-1 text-center">INICIACION</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/palas-de-padel/intermedio"
+                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                >
+                  <img
+                    src={intermedioImg}
+                    alt="Intermedio"
+                    className="w-10 h-10"
+                  />
+                  <span className="flex-1 text-center">INTERMEDIO</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/palas-de-padel/avanzado"
+                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                >
+                  <img src={avanzadoImg} alt="Avanzado" className="w-10 h-10" />
+                  <span className="flex-1 text-center">AVANZADO</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/palas-de-padel/control"
+                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                >
+                  <img src={controlImg} alt="Control" className="w-10 h-10" />
+                  <span className="flex-1 text-center">CONTROL</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/palas-de-padel/potencia"
+                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                >
+                  <img src={potenciaImg} alt="Potencia" className="w-10 h-10" />
+                  <span className="flex-1 text-center">POTENCIA</span>
+                </a>
+              </li>
+              {/* Submenu de MARCAS */}
+              <li className="relative">
+                <a
+                  href="/palas-de-padel/marcas"
+                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                >
+                  <img src={marcasImg} alt="Marcas" className="w-10 h-10" />
+                  <span className="flex-1 text-center">MARCAS</span>
+                </a>
+                <ul className="absolute left-full top-4 w-56 bg-black bg-opacity-50 rounded-md shadow-lg py-4 opacity-0 invisible group-hover:visible group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 ease-in-out">
+                  <li>
+                    <a
+                      href="/palas-de-padel/marcas/babolat"
+                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                    >
+                      <img src={babolatImg} alt="Babolat" className="w-8 h-8" />
+                      BABOLAT
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/palas-de-padel/marcas/adidas"
+                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                    >
+                      <img src={adidasImg} alt="Adidas" className="w-8 h-8" />
+                      ADIDAS
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/palas-de-padel/marcas/bullpadel"
+                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                    >
+                      <img
+                        src={bullpadelImg}
+                        alt="Bullpadel"
+                        className="w-8 h-8"
+                      />
+                      BULLPADEL
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/palas-de-padel/marcas/head"
+                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                    >
+                      <img src={headImg} alt="Head" className="w-8 h-8" />
+                      HEAD
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/palas-de-padel/marcas/nox"
+                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
+                    >
+                      <img src={noxImg} alt="Nox" className="w-8 h-8" />
+                      NOX
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
           <li className="text-gray-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -159,7 +292,7 @@ function Header() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                d="M12 5v0m0 7v0m0 7v0"
               />
             </svg>
           </li>
@@ -183,7 +316,7 @@ function Header() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                d="M12 5v0m0 7v0m0 7v0"
               />
             </svg>
           </li>
