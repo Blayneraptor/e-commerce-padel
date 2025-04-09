@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import logo from "../assets/logoblayne.svg";
 import aboutusImg from "../assets/aboutus.png"; // Imagen de About Us
 
+import { Popover } from '@headlessui/react'
+
 // Importa las imágenes para el dropdown
 import iniciacionImg from "../assets/iniciacion.png";
 import intermedioImg from "../assets/intermedio.png";
@@ -82,7 +84,7 @@ function Header() {
 
       {/* Navbar con transición */}
       <nav
-        className={`fixed top-0 left-0 w-full z-20 px-4 py-1 flex justify-between items-center bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg transition-opacity duration-1000 ${
+        className={`fixed top-0 left-0 w-full z-20 px-4 py-1 flex justify-between items-center bg-black bg-opacity-70 backdrop-filter backdrop-blur-lg transition-opacity duration-1000 ${
           navVisible ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -156,129 +158,49 @@ function Header() {
           </li>
           {/* Menú de Palas de padel con dropdown */}
           <li className="relative group">
-            <a
-              className="text-sm text-gray-200 hover:text-gray-500 font-bold"
-              href="/palas-de-padel"
-            >
-              Palas de padel
-            </a>
-            {/* Dropdown de primer nivel con menús más grandes y con imágenes */}
-            <ul className="absolute left-[-80px] mt-4 w-72 bg-black bg-opacity-50 rounded-md shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300">              <li>
-                <a
-                  href="/palas-de-padel/iniciacion"
-                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                >
-                  <img
-                    src={iniciacionImg}
-                    alt="Iniciacion"
-                     className="w-10 h-10 rounded-3xl"
-                  />
-                  <span className="flex-1 text-center">INICIACION</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/palas-de-padel/intermedio"
-                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                >
-                  <img
-                    src={intermedioImg}
-                    alt="Intermedio"
-                    className="w-10 h-10 rounded-3xl"
-                  />
-                  <span className="flex-1 text-center">INTERMEDIO</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/palas-de-padel/avanzado"
-                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                >
-                  <img src={avanzadoImg} alt="Avanzado"  className="w-10 h-10 rounded-3xl" />
-                  <span className="flex-1 text-center">AVANZADO</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/palas-de-padel/control"
-                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                >
-                  <img src={controlImg} alt="Control"  className="w-10 h-10 rounded-3xl" />
-                  <span className="flex-1 text-center">CONTROL</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/palas-de-padel/potencia"
-                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                >
-                  <img src={potenciaImg} alt="Potencia"  className="w-10 h-10 rounded-3xl" />
-                  <span className="flex-1 text-center">POTENCIA</span>
-                </a>
-              </li>
-              {/* Submenu de MARCAS */}
-              <li className="relative">
-                <a
-                  href="/palas-de-padel/marcas"
-                  className="flex items-center gap-4 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                >
-                  <img src={marcasImg} alt="Marcas"  className="w-10 h-10 rounded-3xl" />
-                  <span className="flex-1 text-center">MARCAS</span>
-                </a>
-                <ul className="absolute left-full top-[-10px] w-56 bg-black bg-opacity-50 rounded-md shadow-lg py-4 opacity-0 invisible group-hover:visible group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 ease-in-out">
-                  <li>
-                    <a
-                      href="/palas-de-padel/marcas/babolat"
-                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                    >
-                      <img src={babolatImg} alt="Babolat" className="w-10 h-10 rounded-3xl" />
-                      BABOLAT
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/palas-de-padel/marcas/adidas"
-                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                    >
-                      <img src={adidasImg} alt="Adidas" className="w-10 h-10 rounded-3xl" />
-                      ADIDAS
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/palas-de-padel/marcas/bullpadel"
-                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                    >
-                      <img
-                        src={bullpadelImg}
-                        alt="Bullpadel"
-                        className="w-10 h-10 rounded-3xl"
-                      />
-                      BULLPADEL
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/palas-de-padel/marcas/head"
-                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                    >
-                      <img src={headImg} alt="Head" className="w-10 h-10 rounded-3xl" />
-                      HEAD
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/palas-de-padel/marcas/nox"
-                      className="flex items-center gap-2 px-4 py-2 text-lg text-gray-200 hover:text-gray-500 hover:bg-gray-800 transition-colors duration-300"
-                    >
-                      <img src={noxImg} alt="Nox" className="w-10 h-10 rounded-3xl" />
-                      NOX
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+  <a className="text-sm text-gray-200 hover:text-gray-500 font-bold" href="/palas-de-padel">
+    Palas de padel
+  </a>
+{/* Dropdown de primer nivel con animaciones y estilo horizontal */}
+<ul className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-auto rounded-lg bg-black bg-opacity-70 backdrop-blur-lg flex justify-center space-x-6 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100">
+  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+    <a href="/palas-de-padel/iniciacion" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+      <img src={iniciacionImg} alt="Iniciacion" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+      <span>Iniciación</span>
+    </a>
+  </li>
+  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+    <a href="/palas-de-padel/intermedio" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+      <img src={intermedioImg} alt="Intermedio" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+      <span>Intermedio</span>
+    </a>
+  </li>
+  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+    <a href="/palas-de-padel/avanzado" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+      <img src={avanzadoImg} alt="Avanzado" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+      <span>Avanzado</span>
+    </a>
+  </li>
+  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+    <a href="/palas-de-padel/control" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+      <img src={controlImg} alt="Control" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+      <span>Control</span>
+    </a>
+  </li>
+  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+    <a href="/palas-de-padel/potencia" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+      <img src={potenciaImg} alt="Potencia" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+      <span>Potencia</span>
+    </a>
+  </li>
+  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+    <a href="/palas-de-padel/marcas" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+      <img src={marcasImg} alt="MARCAS" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+      <span>Marcas</span>
+    </a>
+  </li>
+</ul>
+</li>
           <li className="text-gray-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -295,14 +217,53 @@ function Header() {
               />
             </svg>
           </li>
-          <li>
-            <a
-              className="text-sm text-gray-200 hover:text-gray-500 font-bold"
-              href="/accesorios"
-            >
-              Accesorios
-            </a>
-          </li>
+     {/* Menú de Accesorios con dropdown */}
+<li className="relative group">
+  <a className="text-sm text-gray-200 hover:text-gray-500 font-bold" href="/accesorios">
+    Accesorios
+  </a>
+  {/* Dropdown de Accesorios */}
+  <ul className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-auto rounded-lg bg-black bg-opacity-70 backdrop-blur-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100">
+    <div className="max-w-screen-xl mx-auto flex justify-center space-x-6">
+      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+        <a href="/accesorios/pelotas" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+          <img src={potenciaImg} alt="Pelotas" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+          <span>Pelotas</span>
+        </a>
+      </li>
+      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+        <a href="/accesorios/protector" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+          <img src={potenciaImg} alt="Protector" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+          <span>Protector</span>
+        </a>
+      </li>
+      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+        <a href="/accesorios/overgrip" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+          <img src={potenciaImg} alt="Overgrip" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+          <span>Overgrip</span>
+        </a>
+      </li>
+      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+        <a href="/accesorios/munequeras" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+          <img src={potenciaImg} alt="Muñequeras" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+          <span>Muñequeras</span>
+        </a>
+      </li>
+      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+        <a href="/accesorios/calcetines" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+          <img src={potenciaImg} alt="Calcetines" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+          <span>Calcetines</span>
+        </a>
+      </li>
+      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
+        <a href="/accesorios/gorras" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
+          <img src={potenciaImg} alt="Gorras" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
+          <span>Gorras</span>
+        </a>
+      </li>
+    </div>
+  </ul>
+</li>
           <li className="text-gray-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
