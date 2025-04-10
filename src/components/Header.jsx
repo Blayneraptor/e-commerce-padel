@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "../assets/logoblayne.svg";
 import aboutusImg from "../assets/aboutus.png"; // Imagen de About Us
+import pala from "../assets/pala.png";
 
-import { Popover } from '@headlessui/react'
 
 // Importa las imágenes para el dropdown
 import iniciacionImg from "../assets/iniciacion.png";
@@ -11,13 +11,6 @@ import intermedioImg from "../assets/intermedio.png";
 import avanzadoImg from "../assets/avanzado.png";
 import controlImg from "../assets/control.png";
 import potenciaImg from "../assets/potencia.png";
-
-// Importa las imágenes para el submenu de MARCAS, incluyendo una imagen para el enlace principal
-import babolatImg from "../assets/iniciacion.png";
-import adidasImg from "../assets/intermedio.png";
-import bullpadelImg from "../assets/avanzado.png";
-import headImg from "../assets/control.png";
-import noxImg from "../assets/potencia.png";
 import marcasImg from "../assets/potencia.png"; // Imagen para el enlace MARCAS
 
 function Header() {
@@ -81,6 +74,7 @@ function Header() {
           ></iframe>
         )}
       </div>
+      
 
       {/* Navbar con transición */}
       <nav
@@ -302,7 +296,9 @@ function Header() {
           Regístrate
         </a>
       </nav>
+      
     </header>
+    
   );
 }
 

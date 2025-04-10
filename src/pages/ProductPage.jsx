@@ -9,6 +9,7 @@ import potenciaImg from "../assets/potencia.png"; // imagen para POTENCIA
 import todasImg from "../assets/todas.png"; // imagen para TODAS
 import palaImg from "../assets/pala.png"; // nueva importación para imágenes de palas
 import accesorioImg from "../assets/accesorios.png"; // nueva importación para imágenes de accesorios
+import pala from "../assets/pala.png";
 
 const ProductPage = () => {
   const imageMapping = {
@@ -22,6 +23,19 @@ const ProductPage = () => {
 
   return (
     <div id="productos" className="container mx-auto p-4">
+   {/* Carousel Section above the Catalog */}
+<section className="w-full relative z-20 my-4 overflow-hidden">
+  <div className="flex animate-scroll-right">
+    {Array(10)
+      .fill(0)
+      .map((_, i) => (
+        <div key={i} className="flex-shrink-0 mx-2">
+          <img src={pala} alt="Pala" className="w-24 h-24 object-cover" />
+        </div>
+      ))}
+  </div>
+</section>
+
       <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
         Catálogo General
       </h1>
@@ -41,7 +55,7 @@ const ProductPage = () => {
               <img
                 src={imageMapping[title]}
                 alt={title}
-                className="w-48 h-48 rounded-full object-cover" // object-cover asegura la misma altura
+                className="w-48 h-48 rounded-full object-cover"
               />
             </div>
             <span className="mt-2 text-xl font-bold">{title}</span>
@@ -66,7 +80,7 @@ const ProductPage = () => {
                   {/* ::Picture */}
                   <div className="aspect-w-1 aspect-h-1 w-full h-full overflow-hidden filter group-hover:brightness-110">
                     <img
-                      src={pala.img} // Asegúrate de que el JSON tenga la ruta correcta, por ejemplo "/assets/pala.png"
+                      src={pala.img}
                       alt={pala.nombre}
                       className="w-full h-full object-cover object-center"
                     />
@@ -79,9 +93,7 @@ const ProductPage = () => {
                     <p className="p-1.5 text-lg text-gray-700 font-semibold">
                       {pala.precio}€
                     </p>
-                    {/* :BIG BUTTON 1 */}
                     <button className="group relative inline-flex items-center px-16 py-1 rounded shadow-lg outline-none bg-gray-200 text-md text-gray-900 font-medium transition-all duration-200 ease-out hover:text-gray-700 hover:from-transparent hover:to-transparent hover:shadow-none active:top-0.5 focus:outline-none">
-                      {/* span::before */}
                       <span
                         className="absolute h-0 w-0.5 right-0 top-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out group-hover:h-full"
                         aria-hidden="true"
@@ -91,7 +103,6 @@ const ProductPage = () => {
                         aria-hidden="true"
                       />
                       Añadir al carrito
-                      {/* span::after */}
                       <span
                         className="absolute left-0 bottom-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out w-0 h-0.5 group-hover:w-full"
                         aria-hidden="true"
@@ -128,7 +139,7 @@ const ProductPage = () => {
                   {/* ::Picture */}
                   <div className="aspect-w-1 aspect-h-1 w-full h-full overflow-hidden filter group-hover:brightness-110">
                     <img
-                      src={accesorio.img} // Asegúrate de que el JSON tenga la ruta correcta, por ejemplo "/assets/pala.png"
+                      src={accesorio.img}
                       alt={accesorio.nombre}
                       className="w-full h-full object-cover object-center"
                     />
@@ -141,9 +152,7 @@ const ProductPage = () => {
                     <p className="p-1.5 text-lg text-gray-700 font-semibold">
                       {accesorio.precio}€
                     </p>
-                    {/* :BIG BUTTON 1 */}
                     <button className="group relative inline-flex items-center px-16 py-1 rounded shadow-lg outline-none bg-gray-200 text-md text-gray-900 font-medium transition-all duration-200 ease-out hover:text-gray-700 hover:from-transparent hover:to-transparent hover:shadow-none active:top-0.5 focus:outline-none">
-                      {/* span::before */}
                       <span
                         className="absolute h-0 w-0.5 right-0 top-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out group-hover:h-full"
                         aria-hidden="true"
@@ -153,7 +162,6 @@ const ProductPage = () => {
                         aria-hidden="true"
                       />
                       Añadir al carrito
-                      {/* span::after */}
                       <span
                         className="absolute left-0 bottom-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out w-0 h-0.5 group-hover:w-full"
                         aria-hidden="true"

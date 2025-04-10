@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import accesorios from "../data/accesorios.json";
 
+
 const Accesorios = () => {
   // Estados para filtros y búsqueda
   const [filtroTipo, setFiltroTipo] = useState("Todos");
