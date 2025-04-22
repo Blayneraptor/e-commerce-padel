@@ -20,6 +20,8 @@ function Header() {
   const isHome = location.pathname === "/";
   const [navVisible, setNavVisible] = useState(false);
   const [welcomeVisible, setWelcomeVisible] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState('login');
   
   // Obtener datos del carrito
   const { getCartItemCount, toggleCart } = useCart();
@@ -81,6 +83,35 @@ function Header() {
 
   return (
     <header className={`relative ${isHome ? 'h-screen' : 'h-auto'} overflow-x-hidden`}>
+      {modalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center" onClick={() => setModalOpen(false)}>
+          <div className="absolute inset-0 bg-black bg-opacity-70 transition-opacity duration-300"></div>
+          <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-lg shadow-xl z-10 w-11/12 max-w-md p-6 transform transition-all duration-500">
+            <button onClick={() => setModalOpen(false)} className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+            <h2 className="text-2xl font-bold mb-4">{modalMode === 'login' ? 'Accede a tu cuenta' : 'Regístrate'}</h2>
+            <form className="flex flex-col space-y-4">
+              {modalMode === 'register' && (
+                <input type="text" placeholder="Nombre" className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"/>
+              )}
+              <input type="email" placeholder="Correo electrónico" className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"/>
+              <input type="password" placeholder="Contraseña" className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"/>
+              <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition-colors duration-300">
+                {modalMode === 'login' ? 'Acceder' : 'Registrarme'}
+              </button>
+            </form>
+            <div className="mt-4 text-sm text-center">
+              {modalMode === 'login'
+                ? <span>¿No tienes una cuenta? <button onClick={() => setModalMode('register')} className="text-blue-600 hover:underline">Regístrate</button></span>
+                : <span>¿Ya tienes cuenta? <button onClick={() => setModalMode('login')} className="text-blue-600 hover:underline">Inicia sesión</button></span>
+              }
+            </div>
+          </div>
+        </div>
+      )}
       {/* Contenedor de background con overlay para evitar clics - Solo mostrar en la página de inicio */}
       {isHome && (
         <div
@@ -339,18 +370,8 @@ function Header() {
           </li>
         </ul>
         <div className="hidden lg:flex lg:items-center space-x-4">
-          <a
-            className="py-2 px-4 text-sm font-medium text-white bg-transparent border border-white/30 rounded-lg transition-all duration-300 hover:bg-white hover:text-black hover:border-white"
-            href="#"
-          >
-            Accede
-          </a>
-          <a
-            className="py-2 px-4 text-sm font-medium text-black bg-white rounded-lg transition-all duration-300 hover:bg-opacity-80 hover:shadow-glow"
-            href="#"
-          >
-            Regístrate
-          </a>
+          <button type="button" onClick={() => { setModalMode('login'); setModalOpen(true); }} className="py-2 px-4 text-sm font-medium text-white bg-transparent border border-white/30 rounded-lg transition-all duration-300 hover:bg-white hover:text-black hover:border-white">Accede</button>
+          <button type="button" onClick={() => { setModalMode('register'); setModalOpen(true); }} className="py-2 px-4 text-sm font-medium text-black bg-white rounded-lg transition-all duration-300 hover:bg-opacity-80 hover:shadow-glow">Regístrate</button>
         </div>
       </nav>
       
