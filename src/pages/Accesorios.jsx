@@ -1,12 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import accesorios from "../data/accesorios.json";
+import aboutusImg from "../assets/aboutus.png";
+import useInView from "../hooks/useInView";
 
+// Componente con animación al aparecer en el viewport
+const AnimateOnScroll = ({ children, animation = "fade-up", delay = 0, duration = 800, className = "", ...props }) => {
+  const [ref, isVisible] = useInView({ threshold: 0.1 });
+  
+  const animations = {
+    'fade-up': 'opacity-0 translate-y-10',
+    'fade-down': 'opacity-0 -translate-y-10',
+    'fade-left': 'opacity-0 translate-x-10',
+    'fade-right': 'opacity-0 -translate-x-10',
+    'zoom-in': 'opacity-0 scale-95',
+    'zoom-out': 'opacity-0 scale-105',
+  };
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all transform ${className} ${isVisible ? 'opacity-100 translate-x-0 translate-y-0 scale-100' : animations[animation]}`}
+      style={{ 
+        transitionDuration: `${duration}ms`,
+        transitionDelay: `${delay}ms`,
+      }}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
 const Accesorios = () => {
   // Estados para filtros y búsqueda
   const [filtroTipo, setFiltroTipo] = useState("Todos");
-  const [ordenPrecio, setOrdenPrecio] = useState("desc"); // "desc": mayor a menor, "asc": menor a mayor
+  const [ordenPrecio, setOrdenPrecio] = useState("desc");
   const [busqueda, setBusqueda] = useState("");
+  const [paginaActual, setPaginaActual] = useState(1);
+  const [accesoriosVisibles, setAccesoriosVisibles] = useState([]);
+  const [bannerVisible, setBannerVisible] = useState(false);
+  
+  const accesoriosPorPagina = 20;
+  const totalPaginas = Math.ceil(accesorios.length / accesoriosPorPagina);
+
+  // Efecto para la animación del banner
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBannerVisible(true);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Filtra los accesorios según el tipo y la búsqueda
   const filtrarAccesorios = () => {
@@ -18,110 +62,259 @@ const Accesorios = () => {
         .includes(busqueda.toLowerCase());
       return tipoCondicion && busquedaCondicion;
     });
+    
     // Ordena según el precio
     filtrados.sort((a, b) =>
       ordenPrecio === "asc" ? a.precio - b.precio : b.precio - a.precio
     );
+    
     return filtrados;
   };
 
+  // Actualizar accesorios visibles cuando cambian los filtros o la página
+  useEffect(() => {
+    const accesoriosFiltered = filtrarAccesorios();
+    const inicio = (paginaActual - 1) * accesoriosPorPagina;
+    const fin = inicio + accesoriosPorPagina;
+    setAccesoriosVisibles(accesoriosFiltered.slice(inicio, fin));
+  }, [filtroTipo, ordenPrecio, busqueda, paginaActual]);
+
+  // Función para cambiar de página
+  const cambiarPagina = (nuevaPagina) => {
+    setPaginaActual(nuevaPagina);
+    // Scroll al inicio de los productos
+    document.getElementById("productos-lista").scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div id="productos" className="container mx-auto p-12">
-      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
-        <h1 className="text-3xl font-bold text-gray-800">
-          Accesorios de Pádel
-        </h1>
-        {/* Filtros y búsqueda */}
-        <div className="flex space-x-4">
-          <select
-            value={filtroTipo}
-            onChange={(e) => setFiltroTipo(e.target.value)}
-            className="p-2 border border-gray-300 rounded"
+    <div className="flex flex-col min-h-screen">
+      {/* Banner hero similar al de AboutUs */}
+      <div className="relative h-screen w-full flex items-center justify-center">
+        <img 
+          src={aboutusImg} 
+          alt="Accesorios de Pádel" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div 
+            className={`text-center text-white transition-all duration-1000 transform ${
+              bannerVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+            }`}
           >
-            <option value="Todos">Todos los tipos</option>
-            <option value="Pelotas">Pelotas</option>
-            <option value="Overgrip">Overgrip</option>
-            <option value="Muñequeras">Muñequeras</option>
-            <option value="Bolsas">Bolsas</option>
-            <option value="Protector">Protector</option>
-            <option value="Ropa">Ropa</option>
-          </select>
-          <select
-            value={ordenPrecio}
-            onChange={(e) => setOrdenPrecio(e.target.value)}
-            className="p-2 border border-gray-300 rounded"
-          >
-            <option value="desc">Precio: Mayor a Menor</option>
-            <option value="asc">Precio: Menor a Mayor</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Buscar accesorio..."
-            value={busqueda}
-            onChange={(e) => setBusqueda(e.target.value)}
-            className="p-2 border border-gray-300 rounded"
-          />
+            <h1 className="text-5xl font-bold mb-6 tracking-wide">Accesorios de Pádel</h1>
+            <p className="text-xl max-w-2xl mx-auto mb-12">Complementa tu juego con los mejores accesorios para pádel de las marcas más reconocidas.</p>
+            
+            {/* Flecha animada hacia abajo */}
+            <div 
+              className="cursor-pointer animate-bounce mx-auto"
+              onClick={() => document.getElementById("productos").scrollIntoView({ behavior: "smooth" })}
+            >
+              <svg 
+                className="w-10 h-10 text-white opacity-80 hover:opacity-100 transition-opacity" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth="2" 
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                >
+                </path>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Nueva estructura de lista de productos */}
-      <div className="mx-auto py-8 px-4 sm:px-6 w-full max-w-7xl bg-white">
-        <div className="mx-auto max-w-2xl lg:max-w-none">
-          {/* :PRODUCT LIST */}
-          <div className="mt-6">
-            <ul className="grid grid-cols-4 gap-10">
-              {filtrarAccesorios().map((accesorio) => (
-                <li
-                  key={accesorio.id}
-                  className="col-span-full sm:col-span-2 lg:col-span-1 group shadow-sm rounded border border-gray-50 hover:shadow-md"
+      <div id="productos" className="container mx-auto p-8 md:p-12 bg-gray-50 flex-grow">
+        <AnimateOnScroll animation="fade-up" duration={1000}>
+          <div className="flex flex-col md:flex-row justify-between items-center mb-10 space-y-4 md:space-y-0">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-800">Explora Nuestros Accesorios</h2>
+              <div className="w-24 h-1 bg-blue-600 mt-2"></div>
+            </div>
+
+            {/* Filtros y búsqueda con diseño mejorado */}
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="relative">
+                <select
+                  value={filtroTipo}
+                  onChange={(e) => {
+                    setFiltroTipo(e.target.value);
+                    setPaginaActual(1);
+                  }}
+                  className="appearance-none bg-white pl-4 pr-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
                 >
-                  <a
-                    href={`/accesorios/${accesorio.id}`}
-                    className="p-2 flex flex-col"
+                  <option value="Todos">Todos los tipos</option>
+                  <option value="Pelotas">Pelotas</option>
+                  <option value="Overgrip">Overgrip</option>
+                  <option value="Muñequeras">Muñequeras</option>
+                  <option value="Bolsas">Bolsas</option>
+                  <option value="Protector">Protector</option>
+                  <option value="Ropa">Ropa</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                  <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <select
+                  value={ordenPrecio}
+                  onChange={(e) => setOrdenPrecio(e.target.value)}
+                  className="appearance-none bg-white pl-4 pr-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
+                >
+                  <option value="desc">Precio: Mayor a Menor</option>
+                  <option value="asc">Precio: Menor a Mayor</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                  <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Buscar accesorio..."
+                  value={busqueda}
+                  onChange={(e) => {
+                    setBusqueda(e.target.value);
+                    setPaginaActual(1);
+                  }}
+                  className="pl-4 pr-10 py-2 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center px-3">
+                  <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        {/* Lista de accesorios con animaciones */}
+        <div id="productos-lista" className="mx-auto py-8 px-4 sm:px-6 w-full max-w-7xl bg-white rounded-xl shadow-sm">
+          <div className="mx-auto">
+            {/* Resultados encontrados */}
+            <AnimateOnScroll animation="fade-up" className="mb-6 text-sm text-gray-500">
+              {filtrarAccesorios().length} resultados encontrados
+            </AnimateOnScroll>
+            
+            {/* Grid de accesorios */}
+            <div className="mt-6">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                {accesoriosVisibles.map((accesorio, index) => (
+                  <AnimateOnScroll 
+                    key={`${accesorio.id}-${index}`} 
+                    animation="zoom-in" 
+                    delay={index % 4 * 100}
+                    className="group relative"
                   >
-                    {/* ::Picture */}
-                    <div className="aspect-w-1 aspect-h-1 w-full h-full overflow-hidden filter group-hover:brightness-110">
-                      <img
-                        src={accesorio.img}
-                        alt={accesorio.nombre}
-                        className="w-full h-full object-cover object-center"
-                      />
-                    </div>
-                    {/* ::Product Details */}
-                    <div className="mt-5 pt-4 pb-2 border-t-2 border-gray-100 flex flex-col items-center">
-                      <h3 className="text-base text-gray-500 font-medium">
-                        {accesorio.nombre}
-                      </h3>
-                      <p className="p-1.5 text-lg text-gray-700 font-semibold">
-                        {accesorio.precio}€
-                      </p>
-                      {/* :BIG BUTTON 1 */}
-                      <button className="group relative inline-flex items-center px-16 py-1 rounded shadow-lg outline-none bg-gray-200 text-md text-gray-900 font-medium transition-all duration-200 ease-out hover:text-gray-700 hover:from-transparent hover:to-transparent hover:shadow-none active:top-0.5 focus:outline-none">
-                        {/* span::before */}
-                        <span
-                          className="absolute h-0 w-0.5 right-0 top-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out group-hover:h-full"
-                          aria-hidden="true"
+                    <Link 
+                      to={`/accesorios/${accesorio.id}`}
+                      className="block h-full overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:shadow-lg border border-gray-100"
+                    >
+                      {/* Imagen */}
+                      <div className="aspect-square overflow-hidden bg-gray-50 p-4">
+                        <img
+                          src={accesorio.img}
+                          alt={accesorio.nombre}
+                          className="h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
                         />
-                        <span
-                          className="absolute left-0 bottom-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out w-0.5 h-0 group-hover:h-full"
-                          aria-hidden="true"
-                        />
-                        Añadir al carrito
-                        {/* span::after */}
-                        <span
-                          className="absolute left-0 bottom-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out w-0 h-0.5 group-hover:w-full"
-                          aria-hidden="true"
-                        />
-                        <span
-                          className="absolute w-0 h-0.5 right-0 top-0 bg-gradient-to-br from-gray-500 via-white to-gray-500 transition-all duration-500 ease-out group-hover:w-full"
-                          aria-hidden="true"
-                        />
+                      </div>
+                      
+                      {/* Detalles */}
+                      <div className="p-4 bg-white border-t border-gray-100">
+                        <h3 className="text-sm text-gray-700 font-medium mb-1">{accesorio.nombre}</h3>
+                        <p className="text-base font-bold text-gray-900">{accesorio.precio}€</p>
+                        
+                        <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="text-xs inline-flex items-center font-medium bg-blue-600 text-white px-3 py-1 rounded-full">
+                            Ver detalles
+                            <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </AnimateOnScroll>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Paginación */}
+            <AnimateOnScroll animation="fade-up" className="mt-12 flex justify-center">
+              <nav className="flex items-center space-x-1">
+                <button
+                  onClick={() => paginaActual > 1 && cambiarPagina(paginaActual - 1)}
+                  disabled={paginaActual === 1}
+                  className={`px-3 py-1 rounded-md ${
+                    paginaActual === 1 
+                      ? 'text-gray-400 cursor-not-allowed' 
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <span className="sr-only">Anterior</span>
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                  </svg>
+                </button>
+                
+                {[...Array(Math.min(3, totalPaginas))].map((_, i) => {
+                  // Mostrar siempre 3 páginas o menos si hay menos de 3 páginas
+                  let pageNum;
+                  if (paginaActual === 1) {
+                    pageNum = i + 1;
+                  } else if (paginaActual === totalPaginas) {
+                    pageNum = totalPaginas - 2 + i;
+                  } else {
+                    pageNum = paginaActual - 1 + i;
+                  }
+                  
+                  // Asegurarse de que los números de página están dentro del rango
+                  if (pageNum > 0 && pageNum <= totalPaginas) {
+                    return (
+                      <button
+                        key={pageNum}
+                        onClick={() => cambiarPagina(pageNum)}
+                        className={`px-3 py-1 rounded-md ${
+                          paginaActual === pageNum
+                            ? 'bg-blue-600 text-white'
+                            : 'text-gray-700 hover:bg-gray-100'
+                        }`}
+                      >
+                        {pageNum}
                       </button>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
+                    );
+                  }
+                  return null;
+                })}
+                
+                <button
+                  onClick={() => paginaActual < totalPaginas && cambiarPagina(paginaActual + 1)}
+                  disabled={paginaActual === totalPaginas}
+                  className={`px-3 py-1 rounded-md ${
+                    paginaActual === totalPaginas
+                      ? 'text-gray-400 cursor-not-allowed'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <span className="sr-only">Siguiente</span>
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4-4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
+                  </svg>
+                </button>
+              </nav>
+            </AnimateOnScroll>
           </div>
         </div>
       </div>

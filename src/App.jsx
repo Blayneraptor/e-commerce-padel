@@ -7,6 +7,7 @@ import ProductPage from "./pages/ProductPage";
 import AboutUs from "./pages/AboutUs";
 import PadelPage from "./pages/PadelPage";
 import Accesorios from "./pages/Accesorios";
+import PadelDetail from "./pages/PadelDetail";
 
 function Layout() {
   const location = useLocation();
@@ -42,12 +43,13 @@ function Layout() {
       <TransitionGroup>
         <CSSTransition key={location.key} timeout={700} classNames="page">
           <div>
-          <Routes location={location}>
-  <Route path="/" element={<ProductPage />} />
-  <Route path="/sobre-nosotros" element={<AboutUs />} />
-  <Route path="/palas-de-padel" element={<PadelPage />} />
-  <Route path="/accesorios" element={<Accesorios />} />
-</Routes>
+            <Routes location={location}>
+              <Route path="/" element={<ProductPage />} />
+              <Route path="/sobre-nosotros" element={<AboutUs />} />
+              <Route path="/palas-de-padel" element={<PadelPage />} />
+              <Route path="/palas-de-padel/:id" element={<PadelDetail />} />
+              <Route path="/accesorios" element={<Accesorios />} />
+            </Routes>
           </div>
         </CSSTransition>
       </TransitionGroup>

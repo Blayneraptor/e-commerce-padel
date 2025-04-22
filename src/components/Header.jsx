@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logoblayne.svg";
-import aboutusImg from "../assets/aboutus.png"; // Imagen de About Us
+import aboutusImg from "../assets/aboutus.png";
 import pala from "../assets/pala.png";
-
 
 // Importa las imágenes para el dropdown
 import iniciacionImg from "../assets/iniciacion.png";
@@ -11,12 +10,15 @@ import intermedioImg from "../assets/intermedio.png";
 import avanzadoImg from "../assets/avanzado.png";
 import controlImg from "../assets/control.png";
 import potenciaImg from "../assets/potencia.png";
-import marcasImg from "../assets/potencia.png"; // Imagen para el enlace MARCAS
+import marcasImg from "../assets/potencia.png";
+import accesorioImg from "../assets/accesorios.png";
 
 function Header() {
   const location = useLocation();
   const isAbout = location.pathname === "/sobre-nosotros";
+  const isHome = location.pathname === "/";
   const [navVisible, setNavVisible] = useState(false);
+  const [welcomeVisible, setWelcomeVisible] = useState(false);
 
   useEffect(() => {
     if (
@@ -33,59 +35,106 @@ function Header() {
     }
   }, [location.pathname]);
 
-  return (
-    <header className="relative h-screen overflow-x-hidden">
-      {/* Contenedor de background */}
-      <div
-        className="absolute top-0 left-0 w-screen h-screen overflow-hidden z-10 flex items-center justify-center"
-        style={{
-          filter: "blur(0px)",
-          opacity: 1,
-          transform: "translate(0px, 0px)",
-        }}
-        data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}'
-      >
-        {isAbout ? (
-          <img
-            className="block"
-            src={aboutusImg}
-            alt="Sobre Nosotros"
-            style={{
-              width: "100vw",
-              height: "100vh",
-              objectFit: "cover",
-            }}
-          />
-        ) : (
-          <iframe
-            className="block"
-            style={{
-              width: "100vw",
-              height: "100vh",
-              transform: "scale(1.2)",
-              transformOrigin: "50% 50%",
-            }}
-            src="https://www.youtube.com/embed/mPgQqRzhNrA?autoplay=1&disablekb=1&controls=0&modestbranding=1&loop=1&playlist=mPgQqRzhNrA&fs=0&enablejsapi=1&start=0&end=50&mute=1&showinfo=0&rel=0&playsinline=1&vq=hd2160"
-            title="Wilson Padel Promo video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        )}
-      </div>
-      
+  // Efecto para la animación de fade-in del mensaje de bienvenida
+  useEffect(() => {
+    if (isHome) {
+      const welcomeTimer = setTimeout(() => {
+        setWelcomeVisible(true);
+      }, 1000); // Retraso de 1 segundo para que aparezca después de cargar la página
+      return () => clearTimeout(welcomeTimer);
+    }
+  }, [isHome]);
 
-      {/* Navbar con transición */}
+  return (
+    <header className={`relative ${isHome ? 'h-screen' : 'h-auto'} overflow-x-hidden`}>
+      {/* Contenedor de background con overlay para evitar clics - Solo mostrar en la página de inicio */}
+      {isHome && (
+        <div
+          className="absolute top-0 left-0 w-screen h-screen overflow-hidden z-10 flex items-center justify-center"
+          style={{
+            filter: "blur(0px)",
+            opacity: 1,
+            transform: "translate(0px, 0px)",
+          }}
+          data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}'
+        >
+          <div className="relative w-full h-full">
+            <iframe
+              className="block"
+              style={{
+                width: "100vw",
+                height: "100vh",
+                transform: "scale(1.2)",
+                transformOrigin: "50% 50%",
+              }}
+              src="https://www.youtube.com/embed/mPgQqRzhNrA?autoplay=1&disablekb=1&controls=0&modestbranding=1&loop=1&playlist=mPgQqRzhNrA&fs=0&enablejsapi=1&start=0&end=50&mute=1&showinfo=0&rel=0&playsinline=1&vq=hd2160&hd=1&iv_load_policy=3&high_quality=1"
+              title="Wilson Padel Promo video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              loading="eager"
+            ></iframe>
+            
+            {/* Overlay transparente para bloquear cualquier interacción con el video */}
+            <div 
+              className="absolute inset-0 z-10 cursor-default" 
+              onClick={(e) => e.preventDefault()}
+              onContextMenu={(e) => e.preventDefault()}
+              aria-hidden="true"
+            ></div>
+
+            {/* Mensaje de bienvenida en la parte inferior del video con fondo semitransparente y animación fade-in-up */}
+            <div 
+              className={`absolute bottom-0 left-0 w-full z-20 transition-all duration-1000 ease-out transform ${
+                welcomeVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+              }`}
+            >
+              <div className="bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm p-8 md:p-10">
+                <div className="container mx-auto">
+                  <div className="flex flex-col md:flex-row items-center md:justify-between">
+                    <div className="mb-6 md:mb-0 md:mr-8">
+                      <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Bienvenido al mundo del pádel</h1>
+                      <p className="text-lg text-gray-100 max-w-2xl">
+                        Descubre nuestra selección de palas y accesorios premium para llevar tu juego al siguiente nivel.
+                      </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Link 
+                        to="/palas-de-padel" 
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300"
+                      >
+                        Ver palas
+                      </Link>
+                      <Link 
+                        to="/accesorios" 
+                        className="bg-transparent border border-white text-white font-medium py-2 px-6 rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-300"
+                      >
+                        Ver accesorios
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Navbar con transición - Versión modernizada */}
       <nav
-        className={`fixed top-0 left-0 w-full z-20 px-4 py-1 flex justify-between items-center bg-black bg-opacity-70 backdrop-filter backdrop-blur-lg transition-opacity duration-1000 ${
-          navVisible ? "opacity-100" : "opacity-0"
+        className={`fixed top-0 left-0 w-full z-30 px-6 py-3 flex justify-between items-center bg-black bg-opacity-75 backdrop-filter backdrop-blur-lg transition-all duration-700 ${
+          navVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
         }`}
       >
-        <a className="text-3xl font-bold leading-none" href="/">
+        <a className="text-3xl font-bold leading-none group" href="/">
           <div className="flex items-center">
-            <img className="h-10 mr-2" alt="logo" src={logo} />
-            <span className="text-xl text-gray-800">Blayne</span>
+            <img 
+              className="h-12 mr-3 transition-transform duration-300 group-hover:rotate-6" 
+              alt="logo" 
+              src={logo} 
+            />
+            <span className="text-2xl text-white font-semibold tracking-wider transition-all duration-300 group-hover:text-gray-300">Blayne</span>
           </div>
         </a>
         <div className="lg:hidden">
@@ -100,201 +149,149 @@ function Header() {
             </svg>
           </button>
         </div>
-        <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
+        <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-8">
           <li>
             <a
-              className="text-sm text-gray-200 hover:text-gray-500 font-bold"
+              className="text-sm text-gray-200 hover:text-white font-bold relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300"
               href="/"
             >
               Inicio
             </a>
           </li>
-          <li className="text-gray-300">
-            {/* Separador */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0"
-              />
-            </svg>
-          </li>
+          <li className="text-gray-500 opacity-50">•</li>
           <li>
             <a
-              className="text-sm text-gray-200 font-bold"
+              className="text-sm text-gray-200 hover:text-white font-bold relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300"
               href="/sobre-nosotros"
             >
               Sobre nosotros
             </a>
           </li>
-          <li className="text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0"
-              />
-            </svg>
-          </li>
-          {/* Menú de Palas de padel con dropdown */}
+          <li className="text-gray-500 opacity-50">•</li>
+          
+          {/* Menú de Palas de padel con dropdown modernizado */}
           <li className="relative group">
-  <a className="text-sm text-gray-200 hover:text-gray-500 font-bold" href="/palas-de-padel">
-    Palas de padel
-  </a>
-{/* Dropdown de primer nivel con animaciones y estilo horizontal */}
-<ul className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-auto rounded-lg bg-black bg-opacity-70 backdrop-blur-lg flex justify-center space-x-6 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100">
-  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-    <a href="/palas-de-padel/iniciacion" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-      <img src={iniciacionImg} alt="Iniciacion" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-      <span>Iniciación</span>
-    </a>
-  </li>
-  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-    <a href="/palas-de-padel/intermedio" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-      <img src={intermedioImg} alt="Intermedio" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-      <span>Intermedio</span>
-    </a>
-  </li>
-  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-    <a href="/palas-de-padel/avanzado" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-      <img src={avanzadoImg} alt="Avanzado" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-      <span>Avanzado</span>
-    </a>
-  </li>
-  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-    <a href="/palas-de-padel/control" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-      <img src={controlImg} alt="Control" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-      <span>Control</span>
-    </a>
-  </li>
-  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-    <a href="/palas-de-padel/potencia" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-      <img src={potenciaImg} alt="Potencia" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-      <span>Potencia</span>
-    </a>
-  </li>
-  <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-    <a href="/palas-de-padel/marcas" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-      <img src={marcasImg} alt="MARCAS" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-      <span>Marcas</span>
-    </a>
-  </li>
-</ul>
-</li>
-          <li className="text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
+            <a 
+              className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 group-hover:after:w-full after:transition-all after:duration-300" 
+              href="/palas-de-padel"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0"
-              />
-            </svg>
+              Palas de padel
+              <svg className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            {/* Dropdown modernizado con animaciones mejoradas */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 pt-5 w-auto opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 origin-top scale-95 group-hover:scale-100">
+              <div className="bg-gradient-to-br from-gray-900 to-black p-2 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg">
+                <ul className="flex justify-center space-x-3 p-3">
+                  {[
+                    { name: "Iniciación", img: iniciacionImg, href: "/palas-de-padel/iniciacion" },
+                    { name: "Intermedio", img: intermedioImg, href: "/palas-de-padel/intermedio" },
+                    { name: "Avanzado", img: avanzadoImg, href: "/palas-de-padel/avanzado" },
+                    { name: "Control", img: controlImg, href: "/palas-de-padel/control" },
+                    { name: "Potencia", img: potenciaImg, href: "/palas-de-padel/potencia" },
+                    { name: "Marcas", img: marcasImg, href: "/palas-de-padel/marcas" }
+                  ].map((item, index) => (
+                    <li 
+                      key={item.name}
+                      className="group/item relative transition-transform duration-500 hover:-translate-y-1"
+                      style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                      <a href={item.href} className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300">
+                        <div className="relative">
+                          <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
+                            <img 
+                              src={item.img} 
+                              alt={item.name} 
+                              className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110" 
+                            />
+                          </div>
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
+                        </div>
+                        <span className="font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{item.name}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="absolute top-4 left-1/2 transform -translate-x-1/2 -translate-y-full w-4 h-4 rotate-45 bg-gray-900 border-t border-l border-gray-700"></div>
+            </div>
           </li>
-     {/* Menú de Accesorios con dropdown */}
-<li className="relative group">
-  <a className="text-sm text-gray-200 hover:text-gray-500 font-bold" href="/accesorios">
-    Accesorios
-  </a>
-  {/* Dropdown de Accesorios */}
-  <ul className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-auto rounded-lg bg-black bg-opacity-70 backdrop-blur-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100">
-    <div className="max-w-screen-xl mx-auto flex justify-center space-x-6">
-      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-        <a href="/accesorios/pelotas" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-          <img src={potenciaImg} alt="Pelotas" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-          <span>Pelotas</span>
-        </a>
-      </li>
-      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-        <a href="/accesorios/protector" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-          <img src={potenciaImg} alt="Protector" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-          <span>Protector</span>
-        </a>
-      </li>
-      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-        <a href="/accesorios/overgrip" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-          <img src={potenciaImg} alt="Overgrip" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-          <span>Overgrip</span>
-        </a>
-      </li>
-      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-        <a href="/accesorios/munequeras" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-          <img src={potenciaImg} alt="Muñequeras" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-          <span>Muñequeras</span>
-        </a>
-      </li>
-      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-        <a href="/accesorios/calcetines" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-          <img src={potenciaImg} alt="Calcetines" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-          <span>Calcetines</span>
-        </a>
-      </li>
-      <li className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-xl hover:bg-gray-200 rounded-lg flex flex-col items-center">
-        <a href="/accesorios/gorras" className="flex flex-col items-center gap-2 px-8 py-4 text-xl text-gray-200 hover:text-gray-500 transition-colors duration-300">
-          <img src={potenciaImg} alt="Gorras" className="w-10 h-10 rounded-full transform hover:scale-110 transition-transform duration-300" />
-          <span>Gorras</span>
-        </a>
-      </li>
-    </div>
-  </ul>
-</li>
-          <li className="text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
+          
+          <li className="text-gray-500 opacity-50">•</li>
+          
+          {/* Menú de Accesorios con dropdown modernizado - CORREGIDO */}
+          <li className="relative group">
+            <a 
+              className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 group-hover:after:w-full after:transition-all after:duration-300" 
+              href="/accesorios"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0"
-              />
-            </svg>
+              Accesorios
+              <svg className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            {/* Dropdown modernizado con animaciones mejoradas - CORREGIDO */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 pt-5 w-[380px] opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 origin-top scale-95 group-hover:scale-100">
+              <div className="bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg">
+                <div className="grid grid-cols-3 gap-3">
+                  {[
+                    { name: "Pelotas", img: accesorioImg, href: "/accesorios/pelotas" },
+                    { name: "Protector", img: accesorioImg, href: "/accesorios/protector" },
+                    { name: "Overgrip", img: accesorioImg, href: "/accesorios/overgrip" },
+                    { name: "Muñequeras", img: accesorioImg, href: "/accesorios/munequeras" },
+                    { name: "Calcetines", img: accesorioImg, href: "/accesorios/calcetines" },
+                    { name: "Gorras", img: accesorioImg, href: "/accesorios/gorras" }
+                  ].map((item, index) => (
+                    <div 
+                      key={item.name}
+                      className="group/item relative transition-transform duration-300 hover:-translate-y-1"
+                    >
+                      <a href={item.href} className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-300">
+                        <div className="relative">
+                          <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
+                            <img 
+                              src={item.img} 
+                              alt={item.name} 
+                              className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110" 
+                            />
+                          </div>
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500 to-teal-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
+                        </div>
+                        <span className="mt-1 text-sm font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{item.name}</span>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="absolute top-4 left-1/2 transform -translate-x-1/2 -translate-y-full w-4 h-4 rotate-45 bg-gray-900 border-t border-l border-gray-700"></div>
+            </div>
           </li>
+          
+          <li className="text-gray-500 opacity-50">•</li>
           <li>
             <a
-              className="text-sm text-gray-200 hover:text-gray-500 font-bold"
+              className="text-sm text-gray-200 hover:text-white font-bold relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300"
               href="#"
             >
               Carrito
             </a>
           </li>
         </ul>
-        <a
-          className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 text-sm font-bold text-gray-100 font-mono rounded-md transition-all duration-150 ease-in-out hover:scale-125 active:scale-95"
-          href="#"
-        >
-          Accede
-        </a>
-        <a
-          className="hidden lg:inline-block py-2 px-6 text-sm font-bold text-white font-mono rounded-md transition-all duration-150 ease-in-out hover:scale-125 active:scale-95"
-          href="#"
-        >
-          Regístrate
-        </a>
+        <div className="hidden lg:flex lg:items-center space-x-4">
+          <a
+            className="py-2 px-4 text-sm font-medium text-white bg-transparent border border-white/30 rounded-lg transition-all duration-300 hover:bg-white hover:text-black hover:border-white"
+            href="#"
+          >
+            Accede
+          </a>
+          <a
+            className="py-2 px-4 text-sm font-medium text-black bg-white rounded-lg transition-all duration-300 hover:bg-opacity-80 hover:shadow-glow"
+            href="#"
+          >
+            Regístrate
+          </a>
+        </div>
       </nav>
       
     </header>
