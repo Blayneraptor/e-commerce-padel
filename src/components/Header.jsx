@@ -101,8 +101,8 @@ function Header() {
                 transform: "scale(1.2)",
                 transformOrigin: "50% 50%",
               }}
-              src="https://www.youtube.com/embed/mPgQqRzhNrA?autoplay=1&disablekb=1&controls=0&modestbranding=1&loop=1&playlist=mPgQqRzhNrA&fs=0&enablejsapi=1&start=0&end=50&mute=1&showinfo=0&rel=0&playsinline=1&vq=hd2160&hd=1&iv_load_policy=3&high_quality=1"
-              title="Wilson Padel Promo video"
+             src="https://www.youtube.com/embed/YpaKFnYQ0Y4?start=0&end=32&loop=1&playlist=YpaKFnYQ0Y4&autoplay=1&disablekb=1&controls=0&modestbranding=1&loop=1&playlist=YpaKFnYQ0Y4&fs=0&enablejsapi=1&start=0&end=50&mute=1&showinfo=0&rel=0&playsinline=1&vq=hd2160&hd=1&iv_load_policy=3&high_quality=1"
+  title="Smash Padel  - Cinematic Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
