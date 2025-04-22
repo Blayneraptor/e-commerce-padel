@@ -23,18 +23,25 @@ export const CartProvider = ({ children }) => {
   // Add an item to the cart
   const addToCart = (product, quantity = 1) => {
     setCart(prevCart => {
-      const existingItem = prevCart.find(item => item.id === product.id);
+      // Normalizar el objeto para asegurar que tenga la propiedad 'price'
+      const normalizedProduct = {
+        ...product,
+        // Si el producto tiene 'price', úsalo, si no, usa 'precio'
+        price: product.price || product.precio
+      };
+      
+      const existingItem = prevCart.find(item => item.id === normalizedProduct.id);
       
       if (existingItem) {
         // Update quantity if item already exists
         return prevCart.map(item => 
-          item.id === product.id 
+          item.id === normalizedProduct.id 
             ? { ...item, quantity: item.quantity + quantity } 
             : item
         );
       } else {
-        // Add new item
-        return [...prevCart, { ...product, quantity }];
+        // Add new item with normalized price
+        return [...prevCart, { ...normalizedProduct, quantity }];
       }
     });
   };
@@ -75,7 +82,11 @@ export const CartProvider = ({ children }) => {
 
   // Calculate cart subtotal
   const getCartSubtotal = () => {
-    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    return cart.reduce((total, item) => {
+      // Usar price o precio, lo que esté disponible
+      const itemPrice = item.price || item.precio || 0;
+      return total + (itemPrice * item.quantity);
+    }, 0);
   };
 
   const value = {

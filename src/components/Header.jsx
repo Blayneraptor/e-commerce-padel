@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logoblayne.svg";
 import aboutusImg from "../assets/aboutus.png";
 import pala from "../assets/pala.png";
+import { useCart } from "../contexts/CartContext"; // Importamos el contexto del carrito
 
 // Importa las imágenes para el dropdown
 import iniciacionImg from "../assets/iniciacion.png";
@@ -19,6 +20,20 @@ function Header() {
   const isHome = location.pathname === "/";
   const [navVisible, setNavVisible] = useState(false);
   const [welcomeVisible, setWelcomeVisible] = useState(false);
+  
+  // Obtener datos del carrito
+  const { getCartItemCount, toggleCart } = useCart();
+  const cartItemCount = getCartItemCount();
+  const [cartBadgeAnimate, setCartBadgeAnimate] = useState(false);
+  
+  // Efecto para animar el badge cuando cambia la cantidad de items
+  useEffect(() => {
+    if (cartItemCount > 0) {
+      setCartBadgeAnimate(true);
+      const timer = setTimeout(() => setCartBadgeAnimate(false), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [cartItemCount]);
 
   useEffect(() => {
     if (
@@ -220,7 +235,7 @@ function Header() {
           
           <li className="text-gray-500 opacity-50">•</li>
           
-          {/* Menú de Accesorios con dropdown modernizado - CORREGIDO */}
+          {/* Menú de Accesorios con dropdown modernizado */}
           <li className="relative group">
             <a 
               className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 group-hover:after:w-full after:transition-all after:duration-300" 
@@ -231,7 +246,7 @@ function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </a>
-            {/* Dropdown modernizado con animaciones mejoradas - CORREGIDO */}
+            {/* Dropdown modernizado con animaciones mejoradas */}
             <div className="absolute left-1/2 transform -translate-x-1/2 pt-5 w-[380px] opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 origin-top scale-95 group-hover:scale-100">
               <div className="bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg">
                 <div className="grid grid-cols-3 gap-3">
@@ -269,13 +284,30 @@ function Header() {
           </li>
           
           <li className="text-gray-500 opacity-50">•</li>
-          <li>
-            <a
-              className="text-sm text-gray-200 hover:text-white font-bold relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300"
-              href="#"
+          <li className="relative">
+            {/* Enlace al carrito con contador de productos */}
+            <Link
+              to="/carrito"
+              className="text-sm text-gray-200 hover:text-white font-bold relative flex items-center after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 group"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleCart();
+              }}
             >
-              Carrito
-            </a>
+              <div className="relative">
+                Carrito
+                {/* Badge con contador de productos */}
+                {cartItemCount > 0 && (
+                  <span 
+                    className={`absolute -top-3 -right-6 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-blue-600 rounded-full transition-all duration-300 ${
+                      cartBadgeAnimate ? 'animate-ping-once scale-125' : ''
+                    }`}
+                  >
+                    {cartItemCount}
+                  </span>
+                )}
+              </div>
+            </Link>
           </li>
         </ul>
         <div className="hidden lg:flex lg:items-center space-x-4">

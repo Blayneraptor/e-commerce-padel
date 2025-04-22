@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import productos from "../data/productos.json";
 import useInView from "../hooks/useInView";
+import { useCart } from "../contexts/CartContext"; // Importar el contexto del carrito
 
 // Componente con animación al aparecer en el viewport
 const AnimateOnScroll = ({ children, animation = "fade-up", delay = 0, duration = 800, className = "", ...props }) => {
@@ -39,10 +40,16 @@ const PadelDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [cantidad, setCantidad] = useState(1);
   const [activeTab, setActiveTab] = useState('descripcion');
-  const [isProductVisible, setIsProductVisible] = useState(false);
+  const [pageLoaded, setPageLoaded] = useState(false);
   
   // Productos relacionados
   const [productosRelacionados, setProductosRelacionados] = useState([]);
+  
+  // Obtener funciones del carrito
+  const { addToCart, toggleCart } = useCart();
+  
+  // Estado para la animación de añadir al carrito
+  const [addedToCart, setAddedToCart] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -61,10 +68,10 @@ const PadelDetail = () => {
       
       setProductosRelacionados(related);
       
-      // Activar animación de entrada
+      // Activar animación de entrada suave
       setTimeout(() => {
-        setIsProductVisible(true);
-      }, 100);
+        setPageLoaded(true);
+      }, 50);
     }
     
     setLoading(false);
@@ -76,6 +83,23 @@ const PadelDetail = () => {
       setCantidad(prev => prev + 1);
     } else if (accion === "decrementar" && cantidad > 1) {
       setCantidad(prev => prev - 1);
+    }
+  };
+  
+  // Función para añadir al carrito
+  const handleAddToCart = () => {
+    if (producto) {
+      // Añadir el producto al carrito con la cantidad especificada
+      addToCart(producto, cantidad);
+      
+      // Mostrar animación de confirmación
+      setAddedToCart(true);
+      
+      setTimeout(() => {
+        setAddedToCart(false);
+        // Opcional: Abrir el carrito después de añadir el producto
+        // toggleCart();
+      }, 1500);
     }
   };
 
@@ -123,7 +147,7 @@ const PadelDetail = () => {
   return (
     <div className="bg-gray-50 min-h-screen pt-16">
       {/* Migas de pan */}
-      <AnimateOnScroll animation="fade-down" className="container mx-auto px-4 pt-6 pb-2">
+      <div className="container mx-auto px-4 pt-6 pb-2">
         <div className="text-sm text-gray-500">
           <Link to="/" className="hover:text-blue-600 transition-colors">Inicio</Link>
           <span className="mx-1">/</span>
@@ -131,13 +155,11 @@ const PadelDetail = () => {
           <span className="mx-1">/</span>
           <span className="font-medium text-gray-800">{producto.nombre}</span>
         </div>
-      </AnimateOnScroll>
+      </div>
 
       <div className="container mx-auto px-4 py-8">
         <div 
-          className={`transition-all duration-1000 transform ${
-            isProductVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className={`transition-opacity duration-500 ${pageLoaded ? 'opacity-100' : 'opacity-0'}`}
         >
           <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 p-6">
@@ -327,11 +349,27 @@ const PadelDetail = () => {
                     </div>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center">
-                        <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                        Añadir al carrito
+                      <button 
+                        onClick={handleAddToCart}
+                        className={`flex-1 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center
+                          ${addedToCart ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'}`}
+                        disabled={addedToCart}
+                      >
+                        {addedToCart ? (
+                          <>
+                            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Añadido
+                          </>
+                        ) : (
+                          <>
+                            <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            Añadir al carrito
+                          </>
+                        )}
                       </button>
                       
                       <button className="flex-none bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center">

@@ -8,6 +8,9 @@ import AboutUs from "./pages/AboutUs";
 import PadelPage from "./pages/PadelPage";
 import Accesorios from "./pages/Accesorios";
 import PadelDetail from "./pages/PadelDetail";
+import CartPage from "./pages/CartPage";
+import Cart from "./components/Cart";
+import CartProvider from "./contexts/CartContext";
 
 function Layout() {
   const location = useLocation();
@@ -40,6 +43,7 @@ function Layout() {
   return (
     <>
       <Header />
+      <Cart />
       <TransitionGroup>
         <CSSTransition key={location.key} timeout={700} classNames="page">
           <div>
@@ -49,6 +53,7 @@ function Layout() {
               <Route path="/palas-de-padel" element={<PadelPage />} />
               <Route path="/palas-de-padel/:id" element={<PadelDetail />} />
               <Route path="/accesorios" element={<Accesorios />} />
+              <Route path="/carrito" element={<CartPage />} />
             </Routes>
           </div>
         </CSSTransition>
@@ -72,7 +77,9 @@ function Layout() {
 function App() {
   return (
     <BrowserRouter>
-      <Layout />
+      <CartProvider>
+        <Layout />
+      </CartProvider>
     </BrowserRouter>
   );
 }

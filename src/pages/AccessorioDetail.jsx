@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import accesorios from "../data/accesorios.json";
 import useInView from "../hooks/useInView";
-import { CartContext } from "../contexts/CartContext";
+import { useCart } from "../contexts/CartContext";
 
 // Componente con animación al aparecer en el viewport
 const AnimateOnScroll = ({ children, animation = "fade-up", delay = 0, duration = 800, className = "", ...props }) => {
@@ -35,34 +35,30 @@ const AnimateOnScroll = ({ children, animation = "fade-up", delay = 0, duration 
 const AccessorioDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { addToCart } = useContext(CartContext);
   const [accesorio, setAccesorio] = useState(null);
   const [loading, setLoading] = useState(true);
   const [cantidad, setCantidad] = useState(1);
   const [activeTab, setActiveTab] = useState('descripcion');
   const [isProductVisible, setIsProductVisible] = useState(false);
-  
-  // Accesorios relacionados
   const [accesoriosRelacionados, setAccesoriosRelacionados] = useState([]);
+  const { addToCart } = useCart();
+  const [addedToCart, setAddedToCart] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setLoading(true);
 
-    // Buscar el accesorio por ID
     const foundAccesorio = accesorios.find(a => a.id.toString() === id);
     
     if (foundAccesorio) {
       setAccesorio(foundAccesorio);
       
-      // Encontrar accesorios relacionados (mismo tipo)
       const related = accesorios
         .filter(a => a.id !== foundAccesorio.id && a.tipo === foundAccesorio.tipo)
         .slice(0, 4);
       
       setAccesoriosRelacionados(related);
       
-      // Activar animación de entrada
       setTimeout(() => {
         setIsProductVisible(true);
       }, 100);
@@ -71,7 +67,6 @@ const AccessorioDetail = () => {
     setLoading(false);
   }, [id]);
 
-  // Manejar incremento/decremento de cantidad
   const handleCantidad = (accion) => {
     if (accion === "incrementar") {
       setCantidad(prev => prev + 1);
@@ -82,17 +77,14 @@ const AccessorioDetail = () => {
 
   const handleAddToCart = () => {
     if (accesorio) {
-      addToCart({
-        ...accesorio,
-        cantidad: cantidad
-      });
-      
-      // Mostrar notificación de éxito (puedes implementar esto con un toast o un modal)
-      alert(`¡${accesorio.nombre} añadido al carrito!`);
+      addToCart(accesorio, cantidad);
+      setAddedToCart(true);
+      setTimeout(() => {
+        setAddedToCart(false);
+      }, 1500);
     }
   };
 
-  // Si está cargando o no se encuentra el accesorio
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -120,7 +112,6 @@ const AccessorioDetail = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen pt-16">
-      {/* Migas de pan */}
       <AnimateOnScroll animation="fade-down" className="container mx-auto px-4 pt-6 pb-2">
         <div className="text-sm text-gray-500">
           <Link to="/" className="hover:text-blue-600 transition-colors">Inicio</Link>
@@ -139,10 +130,8 @@ const AccessorioDetail = () => {
         >
           <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
-              {/* Imagen del accesorio */}
               <div className="col-span-1">
                 <div className="space-y-4">
-                  {/* Imagen principal */}
                   <div className="relative bg-gray-100 rounded-lg overflow-hidden p-8 flex items-center justify-center">
                     <img 
                       src={accesorio.img} 
@@ -153,7 +142,6 @@ const AccessorioDetail = () => {
                 </div>
               </div>
               
-              {/* Información del accesorio */}
               <div className="col-span-1 space-y-6">
                 <div>
                   <div className="flex items-center mb-1">
@@ -196,7 +184,6 @@ const AccessorioDetail = () => {
                     </div>
                   </div>
                   
-                  {/* Descripción del producto */}
                   <div className="mt-6">
                     <p className="text-gray-700">
                       Este {accesorio.tipo.toLowerCase()} de alta calidad está diseñado para mejorar tu experiencia de juego. 
@@ -204,7 +191,6 @@ const AccessorioDetail = () => {
                     </p>
                   </div>
                   
-                  {/* Selector de cantidad y botón de añadir al carrito */}
                   <div className="mt-8 space-y-4">
                     <div className="flex items-center">
                       <span className="text-gray-700 mr-4">Cantidad:</span>
@@ -228,21 +214,42 @@ const AccessorioDetail = () => {
                       </div>
                     </div>
                     
-                    <button 
-                      onClick={handleAddToCart}
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors flex items-center justify-center"
-                    >
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                      </svg>
-                      Añadir al carrito
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <button 
+                        onClick={handleAddToCart}
+                        className={`flex-1 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center
+                          ${addedToCart ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'}`}
+                        disabled={addedToCart}
+                      >
+                        {addedToCart ? (
+                          <>
+                            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Añadido
+                          </>
+                        ) : (
+                          <>
+                            <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            Añadir al carrito
+                          </>
+                        )}
+                      </button>
+                      
+                      <button className="flex-none bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center">
+                        <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        Favorito
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Pestañas de información adicional */}
             <div className="border-t border-gray-200 mt-4">
               <div className="flex border-b border-gray-200">
                 <button 
@@ -326,7 +333,6 @@ const AccessorioDetail = () => {
                   <div className="space-y-6">
                     <h3 className="text-lg font-medium text-gray-900">Opiniones de clientes</h3>
                     <div className="space-y-4">
-                      {/* Aquí irían las opiniones de clientes */}
                       <div className="border-b border-gray-200 pb-4">
                         <div className="flex items-center mb-2">
                           <div className="flex text-yellow-400">
@@ -362,7 +368,6 @@ const AccessorioDetail = () => {
             </div>
           </div>
           
-          {/* Productos relacionados */}
           {accesoriosRelacionados.length > 0 && (
             <AnimateOnScroll className="mt-12" animation="fade-up">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Productos relacionados</h2>

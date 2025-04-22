@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import productos from "../data/productos.json";
-import aboutusImg from "../assets/aboutus.png";
+import palaspadel from "../assets/palaspadel.png";
 import useInView from "../hooks/useInView";
 
 // Componente con animación al aparecer en el viewport
@@ -88,10 +88,10 @@ const PadelPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Banner hero similar al de AboutUs */}
+      {/* Banner hero */}
       <div className="relative h-screen w-full flex items-center justify-center">
         <img 
-          src={aboutusImg} 
+          src={palaspadel} 
           alt="Palas de Pádel" 
           className="absolute inset-0 w-full h-full object-cover"
         />

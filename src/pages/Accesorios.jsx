@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import accesorios from "../data/accesorios.json";
-import aboutusImg from "../assets/aboutus.png";
+import accesoriospadel from "../assets/accesoriospadel.png";
 import useInView from "../hooks/useInView";
 
 // Componente con animación al aparecer en el viewport
@@ -91,7 +91,7 @@ const Accesorios = () => {
       {/* Banner hero similar al de AboutUs */}
       <div className="relative h-screen w-full flex items-center justify-center">
         <img 
-          src={aboutusImg} 
+          src={accesoriospadel} 
           alt="Accesorios de Pádel" 
           className="absolute inset-0 w-full h-full object-cover"
         />
