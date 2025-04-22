@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import productos from "../data/productos.json";
 import palaspadel from "../assets/palaspadel.png";
 import useInView from "../hooks/useInView";
@@ -33,6 +33,7 @@ const AnimateOnScroll = ({ children, animation = "fade-up", delay = 0, duration 
 };
 
 const PadelPage = () => {
+  const location = useLocation();
   // Estados para filtros y búsqueda
   const [filtroTipo, setFiltroTipo] = useState("Todos");
   const [ordenPrecio, setOrdenPrecio] = useState("desc");
@@ -51,6 +52,16 @@ const PadelPage = () => {
     }, 300);
     return () => clearTimeout(timer);
   }, []);
+
+  // Leer parámetro tipo de la URL y aplicar filtro
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tipoParam = params.get('tipo');
+    if (tipoParam) {
+      setFiltroTipo(tipoParam);
+      setPaginaActual(1);
+    }
+  }, [location.search]);
 
   // Filtra las palas según el tipo y la búsqueda
   const filtrarProductos = () => {
@@ -148,11 +159,11 @@ const PadelPage = () => {
                   }}
                   className="appearance-none bg-white pl-4 pr-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
                 >
-                  <option value="Todos">Todos los tipos</option>
-                  <option value="Ofensiva">Ofensiva</option>
-                  <option value="Defensiva">Defensiva</option>
-                  <option value="Equilibrada">Equilibrada</option>
-                  <option value="Principiante">Principiante</option>
+                  <option value="Todos">Todos los niveles</option>
+                  <option value="Principiante">Iniciación</option>
+                  <option value="Equilibrada">Intermedio</option>
+                  <option value="Ofensiva">Avanzado</option>
+                  <option value="Defensiva">Control</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
@@ -272,7 +283,7 @@ const PadelPage = () => {
                 >
                   <span className="sr-only">Anterior</span>
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293-3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
                   </svg>
                 </button>
                 

@@ -7,6 +7,7 @@ import ProductPage from "./pages/ProductPage";
 import AboutUs from "./pages/AboutUs";
 import PadelPage from "./pages/PadelPage";
 import Accesorios from "./pages/Accesorios";
+import AccessorioDetail from "./pages/AccessorioDetail";
 import PadelDetail from "./pages/PadelDetail";
 import CartPage from "./pages/CartPage";
 import Cart from "./components/Cart";
@@ -45,7 +46,7 @@ function Layout() {
       <Header />
       <Cart />
       <TransitionGroup>
-        <CSSTransition key={location.key} timeout={700} classNames="page">
+        <CSSTransition key={location.key} timeout={700} classNames="page" mountOnEnter unmountOnExit>
           <div>
             <Routes location={location}>
               <Route path="/" element={<ProductPage />} />
@@ -53,6 +54,7 @@ function Layout() {
               <Route path="/palas-de-padel" element={<PadelPage />} />
               <Route path="/palas-de-padel/:id" element={<PadelDetail />} />
               <Route path="/accesorios" element={<Accesorios />} />
+              <Route path="/accesorios/:id" element={<AccessorioDetail />} />
               <Route path="/carrito" element={<CartPage />} />
             </Routes>
           </div>

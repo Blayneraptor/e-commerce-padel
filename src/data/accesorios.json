@@ -1,114 +1,322 @@
 [
-    {
-      "id": 1,
-      "nombre": "Overgrip Clásico",
-      "tipo": "Overgrip",
-      "precio": 10,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 2,
-      "nombre": "Overgrip Premium",
-      "tipo": "Overgrip",
-      "precio": 12,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 3,
-      "nombre": "Pelota de Pádel ST",
-      "tipo": "Pelotas",
-      "precio": 15,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 4,
-      "nombre": "Pelota de Pádel Pro",
-      "tipo": "Pelotas",
-      "precio": 20,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 5,
-      "nombre": "Bolsa de Pádel Básica",
-      "tipo": "Bolsas",
-      "precio": 30,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 6,
-      "nombre": "Bolsa de Pádel Sport",
-      "tipo": "Bolsas",
-      "precio": 40,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 7,
-      "nombre": "Muñequeras Ajustables",
-      "tipo": "Muñequeras",
-      "precio": 12,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 8,
-      "nombre": "Muñequeras Deportivas",
-      "tipo": "Muñequeras",
-      "precio": 15,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 9,
-      "nombre": "Protector de Pala",
-      "tipo": "Protector",
-      "precio": 20,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 10,
-      "nombre": "Protector de Codo",
-      "tipo": "Protector",
-      "precio": 22,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 11,
-      "nombre": "Protector Facial",
-      "tipo": "Protector",
-      "precio": 35,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 12,
-      "nombre": "Protector para Muñecas",
-      "tipo": "Protector",
-      "precio": 18,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 13,
-      "nombre": "Camiseta de Pádel",
-      "tipo": "Ropa",
-      "precio": 25,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 14,
-      "nombre": "Calcetines de Pádel",
-      "tipo": "Ropa",
-      "precio": 18,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 15,
-      "nombre": "Gorra de Pádel",
-      "tipo": "Ropa",
-      "precio": 25,
-      "img": "/assets/accesorios.png"
-    },
-    {
-      "id": 16,
-      "nombre": "Toalla Deportiva",
-      "tipo": "Ropa",
-      "precio": 12,
-      "img": "/assets/accesorios.png"
-    }
-  ]
+  {
+    "id": 1,
+    "nombre": "Overgrip Bullpadel Basic",
+    "marca": "Bullpadel",
+    "tipo": "Overgrip",
+    "precio": 8,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 2,
+    "nombre": "Overgrip Head Pro Tacky",
+    "marca": "Head",
+    "tipo": "Overgrip",
+    "precio": 9,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Overgrip Wilson Pro Tac",
+    "marca": "Wilson",
+    "tipo": "Overgrip",
+    "precio": 10,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 4,
+    "nombre": "Overgrip Babolat VS+",
+    "marca": "Babolat",
+    "tipo": "Overgrip",
+    "precio": 11,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Overgrip Nox Tour",
+    "marca": "Nox",
+    "tipo": "Overgrip",
+    "precio": 9,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 6,
+    "nombre": "Overgrip Siux Evolution",
+    "marca": "Siux",
+    "tipo": "Overgrip",
+    "precio": 10,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 7,
+    "nombre": "Overgrip Varlion Comfy",
+    "marca": "Varlion",
+    "tipo": "Overgrip",
+    "precio": 8,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 8,
+    "nombre": "Pelota Head Elite Tour",
+    "marca": "Head",
+    "tipo": "Pelotas",
+    "precio": 18,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 9,
+    "nombre": "Pelota Babolat Pro Tour",
+    "marca": "Babolat",
+    "tipo": "Pelotas",
+    "precio": 20,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 10,
+    "nombre": "Pelota Wilson Championship",
+    "marca": "Wilson",
+    "tipo": "Pelotas",
+    "precio": 17,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 11,
+    "nombre": "Pelota Dunlop Pro Padel",
+    "marca": "Dunlop",
+    "tipo": "Pelotas",
+    "precio": 19,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 12,
+    "nombre": "Pelota Bullpadel Team",
+    "marca": "Bullpadel",
+    "tipo": "Pelotas",
+    "precio": 16,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 13,
+    "nombre": "Pelota Nox Elite",
+    "marca": "Nox",
+    "tipo": "Pelotas",
+    "precio": 18,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 14,
+    "nombre": "Pelota Siux Extended",
+    "marca": "Siux",
+    "tipo": "Pelotas",
+    "precio": 21,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 15,
+    "nombre": "Bolsa Bullpadel Backpack",
+    "marca": "Bullpadel",
+    "tipo": "Bolsas",
+    "precio": 70,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 16,
+    "nombre": "Bolsa Head Tour",
+    "marca": "Head",
+    "tipo": "Bolsas",
+    "precio": 60,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 17,
+    "nombre": "Bolsa Wilson Pro Tournament",
+    "marca": "Wilson",
+    "tipo": "Bolsas",
+    "precio": 75,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 18,
+    "nombre": "Bolsa Babolat RH X12",
+    "marca": "Babolat",
+    "tipo": "Bolsas",
+    "precio": 85,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 19,
+    "nombre": "Bolsa Nox Thermo",
+    "marca": "Nox",
+    "tipo": "Bolsas",
+    "precio": 65,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 20,
+    "nombre": "Bolsa Siux Code Advanced",
+    "marca": "Siux",
+    "tipo": "Bolsas",
+    "precio": 80,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 21,
+    "nombre": "Bolsa Varlion Carry",
+    "marca": "Varlion",
+    "tipo": "Bolsas",
+    "precio": 55,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 22,
+    "nombre": "Muñequera Bullpadel Cotton",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 23,
+    "nombre": "Muñequera Head Double",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 13,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 24,
+    "nombre": "Muñequera Wilson Pro Comfort",
+    "marca": "Wilson",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 25,
+    "nombre": "Muñequera Babolat Performance",
+    "marca": "Babolat",
+    "tipo": "Muñequeras",
+    "precio": 14,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 26,
+    "nombre": "Muñequera Nox Comfort",
+    "marca": "Nox",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 27,
+    "nombre": "Muñequera Siux Storm",
+    "marca": "Siux",
+    "tipo": "Muñequeras",
+    "precio": 13,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 28,
+    "nombre": "Protector Nox Pro Armor",
+    "marca": "Nox",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 29,
+    "nombre": "Protector Black Crown Elite",
+    "marca": "Black Crown",
+    "tipo": "Protector",
+    "precio": 25,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 30,
+    "nombre": "Protector Dunlop Shock Stop",
+    "marca": "Dunlop",
+    "tipo": "Protector",
+    "precio": 20,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 31,
+    "nombre": "Protector Bullpadel Armor",
+    "marca": "Bullpadel",
+    "tipo": "Protector",
+    "precio": 24,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 32,
+    "nombre": "Protector Wilson Guard",
+    "marca": "Wilson",
+    "tipo": "Protector",
+    "precio": 23,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 33,
+    "nombre": "Protector Babolat Protection",
+    "marca": "Babolat",
+    "tipo": "Protector",
+    "precio": 21,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 34,
+    "nombre": "Camiseta Bullpadel Tech",
+    "marca": "Bullpadel",
+    "tipo": "Ropa",
+    "precio": 25,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 35,
+    "nombre": "Camiseta HEAD Vision",
+    "marca": "Head",
+    "tipo": "Ropa",
+    "precio": 28,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 36,
+    "nombre": "Camiseta Wilson Team",
+    "marca": "Wilson",
+    "tipo": "Ropa",
+    "precio": 30,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 37,
+    "nombre": "Camiseta Babolat Performance",
+    "marca": "Babolat",
+    "tipo": "Ropa",
+    "precio": 27,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 38,
+    "nombre": "Camiseta Nox Pro",
+    "marca": "Nox",
+    "tipo": "Ropa",
+    "precio": 26,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 39,
+    "nombre": "Camiseta Siux Comfort",
+    "marca": "Siux",
+    "tipo": "Ropa",
+    "precio": 24,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 40,
+    "nombre": "Camiseta Adidas Adizero",
+    "marca": "Adidas",
+    "tipo": "Ropa",
+    "precio": 29,
+    "img": "/assets/accesorios.png"
+  }
+]

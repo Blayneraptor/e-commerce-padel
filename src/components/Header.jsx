@@ -60,6 +60,25 @@ function Header() {
     }
   }, [isHome]);
 
+  // Define mapping between menu labels and product.tipo values
+  const tipoMap = {
+    "Iniciación": "Principiante",
+    "Intermedio": "Equilibrada",
+    "Avanzado": "Ofensiva",
+    "Control": "Defensiva",
+    "Potencia": "Ofensiva",
+    "Marcas": null // no tipo filter for brands
+  };
+
+  const tipoMapAcc = {
+    Pelotas: 'Pelotas',
+    Overgrip: 'Overgrip',
+    Bolsas: 'Bolsas',
+    Protector: 'Protector',
+    Muñequeras: 'Muñequeras',
+    Camisetas: 'Ropa',
+  };
+
   return (
     <header className={`relative ${isHome ? 'h-screen' : 'h-auto'} overflow-x-hidden`}>
       {/* Contenedor de background con overlay para evitar clics - Solo mostrar en la página de inicio */}
@@ -200,31 +219,48 @@ function Header() {
               <div className="bg-gradient-to-br from-gray-900 to-black p-2 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg">
                 <ul className="flex justify-center space-x-3 p-3">
                   {[
-                    { name: "Iniciación", img: iniciacionImg, href: "/palas-de-padel/iniciacion" },
-                    { name: "Intermedio", img: intermedioImg, href: "/palas-de-padel/intermedio" },
-                    { name: "Avanzado", img: avanzadoImg, href: "/palas-de-padel/avanzado" },
-                    { name: "Control", img: controlImg, href: "/palas-de-padel/control" },
-                    { name: "Potencia", img: potenciaImg, href: "/palas-de-padel/potencia" },
-                    { name: "Marcas", img: marcasImg, href: "/palas-de-padel/marcas" }
+                    { name: "Iniciación", img: iniciacionImg },
+                    { name: "Intermedio", img: intermedioImg },
+                    { name: "Avanzado", img: avanzadoImg },
+                    { name: "Control", img: controlImg },
+                    { name: "Potencia", img: potenciaImg },
+                    { name: "Marcas", img: marcasImg }
                   ].map((item, index) => (
                     <li 
                       key={item.name}
                       className="group/item relative transition-transform duration-500 hover:-translate-y-1"
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <a href={item.href} className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300">
-                        <div className="relative">
-                          <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
-                            <img 
-                              src={item.img} 
-                              alt={item.name} 
-                              className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110" 
-                            />
+                      {/* Use Link and pass tipo query param if defined */}
+                      {tipoMap[item.name] ? (
+                        <Link to={`/palas-de-padel?tipo=${tipoMap[item.name]}`} className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300">
+                          <div className="relative">
+                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
+                              <img 
+                                src={item.img} 
+                                alt={item.name} 
+                                className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110" 
+                              />
+                            </div>
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
                           </div>
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
-                        </div>
-                        <span className="font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{item.name}</span>
-                      </a>
+                          <span className="font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{item.name}</span>
+                        </Link>
+                      ) : (
+                        <a href={item.href} className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300">
+                          <div className="relative">
+                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
+                              <img 
+                                src={item.img} 
+                                alt={item.name} 
+                                className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110" 
+                              />
+                            </div>
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
+                          </div>
+                          <span className="font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{item.name}</span>
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -250,32 +286,24 @@ function Header() {
             <div className="absolute left-1/2 transform -translate-x-1/2 pt-5 w-[380px] opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 origin-top scale-95 group-hover:scale-100">
               <div className="bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg">
                 <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { name: "Pelotas", img: accesorioImg, href: "/accesorios/pelotas" },
-                    { name: "Protector", img: accesorioImg, href: "/accesorios/protector" },
-                    { name: "Overgrip", img: accesorioImg, href: "/accesorios/overgrip" },
-                    { name: "Muñequeras", img: accesorioImg, href: "/accesorios/munequeras" },
-                    { name: "Calcetines", img: accesorioImg, href: "/accesorios/calcetines" },
-                    { name: "Gorras", img: accesorioImg, href: "/accesorios/gorras" }
-                  ].map((item, index) => (
-                    <div 
-                      key={item.name}
-                      className="group/item relative transition-transform duration-300 hover:-translate-y-1"
+                  {['Pelotas','Overgrip','Bolsas','Protector','Muñequeras','Camisetas'].map((name, index) => (
+                    <Link
+                      key={name}
+                      to={`/accesorios?tipo=${tipoMapAcc[name]}`}
+                      className="group/item flex flex-col items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-300"
                     >
-                      <a href={item.href} className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-300">
-                        <div className="relative">
-                          <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
-                            <img 
-                              src={item.img} 
-                              alt={item.name} 
-                              className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110" 
-                            />
-                          </div>
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500 to-teal-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
+                      <div className="relative">
+                        <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
+                          <img
+                            src={accesorioImg}
+                            alt={name}
+                            className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110"
+                          />
                         </div>
-                        <span className="mt-1 text-sm font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{item.name}</span>
-                      </a>
-                    </div>
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500 to-teal-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
+                      </div>
+                      <span className="mt-1 text-sm font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{name}</span>
+                    </Link>
                   ))}
                 </div>
               </div>

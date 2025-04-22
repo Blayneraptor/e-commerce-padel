@@ -21,7 +21,8 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.4.0",
     "react-transition-group": "^4.4.5",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "unsplash-js": "^7.0.19"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import aboutusImg from "../assets/aboutus.png";
 
 const AboutUs = () => {
@@ -10,6 +10,13 @@ const AboutUs = () => {
     }
   };
 
+  // Banner animation visibility
+  const [bannerVisible, setBannerVisible] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setBannerVisible(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Banner con flecha animada */}
@@ -20,7 +27,7 @@ const AboutUs = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="text-center text-white">
+          <div className={`text-center text-white transition-all duration-1000 transform ${bannerVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'}`}>
             <h1 className="text-5xl font-bold mb-6 tracking-wide">Nuestra Historia</h1>
             <p className="text-xl max-w-2xl mx-auto mb-12">Descubre cómo nació nuestra pasión por el mundo del pádel y nuestro compromiso con la excelencia deportiva.</p>
             

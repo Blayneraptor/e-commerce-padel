@@ -1,86 +1,322 @@
 [
   {
     "id": 1,
-    "nombre": "Pala Power",
+    "nombre": "Babolat Technical Viper",
+    "marca": "Babolat",
     "tipo": "Ofensiva",
-    "precio": 150,
+    "precio": 299,
     "img": "/assets/pala.png"
   },
   {
     "id": 2,
-    "nombre": "Pala Control",
+    "nombre": "Head Graphene 360+ Alpha Elite",
+    "marca": "Head",
     "tipo": "Defensiva",
-    "precio": 120,
+    "precio": 250,
     "img": "/assets/pala.png"
   },
   {
     "id": 3,
-    "nombre": "Pala All Round",
+    "nombre": "Bullpadel Vertex 03",
+    "marca": "Bullpadel",
     "tipo": "Equilibrada",
-    "precio": 130,
+    "precio": 340,
     "img": "/assets/pala.png"
   },
   {
     "id": 4,
-    "nombre": "Pala Pro",
+    "nombre": "Nox AT10 Luxury Genius",
+    "marca": "Nox",
     "tipo": "Ofensiva",
-    "precio": 180,
+    "precio": 380,
     "img": "/assets/pala.png"
   },
   {
     "id": 5,
-    "nombre": "Pala Novata",
+    "nombre": "Wilson Bela Team",
+    "marca": "Wilson",
     "tipo": "Principiante",
-    "precio": 80,
-    "img": "/assets/pala.png"
-  },
-  {
-    "id": 6,
-    "nombre": "Pala Avanzada",
-    "tipo": "Defensiva",
-    "precio": 170,
-    "img": "/assets/pala.png"
-  },
-  {
-    "id": 7,
-    "nombre": "Pala Elite",
-    "tipo": "Equilibrada",
-    "precio": 200,
-    "img": "/assets/pala.png"
-  },
-  {
-    "id": 8,
-    "nombre": "Pala Titan",
-    "tipo": "Ofensiva",
-    "precio": 220,
-    "img": "/assets/pala.png"
-  },
-  {
-    "id": 9,
-    "nombre": "Pala Mach",
-    "tipo": "Defensiva",
     "precio": 140,
     "img": "/assets/pala.png"
   },
   {
-    "id": 10,
-    "nombre": "Pala Ultra",
+    "id": 6,
+    "nombre": "Adidas Metalbone 3.2",
+    "marca": "Adidas",
+    "tipo": "Defensiva",
+    "precio": 370,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 7,
+    "nombre": "Siux Diablo Revolution 3K",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 290,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 8,
+    "nombre": "StarVie Metheora Warrior",
+    "marca": "StarVie",
     "tipo": "Ofensiva",
-    "precio": 210,
+    "precio": 320,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 9,
+    "nombre": "Dunlop Aero Star Team",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 230,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 10,
+    "nombre": "Black Crown Piton 9.0",
+    "marca": "Black Crown",
+    "tipo": "Ofensiva",
+    "precio": 280,
     "img": "/assets/pala.png"
   },
   {
     "id": 11,
-    "nombre": "Pala Rookie",
+    "nombre": "Varlion Avant Difusor",
+    "marca": "Varlion",
     "tipo": "Principiante",
-    "precio": 90,
+    "precio": 170,
     "img": "/assets/pala.png"
   },
   {
     "id": 12,
-    "nombre": "Pala Master",
+    "nombre": "Head Delta Pro",
+    "marca": "Head",
     "tipo": "Equilibrada",
-    "precio": 195,
+    "precio": 295,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 13,
+    "nombre": "Babolat Counter Veron",
+    "marca": "Babolat",
+    "tipo": "Defensiva",
+    "precio": 270,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 14,
+    "nombre": "Nox Tempo World Padel Tour",
+    "marca": "Nox",
+    "tipo": "Equilibrada",
+    "precio": 310,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 15,
+    "nombre": "Bullpadel Hack 03",
+    "marca": "Bullpadel",
+    "tipo": "Ofensiva",
+    "precio": 360,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 16,
+    "nombre": "Adidas Adipower CTRL 3.2",
+    "marca": "Adidas",
+    "tipo": "Defensiva",
+    "precio": 340,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 17,
+    "nombre": "Wilson Bela Pro",
+    "marca": "Wilson",
+    "tipo": "Ofensiva",
+    "precio": 390,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 18,
+    "nombre": "Siux SX6 Evolution",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 260,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 19,
+    "nombre": "Head Graphene 360+ Delta Motion",
+    "marca": "Head",
+    "tipo": "Principiante",
+    "precio": 160,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 20,
+    "nombre": "StarVie Raptor",
+    "marca": "StarVie",
+    "tipo": "Ofensiva",
+    "precio": 330,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 21,
+    "nombre": "Dunlop Galactica Pro",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 240,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 22,
+    "nombre": "Nox AT10 Genius Attack",
+    "marca": "Nox",
+    "tipo": "Ofensiva",
+    "precio": 385,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 23,
+    "nombre": "Bullpadel Flow Light",
+    "marca": "Bullpadel",
+    "tipo": "Principiante",
+    "precio": 150,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 24,
+    "nombre": "Black Crown Hurricane",
+    "marca": "Black Crown",
+    "tipo": "Equilibrada",
+    "precio": 265,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 25,
+    "nombre": "Adidas Metalbone 3.1",
+    "marca": "Adidas",
+    "tipo": "Ofensiva",
+    "precio": 350,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 26,
+    "nombre": "Head Graphene 360+ Gamma Motion",
+    "marca": "Head",
+    "tipo": "Defensiva",
+    "precio": 255,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 27,
+    "nombre": "Babolat Air Veron",
+    "marca": "Babolat",
+    "tipo": "Equilibrada",
+    "precio": 290,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 28,
+    "nombre": "Siux Pegasus Revolution",
+    "marca": "Siux",
+    "tipo": "Ofensiva",
+    "precio": 275,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 29,
+    "nombre": "Wilson Bela Junior",
+    "marca": "Wilson",
+    "tipo": "Principiante",
+    "precio": 120,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 30,
+    "nombre": "StarVie Titania Kepler",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 285,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 31,
+    "nombre": "Varlion Maxima Summum Prisma",
+    "marca": "Varlion",
+    "tipo": "Equilibrada",
+    "precio": 300,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 32,
+    "nombre": "Bullpadel Vertex 03 CTR",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 330,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 33,
+    "nombre": "Nox ML10 Pro Cup",
+    "marca": "Nox",
+    "tipo": "Ofensiva",
+    "precio": 365,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 34,
+    "nombre": "Dunlop Aero Star Pro",
+    "marca": "Dunlop",
+    "tipo": "Equilibrada",
+    "precio": 280,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 35,
+    "nombre": "Head Graphene 360+ Gamma Pro",
+    "marca": "Head",
+    "tipo": "Ofensiva",
+    "precio": 310,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 36,
+    "nombre": "Babolat Viper Carbon",
+    "marca": "Babolat",
+    "tipo": "Defensiva",
+    "precio": 260,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 37,
+    "nombre": "Black Crown Panther",
+    "marca": "Black Crown",
+    "tipo": "Principiante",
+    "precio": 180,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 38,
+    "nombre": "Adidas Adipower Soft 3.0",
+    "marca": "Adidas",
+    "tipo": "Equilibrada",
+    "precio": 320,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 39,
+    "nombre": "StarVie Aquila Space Pro",
+    "marca": "StarVie",
+    "tipo": "Ofensiva",
+    "precio": 345,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 40,
+    "nombre": "Siux Genesis PWR",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 270,
     "img": "/assets/pala.png"
   }
 ]

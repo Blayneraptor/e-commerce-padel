@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import accesorios from "../data/accesorios.json";
 import accesoriospadel from "../assets/accesoriospadel.png";
 import useInView from "../hooks/useInView";
@@ -33,6 +33,7 @@ const AnimateOnScroll = ({ children, animation = "fade-up", delay = 0, duration 
 };
 
 const Accesorios = () => {
+  const location = useLocation();
   // Estados para filtros y búsqueda
   const [filtroTipo, setFiltroTipo] = useState("Todos");
   const [ordenPrecio, setOrdenPrecio] = useState("desc");
@@ -51,6 +52,16 @@ const Accesorios = () => {
     }, 300);
     return () => clearTimeout(timer);
   }, []);
+
+  // Leer parámetro tipo de la URL y aplicar filtro
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tipoParam = params.get('tipo');
+    if (tipoParam) {
+      setFiltroTipo(tipoParam);
+      setPaginaActual(1);
+    }
+  }, [location.search]);
 
   // Filtra los accesorios según el tipo y la búsqueda
   const filtrarAccesorios = () => {
@@ -151,10 +162,10 @@ const Accesorios = () => {
                   <option value="Todos">Todos los tipos</option>
                   <option value="Pelotas">Pelotas</option>
                   <option value="Overgrip">Overgrip</option>
-                  <option value="Muñequeras">Muñequeras</option>
                   <option value="Bolsas">Bolsas</option>
                   <option value="Protector">Protector</option>
-                  <option value="Ropa">Ropa</option>
+                  <option value="Muñequeras">Muñequeras</option>
+                  <option value="Ropa">Camisetas</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
@@ -265,7 +276,7 @@ const Accesorios = () => {
                 >
                   <span className="sr-only">Anterior</span>
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293-3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"></path>
                   </svg>
                 </button>
                 

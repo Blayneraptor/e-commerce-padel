@@ -53,6 +53,16 @@ const ProductPage = () => {
     TODAS: todasImg,
   };
 
+  // Mapeo de categorías a parámetros tipo en la página de palas
+  const tipoMap = {
+    INICIACION: 'Principiante',
+    INTERMEDIO: 'Equilibrada',
+    AVANZADO: 'Ofensiva',
+    CONTROL: 'Defensiva',
+    POTENCIA: 'Ofensiva',
+    TODAS: null,
+  };
+
   // Mostrar solo 3 palas y 3 accesorios destacados
   const palasFeatured = palas.slice(0, 3);
   const accesoriosFeatured = accesorios.slice(0, 3);
@@ -105,7 +115,7 @@ const ProductPage = () => {
                 className="group flex flex-col items-center transition-transform transform hover:-translate-y-1 duration-300"
               >
                 <Link 
-                  to={`/palas-de-padel/${title.toLowerCase()}`}
+                  to={`/palas-de-padel${tipoMap[title] ? `?tipo=${tipoMap[title]}` : ''}`}
                 >
                   <div className="w-full aspect-square overflow-hidden rounded-full border-2 border-gray-200 shadow-md flex items-center justify-center bg-gray-100 group-hover:border-blue-500 group-hover:shadow-lg transition-all">
                     <div className="w-5/6 h-5/6 rounded-full overflow-hidden">
@@ -143,39 +153,21 @@ const ProductPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {palasFeatured.map((pala, index) => (
-              <AnimateOnScroll 
-                key={pala.id} 
-                animation="zoom-in" 
-                delay={index * 150}
-                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col"
-              >
-                <div className="relative overflow-hidden bg-white p-4 flex justify-center">
-                  <img
-                    src={pala.img}
-                    alt={pala.nombre}
-                    className="w-auto h-48 object-contain transform group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {pala.descuento && (
-                    <div className="absolute top-4 left-4 bg-red-600 text-white text-sm font-bold py-1 px-3 rounded-full">
-                      -{pala.descuento}%
-                    </div>
-                  )}
-                </div>
-                
-                <div className="p-5 flex flex-col flex-grow bg-gray-50">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-1">{pala.nombre}</h3>
-                  <p className="text-sm text-gray-500 mb-4">{pala.descripcion?.substring(0, 70)}...</p>
-                  
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xl font-bold text-gray-800">{pala.precio}€</span>
-                    <Link 
-                      to={`/palas-de-padel/${pala.id}`}
-                      className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors"
-                    >
-                      Ver detalles
-                    </Link>
+              <AnimateOnScroll key={pala.id} animation="zoom-in" delay={index * 150}>
+                <Link to={`/palas-de-padel/${pala.id}`} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col">
+                  <div className="relative overflow-hidden bg-white p-4 flex justify-center">
+                    <img src={pala.img} alt={pala.nombre} className="w-auto h-48 object-contain transition-transform duration-500 group-hover:scale-105" />
+                    {pala.descuento && <div className="absolute top-4 left-4 bg-red-600 text-white text-sm font-bold py-1 px-3 rounded-full">-{pala.descuento}%</div>}
                   </div>
-                </div>
+                  <div className="p-5 flex flex-col flex-grow bg-gray-50">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-1">{pala.nombre}</h3>
+                    <p className="text-sm text-gray-500 mb-4">{pala.descripcion?.substring(0, 70)}...</p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <span className="text-xl font-bold text-gray-800">{pala.precio}€</span>
+                      <span className="text-blue-600 text-sm font-medium">Ver detalles</span>
+                    </div>
+                  </div>
+                </Link>
               </AnimateOnScroll>
             ))}
           </div>
@@ -222,28 +214,19 @@ const ProductPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {accesoriosFeatured.map((accesorio, index) => (
-              <AnimateOnScroll 
-                key={accesorio.id} 
-                animation="fade-up" 
-                delay={index * 150}
-                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col"
-              >
-                <div className="h-48 overflow-hidden bg-white p-4 flex items-center justify-center">
-                  <img
-                    src={accesorio.img}
-                    alt={accesorio.nombre}
-                    className="w-auto h-40 object-contain hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-4 flex flex-col flex-grow bg-gray-50">
-                  <h3 className="text-base font-semibold text-gray-800 mb-2">{accesorio.nombre}</h3>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-lg font-bold text-gray-800">{accesorio.precio}€</span>
-                    <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium py-1 px-3 rounded transition-colors">
-                      Añadir
-                    </button>
+              <AnimateOnScroll key={accesorio.id} animation="fade-up" delay={index * 150}>
+                <Link to={`/accesorios/${accesorio.id}`} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col">
+                  <div className="h-48 overflow-hidden bg-white p-4 flex items-center justify-center">
+                    <img src={accesorio.img} alt={accesorio.nombre} className="w-auto h-40 object-contain transition-transform duration-300 group-hover:scale-105" />
                   </div>
-                </div>
+                  <div className="p-4 flex flex-col flex-grow bg-gray-50">
+                    <h3 className="text-base font-semibold text-gray-800 mb-2">{accesorio.nombre}</h3>
+                    <div className="flex items-center justify-between mt-2">
+                      <span className="text-lg font-bold text-gray-800">{accesorio.precio}€</span>
+                      <span className="text-blue-600 text-sm font-medium">Ver detalles</span>
+                    </div>
+                  </div>
+                </Link>
               </AnimateOnScroll>
             ))}
           </div>
