@@ -398,5 +398,165 @@
     "tipo": "Potencia",
     "precio": 400,
     "img": "/assets/pala.png"
+  },
+  {
+    "id": 51,
+    "nombre": "Babolat Air Viper",
+    "marca": "Babolat",
+    "tipo": "avanzado",
+    "precio": 325,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 52,
+    "nombre": "Head Graphene 360+ Alpha Pro",
+    "marca": "Head",
+    "tipo": "avanzado",
+    "precio": 360,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 53,
+    "nombre": "Bullpadel Hack CTRL 22",
+    "marca": "Bullpadel",
+    "tipo": "control",
+    "precio": 315,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 54,
+    "nombre": "Wilson Pro Staff Team",
+    "marca": "Wilson",
+    "tipo": "intermedio",
+    "precio": 245,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 55,
+    "nombre": "Nox AT10 Genius Ultra",
+    "marca": "Nox",
+    "tipo": "avanzado",
+    "precio": 395,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 56,
+    "nombre": "Siux Diablo V-Tech",
+    "marca": "Siux",
+    "tipo": "intermedio",
+    "precio": 305,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 57,
+    "nombre": "Adidas Metalbone Ctrl 2.0",
+    "marca": "Adidas",
+    "tipo": "control",
+    "precio": 350,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 58,
+    "nombre": "StarVie Raptor Pro",
+    "marca": "StarVie",
+    "tipo": "avanzado",
+    "precio": 335,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 59,
+    "nombre": "Black Crown Piton FTR",
+    "marca": "Black Crown",
+    "tipo": "potencia",
+    "precio": 295,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 60,
+    "nombre": "Dunlop Precision Pro",
+    "marca": "Dunlop",
+    "tipo": "intermedio",
+    "precio": 260,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 61,
+    "nombre": "Varlion LW Carbon 2023",
+    "marca": "Varlion",
+    "tipo": "control",
+    "precio": 345,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 62,
+    "nombre": "Babolat Technical Viper LTD",
+    "marca": "Babolat",
+    "tipo": "avanzado",
+    "precio": 345,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 63,
+    "nombre": "Head Power Motion",
+    "marca": "Head",
+    "tipo": "potencia",
+    "precio": 340,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 64,
+    "nombre": "Bullpadel Hurricane Metal",
+    "marca": "Bullpadel",
+    "tipo": "avanzado",
+    "precio": 380,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 65,
+    "nombre": "Wilson Ultra Team",
+    "marca": "Wilson",
+    "tipo": "intermedio",
+    "precio": 250,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 66,
+    "nombre": "Nox Luxury Genius Clincher",
+    "marca": "Nox",
+    "tipo": "control",
+    "precio": 370,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 67,
+    "nombre": "Siux Trilogy Premium",
+    "marca": "Siux",
+    "tipo": "intermedio",
+    "precio": 300,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 68,
+    "nombre": "Adidas AdiPower Attack",
+    "marca": "Adidas",
+    "tipo": "potencia",
+    "precio": 360,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 69,
+    "nombre": "StarVie Aquila Space",
+    "marca": "StarVie",
+    "tipo": "intermedio",
+    "precio": 325,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 70,
+    "nombre": "Black Crown Piton Luxe",
+    "marca": "Black Crown",
+    "tipo": "avanzado",
+    "precio": 315,
+    "img": "/assets/pala.png"
   }
 ]

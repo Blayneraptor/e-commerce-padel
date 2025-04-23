@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import palas from "../data/productos.json";
 import accesorios from "../data/accesorios.json";
 import iniciacionImg from "../assets/iniciacion.png";
@@ -13,6 +13,10 @@ import accesorioImg from "../assets/accesorios.png";
 import nox from "../assets/nox.png";
 import adidas from "../assets/adidas.png";
 import siux from "../assets/siux.png";
+import wilson from "../assets/wilson.png";
+import babolat from "../assets/babolat.png";
+import bullpadel from "../assets/bullpadel.png";
+import head from "../assets/head.png";
 import useInView from "../hooks/useInView";
 
 // Componente con animación al aparecer en el viewport
@@ -44,6 +48,8 @@ const AnimateOnScroll = ({ children, animation = "fade-up", delay = 0, duration 
 };
 
 const ProductPage = () => {
+  const navigate = useNavigate();
+
   const imageMapping = {
     INICIACION: iniciacionImg,
     INTERMEDIO: intermedioImg,
@@ -76,12 +82,12 @@ const ProductPage = () => {
           {Array(10)
             .fill(0)
             .flatMap((_, i) =>
-              [nox, adidas, siux].map((logo, j) => (
+              [nox, adidas, siux, babolat, bullpadel, head, wilson].map((logo, j) => (
                 <div key={`first-${i}-${j}`} className="flex-shrink-0 mx-6 opacity-80 hover:opacity-100 transition-opacity">
                   <img
                     src={logo}
                     alt="Logo"
-                    className="w-36 h-20 object-contain"
+                    className="w-22 h-20 object-contain"
                   />
                 </div>
               ))
@@ -182,6 +188,7 @@ const ProductPage = () => {
                 <p className="text-blue-100 mb-6">Descubre nuestra gama completa de accesorios para complementar tu equipo.</p>
                 <Link 
                   to="/accesorios" 
+                  onClick={e => { e.preventDefault(); navigate('/accesorios'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                   className="inline-block bg-white text-blue-600 font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors"
                 >
                   Explorar accesorios

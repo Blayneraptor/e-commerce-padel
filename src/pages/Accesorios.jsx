@@ -265,6 +265,7 @@ const Accesorios = () => {
             </div>
             
             {/* Paginación */}
+            
             <AnimateOnScroll animation="fade-up" className="mt-12 flex justify-center">
               <nav className="flex items-center space-x-1">
                 <button

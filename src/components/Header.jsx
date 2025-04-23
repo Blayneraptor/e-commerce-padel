@@ -172,13 +172,17 @@ function Header() {
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4">
                       <Link 
-                        to="/palas-de-padel" 
+                        to="/palas-de-padel"
+                        onClick={e => { e.preventDefault(); navigate('/palas-de-padel'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ 
                         className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300"
                       >
                         Ver palas
                       </Link>
                       <Link 
                         to="/accesorios" 
+                        onClick={e => { e.preventDefault(); navigate('/accesorios'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+
                         className="bg-transparent border border-white text-white font-medium py-2 px-6 rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-300"
                       >
                         Ver accesorios

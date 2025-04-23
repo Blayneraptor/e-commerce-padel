@@ -318,5 +318,245 @@
     "tipo": "Ropa",
     "precio": 29,
     "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 41,
+    "nombre": "Overgrip Wilson Soft Feel",
+    "marca": "Wilson",
+    "tipo": "Overgrip",
+    "precio": 9,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 42,
+    "nombre": "Overgrip Babolat Pro Touch",
+    "marca": "Babolat",
+    "tipo": "Overgrip",
+    "precio": 10,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 43,
+    "nombre": "Overgrip Bullpadel Soft Pro",
+    "marca": "Bullpadel",
+    "tipo": "Overgrip",
+    "precio": 9,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 44,
+    "nombre": "Overgrip Nox Supreme Grip",
+    "marca": "Nox",
+    "tipo": "Overgrip",
+    "precio": 11,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 45,
+    "nombre": "Overgrip Head Pro Soft",
+    "marca": "Head",
+    "tipo": "Overgrip",
+    "precio": 10,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 46,
+    "nombre": "Pelota Wilson Tour Extra Duty",
+    "marca": "Wilson",
+    "tipo": "Pelotas",
+    "precio": 20,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 47,
+    "nombre": "Pelota Babolat French Open",
+    "marca": "Babolat",
+    "tipo": "Pelotas",
+    "precio": 22,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 48,
+    "nombre": "Pelota Head Championship Xtra",
+    "marca": "Head",
+    "tipo": "Pelotas",
+    "precio": 19,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 49,
+    "nombre": "Pelota Dunlop Fort All Court",
+    "marca": "Dunlop",
+    "tipo": "Pelotas",
+    "precio": 21,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 50,
+    "nombre": "Pelota Siux Pro Tour",
+    "marca": "Siux",
+    "tipo": "Pelotas",
+    "precio": 23,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 51,
+    "nombre": "Pelota Nox Tour One",
+    "marca": "Nox",
+    "tipo": "Pelotas",
+    "precio": 20,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 52,
+    "nombre": "Bolsa Wilson Super Tour 15R",
+    "marca": "Wilson",
+    "tipo": "Bolsas",
+    "precio": 90,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 53,
+    "nombre": "Bolsa Babolat Pure Aero 12R",
+    "marca": "Babolat",
+    "tipo": "Bolsas",
+    "precio": 100,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 54,
+    "nombre": "Bolsa Head Core Elite 12R",
+    "marca": "Head",
+    "tipo": "Bolsas",
+    "precio": 85,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 55,
+    "nombre": "Bolsa Dunlop Apex Performance",
+    "marca": "Dunlop",
+    "tipo": "Bolsas",
+    "precio": 75,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 56,
+    "nombre": "Bolsa Siux Match Pro",
+    "marca": "Siux",
+    "tipo": "Bolsas",
+    "precio": 95,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 57,
+    "nombre": "Bolsa Nox Luxury Tour",
+    "marca": "Nox",
+    "tipo": "Bolsas",
+    "precio": 80,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 58,
+    "nombre": "Muñequera Wilson Pro Sweat",
+    "marca": "Wilson",
+    "tipo": "Muñequeras",
+    "precio": 13,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 59,
+    "nombre": "Muñequera Babolat Comfort",
+    "marca": "Babolat",
+    "tipo": "Muñequeras",
+    "precio": 14,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 60,
+    "nombre": "Muñequera Bullpadel Electro",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 15,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 61,
+    "nombre": "Muñequera Dunlop Pro Wristband",
+    "marca": "Dunlop",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 62,
+    "nombre": "Muñequera Head Pro Team",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 13,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 63,
+    "nombre": "Protector Bullpadel Carbon Pro",
+    "marca": "Bullpadel",
+    "tipo": "Protector",
+    "precio": 28,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 64,
+    "nombre": "Protector Head Scuff Protect",
+    "marca": "Head",
+    "tipo": "Protector",
+    "precio": 25,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 65,
+    "nombre": "Protector Babolat Guard Shield",
+    "marca": "Babolat",
+    "tipo": "Protector",
+    "precio": 27,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 66,
+    "nombre": "Protector Wilson Damage Control",
+    "marca": "Wilson",
+    "tipo": "Protector",
+    "precio": 26,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 67,
+    "nombre": "Camiseta Wilson Dry Fit",
+    "marca": "Wilson",
+    "tipo": "Ropa",
+    "precio": 32,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 68,
+    "nombre": "Camiseta Head Comfort Tech",
+    "marca": "Head",
+    "tipo": "Ropa",
+    "precio": 30,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 69,
+    "nombre": "Camiseta Babolat Core Tee",
+    "marca": "Babolat",
+    "tipo": "Ropa",
+    "precio": 28,
+    "img": "/assets/accesorios.png"
+  },
+  {
+    "id": 70,
+    "nombre": "Camiseta Nox Performance",
+    "marca": "Nox",
+    "tipo": "Ropa",
+    "precio": 29,
+    "img": "/assets/accesorios.png"
   }
 ]
