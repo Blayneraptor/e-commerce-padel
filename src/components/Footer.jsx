@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logopadel from '../assets/logopadel.svg';
+import avisoImg from '../assets/aviso.png';
+import cambiosImg from '../assets/cambios.png';
+import cookiesImg from '../assets/cookies.png';
+import enviosImg from '../assets/envios.png';
+import privacidadImg from '../assets/privacidad.png';
+import serviciosImg from '../assets/servicios.png';
+import transporteImg from '../assets/transporte.png';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -8,13 +15,13 @@ const Footer = () => {
 
   // Map modal types to illustrative images
   const modalImages = {
-    shipping: 'https://via.placeholder.com/80?text=Env&iacute;o',
-    legal: 'https://via.placeholder.com/80?text=Legal',
-    terms: 'https://via.placeholder.com/80?text=T&eacute;rminos',
-    privacy: 'https://via.placeholder.com/80?text=Privacidad',
-    cookies: 'https://via.placeholder.com/80?text=Cookies',
-    returns: 'https://via.placeholder.com/80?text=Devoluciones',
-    transport: 'https://via.placeholder.com/80?text=Pagos'
+    shipping: enviosImg,
+    legal: avisoImg,
+    terms: serviciosImg,
+    privacy: privacidadImg,
+    cookies: cookiesImg,
+    returns: cambiosImg,
+    transport: transporteImg
   };
 
   const modals = {
@@ -139,7 +146,7 @@ const Footer = () => {
           <div onClick={e => e.stopPropagation()} className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 transform transition-transform duration-200 scale-100">
             <h3 className="text-xl font-semibold mb-4 text-gray-800">{modals[modalType].title}</h3>
             {/* image for context */}
-            <img src={modalImages[modalType]} alt={modals[modalType].title} className="w-20 h-20 mx-auto mb-4" />
+            <img src={modalImages[modalType]} alt={modals[modalType].title} className="w-64 h-42 mx-auto mb-4" />
             <div className="text-gray-700 mb-6 text-sm">
               {modals[modalType].content}
             </div>
