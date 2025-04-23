@@ -17,6 +17,19 @@ const AboutUs = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [contactName, setContactName] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
+  const [contactMessage, setContactMessage] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const subject = `Contacto de ${contactName}`;
+    const body = `Nombre: ${contactName}\nEmail: ${contactEmail}\nMensaje: ${contactMessage}`;
+    window.location.href = `mailto:info@blaynepadel.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Banner con flecha animada */}
@@ -59,11 +72,27 @@ const AboutUs = () => {
       {/* Contenido principal con diseño mejorado */}
       <div 
         ref={contentRef} 
-        className="bg-gradient-to-b from-gray-50 to-white py-20 px-4"
+        className="bg-gradient-to-b from-gray-50 to-white py-12 px-4 sm:px-6 lg:px-8"
       >
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
+          {/* Sección de estadísticas */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center mb-12">
+            <div>
+              <h4 className="text-3xl font-bold text-blue-600">200+</h4>
+              <p className="text-gray-600">Productos</p>
+            </div>
+            <div>
+              <h4 className="text-3xl font-bold text-blue-600">1500+</h4>
+              <p className="text-gray-600">Clientes satisfechos</p>
+            </div>
+            <div>
+              <h4 className="text-3xl font-bold text-blue-600">20+</h4>
+              <p className="text-gray-600">Marcas aliadas</p>
+            </div>
+          </div>
+
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Blayne Padel</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Blayne Padel Shop</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
           </div>
           
@@ -128,12 +157,41 @@ const AboutUs = () => {
           <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-8 rounded-xl text-white text-center">
             <h3 className="text-2xl font-bold mb-4">¿Tienes alguna pregunta?</h3>
             <p className="mb-6">Estamos aquí para ayudarte. No dudes en ponerte en contacto con nosotros.</p>
-            <button className="bg-white text-blue-600 font-medium px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors duration-300">
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-white text-blue-600 font-medium px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors duration-300"
+            >
               Contáctanos
             </button>
           </div>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setIsModalOpen(false)}>
+          <div
+            className="bg-white rounded-xl w-11/12 max-w-md p-6 relative" onClick={e => e.stopPropagation()}
+          >
+            <button onClick={() => setIsModalOpen(false)} className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">&times;</button>
+            <h2 className="text-2xl font-semibold mb-4">Contáctanos</h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-gray-700">Nombre</label>
+                <input type="text" value={contactName} onChange={(e) => setContactName(e.target.value)} required className="w-full border border-gray-300 rounded px-3 py-2" />
+              </div>
+              <div>
+                <label className="block text-gray-700">Email</label>
+                <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} required className="w-full border border-gray-300 rounded px-3 py-2" />
+              </div>
+              <div>
+                <label className="block text-gray-700">Mensaje</label>
+                <textarea value={contactMessage} onChange={(e) => setContactMessage(e.target.value)} required rows="4" className="w-full border border-gray-300 rounded px-3 py-2" />
+              </div>
+              <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Enviar mensaje</button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
