@@ -10,6 +10,7 @@ import Accesorios from "./pages/Accesorios";
 import AccessorioDetail from "./pages/AccessorioDetail";
 import PadelDetail from "./pages/PadelDetail";
 import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import Cart from "./components/Cart";
 import CartProvider from "./contexts/CartContext";
 import Footer from "./components/Footer";
@@ -58,6 +59,7 @@ function Layout() {
                 <Route path="/accesorios" element={<Accesorios />} />
                 <Route path="/accesorios/:id" element={<AccessorioDetail />} />
                 <Route path="/carrito" element={<CartPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
               </Routes>
             </div>
           </CSSTransition>
