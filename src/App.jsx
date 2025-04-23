@@ -12,6 +12,7 @@ import PadelDetail from "./pages/PadelDetail";
 import CartPage from "./pages/CartPage";
 import Cart from "./components/Cart";
 import CartProvider from "./contexts/CartContext";
+import Footer from "./components/Footer";
 
 function Layout() {
   const location = useLocation();
@@ -42,37 +43,40 @@ function Layout() {
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
       <Cart />
-      <TransitionGroup>
-        <CSSTransition key={location.key} timeout={700} classNames="page" mountOnEnter unmountOnExit>
-          <div>
-            <Routes location={location}>
-              <Route path="/" element={<ProductPage />} />
-              <Route path="/sobre-nosotros" element={<AboutUs />} />
-              <Route path="/palas-de-padel" element={<PadelPage />} />
-              <Route path="/palas-de-padel/:id" element={<PadelDetail />} />
-              <Route path="/accesorios" element={<Accesorios />} />
-              <Route path="/accesorios/:id" element={<AccessorioDetail />} />
-              <Route path="/carrito" element={<CartPage />} />
-            </Routes>
+      <div className="flex-grow">
+        <TransitionGroup>
+          <CSSTransition key={location.key} timeout={700} classNames="page" mountOnEnter unmountOnExit>
+            <div>
+              <Routes location={location}>
+                <Route path="/" element={<ProductPage />} />
+                <Route path="/sobre-nosotros" element={<AboutUs />} />
+                <Route path="/palas-de-padel" element={<PadelPage />} />
+                <Route path="/palas-de-padel/:id" element={<PadelDetail />} />
+                <Route path="/accesorios" element={<Accesorios />} />
+                <Route path="/accesorios/:id" element={<AccessorioDetail />} />
+                <Route path="/carrito" element={<CartPage />} />
+              </Routes>
+            </div>
+          </CSSTransition>
+        </TransitionGroup>
+        {isMainPage && showSplash && (
+          <div
+            onTransitionEnd={handleTransitionEnd}
+            className={`fixed inset-0 flex items-center justify-center bg-white z-50 transition-opacity duration-700 ${
+              fadeOut ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <h1 className="text-center text-5xl font-bold tracking-tight text-gray-900 animate-smoothPulse">
+              PADEL SHOP EN DESARROLLO
+            </h1>
           </div>
-        </CSSTransition>
-      </TransitionGroup>
-      {isMainPage && showSplash && (
-        <div
-          onTransitionEnd={handleTransitionEnd}
-          className={`fixed inset-0 flex items-center justify-center bg-white z-50 transition-opacity duration-700 ${
-            fadeOut ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          <h1 className="text-center text-5xl font-bold tracking-tight text-gray-900 animate-smoothPulse">
-            PADEL SHOP EN DESARROLLO
-          </h1>
-        </div>
-      )}
-    </>
+        )}
+      </div>
+      <Footer />
+    </div>
   );
 }
 

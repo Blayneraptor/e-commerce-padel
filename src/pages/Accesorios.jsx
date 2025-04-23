@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import accesorios from "../data/accesorios.json";
 import accesoriospadel from "../assets/accesoriospadel.png";
+import flechaIcon from '../assets/flecha.png';
 import useInView from "../hooks/useInView";
 
 // Componente con animación al aparecer en el viewport
@@ -269,16 +270,14 @@ const Accesorios = () => {
                 <button
                   onClick={() => paginaActual > 1 && cambiarPagina(paginaActual - 1)}
                   disabled={paginaActual === 1}
-                  className={`px-3 py-1 rounded-md ${
-                    paginaActual === 1 
-                      ? 'text-gray-400 cursor-not-allowed' 
-                      : 'text-gray-700 hover:bg-gray-100'
+                  className={`p-2 rounded-full ${
+                    paginaActual === 1
+                      ? 'text-gray-400 cursor-not-allowed'
+                      : 'text-blue-600 hover:bg-blue-50 hover:text-blue-800'
                   }`}
                 >
                   <span className="sr-only">Anterior</span>
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293-3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-                  </svg>
+                  <img src={flechaIcon} alt="Anterior" className="h-4 w-4 transform -scale-x-100" />
                 </button>
                 
                 {[...Array(Math.min(3, totalPaginas))].map((_, i) => {
@@ -314,16 +313,14 @@ const Accesorios = () => {
                 <button
                   onClick={() => paginaActual < totalPaginas && cambiarPagina(paginaActual + 1)}
                   disabled={paginaActual === totalPaginas}
-                  className={`px-3 py-1 rounded-md ${
+                  className={`p-2 rounded-full ${
                     paginaActual === totalPaginas
                       ? 'text-gray-400 cursor-not-allowed'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      : 'text-blue-600 hover:bg-blue-50 hover:text-blue-800'
                   }`}
                 >
                   <span className="sr-only">Siguiente</span>
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4-4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-                  </svg>
+                  <img src={flechaIcon} alt="Siguiente" className="h-4 w-4" />
                 </button>
               </nav>
             </AnimateOnScroll>

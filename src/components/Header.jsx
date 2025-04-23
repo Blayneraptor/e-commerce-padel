@@ -71,7 +71,7 @@ function Header() {
     "Intermedio": "Equilibrada",
     "Avanzado": "Ofensiva",
     "Control": "Defensiva",
-    "Potencia": "Ofensiva",
+    "Potencia": "Potencia",
     "Marcas": null // no tipo filter for brands
   };
 
@@ -317,18 +317,18 @@ function Header() {
           
           <li className="text-gray-500 opacity-50">•</li>
           
-          {/* Menú de Accesorios con dropdown modernizado */}
+          {/* Menú de Accesorios with link scroll fix */}
           <li className="relative group">
-            <a
-              className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 group-hover:after:w-full after:transition-all after:duration-300"
-              href="/accesorios"
-              onClick={() => window.scrollTo(top-0, 0)}
+            <Link
+              to="/accesorios"
+              onClick={(e) => { e.preventDefault(); navigate('/accesorios'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300"
             >
               Accesorios
               <svg className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
               </svg>
-            </a>
+            </Link>
             {/* Dropdown modernizado con animaciones mejoradas */}
             <div className="absolute left-1/2 transform -translate-x-1/2 pt-5 w-[380px] opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 origin-top scale-95 group-hover:scale-100">
               <div className="bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg">

@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import productos from "../data/productos.json";
 import palaspadel from "../assets/palaspadel.png";
 import useInView from "../hooks/useInView";
+import flechaIcon from "../assets/flecha.png"; // import arrow icon
 
 // Componente con animación al aparecer en el viewport
 const AnimateOnScroll = ({ children, animation = "fade-up", delay = 0, duration = 800, className = "", ...props }) => {
@@ -44,7 +45,6 @@ const PadelPage = () => {
   const [bannerVisible, setBannerVisible] = useState(false);
   
   const productosPorPagina = 20;
-  const totalPaginas = Math.ceil(productos.length / productosPorPagina);
 
   // Lista de marcas únicas para el filtro de marcas
   const marcas = Array.from(new Set(productos.map(p => p.marca)));
@@ -94,6 +94,10 @@ const PadelPage = () => {
     
     return filtrados;
   };
+
+  // count filtered products and pages
+  const filteredCount = filtrarProductos().length;
+  const paginas = Math.ceil(filteredCount / productosPorPagina);
 
   // Actualizar productos visibles cuando cambian los filtros o la página
   useEffect(() => {
@@ -302,36 +306,33 @@ const PadelPage = () => {
             </div>
             
             {/* Paginación */}
+            {paginas > 1 && (
             <AnimateOnScroll animation="fade-up" className="mt-12 flex justify-center">
               <nav className="flex items-center space-x-1">
                 <button
                   onClick={() => paginaActual > 1 && cambiarPagina(paginaActual - 1)}
                   disabled={paginaActual === 1}
-                  className={`px-3 py-1 rounded-md ${
-                    paginaActual === 1 
-                      ? 'text-gray-400 cursor-not-allowed' 
-                      : 'text-gray-700 hover:bg-gray-100'
+                  className={`p-2 rounded-full ${
+                    paginaActual === 1
+                      ? 'text-gray-400 cursor-not-allowed'
+                      : 'text-blue-600 hover:bg-blue-50 hover:text-blue-800'
                   }`}
                 >
                   <span className="sr-only">Anterior</span>
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293-3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-                  </svg>
+                  <img src={flechaIcon} alt="" className="h-4 w-4 transform -scale-x-100" />
                 </button>
                 
-                {[...Array(Math.min(3, totalPaginas))].map((_, i) => {
-                  // Mostrar siempre 3 páginas o menos si hay menos de 3 páginas
+                {[...Array(Math.min(3, paginas))].map((_, i) => {
                   let pageNum;
                   if (paginaActual === 1) {
                     pageNum = i + 1;
-                  } else if (paginaActual === totalPaginas) {
-                    pageNum = totalPaginas - 2 + i;
+                  } else if (paginaActual === paginas) {
+                    pageNum = paginas - 2 + i;
                   } else {
                     pageNum = paginaActual - 1 + i;
                   }
                   
-                  // Asegurarse de que los números de página están dentro del rango
-                  if (pageNum > 0 && pageNum <= totalPaginas) {
+                  if (pageNum > 0 && pageNum <= paginas) {
                     return (
                       <button
                         key={pageNum}
@@ -350,21 +351,20 @@ const PadelPage = () => {
                 })}
                 
                 <button
-                  onClick={() => paginaActual < totalPaginas && cambiarPagina(paginaActual + 1)}
-                  disabled={paginaActual === totalPaginas}
-                  className={`px-3 py-1 rounded-md ${
-                    paginaActual === totalPaginas
+                  onClick={() => paginaActual < paginas && cambiarPagina(paginaActual + 1)}
+                  disabled={paginaActual === paginas}
+                  className={`p-2 rounded-full ${
+                    paginaActual === paginas
                       ? 'text-gray-400 cursor-not-allowed'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      : 'text-blue-600 hover:bg-blue-50 hover:text-blue-800'
                   }`}
                 >
                   <span className="sr-only">Siguiente</span>
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4-4a1 1 0 010-1.414l4-4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-                  </svg>
+                  <img src={flechaIcon} alt="" className="h-4 w-4" />
                 </button>
               </nav>
             </AnimateOnScroll>
+            )}
           </div>
         </div>
       </div>
