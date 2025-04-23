@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "../assets/logoblayne.svg";
+import logo from "../assets/logopadel.svg";
 import aboutusImg from "../assets/aboutus.png";
 import pala from "../assets/pala.png";
 import { useCart } from "../contexts/CartContext"; // Importamos el contexto del carrito

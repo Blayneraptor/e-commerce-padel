@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logopadel from '../assets/logopadel.svg';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -68,9 +69,18 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-gray-300 py-4">
-      <div className="container mx-auto px-8 py-4 grid grid-cols-1 md:grid-cols-5 gap-4">
+        
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-6 gap-20 px-16">
+        {/* New logo-only first column */}
+        <div className="flex items-center justify-center">
+          <img src={logopadel} alt="Logo Padel" className="h-62 w-62" />
+        </div>
         <div>
-          <h3 className="text-white text-lg font-semibold mb-2">Blayne Padel Shop</h3>
+            
+          <div className="flex items-center mb-2">
+            
+            <h3 className="text-white text-lg font-semibold">BLAYNE PADEL SHOP</h3>
+          </div>
           <p className="text-sm">Desde principiantes hasta profesionales confían en nuestra selección de palas y accesorios de alta calidad</p>
         </div>
         <div>
@@ -121,7 +131,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-700 mt-4 pt-2 pb-4 text-center text-xs">
+      <div className="border-t border-gray-700 mt-4 pt-2 pb-0 text-center text-xs">
         © {year} Jose P. Couso. Todos los derechos reservados.
       </div>
       {modalType && (
