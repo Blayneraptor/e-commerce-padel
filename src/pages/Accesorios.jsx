@@ -45,7 +45,6 @@ const Accesorios = () => {
   const [bannerVisible, setBannerVisible] = useState(false);
   
   const accesoriosPorPagina = 20;
-  const totalPaginas = Math.ceil(accesorios.length / accesoriosPorPagina);
 
   // Efecto para la animación del banner
   useEffect(() => {
@@ -83,6 +82,10 @@ const Accesorios = () => {
     
     return filtrados;
   };
+  
+  // Dynamic page count based on filtered results
+  const filteredCount = filtrarAccesorios().length;
+  const paginas = Math.ceil(filteredCount / accesoriosPorPagina);
 
   // Actualizar accesorios visibles cuando cambian los filtros o la página
   useEffect(() => {
@@ -171,7 +174,7 @@ const Accesorios = () => {
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0-1.414z" clipRule="evenodd"></path>
                   </svg>
                 </div>
               </div>
@@ -187,7 +190,7 @@ const Accesorios = () => {
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0-1.414z" clipRule="evenodd"></path>
                   </svg>
                 </div>
               </div>
@@ -265,7 +268,7 @@ const Accesorios = () => {
             </div>
             
             {/* Paginación */}
-            
+            {paginas > 1 && (
             <AnimateOnScroll animation="fade-up" className="mt-12 flex justify-center">
               <nav className="flex items-center space-x-1">
                 <button
@@ -281,19 +284,16 @@ const Accesorios = () => {
                   <img src={flechaIcon} alt="Anterior" className="h-4 w-4 transform -scale-x-100" />
                 </button>
                 
-                {[...Array(Math.min(3, totalPaginas))].map((_, i) => {
-                  // Mostrar siempre 3 páginas o menos si hay menos de 3 páginas
+                {[...Array(Math.min(3, paginas))].map((_, i) => {
                   let pageNum;
                   if (paginaActual === 1) {
                     pageNum = i + 1;
-                  } else if (paginaActual === totalPaginas) {
-                    pageNum = totalPaginas - 2 + i;
+                  } else if (paginaActual === paginas) {
+                    pageNum = paginas - 2 + i;
                   } else {
                     pageNum = paginaActual - 1 + i;
                   }
-                  
-                  // Asegurarse de que los números de página están dentro del rango
-                  if (pageNum > 0 && pageNum <= totalPaginas) {
+                  if (pageNum > 0 && pageNum <= paginas) {
                     return (
                       <button
                         key={pageNum}
@@ -310,12 +310,11 @@ const Accesorios = () => {
                   }
                   return null;
                 })}
-                
                 <button
-                  onClick={() => paginaActual < totalPaginas && cambiarPagina(paginaActual + 1)}
-                  disabled={paginaActual === totalPaginas}
+                  onClick={() => paginaActual < paginas && cambiarPagina(paginaActual + 1)}
+                  disabled={paginaActual === paginas}
                   className={`p-2 rounded-full ${
-                    paginaActual === totalPaginas
+                    paginaActual === paginas
                       ? 'text-gray-400 cursor-not-allowed'
                       : 'text-blue-600 hover:bg-blue-50 hover:text-blue-800'
                   }`}
@@ -325,6 +324,7 @@ const Accesorios = () => {
                 </button>
               </nav>
             </AnimateOnScroll>
+            )}
           </div>
         </div>
       </div>
