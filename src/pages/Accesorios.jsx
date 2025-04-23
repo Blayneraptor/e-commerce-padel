@@ -34,6 +34,7 @@ const AnimateOnScroll = ({ children, animation = "fade-up", delay = 0, duration 
 
 const Accesorios = () => {
   const location = useLocation();
+
   // Estados para filtros y búsqueda
   const [filtroTipo, setFiltroTipo] = useState("Todos");
   const [ordenPrecio, setOrdenPrecio] = useState("desc");

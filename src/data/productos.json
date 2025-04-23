@@ -318,5 +318,85 @@
     "tipo": "Defensiva",
     "precio": 270,
     "img": "/assets/pala.png"
+  },
+  {
+    "id": 41,
+    "nombre": "Adidas Power Shot",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 310,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 42,
+    "nombre": "Babolat Power Strike",
+    "marca": "Babolat",
+    "tipo": "Potencia",
+    "precio": 320,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 43,
+    "nombre": "Bullpadel Power Force",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 330,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 44,
+    "nombre": "Head Power Elite",
+    "marca": "Head",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 45,
+    "nombre": "Nox Power Genius",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 46,
+    "nombre": "Siux Power Revolution",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 360,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 47,
+    "nombre": "StarVie Power Warrior",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 370,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 48,
+    "nombre": "Wilson Power Pro",
+    "marca": "Wilson",
+    "tipo": "Potencia",
+    "precio": 380,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 49,
+    "nombre": "Dunlop Power Star",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 390,
+    "img": "/assets/pala.png"
+  },
+  {
+    "id": 50,
+    "nombre": "Black Crown Power King",
+    "marca": "Black Crown",
+    "tipo": "Potencia",
+    "precio": 400,
+    "img": "/assets/pala.png"
   }
 ]

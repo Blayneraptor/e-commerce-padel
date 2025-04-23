@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logoblayne.svg";
 import aboutusImg from "../assets/aboutus.png";
 import pala from "../assets/pala.png";
@@ -14,8 +14,11 @@ import potenciaImg from "../assets/potencia.png";
 import marcasImg from "../assets/potencia.png";
 import accesorioImg from "../assets/accesorios.png";
 
+import productos from "../data/productos.json";
+
 function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isAbout = location.pathname === "/sobre-nosotros";
   const isHome = location.pathname === "/";
   const [navVisible, setNavVisible] = useState(false);
@@ -80,6 +83,9 @@ function Header() {
     Muñequeras: 'Muñequeras',
     Camisetas: 'Ropa',
   };
+
+  // Lista de marcas únicas para submenu
+  const marcas = Array.from(new Set(productos.map(p => p.marca)));
 
   return (
     <header className={`relative ${isHome ? 'h-screen' : 'h-auto'} overflow-x-hidden`}>
@@ -236,8 +242,8 @@ function Header() {
           
           {/* Menú de Palas de padel con dropdown modernizado */}
           <li className="relative group">
-            <a 
-              className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 group-hover:after:w-full after:transition-all after:duration-300" 
+            <a
+              className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 group-hover:after:w-full after:transition-all after:duration-300"
               href="/palas-de-padel"
             >
               Palas de padel
@@ -257,13 +263,36 @@ function Header() {
                     { name: "Potencia", img: potenciaImg },
                     { name: "Marcas", img: marcasImg }
                   ].map((item, index) => (
-                    <li 
-                      key={item.name}
-                      className="group/item relative transition-transform duration-500 hover:-translate-y-1"
-                      style={{ animationDelay: `${index * 50}ms` }}
-                    >
-                      {/* Use Link and pass tipo query param if defined */}
-                      {tipoMap[item.name] ? (
+                    item.name === 'Marcas' ? (
+                      <li key={item.name} className="relative group transition-transform duration-500 hover:-translate-y-1" style={{ animationDelay: `${index * 50}ms` }}>
+                        <div className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                          <div className="relative">
+                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
+                              <img src={marcasImg} alt="Marcas" className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                            </div>
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300"></div>
+                          </div>
+                          <span className="font-medium text-gray-200 group-hover:text-white transition-colors duration-300">{item.name}</span>
+                          <svg className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                        <div className="absolute left-full top-32 transform -translate-y-1/2 ml-2 w-40 bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
+                          <ul className="space-y-2">
+                            {marcas.map((marca) => (
+                              <li key={marca} className="hover:translate-x-2 transition-transform duration-300">
+                                <Link to={`/palas-de-padel?marca=${encodeURIComponent(marca)}`} className="text-gray-200 hover:text-white block">{marca}</Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </li>
+                    ) : (
+                      <li 
+                        key={item.name}
+                        className="group/item relative transition-transform duration-500 hover:-translate-y-1"
+                        style={{ animationDelay: `${index * 50}ms` }}
+                      >
                         <Link to={`/palas-de-padel?tipo=${tipoMap[item.name]}`} className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300">
                           <div className="relative">
                             <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
@@ -277,22 +306,8 @@ function Header() {
                           </div>
                           <span className="font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{item.name}</span>
                         </Link>
-                      ) : (
-                        <a href={item.href} className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300">
-                          <div className="relative">
-                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
-                              <img 
-                                src={item.img} 
-                                alt={item.name} 
-                                className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110" 
-                              />
-                            </div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
-                          </div>
-                          <span className="font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{item.name}</span>
-                        </a>
-                      )}
-                    </li>
+                      </li>
+                    )
                   ))}
                 </ul>
               </div>
@@ -304,9 +319,10 @@ function Header() {
           
           {/* Menú de Accesorios con dropdown modernizado */}
           <li className="relative group">
-            <a 
-              className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 group-hover:after:w-full after:transition-all after:duration-300" 
+            <a
+              className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 group-hover:after:w-full after:transition-all after:duration-300"
               href="/accesorios"
+              onClick={() => window.scrollTo(top-0, 0)}
             >
               Accesorios
               <svg className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -318,9 +334,17 @@ function Header() {
               <div className="bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg">
                 <div className="grid grid-cols-3 gap-3">
                   {['Pelotas','Overgrip','Bolsas','Protector','Muñequeras','Camisetas'].map((name, index) => (
-                    <Link
+                    <button
                       key={name}
-                      to={`/accesorios?tipo=${tipoMapAcc[name]}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const query = `?tipo=${tipoMapAcc[name]}`;
+                        // Always navigate to filter, even if same, to ensure scroll handling
+                        navigate(`/accesorios${query}`);
+                        // Scroll to the products list
+                        const el = document.getElementById('productos-lista');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
                       className="group/item flex flex-col items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-300"
                     >
                       <div className="relative">
@@ -334,7 +358,7 @@ function Header() {
                         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500 to-teal-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
                       </div>
                       <span className="mt-1 text-sm font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">{name}</span>
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </div>

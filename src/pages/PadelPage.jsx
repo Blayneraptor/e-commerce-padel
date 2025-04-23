@@ -36,6 +36,7 @@ const PadelPage = () => {
   const location = useLocation();
   // Estados para filtros y búsqueda
   const [filtroTipo, setFiltroTipo] = useState("Todos");
+  const [filtroMarca, setFiltroMarca] = useState("Todos");
   const [ordenPrecio, setOrdenPrecio] = useState("desc");
   const [busqueda, setBusqueda] = useState("");
   const [paginaActual, setPaginaActual] = useState(1);
@@ -45,6 +46,9 @@ const PadelPage = () => {
   const productosPorPagina = 20;
   const totalPaginas = Math.ceil(productos.length / productosPorPagina);
 
+  // Lista de marcas únicas para el filtro de marcas
+  const marcas = Array.from(new Set(productos.map(p => p.marca)));
+
   // Efecto para la animación del banner
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -53,25 +57,34 @@ const PadelPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Leer parámetro tipo de la URL y aplicar filtro
+  // Leer parámetros tipo y marca de la URL y aplicar filtros
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const tipoParam = params.get('tipo');
-    if (tipoParam) {
-      setFiltroTipo(tipoParam);
-      setPaginaActual(1);
+    const marcaParam = params.get('marca');
+    setFiltroTipo(tipoParam || "Todos");
+    setFiltroMarca(marcaParam || "Todos");
+    setPaginaActual(1);
+  }, [location.search]);
+
+  // Hacer scroll suave al tope de la lista de productos al cambiar filtros (solo cuando hay query)
+  useEffect(() => {
+    if (location.search) {
+      const params = new URLSearchParams(location.search);
+      if (params.get('tipo') || params.get('marca')) {
+        const el = document.getElementById('productos-lista');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }, [location.search]);
 
-  // Filtra las palas según el tipo y la búsqueda
+  // Filtra las palas según el tipo, marca y la búsqueda
   const filtrarProductos = () => {
     let filtrados = productos.filter((producto) => {
-      const tipoCondicion =
-        filtroTipo === "Todos" || producto.tipo === filtroTipo;
-      const busquedaCondicion = producto.nombre
-        .toLowerCase()
-        .includes(busqueda.toLowerCase());
-      return tipoCondicion && busquedaCondicion;
+      const tipoCondicion = filtroTipo === "Todos" || producto.tipo === filtroTipo;
+      const marcaCondicion = filtroMarca === "Todos" || producto.marca === filtroMarca;
+      const busquedaCondicion = producto.nombre.toLowerCase().includes(busqueda.toLowerCase());
+      return tipoCondicion && marcaCondicion && busquedaCondicion;
     });
     
     // Ordena según el precio
@@ -88,7 +101,7 @@ const PadelPage = () => {
     const inicio = (paginaActual - 1) * productosPorPagina;
     const fin = inicio + productosPorPagina;
     setProductosVisibles(productosFiltered.slice(inicio, fin));
-  }, [filtroTipo, ordenPrecio, busqueda, paginaActual]);
+  }, [filtroTipo, filtroMarca, ordenPrecio, busqueda, paginaActual]);
 
   // Función para cambiar de página
   const cambiarPagina = (nuevaPagina) => {
@@ -164,6 +177,25 @@ const PadelPage = () => {
                   <option value="Equilibrada">Intermedio</option>
                   <option value="Ofensiva">Avanzado</option>
                   <option value="Defensiva">Control</option>
+                  <option value="Potencia">Potencia</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                  <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div className="relative">
+                <select
+                  value={filtroMarca}
+                  onChange={(e) => { setFiltroMarca(e.target.value); setPaginaActual(1); }}
+                  className="appearance-none bg-white pl-4 pr-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
+                >
+                  <option value="Todos">Todas las marcas</option>
+                  {marcas.map((marca) => (
+                    <option key={marca} value={marca}>{marca}</option>
+                  ))}
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
