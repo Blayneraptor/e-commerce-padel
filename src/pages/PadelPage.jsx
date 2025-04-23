@@ -117,7 +117,7 @@ const PadelPage = () => {
         <img 
           src={palaspadel} 
           alt="Palas de Pádel" 
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${bannerVisible ? 'opacity-100' : 'opacity-80'}`}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div 

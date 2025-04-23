@@ -24,7 +24,7 @@ const AboutUs = () => {
         <img 
           src={aboutusImg} 
           alt="Sobre Nosotros" 
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${bannerVisible ? 'opacity-100' : 'opacity-80'}`}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className={`text-center text-white transition-all duration-1000 transform ${bannerVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'}`}>
