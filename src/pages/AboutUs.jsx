@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import aboutusImg from "../assets/aboutus.png";
+import bgBolas from "../assets/bgbolas.png";
 
 const AboutUs = () => {
   const contentRef = useRef(null);
@@ -154,15 +155,26 @@ const AboutUs = () => {
             </p>
           </div>
           
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-8 rounded-xl text-white text-center">
-            <h3 className="text-2xl font-bold mb-4">¿Tienes alguna pregunta?</h3>
-            <p className="mb-6">Estamos aquí para ayudarte. No dudes en ponerte en contacto con nosotros.</p>
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="bg-white text-blue-600 font-medium px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors duration-300"
-            >
-              Contáctanos
-            </button>
+          {/* Contact section background updated to use bgbolas.png */}
+          <div className="relative p-8 rounded-xl text-white text-center overflow-hidden">
+            {/* Background image layer */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${bgBolas})` }}
+            />
+            {/* Overlay with transparency and blur */}
+            <div className="absolute inset-0 bg-black bg-opacity-20 backdrop-filter backdrop-blur-sm" />
+            {/* Content above layers */}
+            <div className="relative z-10">
+             <h3 className="text-2xl font-bold mb-4">¿Tienes alguna pregunta?</h3>
+             <p className="mb-6">Estamos aquí para ayudarte. No dudes en ponerte en contacto con nosotros.</p>
+             <button 
+               onClick={() => setIsModalOpen(true)}
+               className="bg-white text-blue-600 font-medium px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors duration-300"
+             >
+               Contáctanos
+             </button>
+            </div>
           </div>
         </div>
       </div>

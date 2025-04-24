@@ -2,13 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import logopadel from '../assets/logopadel.svg';
-import avisoImg from '../assets/aviso.png';
-import cambiosImg from '../assets/cambios.png';
-import cookiesImg from '../assets/cookies.png';
-import enviosImg from '../assets/envios.png';
-import privacidadImg from '../assets/privacidad.png';
-import serviciosImg from '../assets/servicios.png';
-import transporteImg from '../assets/transporte.png';
 
 const Footer = () => {
   const year = new Date().getFullYear();

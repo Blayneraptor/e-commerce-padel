@@ -21,6 +21,7 @@ import varlion from "../assets/varlion.png";
 import blackcrown from "../assets/blackcrown.png";
 import dunlop from "../assets/Dunlop.png";
 import starvie from "../assets/starvie.png";
+import bgAccesorios from '../assets/bgaccesorios.png';
 import useInView from "../hooks/useInView";
 
 // Componente con animación al aparecer en el viewport
@@ -189,7 +190,12 @@ const ProductPage = () => {
 
         {/* Banner promocional */}
         <AnimateOnScroll animation="fade-up" className="mb-16">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl overflow-hidden shadow-lg">
+          
+          <div
+            className="rounded-xl overflow-hidden shadow-lg bg-cover bg-center"
+            style={{ backgroundImage: `url(${bgAccesorios})`,}}
+          >
+            
             <div className="flex flex-col md:flex-row items-center">
               <div className="p-8 md:w-1/2">
                 <h2 className="text-3xl font-bold text-white mb-4">Equípate como un profesional</h2>
@@ -201,9 +207,6 @@ const ProductPage = () => {
                 >
                   Explorar accesorios
                 </Link>
-              </div>
-              <div className="md:w-1/2 p-4 flex justify-center">
-                <img src={accesorioImg} alt="Accesorios de pádel" className="w-auto h-64 object-contain" />
               </div>
             </div>
           </div>
