@@ -25,6 +25,9 @@ function Header() {
   const [welcomeVisible, setWelcomeVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState("login");
+  // Añadir estado para el menú móvil y submenús
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [submenuOpen, setSubmenuOpen] = useState({ palas: false, accesorios: false });
 
   // Obtener datos del carrito
   const { getCartItemCount, toggleCart } = useCart();
@@ -282,14 +285,10 @@ function Header() {
           </div>
         </a>
         <div className="lg:hidden">
-          <button className="navbar-burger flex items-center text-blue-600 p-3">
-            <svg
-              className="block h-4 w-4 fill-current"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Mobile menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="navbar-burger flex items-center text-white p-3">
+            {/* icono hamburguesa */}
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
@@ -557,6 +556,78 @@ function Header() {
           </button>
         </div>
       </nav>
+
+      {/* Menú móvil */}
+      <div className={`lg:hidden fixed inset-0 z-40 flex ${mobileMenuOpen ? '' : 'pointer-events-none'}`}>        
+        {/* Overlay */}
+        <div
+          className={`absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+        {/* Drawer panel */}
+        <div
+          className={`relative bg-white w-4/5 max-w-xs h-full p-6 overflow-y-auto transform transition-transform duration-300 ease-out ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        >
+          <button onClick={() => setMobileMenuOpen(false)} className="text-gray-800 mb-6">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <ul className="mt-4 space-y-4 text-gray-800">
+            <li>
+              <Link to="/" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="block text-lg">Inicio</Link>
+            </li>
+            <li>
+              <Link to="/sobre-nosotros" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="block text-lg">Sobre nosotros</Link>
+            </li>
+            <li>
+              <button onClick={() => setSubmenuOpen(prev => ({ ...prev, palas: !prev.palas }))} className="w-full flex justify-between items-center text-lg">
+                Palas de padel <span className={`transform transition-transform ${submenuOpen.palas ? 'rotate-180' : ''}`}>▼</span>
+              </button>
+              <div className={`${submenuOpen.palas ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} transition-all duration-300 overflow-hidden pl-4 mt-2 space-y-2`}>        
+                {Object.entries(tipoMap).filter(([label]) => label !== 'Marcas').map(([label, tipo]) => (
+                  <Link key={label} to={`/palas-de-padel${tipo ? `?tipo=${tipo}` : ''}`} onClick={() => setMobileMenuOpen(false)} className="block text-base hover:text-blue-600">
+                    {label}
+                  </Link>
+                ))}
+                <span className="block mt-2 font-semibold">Marcas:</span>
+                {marcas.map(marca => (
+                  <Link key={marca} to={`/palas-de-padel?marca=${encodeURIComponent(marca)}`} onClick={() => setMobileMenuOpen(false)} className="block pl-2 text-base hover:text-blue-600">
+                    {marca}
+                  </Link>
+                ))}
+              </div>
+            </li>
+            <li>
+              <button onClick={() => setSubmenuOpen(prev => ({ ...prev, accesorios: !prev.accesorios }))} className="w-full flex justify-between items-center text-lg">
+                Accesorios <span className={`transform transition-transform ${submenuOpen.accesorios ? 'rotate-180' : ''}`}>▼</span>
+              </button>
+              <div className={`${submenuOpen.accesorios ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} transition-all duration-300 overflow-hidden pl-4 mt-2 space-y-2`}>        
+                {Object.entries(tipoMapAcc).map(([label, tipo]) => (
+                  <button key={label} onClick={e => { e.preventDefault(); navigate(`/accesorios?tipo=${tipo}`); setMobileMenuOpen(false); }} className="block w-full text-left text-base hover:text-green-600">
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </li>
+            <li>
+              <Link to="/carrito" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="block text-lg">
+                Carrito {cartItemCount > 0 && <span className="ml-2 bg-blue-600 text-white rounded-full px-2 py-0.5 text-sm">{cartItemCount}</span>}
+              </Link>
+            </li>
+            <li>
+              <button onClick={() => { setModalMode('login'); setModalOpen(true); setMobileMenuOpen(false); }} className="block text-lg pt-4 border-t">
+                Accede
+              </button>
+            </li>
+            <li>
+              <button onClick={() => { setModalMode('register'); setModalOpen(true); setMobileMenuOpen(false); }} className="block text-lg">
+                Regístrate
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
   );
 }
