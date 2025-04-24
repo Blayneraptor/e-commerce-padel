@@ -77,21 +77,21 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-gray-300 py-4">
         
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-6 gap-20 px-16">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-20 px-4 md:px-16">
         {/* New logo-only first column */}
         <div className="flex items-center justify-center">
-          <img src={logopadel} alt="Logo Padel" className="h-62 w-62" />
+          <img src={logopadel} alt="Logo Padel" className="h-32 w-32 sm:h-12 sm:w-12 md:h-32 md:w-64" />
         </div>
         <div>
             
           <div className="flex items-center mb-2">
             
-            <h3 className="text-white text-lg font-semibold">BLAYNE PADEL SHOP</h3>
+            <h3 className="text-white text-base sm:text-lg font-semibold">BLAYNE PADEL SHOP</h3>
           </div>
-          <p className="text-sm">Desde principiantes hasta profesionales confían en nuestra selección de palas y accesorios de alta calidad</p>
+          <p className="text-xs sm:text-sm">Desde principiantes hasta profesionales confían en nuestra selección de palas y accesorios de alta calidad</p>
         </div>
         <div>
-          <h4 className="text-white font-medium mb-2">Enlaces</h4>
+          <h4 className="text-white text-base sm:text-lg font-medium mb-2">Enlaces</h4>
           <ul className="space-y-1 text-sm">
             <li><Link to="/" onClick={() => window.scrollTo({top:0,behavior:'smooth'})} className="hover:text-white">Inicio</Link></li>
             <li><Link to="/palas-de-padel" onClick={() => window.scrollTo({top:0,behavior:'smooth'})} className="hover:text-white">Palas de Pádel</Link></li>
@@ -100,7 +100,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h4 className="text-white font-medium mb-2">Información</h4>
+          <h4 className="text-white text-base sm:text-lg font-medium mb-2">Información</h4>
           <ul className="space-y-1 text-sm">
             {Object.keys(modals).map(key => (
               <li key={key}>
@@ -110,14 +110,14 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h4 className="text-white font-medium mb-2">Soporte</h4>
+          <h4 className="text-white text-base sm:text-lg font-medium mb-2">Soporte</h4>
           <ul className="space-y-1 text-sm">
             <li><a href="mailto:info@blaynepadel.com" className="hover:text-white">info@blaynepadel.com</a></li>
             <li><a href="tel:+34123456789" className="hover:text-white">+34 123 456 789</a></li>
           </ul>
         </div>
         <div>
-          <h4 className="text-white font-medium mb-2">Síguenos</h4>
+          <h4 className="text-white text-base sm:text-lg font-medium mb-2">Síguenos</h4>
           <div className="flex space-x-3">
             <a href="#" className="hover:text-white" aria-label="Instagram">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

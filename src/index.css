@@ -97,3 +97,8 @@ html {
 .animate-scroll-right {
   animation: scrollRight 30s linear infinite alternate;
 }
+@media (max-width: 640px) {
+  .animate-scroll-right {
+    animation-duration: 15s; /* más rápida en móvil */
+  }
+}

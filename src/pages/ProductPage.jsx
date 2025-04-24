@@ -17,6 +17,10 @@ import wilson from "../assets/wilson.png";
 import babolat from "../assets/babolat.png";
 import bullpadel from "../assets/bullpadel.png";
 import head from "../assets/head.png";
+import varlion from "../assets/varlion.png";
+import blackcrown from "../assets/blackcrown.png";
+import dunlop from "../assets/Dunlop.png";
+import starvie from "../assets/starvie.png";
 import useInView from "../hooks/useInView";
 
 // Componente con animación al aparecer en el viewport
@@ -75,25 +79,29 @@ const ProductPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      {/* Carrusel de marcas a ancho completo */}
-      <AnimateOnScroll animation="fade-up" duration={1000} className="w-full overflow-hidden relative z-20 py-8 bg-white border-y border-gray-200 mt-screen">
-        <h2 className="text-xl font-semibold text-center text-gray-700 mb-6">Nuestras marcas</h2>
-        <div className="flex animate-scroll-right">
-          {Array(10)
-            .fill(0)
-            .flatMap((_, i) =>
-              [nox, adidas, siux, babolat, bullpadel, head, wilson].map((logo, j) => (
-                <div key={`first-${i}-${j}`} className="flex-shrink-0 mx-6 opacity-80 hover:opacity-100 transition-opacity">
-                  <img
-                    src={logo}
-                    alt="Logo"
-                    className="w-22 h-20 object-contain"
-                  />
-                </div>
-              ))
-            )}
-        </div>
-      </AnimateOnScroll>
+     {/* Carrusel de marcas a ancho completo */}
+<AnimateOnScroll
+  animation="fade-up"
+  duration={1000}
+  className="w-full overflow-hidden relative z-20 py-8 bg-white border-y border-gray-200 mt-screen"
+>
+  <h2 className="text-xl font-semibold text-center text-gray-700 mb-6">Nuestras marcas</h2>
+  
+  <div className="flex w-max animate-scroll-right">
+    {[
+      nox, adidas, siux, babolat, bullpadel, head, wilson, varlion, blackcrown, dunlop, starvie,
+      nox, adidas, siux, babolat, bullpadel, head, wilson, varlion, blackcrown, dunlop, starvie
+    ].map((logo, index) => (
+      <div
+        key={index}
+        className="flex-shrink-0 mx-6 opacity-80 hover:opacity-100 transition-opacity w-32 h-24"
+      >
+        <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+      </div>
+    ))}
+  </div>
+</AnimateOnScroll>
+
 
       {/* Contenedor principal */}
       <div className="container mx-auto p-4 md:p-6 flex-grow">
