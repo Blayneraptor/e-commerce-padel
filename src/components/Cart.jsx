@@ -153,12 +153,17 @@ const Cart = () => {
                     </Link>
                   ) : (
                     <Link
-                      to="/carrito"
-                      className="w-full bg-blue-600 border border-transparent rounded-md py-2 px-4 text-center text-white font-medium hover:bg-blue-700"
-                      onClick={toggleCart}
-                    >
-                      Proceder al pago
-                    </Link>
+  to="/carrito"
+  className="w-full bg-blue-600 border border-transparent rounded-md py-2 px-4 text-center text-white font-medium hover:bg-blue-700"
+  onClick={() => {
+    toggleCart();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }}
+>
+  Proceder al pago
+</Link>
+
+                    
                   )}
                   <button
                     onClick={clearCart}
