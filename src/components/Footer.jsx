@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import logopadel from '../assets/logopadel.svg';
 import avisoImg from '../assets/aviso.png';
 import cambiosImg from '../assets/cambios.png';
@@ -11,68 +12,6 @@ import transporteImg from '../assets/transporte.png';
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const [modalType, setModalType] = useState(null);
-
-  // Map modal types to illustrative images
-  const modalImages = {
-    shipping: enviosImg,
-    legal: avisoImg,
-    terms: serviciosImg,
-    privacy: privacidadImg,
-    cookies: cookiesImg,
-    returns: cambiosImg,
-    transport: transporteImg
-  };
-
-  const modals = {
-    shipping: {
-      title: 'Política de Envíos',
-      content: (
-        <>
-          <p>Envío estándar (24-48h): 5€</p>
-          <p>Envío exprés (24h): 8€</p>
-          <p>Envío gratuito en compras superiores a 100€.</p>
-          <p>Procesamos pedidos de L-V. Plazos pueden ampliarse en zonas remotas.</p>
-        </>
-      )
-    },
-    legal: {
-      title: 'Aviso Legal',
-      content: (
-        <p>Este sitio web es propiedad de Jose P. Couso. La información aquí contenida es meramente informativa y no compromete legalmente a la empresa.</p>
-      )
-    },
-    terms: {
-      title: 'Términos del Servicio',
-      content: (
-        <p>Al utilizar este sitio acepta nuestros términos. Nos reservamos el derecho de modificar precios, productos y condiciones sin previo aviso.</p>
-      )
-    },
-    privacy: {
-      title: 'Política de Privacidad',
-      content: (
-        <p>Respetamos tu privacidad. No compartimos datos personales con terceros. Consulta nuestra documentación para más detalles.</p>
-      )
-    },
-    cookies: {
-      title: 'Política de Cookies',
-      content: (
-        <p>Usamos cookies para mejorar la experiencia. Puedes gestionar su uso desde la configuración de tu navegador.</p>
-      )
-    },
-    returns: {
-      title: 'Cambios y Devoluciones',
-      content: (
-        <p>Aceptamos devoluciones en 14 días. Los gastos de envío de devolución corren por cuenta del cliente, salvo defecto de fábrica.</p>
-      )
-    },
-    transport: {
-      title: 'Transporte y Pagos',
-      content: (
-        <p>Aceptamos tarjetas, PayPal y transferencias. Elige opción al finalizar compra. Garantizamos envíos seguros y seguimiento en tiempo real.</p>
-      )
-    }
-  };
 
   return (
     <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-gray-300 py-4">
@@ -102,11 +41,13 @@ const Footer = () => {
         <div>
           <h4 className="text-white text-base sm:text-lg font-medium mb-2">Información</h4>
           <ul className="space-y-1 text-sm">
-            {Object.keys(modals).map(key => (
-              <li key={key}>
-                <button onClick={() => setModalType(key)} className="hover:text-white focus:outline-none transition-colors duration-200">{modals[key].title}</button>
-              </li>
-            ))}
+            <li><HashLink smooth to="/politicas#shipping" scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="hover:text-white">Política de Envíos</HashLink></li>
+            <li><HashLink smooth to="/politicas#legal" scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="hover:text-white">Aviso Legal</HashLink></li>
+            <li><HashLink smooth to="/politicas#terms" scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="hover:text-white">Términos del Servicio</HashLink></li>
+            <li><HashLink smooth to="/politicas#privacy" scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="hover:text-white">Política de Privacidad</HashLink></li>
+            <li><HashLink smooth to="/politicas#cookies" scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="hover:text-white">Política de Cookies</HashLink></li>
+            <li><HashLink smooth to="/politicas#returns" scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="hover:text-white">Cambios y Devoluciones</HashLink></li>
+            <li><HashLink smooth to="/politicas#transport" scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'center' })} className="hover:text-white">Transporte y Pagos</HashLink></li>
           </ul>
         </div>
         <div>
@@ -141,23 +82,6 @@ const Footer = () => {
       <div className="border-t border-gray-700 mt-4 pt-2 pb-0 text-center text-xs">
         © {year} Jose P. Couso. Todos los derechos reservados.
       </div>
-      {modalType && (
-        <div onClick={() => setModalType(null)} className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300">
-          <div onClick={e => e.stopPropagation()} className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 transform transition-transform duration-200 scale-100">
-            <h3 className="text-xl font-semibold mb-4 text-gray-800">{modals[modalType].title}</h3>
-            {/* image for context */}
-            <img src={modalImages[modalType]} alt={modals[modalType].title} className="w-64 h-42 mx-auto mb-4" />
-            <div className="text-gray-700 mb-6 text-sm">
-              {modals[modalType].content}
-            </div>
-            <div className="text-right">
-              <button onClick={() => setModalType(null)} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 transition-colors">
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </footer>
   );
 };

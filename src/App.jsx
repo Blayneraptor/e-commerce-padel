@@ -14,6 +14,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import Cart from "./components/Cart";
 import CartProvider from "./contexts/CartContext";
 import Footer from "./components/Footer";
+import PoliciesPage from "./pages/PoliciesPage";
 
 function Layout() {
   const location = useLocation();
@@ -60,6 +61,7 @@ function Layout() {
                 <Route path="/accesorios/:id" element={<AccessorioDetail />} />
                 <Route path="/carrito" element={<CartPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/politicas" element={<PoliciesPage />} />
               </Routes>
             </div>
           </CSSTransition>
