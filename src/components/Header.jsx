@@ -27,7 +27,10 @@ function Header() {
   const [modalMode, setModalMode] = useState("login");
   // Añadir estado para el menú móvil y submenús
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState({ palas: false, accesorios: false });
+  const [submenuOpen, setSubmenuOpen] = useState({
+    palas: false,
+    accesorios: false,
+  });
 
   // Obtener datos del carrito
   const { getCartItemCount, toggleCart } = useCart();
@@ -190,13 +193,12 @@ function Header() {
         >
           <div className="relative w-full h-full">
             <iframe
-               className="block scale-[2] sm:scale-[1.5] -translate-y-36 sm:translate-y-0"
-
-               style={{
-                 width: "100vw",
-                 height: "100vh",
-                 transformOrigin: "50% 50%",
-               }}
+              className="block scale-[2] sm:scale-[1.5] -translate-y-36 sm:translate-y-0"
+              style={{
+                width: "100vw",
+                height: "100vh",
+                transformOrigin: "50% 50%",
+              }}
               src="https://www.youtube.com/embed/YpaKFnYQ0Y4?start=0&end=32&loop=1&playlist=YpaKFnYQ0Y4&autoplay=1&disablekb=1&controls=0&modestbranding=1&loop=1&playlist=YpaKFnYQ0Y4&fs=0&enablejsapi=1&start=0&end=50&mute=1&showinfo=0&rel=0&playsinline=1&vq=hd2160&hd=1&iv_load_policy=3&high_quality=1"
               title="Smash Padel  - Cinematic Video"
               frameBorder="0"
@@ -285,38 +287,67 @@ function Header() {
           </div>
         </a>
         <div className="lg:hidden">
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="navbar-burger flex items-center text-white p-3">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="navbar-burger flex items-center text-white p-3"
+          >
             {/* icono hamburguesa */}
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>
         <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-8">
           <li>
-            <a
+            <Link
+              to="/"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="text-sm text-gray-200 hover:text-white font-bold relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300"
-              href="/"
             >
               Inicio
-            </a>
+            </Link>
           </li>
+
           <li className="text-gray-500 opacity-50">•</li>
           <li>
-            <a
+            <Link
+              to="/sobre-nosotros"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/sobre-nosotros");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="text-sm text-gray-200 hover:text-white font-bold relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300"
-              href="/sobre-nosotros"
             >
               Sobre nosotros
-            </a>
+            </Link>
           </li>
           <li className="text-gray-500 opacity-50">•</li>
 
           {/* Menú de Palas de padel con dropdown modernizado */}
           <li className="relative group">
-            <a
+            <Link
+              to="/palas-de-padel"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/palas-de-padel");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="text-sm text-gray-200 hover:text-white font-bold flex items-center relative after:absolute after:bottom-[-5px] after:left-0 after:bg-white after:h-0.5 after:w-0 group-hover:after:w-full after:transition-all after:duration-300"
-              href="/palas-de-padel"
             >
               Palas de padel
               <svg
@@ -332,7 +363,8 @@ function Header() {
                   d="M19 9l-7 7-7-7"
                 ></path>
               </svg>
-            </a>
+            </Link>
+
             {/* Dropdown modernizado con animaciones mejoradas */}
             <div className="absolute left-1/2 transform -translate-x-1/2 pt-5 w-auto opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 origin-top scale-95 group-hover:scale-100">
               <div className="bg-gradient-to-br from-gray-900 to-black p-2 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg">
@@ -558,70 +590,194 @@ function Header() {
       </nav>
 
       {/* Menú móvil */}
-      <div className={`lg:hidden fixed inset-0 z-40 flex ${mobileMenuOpen ? '' : 'pointer-events-none'}`}>        
+      <div
+        className={`lg:hidden fixed inset-0 z-40 flex ${
+          mobileMenuOpen ? "" : "pointer-events-none"
+        }`}
+      >
         {/* Overlay */}
         <div
-          className={`absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
+            mobileMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
           onClick={() => setMobileMenuOpen(false)}
         />
         {/* Drawer panel */}
         <div
-          className={`relative bg-white w-4/5 max-w-xs h-full p-6 overflow-y-auto transform transition-transform duration-300 ease-out ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+          className={`relative bg-white w-4/5 max-w-xs h-full p-6 overflow-y-auto transform transition-transform duration-300 ease-out ${
+            mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         >
-          <button onClick={() => setMobileMenuOpen(false)} className="text-gray-800 mb-6">
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-gray-800 mb-6"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
           <ul className="mt-4 space-y-4 text-gray-800">
             <li>
-              <Link to="/" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="block text-lg">Inicio</Link>
+              <Link
+                to="/"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="block text-lg"
+              >
+                Inicio
+              </Link>
             </li>
             <li>
-              <Link to="/sobre-nosotros" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="block text-lg">Sobre nosotros</Link>
+              <Link
+                to="/sobre-nosotros"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="block text-lg"
+              >
+                Sobre nosotros
+              </Link>
             </li>
             <li>
-              <button onClick={() => setSubmenuOpen(prev => ({ ...prev, palas: !prev.palas }))} className="w-full flex justify-between items-center text-lg">
-                Palas de padel <span className={`transform transition-transform ${submenuOpen.palas ? 'rotate-180' : ''}`}>▼</span>
+              <button
+                onClick={() =>
+                  setSubmenuOpen((prev) => ({ ...prev, palas: !prev.palas }))
+                }
+                className="w-full flex justify-between items-center text-lg"
+              >
+                Palas de padel{" "}
+                <span
+                  className={`transform transition-transform ${
+                    submenuOpen.palas ? "rotate-180" : ""
+                  }`}
+                >
+                  ▼
+                </span>
               </button>
-              <div className={`${submenuOpen.palas ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} transition-all duration-300 overflow-hidden pl-4 mt-2 space-y-2`}>        
-                {Object.entries(tipoMap).filter(([label]) => label !== 'Marcas').map(([label, tipo]) => (
-                  <Link key={label} to={`/palas-de-padel${tipo ? `?tipo=${tipo}` : ''}`} onClick={() => setMobileMenuOpen(false)} className="block text-base hover:text-blue-600">
-                    {label}
-                  </Link>
-                ))}
+              <div
+                className={`${
+                  submenuOpen.palas
+                    ? "max-h-screen opacity-100"
+                    : "max-h-0 opacity-0"
+                } transition-all duration-300 overflow-hidden pl-4 mt-2 space-y-2`}
+              >
+                {Object.entries(tipoMap)
+                  .filter(([label]) => label !== "Marcas")
+                  .map(([label, tipo]) => (
+                    <Link
+                      key={label}
+                      to={`/palas-de-padel${tipo ? `?tipo=${tipo}` : ""}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block text-base hover:text-blue-600"
+                    >
+                      {label}
+                    </Link>
+                  ))}
                 <span className="block mt-2 font-semibold">Marcas:</span>
-                {marcas.map(marca => (
-                  <Link key={marca} to={`/palas-de-padel?marca=${encodeURIComponent(marca)}`} onClick={() => setMobileMenuOpen(false)} className="block pl-2 text-base hover:text-blue-600">
+                {marcas.map((marca) => (
+                  <Link
+                    key={marca}
+                    to={`/palas-de-padel?marca=${encodeURIComponent(marca)}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block pl-2 text-base hover:text-blue-600"
+                  >
                     {marca}
                   </Link>
                 ))}
               </div>
             </li>
             <li>
-              <button onClick={() => setSubmenuOpen(prev => ({ ...prev, accesorios: !prev.accesorios }))} className="w-full flex justify-between items-center text-lg">
-                Accesorios <span className={`transform transition-transform ${submenuOpen.accesorios ? 'rotate-180' : ''}`}>▼</span>
+              <button
+                onClick={() =>
+                  setSubmenuOpen((prev) => ({
+                    ...prev,
+                    accesorios: !prev.accesorios,
+                  }))
+                }
+                className="w-full flex justify-between items-center text-lg"
+              >
+                Accesorios{" "}
+                <span
+                  className={`transform transition-transform ${
+                    submenuOpen.accesorios ? "rotate-180" : ""
+                  }`}
+                >
+                  ▼
+                </span>
               </button>
-              <div className={`${submenuOpen.accesorios ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} transition-all duration-300 overflow-hidden pl-4 mt-2 space-y-2`}>        
+              <div
+                className={`${
+                  submenuOpen.accesorios
+                    ? "max-h-screen opacity-100"
+                    : "max-h-0 opacity-0"
+                } transition-all duration-300 overflow-hidden pl-4 mt-2 space-y-2`}
+              >
                 {Object.entries(tipoMapAcc).map(([label, tipo]) => (
-                  <button key={label} onClick={e => { e.preventDefault(); navigate(`/accesorios?tipo=${tipo}`); setMobileMenuOpen(false); }} className="block w-full text-left text-base hover:text-green-600">
+                  <button
+                    key={label}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`/accesorios?tipo=${tipo}`);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="block w-full text-left text-base hover:text-green-600"
+                  >
                     {label}
                   </button>
                 ))}
               </div>
             </li>
             <li>
-              <Link to="/carrito" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="block text-lg">
-                Carrito {cartItemCount > 0 && <span className="ml-2 bg-blue-600 text-white rounded-full px-2 py-0.5 text-sm">{cartItemCount}</span>}
+              <Link
+                to="/carrito"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="block text-lg"
+              >
+                Carrito{" "}
+                {cartItemCount > 0 && (
+                  <span className="ml-2 bg-blue-600 text-white rounded-full px-2 py-0.5 text-sm">
+                    {cartItemCount}
+                  </span>
+                )}
               </Link>
             </li>
             <li>
-              <button onClick={() => { setModalMode('login'); setModalOpen(true); setMobileMenuOpen(false); }} className="block text-lg pt-4 border-t">
+              <button
+                onClick={() => {
+                  setModalMode("login");
+                  setModalOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="block text-lg pt-4 border-t"
+              >
                 Accede
               </button>
             </li>
             <li>
-              <button onClick={() => { setModalMode('register'); setModalOpen(true); setMobileMenuOpen(false); }} className="block text-lg">
+              <button
+                onClick={() => {
+                  setModalMode("register");
+                  setModalOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="block text-lg"
+              >
                 Regístrate
               </button>
             </li>
