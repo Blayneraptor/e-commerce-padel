@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCart } from '../contexts/CartContext';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -14,6 +14,13 @@ const Cart = () => {
     toggleCart 
   } = useCart();
 
+  // detect mobile view
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
   return (
     <AnimatePresence>
       {isCartOpen && (
@@ -136,13 +143,23 @@ const Cart = () => {
                   <p>{getCartSubtotal().toFixed(2)} €</p>
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <Link
-                    to="/checkout"
-                    className="w-full bg-blue-600 border border-transparent rounded-md py-2 px-4 text-center text-white font-medium hover:bg-blue-700"
-                    onClick={toggleCart}
-                  >
-                    Proceder al pago
-                  </Link>
+                  {isMobile ? (
+                    <Link
+                      to="/checkout"
+                      className="w-full bg-blue-600 border border-transparent rounded-md py-2 px-4 text-center text-white font-medium hover:bg-blue-700"
+                      onClick={toggleCart}
+                    >
+                      Proceder al pago
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/carrito"
+                      className="w-full bg-blue-600 border border-transparent rounded-md py-2 px-4 text-center text-white font-medium hover:bg-blue-700"
+                      onClick={toggleCart}
+                    >
+                      Proceder al pago
+                    </Link>
+                  )}
                   <button
                     onClick={clearCart}
                     className="w-full bg-white border border-gray-300 rounded-md py-2 px-4 text-center text-gray-700 font-medium hover:bg-gray-50"

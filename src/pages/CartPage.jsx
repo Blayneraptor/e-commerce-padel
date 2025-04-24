@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
 import { motion } from 'framer-motion';
+import pagosImg from '../assets/pagos.png';
 
 const CartPage = () => {
   const { 
@@ -293,6 +294,7 @@ const CartPage = () => {
                 >
                   <Link 
                     to="/checkout" 
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="block w-full bg-blue-600 py-3 px-4 rounded-lg text-white font-medium text-center shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:shadow-xl"
                   >
                     Proceder al pago
@@ -302,11 +304,8 @@ const CartPage = () => {
                 {/* Métodos de pago */}
                 <div className="mt-6">
                   <p className="text-sm text-gray-500 text-center mb-3">Aceptamos los siguientes métodos de pago</p>
-                  <div className="flex justify-center space-x-4">
-                    <div className="w-10 h-6 bg-gray-200 rounded"></div>
-                    <div className="w-10 h-6 bg-gray-200 rounded"></div>
-                    <div className="w-10 h-6 bg-gray-200 rounded"></div>
-                    <div className="w-10 h-6 bg-gray-200 rounded"></div>
+                  <div className="flex justify-center">
+                    <img src={pagosImg} alt="Métodos de pago" className="h-12 object-contain" />
                   </div>
                 </div>
                 
