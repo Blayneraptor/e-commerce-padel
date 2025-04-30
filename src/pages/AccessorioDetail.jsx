@@ -53,7 +53,15 @@ const AccessorioDetail = () => {
     const foundAccesorio = accesorios.find(a => a.id.toString() === id);
     
     if (foundAccesorio) {
-      setAccesorio(foundAccesorio);
+      // Determinar si el producto está en stock basado en el ID (para que sea consistente)
+      // 80% en stock, 20% agotados
+      const isInStock = foundAccesorio.id % 5 !== 0; // Cada 5to producto estará agotado (20%)
+      const stockQty = isInStock ? Math.floor(Math.random() * 20) + 1 : 0; // Entre 1-20 unidades para productos en stock
+      
+      setAccesorio({
+        ...foundAccesorio,
+        stock: stockQty
+      });
       
       const related = accesorios
         .filter(a => a.id !== foundAccesorio.id && a.tipo === foundAccesorio.tipo)
@@ -203,6 +211,18 @@ const AccessorioDetail = () => {
 
                   <span className="text-sm font-medium text-gray-700">IVA incluido</span>
 
+                  <div className="mt-1 flex items-center">
+                    <div className={`w-3 h-3 rounded-full ${accesorio.stock > 0 ? 'bg-green-500' : 'bg-red-500'} mr-2`}></div>
+                    <span className={`text-sm ${accesorio.stock > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                      {accesorio.stock > 0 ? 'En stock' : 'Agotado temporalmente'}
+                    </span>
+                    {accesorio.stock > 0 && (
+                      <span className="ml-2 text-sm text-gray-500">
+                        (Disponible: {accesorio.stock})
+                      </span>
+                    )}
+                  </div>
+
                   <div className="mt-6 flex flex-wrap gap-2">
                     {caracteristicas.map(c => (
                       <div key={c.name} className="flex items-center bg-gray-100 px-3 py-1.5 rounded-full text-sm">
@@ -226,7 +246,40 @@ const AccessorioDetail = () => {
                       </div>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <button onClick={handleAddToCart} className={`flex-1 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center ${addedToCart?'bg-green-600':'bg-blue-600 hover:bg-blue-700'}`}>{addedToCart?'Añadido':'Añadir al carrito'}</button>
+                      <button 
+                        onClick={handleAddToCart} 
+                        className={`flex-1 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center ${
+                          addedToCart 
+                            ? 'bg-green-600' 
+                            : accesorio.stock > 0 
+                              ? 'bg-blue-600 hover:bg-blue-700' 
+                              : 'bg-gray-400 cursor-not-allowed'
+                        }`}
+                        disabled={addedToCart || accesorio.stock <= 0}
+                      >
+                        {addedToCart ? (
+                          <>
+                            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Añadido
+                          </>
+                        ) : accesorio.stock > 0 ? (
+                          <>
+                            <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            Añadir al carrito
+                          </>
+                        ) : (
+                          <>
+                            <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            No disponible
+                          </>
+                        )}
+                      </button>
                       <button className="flex-none bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center">
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                         Favorito
@@ -248,11 +301,10 @@ const AccessorioDetail = () => {
                       <div><span className="text-sm text-gray-700">Pago seguro</span> <span className="text-sm text-gray-500">con encriptación SSL</span></div>
                     </div>
                   </div>
-                 </div>
-               </div>
-             </div>
-
-             {/* Tabs - Descripción, Características, Opiniones */}
+                </div>
+              </div>
+            </div>
+            {/* Tabs - Descripción, Características, Opiniones */}
             <div className="border-t border-gray-200 mt-8">
               <div className="flex overflow-x-auto whitespace-nowrap scrollbar-hide">
                 <button onClick={() => setActiveTab('descripcion')} className={`px-8 py-4 border-b-2 font-medium text-sm transition-colors ${activeTab==='descripcion'?'border-blue-600 text-blue-600':'border-transparent text-gray-500 hover:text-gray-700'}`}>Descripción</button>
