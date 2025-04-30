@@ -1,227 +1,189 @@
 [
   {
     "id": 1,
-    "nombre": "Babolat Technical Viper",
+    "nombre": "Babolat Air Viper 2025",
     "marca": "Babolat",
     "tipo": "Ofensiva",
     "precio": 299,
-    "img": "/assets/pala.png"
-  },
-  {
-    "id": 2,
-    "nombre": "Head Graphene 360+ Alpha Elite",
-    "marca": "Head",
-    "tipo": "Defensiva",
-    "precio": 250,
-    "img": "/assets/pala.png"
+    "img": "/assets/BABOLAT_AIR_VIPER_2025.jpg"
   },
   {
     "id": 3,
-    "nombre": "Bullpadel Vertex 03",
+    "nombre": "Bullpadel Vertex 03 2023",
     "marca": "Bullpadel",
     "tipo": "Equilibrada",
     "precio": 340,
-    "img": "/assets/pala.png"
+    "img": "/assets/BULLPADEL_VERTEX_03_2023.jpg"
   },
   {
     "id": 4,
-    "nombre": "Nox AT10 Luxury Genius",
+    "nombre": "Nox AT10 Genius 12K Agustin Tapia 2024",
     "marca": "Nox",
     "tipo": "Ofensiva",
     "precio": 380,
-    "img": "/assets/pala.png"
+    "img": "/assets/NOX_AT10_GENIUS_12K_AGUSTIN_TAPIA_2024.jpg"
   },
   {
     "id": 5,
-    "nombre": "Wilson Bela Team",
+    "nombre": "Wilson Bela Team V2 Rojo",
     "marca": "Wilson",
     "tipo": "Principiante",
     "precio": 140,
-    "img": "/assets/pala.png"
+    "img": "/assets/WILSON_BELA_TEAM_V2_ROJO.jpg"
   },
   {
     "id": 6,
-    "nombre": "Adidas Metalbone 3.2",
+    "nombre": "Adidas Adipower Ctrl MTW Pro EDT By Álex Ruiz",
     "marca": "Adidas",
     "tipo": "Defensiva",
     "precio": 370,
-    "img": "/assets/pala.png"
+    "img": "/assets/ADIDAS_ADIPOWER_CTRL_MTW_PRO_EDT_BY_+üLEX_RUIZ.jpg"
   },
   {
     "id": 7,
-    "nombre": "Siux Diablo Revolution 3K",
+    "nombre": "Siux Diablo Revolution Pro 3",
     "marca": "Siux",
     "tipo": "Equilibrada",
     "precio": 290,
-    "img": "/assets/pala.png"
+    "img": "/assets/SIUX_DIABLO_REVOLUTION_PRO_3.jpg"
   },
   {
     "id": 8,
-    "nombre": "StarVie Metheora Warrior",
+    "nombre": "StarVie Metheora Pro Touch 2025",
     "marca": "StarVie",
     "tipo": "Ofensiva",
     "precio": 320,
-    "img": "/assets/pala.png"
+    "img": "/assets/STARVIE_METHEORA_PRO_TOUCH_2025.jpg"
   },
   {
     "id": 9,
-    "nombre": "Dunlop Aero Star Team",
+    "nombre": "Dunlop Aero-Star Team",
     "marca": "Dunlop",
     "tipo": "Defensiva",
     "precio": 230,
-    "img": "/assets/pala.png"
+    "img": "/assets/DUNLOP_AERO-STAR_TEAM.jpg"
   },
   {
     "id": 10,
-    "nombre": "Black Crown Piton 9.0",
+    "nombre": "Black Crown Piton 9.0 Soft",
     "marca": "Black Crown",
     "tipo": "Ofensiva",
     "precio": 280,
-    "img": "/assets/pala.png"
-  },
-  {
-    "id": 11,
-    "nombre": "Varlion Avant Difusor",
-    "marca": "Varlion",
-    "tipo": "Principiante",
-    "precio": 170,
-    "img": "/assets/pala.png"
-  },
-  {
-    "id": 12,
-    "nombre": "Head Delta Pro",
-    "marca": "Head",
-    "tipo": "Equilibrada",
-    "precio": 295,
-    "img": "/assets/pala.png"
-  },
+    "img": "/assets/BLACK_CROWN_PITON_9.0_SOFT.jpg"
+  }, 
   {
     "id": 13,
-    "nombre": "Babolat Counter Veron",
+    "nombre": "Babolat Counter Veron 2024",
     "marca": "Babolat",
     "tipo": "Defensiva",
     "precio": 270,
-    "img": "/assets/pala.png"
+    "img": "/assets/BABOLAT_COUNTER_VERON_2024.jpg"
   },
   {
     "id": 14,
-    "nombre": "Nox Tempo World Padel Tour",
+    "nombre": "Nox ML10 Pro Cup Coorp by Miguel Lamperti",
     "marca": "Nox",
     "tipo": "Equilibrada",
     "precio": 310,
-    "img": "/assets/pala.png"
+    "img": "/assets/NOX_ML10_PRO_CUP_COORP_BY_MIGUEL_LAMPERTI.jpg"
   },
   {
     "id": 15,
-    "nombre": "Bullpadel Hack 03",
+    "nombre": "Bullpadel Hack 03 24 - Paquito Navarro",
     "marca": "Bullpadel",
     "tipo": "Ofensiva",
     "precio": 360,
-    "img": "/assets/pala.png"
+    "img": "/assets/BULLPADEL_HACK_03_24_-_PAQUITO_NAVARRO.jpg"
   },
   {
     "id": 16,
-    "nombre": "Adidas Adipower CTRL 3.2",
+    "nombre": "Adidas Adipower Legend 2024",
     "marca": "Adidas",
     "tipo": "Defensiva",
     "precio": 340,
-    "img": "/assets/pala.png"
+    "img": "/assets/ADIDAS_ADIPOWER_LEGEND_2024.jpg"
   },
   {
     "id": 17,
-    "nombre": "Wilson Bela Pro",
+    "nombre": "Wilson Bela Pro V2",
     "marca": "Wilson",
     "tipo": "Ofensiva",
     "precio": 390,
-    "img": "/assets/pala.png"
+    "img": "/assets/WILSON_BELA_PRO_V2.jpg"
   },
   {
     "id": 18,
-    "nombre": "Siux SX6 Evolution",
+    "nombre": "Siux Trilogy Defensiva Pro 4",
     "marca": "Siux",
     "tipo": "Equilibrada",
     "precio": 260,
-    "img": "/assets/pala.png"
+    "img": "/assets/SIUX_TRILOGY_Defensiva_PRO_4.jpg"
   },
-  {
-    "id": 19,
-    "nombre": "Head Graphene 360+ Delta Motion",
-    "marca": "Head",
-    "tipo": "Principiante",
-    "precio": 160,
-    "img": "/assets/pala.png"
-  },
+  
   {
     "id": 20,
-    "nombre": "StarVie Raptor",
+    "nombre": "StarVie Raptor 2025",
     "marca": "StarVie",
     "tipo": "Ofensiva",
     "precio": 330,
-    "img": "/assets/pala.png"
+    "img": "/assets/STARVIE_RAPTOR_2025.jpg"
   },
   {
     "id": 21,
-    "nombre": "Dunlop Galactica Pro",
+    "nombre": "Dunlop Galaxy",
     "marca": "Dunlop",
     "tipo": "Defensiva",
     "precio": 240,
-    "img": "/assets/pala.png"
+    "img": "/assets/DUNLOP_GALAXY.jpg"
   },
   {
     "id": 22,
-    "nombre": "Nox AT10 Genius Attack",
+    "nombre": "Nox AT10 Genius 12K by Agustin Tapia 2025",
     "marca": "Nox",
     "tipo": "Ofensiva",
     "precio": 385,
-    "img": "/assets/pala.png"
+    "img": "/assets/NOX_AT10_GENIUS_12K_BY_AGUSTIN_TAPIA_2025.jpg"
   },
   {
     "id": 23,
-    "nombre": "Bullpadel Flow Light",
+    "nombre": "Bullpadel Flow Light 2025",
     "marca": "Bullpadel",
     "tipo": "Principiante",
     "precio": 150,
-    "img": "/assets/pala.png"
+    "img": "/assets/BULLPADEL_FLOW_LIGHT_2025.jpg"
   },
   {
     "id": 24,
-    "nombre": "Black Crown Hurricane",
+    "nombre": "Black Crown Hurricane 2.0 2023",
     "marca": "Black Crown",
     "tipo": "Equilibrada",
     "precio": 265,
-    "img": "/assets/pala.png"
+    "img": "/assets/BLACK_CROWN_HURRICANE_2.0_2023.jpg"
   },
   {
     "id": 25,
-    "nombre": "Adidas Metalbone 3.1",
+    "nombre": "Adidas Adipower Light 3.2 2023",
     "marca": "Adidas",
-    "tipo": "Ofensiva",
+    "tipo": "Equilibrada",
     "precio": 350,
-    "img": "/assets/pala.png"
+    "img": "/assets/ADIDAS_ADIPOWER_LIGHT_3.2_2023.jpg"
   },
-  {
-    "id": 26,
-    "nombre": "Head Graphene 360+ Gamma Motion",
-    "marca": "Head",
-    "tipo": "Defensiva",
-    "precio": 255,
-    "img": "/assets/pala.png"
-  },
+ 
   {
     "id": 27,
-    "nombre": "Babolat Air Veron",
+    "nombre": "Babolat Air Vertuo 2023",
     "marca": "Babolat",
     "tipo": "Equilibrada",
     "precio": 290,
-    "img": "/assets/pala.png"
+    "img": "/assets/BABOLAT_AIR_VERTUO_2023.jpg"
   },
   {
     "id": 28,
-    "nombre": "Siux Pegasus Revolution",
+    "nombre": "Siux Pegasus Revolution 2",
     "marca": "Siux",
     "tipo": "Ofensiva",
     "precio": 275,
-    "img": "/assets/pala.png"
+    "img": "/assets/SIUX_PEGASUS_REVOLUTION_2.jpg"
   },
   {
     "id": 29,
@@ -229,7 +191,7 @@
     "marca": "Wilson",
     "tipo": "Principiante",
     "precio": 120,
-    "img": "/assets/pala.png"
+    "img": "/assets/WILSON_BELA_JUNIOR.jpg"
   },
   {
     "id": 30,
@@ -237,326 +199,2387 @@
     "marca": "StarVie",
     "tipo": "Defensiva",
     "precio": 285,
-    "img": "/assets/pala.png"
+    "img": "/assets/STAR_VIE_TITANIA_KEPLER.jpg"
   },
-  {
-    "id": 31,
-    "nombre": "Varlion Maxima Summum Prisma",
-    "marca": "Varlion",
-    "tipo": "Equilibrada",
-    "precio": 300,
-    "img": "/assets/pala.png"
-  },
+ 
   {
     "id": 32,
-    "nombre": "Bullpadel Vertex 03 CTR",
+    "nombre": "Bullpadel Vertex 03 CTR 2023",
     "marca": "Bullpadel",
     "tipo": "Defensiva",
     "precio": 330,
-    "img": "/assets/pala.png"
+    "img": "/assets/BULLPADEL_HACK_03_CTR_2023.jpg"
   },
   {
     "id": 33,
-    "nombre": "Nox ML10 Pro Cup",
+    "nombre": "Nox ML10 Pro Cup Coorp 23",
     "marca": "Nox",
     "tipo": "Ofensiva",
     "precio": 365,
-    "img": "/assets/pala.png"
+    "img": "/assets/NOX_ML10_PRO_CUP_COORP_23.jpg"
   },
   {
     "id": 34,
-    "nombre": "Dunlop Aero Star Pro",
+    "nombre": "Dunlop Aero-Star Pro Moyano",
     "marca": "Dunlop",
     "tipo": "Equilibrada",
     "precio": 280,
-    "img": "/assets/pala.png"
+    "img": "/assets/DUNLOP_AERO-STAR_PRO_MOYANO.jpg"
   },
-  {
-    "id": 35,
-    "nombre": "Head Graphene 360+ Gamma Pro",
-    "marca": "Head",
-    "tipo": "Ofensiva",
-    "precio": 310,
-    "img": "/assets/pala.png"
-  },
+ 
   {
     "id": 36,
-    "nombre": "Babolat Viper Carbon",
+    "nombre": "Babolat Counter Viper 2024",
     "marca": "Babolat",
     "tipo": "Defensiva",
     "precio": 260,
-    "img": "/assets/pala.png"
+    "img": "/assets/BABOLAT_COUNTER_VIPER_2024.jpg"
   },
   {
     "id": 37,
-    "nombre": "Black Crown Panther",
+    "nombre": "Black Crown Piton 11 Soft 2023",
     "marca": "Black Crown",
     "tipo": "Principiante",
     "precio": 180,
-    "img": "/assets/pala.png"
+    "img": "/assets/BLACK_CROWN_PITON_11_SOFT_2023.jpg"
   },
   {
     "id": 38,
-    "nombre": "Adidas Adipower Soft 3.0",
+    "nombre": "Adidas Adipower Light 3.3",
     "marca": "Adidas",
     "tipo": "Equilibrada",
     "precio": 320,
-    "img": "/assets/pala.png"
+    "img": "/assets/ADIDAS_ADIPOWER_LIGHT_3.3.jpg"
   },
   {
     "id": 39,
-    "nombre": "StarVie Aquila Space Pro",
+    "nombre": "StarVie Aquila Pro 2025",
     "marca": "StarVie",
     "tipo": "Ofensiva",
     "precio": 345,
-    "img": "/assets/pala.png"
+    "img": "/assets/STARVIE_AQUILA_PRO_2025.jpg"
   },
   {
     "id": 40,
-    "nombre": "Siux Genesis PWR",
+    "nombre": "Siux Genesis Power 12K",
     "marca": "Siux",
     "tipo": "Defensiva",
     "precio": 270,
-    "img": "/assets/pala.png"
+    "img": "/assets/SIUX_GENESIS_POWER_12K.jpg"
   },
   {
     "id": 41,
-    "nombre": "Adidas Power Shot",
+    "nombre": "Adidas Adipower Multiweight 2023",
     "marca": "Adidas",
     "tipo": "Potencia",
     "precio": 310,
-    "img": "/assets/pala.png"
+    "img": "/assets/ADIDAS_ADIPOWER_MULTIWEIGHT_2023.jpg"
   },
   {
     "id": 42,
-    "nombre": "Babolat Power Strike",
+    "nombre": "Babolat Technical Veron 2024",
     "marca": "Babolat",
     "tipo": "Potencia",
     "precio": 320,
-    "img": "/assets/pala.png"
+    "img": "/assets/BABOLAT_TECHNICAL_VERON_2024.jpg"
   },
   {
     "id": 43,
-    "nombre": "Bullpadel Power Force",
+    "nombre": "Bullpadel Vertex 04",
     "marca": "Bullpadel",
     "tipo": "Potencia",
     "precio": 330,
-    "img": "/assets/pala.png"
+    "img": "/assets/BULLPADEL_VERTEX_04.jpg"
   },
-  {
-    "id": 44,
-    "nombre": "Head Power Elite",
-    "marca": "Head",
-    "tipo": "Potencia",
-    "precio": 340,
-    "img": "/assets/pala.png"
-  },
+  
   {
     "id": 45,
-    "nombre": "Nox Power Genius",
+    "nombre": "Nox Ultimate Power LTD Carbon",
     "marca": "Nox",
     "tipo": "Potencia",
     "precio": 350,
-    "img": "/assets/pala.png"
+    "img": "/assets/NOX_ULTIMATE_POWER_LTD_CARBON.jpg"
   },
   {
     "id": 46,
-    "nombre": "Siux Power Revolution",
+    "nombre": "Siux Tsunami 5.0 24K",
     "marca": "Siux",
     "tipo": "Potencia",
     "precio": 360,
-    "img": "/assets/pala.png"
+    "img": "/assets/SIUX_TSUNAMI_5.0_24K.jpg"
   },
   {
     "id": 47,
-    "nombre": "StarVie Power Warrior",
+    "nombre": "StarVie Raptor Pro Touch 2025",
     "marca": "StarVie",
     "tipo": "Potencia",
     "precio": 370,
-    "img": "/assets/pala.png"
+    "img": "/assets/STARVIE_RAPTOR_PRO_TOUCH_2025.jpg"
   },
   {
     "id": 48,
-    "nombre": "Wilson Power Pro",
+    "nombre": "Wilson Blade V3 Padel",
     "marca": "Wilson",
     "tipo": "Potencia",
     "precio": 380,
-    "img": "/assets/pala.png"
+    "img": "/assets/WILSON_BLADE_V3_PADEL.jpg"
   },
   {
     "id": 49,
-    "nombre": "Dunlop Power Star",
+    "nombre": "Dunlop Titan Pro Gold 2024",
     "marca": "Dunlop",
     "tipo": "Potencia",
     "precio": 390,
-    "img": "/assets/pala.png"
+    "img": "/assets/DUNLOP_TITAN_PRO_GOLD_2024.jpg"
   },
   {
     "id": 50,
-    "nombre": "Black Crown Power King",
+    "nombre": "Black Crown Piton Premium 2024",
     "marca": "Black Crown",
     "tipo": "Potencia",
     "precio": 400,
-    "img": "/assets/pala.png"
+    "img": "/assets/BLACK_CROWN_PITON_PREMIUM_2024.jpg"
   },
   {
     "id": 51,
-    "nombre": "Babolat Air Viper",
+    "nombre": "Babolat Air Viper 2023",
     "marca": "Babolat",
-    "tipo": "avanzado",
+    "tipo": "Ofensiva",
     "precio": 325,
-    "img": "/assets/pala.png"
+    "img": "/assets/BABOLAT_AIR_VIPER_2023.jpg"
   },
-  {
-    "id": 52,
-    "nombre": "Head Graphene 360+ Alpha Pro",
-    "marca": "Head",
-    "tipo": "avanzado",
-    "precio": 360,
-    "img": "/assets/pala.png"
-  },
+ 
   {
     "id": 53,
-    "nombre": "Bullpadel Hack CTRL 22",
+    "nombre": "Bullpadel Hack 03 Comfort 24",
     "marca": "Bullpadel",
-    "tipo": "control",
+    "tipo": "Defensiva",
     "precio": 315,
-    "img": "/assets/pala.png"
+    "img": "/assets/BULLPADEL_HACK_03_COMFORT_24.jpg"
   },
   {
     "id": 54,
-    "nombre": "Wilson Pro Staff Team",
+    "nombre": "Wilson Pro Staff V2 Team",
     "marca": "Wilson",
-    "tipo": "intermedio",
+    "tipo": "Equilibrada",
     "precio": 245,
-    "img": "/assets/pala.png"
+    "img": "/assets/WILSON_PRO_STAFF_V2_TEAM.jpg"
   },
   {
     "id": 55,
-    "nombre": "Nox AT10 Genius Ultra",
+    "nombre": "Nox AT10 Genius 18K by Agustín Tapia 23",
     "marca": "Nox",
-    "tipo": "avanzado",
+    "tipo": "Ofensiva",
     "precio": 395,
-    "img": "/assets/pala.png"
+    "img": "/assets/NOX_AT10_GENIUS_18K_BY_AGUST+ìN_TAPIA_23.jpg"
   },
   {
     "id": 56,
     "nombre": "Siux Diablo V-Tech",
     "marca": "Siux",
-    "tipo": "intermedio",
+    "tipo": "Equilibrada",
     "precio": 305,
-    "img": "/assets/pala.png"
+    "img": "/assets/SIUX_DIABLO_GO_3.jpg"
   },
   {
     "id": 57,
-    "nombre": "Adidas Metalbone Ctrl 2.0",
+    "nombre": "Adidas Adipower Multiweight 3.3",
     "marca": "Adidas",
-    "tipo": "control",
+    "tipo": "Defensiva",
     "precio": 350,
-    "img": "/assets/pala.png"
+    "img": "/assets/ADIDAS_ADIPOWER_MULTIWEIGHT_3.3.jpg"
   },
   {
     "id": 58,
-    "nombre": "StarVie Raptor Pro",
+    "nombre": "StarVie Basalto Pro 2025",
     "marca": "StarVie",
-    "tipo": "avanzado",
+    "tipo": "Ofensiva",
     "precio": 335,
-    "img": "/assets/pala.png"
+    "img": "/assets/STARVIE_BASALTO_PRO_2025.jpg"
   },
   {
     "id": 59,
-    "nombre": "Black Crown Piton FTR",
+    "nombre": "Black Crown Piton Attack 12K Plus",
     "marca": "Black Crown",
-    "tipo": "potencia",
+    "tipo": "Potencia",
     "precio": 295,
-    "img": "/assets/pala.png"
+    "img": "/assets/BLACK_CROWN_PITON_ATTACK_12K_PLUS.jpg"
   },
   {
     "id": 60,
-    "nombre": "Dunlop Precision Pro",
+    "nombre": "Dunlop Infinity Pro G1 HL Black",
     "marca": "Dunlop",
-    "tipo": "intermedio",
+    "tipo": "Equilibrada",
     "precio": 260,
-    "img": "/assets/pala.png"
+    "img": "/assets/DUNLOP_INFINITY_PRO_G1_HL_BLACK.jpg"
   },
-  {
-    "id": 61,
-    "nombre": "Varlion LW Carbon 2023",
-    "marca": "Varlion",
-    "tipo": "control",
-    "precio": 345,
-    "img": "/assets/pala.png"
-  },
+  
   {
     "id": 62,
-    "nombre": "Babolat Technical Viper LTD",
+    "nombre": "Babolat Air Viper APT 2023",
     "marca": "Babolat",
-    "tipo": "avanzado",
+    "tipo": "Ofensiva",
     "precio": 345,
-    "img": "/assets/pala.png"
-  },
-  {
-    "id": 63,
-    "nombre": "Head Power Motion",
-    "marca": "Head",
-    "tipo": "potencia",
-    "precio": 340,
-    "img": "/assets/pala.png"
+    "img": "/assets/BABOLAT_AIR_VIPER_APT_2023.jpg"
   },
   {
     "id": 64,
-    "nombre": "Bullpadel Hurricane Metal",
+    "nombre": "Bullpadel Vertex 04 Master Final 2023",
     "marca": "Bullpadel",
-    "tipo": "avanzado",
+    "tipo": "Ofensiva",
     "precio": 380,
-    "img": "/assets/pala.png"
+    "img": "/assets/BULLPADEL_VERTEX_04_MASTER_FINAL_2023.jpg"
   },
   {
     "id": 65,
-    "nombre": "Wilson Ultra Team",
+    "nombre": "Wilson Blade Team V2",
     "marca": "Wilson",
-    "tipo": "intermedio",
+    "tipo": "Equilibrada",
     "precio": 250,
-    "img": "/assets/pala.png"
+    "img": "/assets/WILSON_BLADE_TEAM_V2.jpg"
   },
   {
     "id": 66,
-    "nombre": "Nox Luxury Genius Clincher",
+    "nombre": "Nox ML10 Bahia Luxury Series 23",
     "marca": "Nox",
-    "tipo": "control",
+    "tipo": "Defensiva",
     "precio": 370,
-    "img": "/assets/pala.png"
+    "img": "/assets/NOX_ML10_BAHIA_LUXURY_SERIES_23.jpg"
   },
   {
     "id": 67,
-    "nombre": "Siux Trilogy Premium",
+    "nombre": "Siux Trilogy II Defensiva Patty Pro",
     "marca": "Siux",
-    "tipo": "intermedio",
+    "tipo": "Equilibrada",
     "precio": 300,
-    "img": "/assets/pala.png"
+    "img": "/assets/SIUX_TRILOGY_II_Defensiva_PATTY_PRO.jpg"
   },
   {
     "id": 68,
-    "nombre": "Adidas AdiPower Attack",
+    "nombre": "Adidas Adipower Multiweight Ctrl 3.3",
     "marca": "Adidas",
-    "tipo": "potencia",
+    "tipo": "Defensiva",
     "precio": 360,
-    "img": "/assets/pala.png"
+    "img": "/assets/ADIDAS_ADIPOWER_MULTIWEIGHT_CTRL_3.3.jpg"
   },
   {
     "id": 69,
-    "nombre": "StarVie Aquila Space",
+    "nombre": "StarVie Aquila Pro 2024",
     "marca": "StarVie",
-    "tipo": "intermedio",
+    "tipo": "Equilibrada",
     "precio": 325,
-    "img": "/assets/pala.png"
+    "img": "/assets/STARVIE_AQUILA_PRO_2024.jpg"
   },
   {
     "id": 70,
-    "nombre": "Black Crown Piton Luxe",
+    "nombre": "Black Crown Patron 2024",
     "marca": "Black Crown",
-    "tipo": "avanzado",
+    "tipo": "Ofensiva",
     "precio": 315,
-    "img": "/assets/pala.png"
+    "img": "/assets/BLACK_CROWN_PATRON_2024.jpg"
+  },
+  {
+    "id": 71,
+    "nombre": "Adidas Adipower Soft 2.0",
+    "marca": "Adidas",
+    "tipo": "Defensiva",
+    "precio": 330,
+    "img": "/assets/ADIDAS_ADIPOWER_SOFT_2.0.jpg"
+  },
+  {
+    "id": 72,
+    "nombre": "Adidas Cross It Ctrl 2024",
+    "marca": "Adidas",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/ADIDAS_CROSS_IT_CTRL_2024.jpg"
+  },
+  {
+    "id": 73,
+    "nombre": "Adidas Faster Defensiva Blue",
+    "marca": "Adidas",
+    "tipo": "Defensiva",
+    "precio": 340,
+    "img": "/assets/ADIDAS_FASTER_Defensiva_BLUE.jpg"
+  },
+  {
+    "id": 74,
+    "nombre": "Adidas Green Padel RK1CC7U15 Green",
+    "marca": "Adidas",
+    "tipo": "Equilibrada",
+    "precio": 310,
+    "img": "/assets/ADIDAS_GREENPADEL_RK1CC7U15_GREEN.jpg"
+  },
+  {
+    "id": 75,
+    "nombre": "Adidas Match 3.3 Black Lime 2024",
+    "marca": "Adidas",
+    "tipo": "Equilibrada",
+    "precio": 295,
+    "img": "/assets/ADIDAS_MATCH_3.3_BLACK_LIME_2024.jpg"
+  },
+  {
+    "id": 76,
+    "nombre": "Adidas Match 3.3 Black Red 2024",
+    "marca": "Adidas",
+    "tipo": "Equilibrada",
+    "precio": 295,
+    "img": "/assets/ADIDAS_MATCH_3.3_BLACK_RED_2024.jpg"
+  },
+  {
+    "id": 77,
+    "nombre": "Adidas Match Light 3.3 2024",
+    "marca": "Adidas",
+    "tipo": "Equilibrada",
+    "precio": 290,
+    "img": "/assets/ADIDAS_MATCH_LIGHT_3.3_2024.jpg"
+  },
+  {
+    "id": 78,
+    "nombre": "Adidas Metalbone 3.3 2024 - Ale Galán",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 390,
+    "img": "/assets/ADIDAS_METALBONE_3.3_2024_-_ALE_GAL+üN.jpg"
+  },
+  {
+    "id": 79,
+    "nombre": "Adidas Metalbone Carbon 3.3 2024",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 380,
+    "img": "/assets/ADIDAS_METALBONE_CARBON_3.3_2024.jpg"
+  },
+  {
+    "id": 80,
+    "nombre": "Adidas Metalbone Carbon 3.4 2025",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 390,
+    "img": "/assets/ADIDAS_METALBONE_CARBON_3.4_2025.jpg"
+  },
+  {
+    "id": 81,
+    "nombre": "Adidas Metalbone Carbon Ctrl 3.3 2024",
+    "marca": "Adidas",
+    "tipo": "Defensiva",
+    "precio": 380,
+    "img": "/assets/ADIDAS_METALBONE_CARBON_CTRL_3.3_2024.jpg"
+  },
+  {
+    "id": 82,
+    "nombre": "Adidas Metalbone Ctrl 3.2 2023",
+    "marca": "Adidas",
+    "tipo": "Defensiva",
+    "precio": 370,
+    "img": "/assets/ADIDAS_METALBONE_CTRL_3.2_2023.jpg"
+  },
+  {
+    "id": 83,
+    "nombre": "Adidas Metalbone Ctrl 3.3 2024",
+    "marca": "Adidas",
+    "tipo": "Defensiva",
+    "precio": 380,
+    "img": "/assets/ADIDAS_METALBONE_CTRL_3.3_2024.jpg"
+  },
+  {
+    "id": 84,
+    "nombre": "Adidas Metalbone HRD+ 2024",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 390,
+    "img": "/assets/ADIDAS_METALBONE_HRD+_2024.jpg"
+  },
+  {
+    "id": 85,
+    "nombre": "Adidas Metalbone Team 3.4 2025",
+    "marca": "Adidas",
+    "tipo": "Equilibrada",
+    "precio": 320,
+    "img": "/assets/ADIDAS_METALBONE_TEAM_3.4_2025.jpg"
+  },
+  {
+    "id": 86,
+    "nombre": "Adidas Metalbone Youth 3.3 2024",
+    "marca": "Adidas",
+    "tipo": "Principiante",
+    "precio": 250,
+    "img": "/assets/ADIDAS_METALBONE_YOUTH_3.3_2024.jpg"
+  },
+  {
+    "id": 87,
+    "nombre": "Adidas Pro Carbon Ctrl Gold",
+    "marca": "Adidas",
+    "tipo": "Defensiva",
+    "precio": 360,
+    "img": "/assets/ADIDAS_PRO_CARBON_CTRL_GOLD.jpg"
+  },
+  {
+    "id": 88,
+    "nombre": "Adidas RX 2000 Light 2023",
+    "marca": "Adidas",
+    "tipo": "Equilibrada",
+    "precio": 280,
+    "img": "/assets/ADIDAS_RX_2000_LIGHT_2023.jpg"
+  },
+  {
+    "id": 89,
+    "nombre": "Adidas RX Carbon 2023",
+    "marca": "Adidas",
+    "tipo": "Equilibrada",
+    "precio": 300,
+    "img": "/assets/ADIDAS_RX_CARBON_2023.jpg"
+  },
+  {
+    "id": 90,
+    "nombre": "Adidas Ryze Pro",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/ADIDAS_RYZE_PRO.jpg"
+  },
+  {
+    "id": 91,
+    "nombre": "Adidas X-Treme Black Gold",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/ADIDAS_X-TREME_BLACKGOLD.jpg"
+  },
+  {
+    "id": 92,
+    "nombre": "Adidas X-Treme Black Pink",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/ADIDAS_X-TREME_BLACK_PINK.jpg"
+  },
+  {
+    "id": 93,
+    "nombre": "Adidas X-Treme Negro Blanco",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/ADIDAS_X-TREME_NEGRO_BLANCO.jpg"
+  },
+  {
+    "id": 94,
+    "nombre": "Adidas X-Treme Orange Black",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/ADIDAS_X-TREME_ORANGE_BLACK.jpg"
+  },
+  {
+    "id": 95,
+    "nombre": "Adidas X-Treme Pink",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/ADIDAS_X-TREME_PINK.jpg"
+  },
+  {
+    "id": 96,
+    "nombre": "Adidas X-Treme Silver White",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/ADIDAS_X-TREME_SILVER_WHITE.jpg"
+  },
+  {
+    "id": 97,
+    "nombre": "Adidas X-Treme White Gold",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/ADIDAS_X-TREME_WHITE_GOLD.jpg"
+  },
+  {
+    "id": 98,
+    "nombre": "Adidas Xtreme Black Lima",
+    "marca": "Adidas",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/ADIDAS_XTREME_BLACK_LIMA.jpg"
+  },
+  {
+    "id": 99,
+    "nombre": "Babolat Counter Vertuo 2023",
+    "marca": "Babolat",
+    "tipo": "Defensiva",
+    "precio": 290,
+    "img": "/assets/BABOLAT_COUNTER_VERTUO_2023.jpg"
+  },
+  {
+    "id": 100,
+    "nombre": "Babolat Dyna Energy 2023",
+    "marca": "Babolat",
+    "tipo": "Potencia",
+    "precio": 310,
+    "img": "/assets/BABOLAT_DYNA_ENERGY_2023.jpg"
+  },
+  {
+    "id": 101,
+    "nombre": "Babolat Dyna Spirit 2023",
+    "marca": "Babolat",
+    "tipo": "Equilibrada",
+    "precio": 300,
+    "img": "/assets/BABOLAT_DYNA_SPIRIT_2023.jpg"
+  },
+  {
+    "id": 102,
+    "nombre": "Babolat Reflex 2022",
+    "marca": "Babolat",
+    "tipo": "Defensiva",
+    "precio": 250,
+    "img": "/assets/BABOLAT_REFLEX_2022.jpg"
+  },
+  {
+    "id": 103,
+    "nombre": "Babolat Stima Energy 2023",
+    "marca": "Babolat",
+    "tipo": "Potencia",
+    "precio": 280,
+    "img": "/assets/BABOLAT_STIMA_ENERGY_2023.jpg"
+  },
+  {
+    "id": 104,
+    "nombre": "Babolat Stima Spirit 2023",
+    "marca": "Babolat",
+    "tipo": "Equilibrada",
+    "precio": 275,
+    "img": "/assets/BABOLAT_STIMA_SPIRIT_2023.jpg"
+  },
+  {
+    "id": 105,
+    "nombre": "Babolat Storm 2022",
+    "marca": "Babolat",
+    "tipo": "Potencia",
+    "precio": 260,
+    "img": "/assets/BABOLAT_STORM_2022.jpg"
+  },
+  {
+    "id": 106,
+    "nombre": "Babolat Technical Veron Juan Lebrón 2024",
+    "marca": "Babolat",
+    "tipo": "Defensiva",
+    "precio": 330,
+    "img": "/assets/BABOLAT_TECHNICAL_VERON_JUAN_LEBRON_2024.jpg"
+  },
+  {
+    "id": 107,
+    "nombre": "Babolat Technical Vertuo 2023",
+    "marca": "Babolat",
+    "tipo": "Equilibrada",
+    "precio": 320,
+    "img": "/assets/BABOLAT_TECHNICAL_VERTUO_2023.jpg"
+  },
+  {
+    "id": 108,
+    "nombre": "Babolat Technical Viper 2024",
+    "marca": "Babolat",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/BABOLAT_TECHNICAL_VIPER_2024.jpg"
+  },
+  {
+    "id": 109,
+    "nombre": "Babolat Technical Viper Juan Lebrón 2024",
+    "marca": "Babolat",
+    "tipo": "Potencia",
+    "precio": 345,
+    "img": "/assets/BABOLAT_TECHNICAL_VIPER_JUAN_LEBRON_2024.jpg"
+  },
+  {
+    "id": 110,
+    "nombre": "Babolat Technical Viper Lebrón 2023",
+    "marca": "Babolat",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/BABOLAT_TECHNICAL_VIPER_LEBRON_2023.jpg"
+  },
+  {
+    "id": 111,
+    "nombre": "Black Crown Hurricane 3.0 Mujer",
+    "marca": "Black Crown",
+    "tipo": "Defensiva",
+    "precio": 270,
+    "img": "/assets/BLACK_CROWN_HURRICANE_3.0_MUJER.jpg"
+  },
+  {
+    "id": 112,
+    "nombre": "Black Crown Hurricane Pro 2.0 2023",
+    "marca": "Black Crown",
+    "tipo": "Potencia",
+    "precio": 290,
+    "img": "/assets/BLACK_CROWN_HURRICANE_PRO_2.0_2023.jpg"
+  },
+  {
+    "id": 113,
+    "nombre": "Black Crown Hurricane Pro 3.0 Mujer",
+    "marca": "Black Crown",
+    "tipo": "Potencia",
+    "precio": 295,
+    "img": "/assets/BLACK_CROWN_HURRICANE_PRO_3.0_MUJER.jpg"
+  },
+  {
+    "id": 114,
+    "nombre": "Black Crown Patron Evolution 2024",
+    "marca": "Black Crown",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/BLACK_CROWN_PATRON_EVOLUTION_2024.jpg"
+  },
+  {
+    "id": 115,
+    "nombre": "Black Crown Piton",
+    "marca": "Black Crown",
+    "tipo": "Potencia",
+    "precio": 275,
+    "img": "/assets/BLACK_CROWN_PITON.jpg"
+  },
+  {
+    "id": 116,
+    "nombre": "Black Crown Piton 12 Silver 2024",
+    "marca": "Black Crown",
+    "tipo": "Potencia",
+    "precio": 310,
+    "img": "/assets/BLACK_CROWN_PITON_12_SILVER_2024.jpg"
+  },
+  {
+    "id": 117,
+    "nombre": "Black Crown Piton Attack 15K Power 2024",
+    "marca": "Black Crown",
+    "tipo": "Potencia",
+    "precio": 325,
+    "img": "/assets/BLACK_CROWN_PITON_ATTACK_15K_POWER_2024.jpg"
+  },
+  {
+    "id": 118,
+    "nombre": "Black Crown Piton Junior",
+    "marca": "Black Crown",
+    "tipo": "Principiante",
+    "precio": 150,
+    "img": "/assets/BLACK_CROWN_PITON_JUNIOR.jpg"
+  },
+  {
+    "id": 119,
+    "nombre": "Black Crown Shark",
+    "marca": "Black Crown",
+    "tipo": "Defensiva",
+    "precio": 280,
+    "img": "/assets/BLACK_CROWN_SHARK.jpg"
+  },
+  {
+    "id": 120,
+    "nombre": "Black Crown Snake 2022",
+    "marca": "Black Crown",
+    "tipo": "Equilibrada",
+    "precio": 260,
+    "img": "/assets/BLACK_CROWN_SNAKE_2022.jpg"
+  },
+  {
+    "id": 121,
+    "nombre": "Black Crown Special Master",
+    "marca": "Black Crown",
+    "tipo": "Defensiva",
+    "precio": 300,
+    "img": "/assets/BLACK_CROWN_SPECIAL_MASTER.jpg"
+  },
+  {
+    "id": 122,
+    "nombre": "Black Crown Special Power",
+    "marca": "Black Crown",
+    "tipo": "Potencia",
+    "precio": 315,
+    "img": "/assets/BLACK_CROWN_SPECIAL_POWER.jpg"
+  },
+  {
+    "id": 123,
+    "nombre": "Black Crown Special Pro",
+    "marca": "Black Crown",
+    "tipo": "Ofensiva",
+    "precio": 320,
+    "img": "/assets/BLACK_CROWN_SPECIAL_PRO.jpg"
+  },
+  {
+    "id": 124,
+    "nombre": "Black Crown Special Soft 2023",
+    "marca": "Black Crown",
+    "tipo": "Defensiva",
+    "precio": 290,
+    "img": "/assets/BLACK_CROWN_SPECIAL_SOFT_2023.jpg"
+  },
+  {
+    "id": 125,
+    "nombre": "Black Crown Win Ultralight 2025",
+    "marca": "Black Crown",
+    "tipo": "Defensiva",
+    "precio": 305,
+    "img": "/assets/BLACK_CROWN_WIN_ULTRALIGHT_2025.jpg"
+  },
+  {
+    "id": 126,
+    "nombre": "Black Crown Wolf",
+    "marca": "Black Crown",
+    "tipo": "Potencia",
+    "precio": 310,
+    "img": "/assets/BLACK_CROWN_WOLF.jpg"
+  },
+  {
+    "id": 127,
+    "nombre": "Bullpadel Axym DB",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 325,
+    "img": "/assets/BULLPADEL_AXYM_DB.jpg"
+  },
+  {
+    "id": 128,
+    "nombre": "Bullpadel Axym DB 2023",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 330,
+    "img": "/assets/BULLPADEL_AXYM_DB_2023.jpg"
+  },
+  {
+    "id": 129,
+    "nombre": "Bullpadel Axym Woman 2022",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 310,
+    "img": "/assets/BULLPADEL_AXYM_WOMAN_2022.jpg"
+  },
+  {
+    "id": 130,
+    "nombre": "Bullpadel Black Dragon 4.0",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/BULLPADEL_BLACK_DRAGON_4.0.jpg"
+  },
+  {
+    "id": 131,
+    "nombre": "Bullpadel Brave 3.0",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/BULLPADEL_BRAVE_3.0.jpg"
+  },
+  {
+    "id": 132,
+    "nombre": "Bullpadel Elite Light W Mujer 2023",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 280,
+    "img": "/assets/BULLPADEL_ELITE_LIGHT_W_MUJER_2023.jpg"
+  },
+  {
+    "id": 133,
+    "nombre": "Bullpadel Elite W 24",
+    "marca": "Bullpadel",
+    "tipo": "Equilibrada",
+    "precio": 290,
+    "img": "/assets/BULLPADEL_ELITE_W_24.jpg"
+  },
+  {
+    "id": 134,
+    "nombre": "Bullpadel Elite W Mujer 2023",
+    "marca": "Bullpadel",
+    "tipo": "Equilibrada",
+    "precio": 290,
+    "img": "/assets/BULLPADEL_ELITE_W_MUJER_2023.jpg"
+  },
+  {
+    "id": 135,
+    "nombre": "Bullpadel Flow Woman 2022",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 270,
+    "img": "/assets/BULLPADEL_FLOW_WOMAN_2022.jpg"
+  },
+  {
+    "id": 136,
+    "nombre": "Bullpadel Flow Woman 25 Mujer",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 280,
+    "img": "/assets/BULLPADEL_FLOW_WOMAN_25_MUJER.jpg"
+  },
+  {
+    "id": 137,
+    "nombre": "Bullpadel Gold 3.0",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 360,
+    "img": "/assets/BULLPADEL_GOLD_3.0.jpg"
+  },
+  {
+    "id": 138,
+    "nombre": "Bullpadel Gold XSeries 3.0",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 370,
+    "img": "/assets/BULLPADEL_GOLD_XSERIES_3.0.jpg"
+  },
+  {
+    "id": 139,
+    "nombre": "Bullpadel Hack 02 PRF 2024",
+    "marca": "Bullpadel",
+    "tipo": "Ofensiva",
+    "precio": 350,
+    "img": "/assets/BULLPADEL_HACK_02_PRF_2024.jpg"
+  },
+  {
+    "id": 140,
+    "nombre": "Bullpadel Hack 03 CM Fin 23",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 355,
+    "img": "/assets/BULLPADEL_HACK_03_CM_FIN_23.jpg"
+  },
+  {
+    "id": 141,
+    "nombre": "Bullpadel Hack 03 Hybrid 24",
+    "marca": "Bullpadel",
+    "tipo": "Equilibrada",
+    "precio": 345,
+    "img": "/assets/BULLPADEL_HACK_03_HYBRID_24.jpg"
+  },
+  {
+    "id": 142,
+    "nombre": "Bullpadel Hack 03 Master Final 23",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 360,
+    "img": "/assets/BULLPADEL_HACK_03_MASTER_FINAL_23.jpg"
+  },
+  {
+    "id": 143,
+    "nombre": "Bullpadel Hack 03 SPO",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/BULLPADEL_HACK_03_SPO.jpg"
+  },
+  {
+    "id": 144,
+    "nombre": "Bullpadel Hack 04 2025 - Paquito Navarro",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 380,
+    "img": "/assets/BULLPADEL_HACK_04_2025_-_PAQUITO_NAVARRO.jpg"
+  },
+  {
+    "id": 145,
+    "nombre": "Bullpadel Hack 04 TF 2024",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 370,
+    "img": "/assets/BULLPADEL_HACK_04_TF_2024.jpg"
+  },
+  {
+    "id": 146,
+    "nombre": "Bullpadel Hack Junior 2023",
+    "marca": "Bullpadel",
+    "tipo": "Principiante",
+    "precio": 180,
+    "img": "/assets/BULLPADEL_HACK_JUNIOR_2023.jpg"
+  },
+  {
+    "id": 147,
+    "nombre": "Bullpadel Indiga Power 2022",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 320,
+    "img": "/assets/BULLPADEL_INDIGA_POWER_2022.jpg"
+  },
+  {
+    "id": 148,
+    "nombre": "Bullpadel Indiga PWR 2024",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 330,
+    "img": "/assets/BULLPADEL_INDIGA_PWR_2024.jpg"
+  },
+  {
+    "id": 149,
+    "nombre": "Bullpadel Ionic Defensiva 2023",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 310,
+    "img": "/assets/BULLPADEL_IONIC_Defensiva_2023.jpg"
+  },
+  {
+    "id": 150,
+    "nombre": "Bullpadel Ionic Power 2023",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 320,
+    "img": "/assets/BULLPADEL_IONIC_POWER_2023.jpg"
+  },
+  {
+    "id": 151,
+    "nombre": "Bullpadel K2 Power 2024",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 335,
+    "img": "/assets/BULLPADEL_K2_POWER_2024.jpg"
+  },
+  {
+    "id": 152,
+    "nombre": "Bullpadel Legend 3.0",
+    "marca": "Bullpadel",
+    "tipo": "Equilibrada",
+    "precio": 300,
+    "img": "/assets/BULLPADEL_LEGEND_3.0.jpg"
+  },
+  {
+    "id": 153,
+    "nombre": "Bullpadel Legend 4.0",
+    "marca": "Bullpadel",
+    "tipo": "Equilibrada",
+    "precio": 310,
+    "img": "/assets/BULLPADEL_LEGEND_4.0.jpg"
+  },
+  {
+    "id": 154,
+    "nombre": "Bullpadel Legend 4.0 Woman",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 310,
+    "img": "/assets/BULLPADEL_LEGEND_4.0_WOMAN.jpg"
+  },
+  {
+    "id": 155,
+    "nombre": "Bullpadel Neuron",
+    "marca": "Bullpadel",
+    "tipo": "Equilibrada",
+    "precio": 290,
+    "img": "/assets/BULLPADEL_NEURON.jpg"
+  },
+  {
+    "id": 156,
+    "nombre": "Bullpadel Neuron 25",
+    "marca": "Bullpadel",
+    "tipo": "Equilibrada",
+    "precio": 300,
+    "img": "/assets/BULLPADEL_NEURON_25.jpg"
+  },
+  {
+    "id": 157,
+    "nombre": "Bullpadel Neuron Cloud 2025",
+    "marca": "Bullpadel",
+    "tipo": "Equilibrada",
+    "precio": 305,
+    "img": "/assets/BULLPADEL_NEURON_CLOUD_2025.jpg"
+  },
+  {
+    "id": 158,
+    "nombre": "Bullpadel Pearl Bea González 2024",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 340,
+    "img": "/assets/BULLPADEL_PEARL_BEA_GONZALEZ_2024.jpg"
+  },
+  {
+    "id": 159,
+    "nombre": "Bullpadel Pearl Cloud 2025",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 345,
+    "img": "/assets/BULLPADEL_PEARL_CLOUD_2025.jpg"
+  },
+  {
+    "id": 160,
+    "nombre": "Bullpadel Pearl TF 2024",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 340,
+    "img": "/assets/BULLPADEL_PEARL_TF_2024.jpg"
+  },
+  {
+    "id": 161,
+    "nombre": "Bullpadel Raider Defensiva",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 280,
+    "img": "/assets/BULLPADEL_RAIDER_Defensiva.jpg"
+  },
+  {
+    "id": 162,
+    "nombre": "Bullpadel Raider Power Azul",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 290,
+    "img": "/assets/BULLPADEL_RAIDER_POWER_AZUL.jpg"
+  },
+  {
+    "id": 163,
+    "nombre": "Bullpadel Sky Azul",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 295,
+    "img": "/assets/BULLPADEL_SKY_AZUL.jpg"
+  },
+  {
+    "id": 164,
+    "nombre": "Bullpadel Sky Power",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 300,
+    "img": "/assets/BULLPADEL_SKY_POWER.jpg"
+  },
+  {
+    "id": 165,
+    "nombre": "Bullpadel Sky Rosa",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 295,
+    "img": "/assets/BULLPADEL_SKY_ROSA.jpg"
+  },
+  {
+    "id": 166,
+    "nombre": "Bullpadel Vertex 03 Comfort 2022",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/BULLPADEL_VERTEX_03_COMFORT_2022.jpg"
+  },
+  {
+    "id": 167,
+    "nombre": "Bullpadel Vertex 03 Comfort 2023",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 325,
+    "img": "/assets/BULLPADEL_VERTEX_03_COMFORT_2023.jpg"
+  },
+  {
+    "id": 168,
+    "nombre": "Bullpadel Vertex 03 Woman 2022",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 330,
+    "img": "/assets/BULLPADEL_VERTEX_03_WOMAN_2022.jpg"
+  },
+  {
+    "id": 169,
+    "nombre": "Bullpadel Vertex 03 W Mujer 2023",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 335,
+    "img": "/assets/BULLPADEL_VERTEX_03_W_MUJER_2023.jpg"
+  },
+  {
+    "id": 170,
+    "nombre": "Bullpadel Vertex 04 25 Mujer",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 345,
+    "img": "/assets/BULLPADEL_VERTEX_04_25_MUJER.jpg"
+  },
+  {
+    "id": 171,
+    "nombre": "Bullpadel Vertex 04 Comfort",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 340,
+    "img": "/assets/BULLPADEL_VERTEX_04_COMFORT.jpg"
+  },
+  {
+    "id": 172,
+    "nombre": "Bullpadel Vertex 04 Comfort Amsterdam 2023",
+    "marca": "Bullpadel",
+    "tipo": "Defensiva",
+    "precio": 345,
+    "img": "/assets/BULLPADEL_VERTEX_04_COMFORT_AMSTERDAM_2023.jpg"
+  },
+  {
+    "id": 173,
+    "nombre": "Bullpadel Vertex 04 Hybrid",
+    "marca": "Bullpadel",
+    "tipo": "Equilibrada",
+    "precio": 350,
+    "img": "/assets/BULLPADEL_VERTEX_04_HYBRID.jpg"
+  },
+  {
+    "id": 174,
+    "nombre": "Bullpadel Vertex Boy Junior 2023",
+    "marca": "Bullpadel",
+    "tipo": "Principiante",
+    "precio": 170,
+    "img": "/assets/BULLPADEL_VERTEX_BOY_JUNIOR_2023.jpg"
+  },
+  {
+    "id": 175,
+    "nombre": "Bullpadel X-Compact 2 LTD Naranja",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 315,
+    "img": "/assets/BULLPADEL_X-COMPACT_2_LTD_NARANJA.jpg"
+  },
+  {
+    "id": 176,
+    "nombre": "Bullpadel Xplo TF 2024",
+    "marca": "Bullpadel",
+    "tipo": "Potencia",
+    "precio": 335,
+    "img": "/assets/BULLPADEL_XPLO_TF_2024.jpg"
+  },
+  {
+    "id": 177,
+    "nombre": "Nox AT10 Genius 18K Agustin Tapia 2024",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 390,
+    "img": "/assets/NOX_AT10_GENIUS_18K_AGUSTIN_TAPIA_2024.jpg"
+  },
+  {
+    "id": 178,
+    "nombre": "Nox AT10 Genius 18K Alum by Agustin Tapia 2025",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 395,
+    "img": "/assets/NOX_AT10_GENIUS_18K_ALUM_BY_AGUSTIN_TAPIA_2025.jpg"
+  },
+  {
+    "id": 179,
+    "nombre": "Nox AT10 Genius Attack 12K by Agustin Tapia 2025",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 385,
+    "img": "/assets/NOX_AT10_GENIUS_ATTACK_12K_BY_AGUSTIN_TAPIA_2025.jpg"
+  },
+  {
+    "id": 180,
+    "nombre": "Nox AT10 Genius Attack 18K Alum by Agustin Tapia 2025",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 395,
+    "img": "/assets/NOX_AT10_GENIUS_ATTACK_18K_ALUM_BY_AGUSTIN_TAPIA_2025.jpg"
+  },
+  {
+    "id": 181,
+    "nombre": "Nox AT10 Genius 12K by Agustin Tapia 23",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 380,
+    "img": "/assets/NOX_AT10_GENIUS_12K_BY_AGUSTIN_TAPIA_23.jpg"
+  },
+  {
+    "id": 182,
+    "nombre": "Nox AT10 Pro Cup Comfort by Agustin Tapia 2025",
+    "marca": "Nox",
+    "tipo": "Defensiva",
+    "precio": 370,
+    "img": "/assets/NOX_AT10_PRO_CUP_COMFORT_BY_AGUSTIN_TAPIA_2025.jpg"
+  },
+  {
+    "id": 183,
+    "nombre": "Nox AT10 Pro Cup Hard by Agustin Tapia 2025",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 380,
+    "img": "/assets/NOX_AT10_PRO_CUP_HARD_BY_AGUSTIN_TAPIA_2025.jpg"
+  },
+  {
+    "id": 184,
+    "nombre": "Nox Attraction WPT Advanced Series 2022",
+    "marca": "Nox",
+    "tipo": "Equilibrada",
+    "precio": 290,
+    "img": "/assets/NOX_ATTRACTION_WPT_ADVANCED_SERIES_2022.jpg"
+  },
+  {
+    "id": 185,
+    "nombre": "Nox AT Genius Attack 18K Agustín Tapia 2024",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 390,
+    "img": "/assets/NOX_AT_GENIUS_ATTACK_18K_AGUST+ìN_TAPIA_2024.jpg"
+  },
+  {
+    "id": 186,
+    "nombre": "Nox Equation 2025",
+    "marca": "Nox",
+    "tipo": "Equilibrada",
+    "precio": 320,
+    "img": "/assets/NOX_EQUATION_2025.jpg"
+  },
+  {
+    "id": 187,
+    "nombre": "Nox Equation Light 2025",
+    "marca": "Nox",
+    "tipo": "Defensiva",
+    "precio": 310,
+    "img": "/assets/NOX_EQUATION_LIGHT_2025.jpg"
+  },
+  {
+    "id": 188,
+    "nombre": "Nox LA10 by Leo Augsburger 2024",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/NOX_LA10_BY_LEO_AUGSBURGER_2024.jpg"
+  },
+  {
+    "id": 189,
+    "nombre": "Nox LA10 Quantum 12K by Leo Augsburger 2025",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 370,
+    "img": "/assets/NOX_LA10_QUANTUM_12K_BY_LEO_AUGSBURGER_2025.jpg"
+  },
+  {
+    "id": 190,
+    "nombre": "Nox ML10 Pro Cup Corp 2022",
+    "marca": "Nox",
+    "tipo": "Defensiva",
+    "precio": 300,
+    "img": "/assets/NOX_ML10_PRO_CUP_CORP_2022.jpg"
+  },
+  {
+    "id": 191,
+    "nombre": "Nox ML10 Pro Cup Rough Surface Edition 23",
+    "marca": "Nox",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/NOX_ML10_PRO_CUP_ROUGH_SURFACE_EDITION_23.jpg"
+  },
+  {
+    "id": 192,
+    "nombre": "Nox ML10 Pro Cup Rough Surface Edition by Miguel Lamperti",
+    "marca": "Nox",
+    "tipo": "Defensiva",
+    "precio": 330,
+    "img": "/assets/NOX_ML10_PRO_CUP_ROUGH_SURFACE_EDITION_BY_MIGUEL_LAMPERTI.jpg"
+  },
+  {
+    "id": 193,
+    "nombre": "Nox ML10 Quantum 3K by Miguel Lamperti 2025",
+    "marca": "Nox",
+    "tipo": "Defensiva",
+    "precio": 340,
+    "img": "/assets/NOX_ML10_QUANTUM_3K_BY_MIGUEL_LAMPERTI_2025.jpg"
+  },
+  {
+    "id": 194,
+    "nombre": "Nox MM2 Pro by Manu Martin",
+    "marca": "Nox",
+    "tipo": "Equilibrada",
+    "precio": 340,
+    "img": "/assets/NOX_MM2_PRO_BY_MANU_MARTIN.jpg"
+  },
+  {
+    "id": 195,
+    "nombre": "Nox Tempo WPT Luxury Series 2022",
+    "marca": "Nox",
+    "tipo": "Equilibrada",
+    "precio": 320,
+    "img": "/assets/NOX_TEMPO_WPT_LUXURY_SERIES_2022.jpg"
+  },
+  {
+    "id": 196,
+    "nombre": "Nox TL10 by Tino Libaak 2024",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 360,
+    "img": "/assets/NOX_TL10_BY_TINO_LIBAAK_2024.jpg"
+  },
+  {
+    "id": 197,
+    "nombre": "Nox TL10 Quantum 12K by Tino Libaak 2025",
+    "marca": "Nox",
+    "tipo": "Potencia",
+    "precio": 380,
+    "img": "/assets/NOX_TL10_QUANTUM_12K_BY_TINO_LIBAAK_2025.jpg"
+  },
+  {
+    "id": 198,
+    "nombre": "Nox X-One Casual Series 23",
+    "marca": "Nox",
+    "tipo": "Principiante",
+    "precio": 180,
+    "img": "/assets/NOX_X-ONE_CASUAL_SERIES_23.jpg"
+  },
+  {
+    "id": 199,
+    "nombre": "Nox X-One Evo Colours 23 Azul",
+    "marca": "Nox",
+    "tipo": "Equilibrada",
+    "precio": 240,
+    "img": "/assets/NOX_X-ONE_EVO_COLOURS_23_AZUL.jpg"
+  },
+  {
+    "id": 200,
+    "nombre": "Nox X-One Evo Red",
+    "marca": "Nox",
+    "tipo": "Equilibrada",
+    "precio": 240,
+    "img": "/assets/NOX_X-ONE_EVO_RED.jpg"
+  },
+  {
+    "id": 201,
+    "nombre": "Nox X-One Silhouette 2025",
+    "marca": "Nox",
+    "tipo": "Equilibrada",
+    "precio": 260,
+    "img": "/assets/NOX_X-ONE_SILHOUETTE_2025.jpg"
+  },
+  {
+    "id": 202,
+    "nombre": "Wilson Accent LT Padel 2 Azul",
+    "marca": "Wilson",
+    "tipo": "Defensiva",
+    "precio": 230,
+    "img": "/assets/WILSON_ACCENT_LT_PADEL_2_AZUL.jpg"
+  },
+  {
+    "id": 203,
+    "nombre": "Wilson Bela Elite V2.5 Padel",
+    "marca": "Wilson",
+    "tipo": "Ofensiva",
+    "precio": 370,
+    "img": "/assets/WILSON_BELA_ELITE_V2.5_PADEL.jpg"
+  },
+  {
+    "id": 204,
+    "nombre": "Wilson Bela Elite V2 Rojo",
+    "marca": "Wilson",
+    "tipo": "Ofensiva",
+    "precio": 360,
+    "img": "/assets/WILSON_BELA_ELITE_V2_ROJO.jpg"
+  },
+  {
+    "id": 205,
+    "nombre": "Wilson Bela LT V2.5 Padel",
+    "marca": "Wilson",
+    "tipo": "Defensiva",
+    "precio": 340,
+    "img": "/assets/WILSON_BELA_LT_V2.5_PADEL.jpg"
+  },
+  {
+    "id": 206,
+    "nombre": "Wilson Bela Pro Padel V2.5",
+    "marca": "Wilson",
+    "tipo": "Potencia",
+    "precio": 395,
+    "img": "/assets/WILSON_BELA_PRO_PADEL_V2.5.jpg"
+  },
+  {
+    "id": 207,
+    "nombre": "Wilson Blade LS V3 Padel 2",
+    "marca": "Wilson",
+    "tipo": "Potencia",
+    "precio": 365,
+    "img": "/assets/WILSON_BLADE_LS_V3_PADEL_2.jpg"
+  },
+  {
+    "id": 208,
+    "nombre": "Wilson Blade Pro V3 Padel",
+    "marca": "Wilson",
+    "tipo": "Potencia",
+    "precio": 375,
+    "img": "/assets/WILSON_BLADE_PRO_V3_PADEL.jpg"
+  },
+  {
+    "id": 209,
+    "nombre": "Wilson Blade Team V2 Black",
+    "marca": "Wilson",
+    "tipo": "Equilibrada",
+    "precio": 255,
+    "img": "/assets/WILSON_BLADE_TEAM_V2_BLACK.jpg"
+  },
+  {
+    "id": 210,
+    "nombre": "Wilson Carbon Force Padel 2 2024",
+    "marca": "Wilson",
+    "tipo": "Defensiva",
+    "precio": 275,
+    "img": "/assets/WILSON_CARBON_FORCE_PADEL_2_2024.jpg"
+  },
+  {
+    "id": 211,
+    "nombre": "Wilson Carbon Force Pro Padel 2",
+    "marca": "Wilson",
+    "tipo": "Potencia",
+    "precio": 290,
+    "img": "/assets/WILSON_CARBON_FORCE_PRO_PADEL_2.jpg"
+  },
+  {
+    "id": 212,
+    "nombre": "Wilson Intrigue Black",
+    "marca": "Wilson",
+    "tipo": "Defensiva",
+    "precio": 260,
+    "img": "/assets/WILSON_INTRIGUE_BLACK.jpg"
+  },
+  {
+    "id": 213,
+    "nombre": "Wilson Pro Staff V2 Team Negro Rojo",
+    "marca": "Wilson",
+    "tipo": "Equilibrada",
+    "precio": 245,
+    "img": "/assets/WILSON_PRO_STAFF_V2_TEAM_NEGRO_ROJO.jpg"
+  },
+  {
+    "id": 214,
+    "nombre": "Wilson Ultra Elite V2 Padel",
+    "marca": "Wilson",
+    "tipo": "Ofensiva",
+    "precio": 350,
+    "img": "/assets/WILSON_ULTRA_ELITE_V2_PADEL.jpg"
+  },
+  {
+    "id": 215,
+    "nombre": "Siux Adrenaline Ibai Edition",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 320,
+    "img": "/assets/SIUX_ADRENALINE_IBAI_EDITION.jpg"
+  },
+  {
+    "id": 216,
+    "nombre": "Siux Beat Defensiva",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 290,
+    "img": "/assets/SIUX_BEAT_Defensiva.jpg"
+  },
+  {
+    "id": 217,
+    "nombre": "Siux Beat Hybrid",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 300,
+    "img": "/assets/SIUX_BEAT_HYBRID.jpg"
+  },
+  {
+    "id": 218,
+    "nombre": "Siux Beat Hybrid Air",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 310,
+    "img": "/assets/SIUX_BEAT_HYBRID_AIR.jpg"
+  },
+  {
+    "id": 219,
+    "nombre": "Siux Beat Kid",
+    "marca": "Siux",
+    "tipo": "Principiante",
+    "precio": 150,
+    "img": "/assets/SIUX_BEAT_KID.jpg"
+  },
+  {
+    "id": 220,
+    "nombre": "Siux Black Carbon Revolution 2 Naranja",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 280,
+    "img": "/assets/SIUX_BLACK_CARBON_REVOLUTION_2_NARANJA.jpg"
+  },
+  {
+    "id": 221,
+    "nombre": "Siux Black Carbon Revolution 3K",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 290,
+    "img": "/assets/SIUX_BLACK_CARBON_REVOLUTION_3K.jpg"
+  },
+  {
+    "id": 222,
+    "nombre": "Siux Diablo Go 3",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 295,
+    "img": "/assets/SIUX_DIABLO_GO_3.jpg"
+  },
+  {
+    "id": 223,
+    "nombre": "Siux Diablo Revolution Jr 3",
+    "marca": "Siux",
+    "tipo": "Principiante",
+    "precio": 170,
+    "img": "/assets/SIUX_DIABLO_REVOLUTION_JR_3.jpg"
+  },
+  {
+    "id": 224,
+    "nombre": "Siux Electra Elite 4 2025",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 330,
+    "img": "/assets/SIUX_ELECTRA_ELITE_4_2025.jpg"
+  },
+  {
+    "id": 225,
+    "nombre": "Siux Electra ST2 Defensiva Racket",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 310,
+    "img": "/assets/SIUX_ELECTRA_ST2_Defensiva_RACKET.jpg"
+  },
+  {
+    "id": 226,
+    "nombre": "Siux Electra ST3 Go",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 315,
+    "img": "/assets/SIUX_ELECTRA_ST3_GO.jpg"
+  },
+  {
+    "id": 227,
+    "nombre": "Siux Electra ST3 Lite",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/SIUX_ELECTRA_ST3_LITE.jpg"
+  },
+  {
+    "id": 228,
+    "nombre": "Siux Electra ST3 Stupa Pro",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 350,
+    "img": "/assets/SIUX_ELECTRA_ST3_STUPA_PRO.jpg"
+  },
+  {
+    "id": 229,
+    "nombre": "Siux Empire Gold",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/SIUX_EMPIRE_GOLD.jpg"
+  },
+  {
+    "id": 230,
+    "nombre": "Siux Evoque 3 Air",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 310,
+    "img": "/assets/SIUX_EVOQUE_3_AIR.jpg"
+  },
+  {
+    "id": 231,
+    "nombre": "Siux Fenix 3K",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 285,
+    "img": "/assets/SIUX_FENIX_3K.jpg"
+  },
+  {
+    "id": 232,
+    "nombre": "Siux Fenix Go 4",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 295,
+    "img": "/assets/SIUX_FENIX_GO_4.jpg"
+  },
+  {
+    "id": 233,
+    "nombre": "Siux Fusion III",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 300,
+    "img": "/assets/SIUX_FUSION_III.jpg"
+  },
+  {
+    "id": 234,
+    "nombre": "Siux Genesis Hybrid 12K",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 325,
+    "img": "/assets/SIUX_GENESIS_HYBRID_12K.jpg"
+  },
+  {
+    "id": 235,
+    "nombre": "Siux Genesis II Lucho Capra Pro",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 335,
+    "img": "/assets/SIUX_Genesis_II_LUCHO_CAPRA_PRO.jpg"
+  },
+  {
+    "id": 236,
+    "nombre": "Siux Infernal Avant",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 315,
+    "img": "/assets/SIUX_INFERNAL_AVANT.jpg"
+  },
+  {
+    "id": 237,
+    "nombre": "Siux Inspire 4.0",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 305,
+    "img": "/assets/SIUX_INSPIRE_4.0.jpg"
+  },
+  {
+    "id": 238,
+    "nombre": "Siux Liberty Defensiva",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 290,
+    "img": "/assets/SIUX_LIBERTY_Defensiva.jpg"
+  },
+  {
+    "id": 239,
+    "nombre": "Siux Liberty Hybrid",
+    "marca": "Siux",
+    "tipo": "Equilibrada",
+    "precio": 295,
+    "img": "/assets/SIUX_LIBERTY_HYBRID.jpg"
+  },
+  {
+    "id": 240,
+    "nombre": "Siux Pegasus Grafeno 1K",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 270,
+    "img": "/assets/SIUX_PEGASUS_GRAFENO_1K.jpg"
+  },
+  {
+    "id": 241,
+    "nombre": "Siux Pegasus Revolution 3K",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 285,
+    "img": "/assets/SIUX_PEGASUS_REVOLUTION_3K.jpg"
+  },
+  {
+    "id": 242,
+    "nombre": "Siux Pegasus Revolution Cube",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 290,
+    "img": "/assets/SIUX_PEGASUS_REVOLUTION_CUBE.jpg"
+  },
+  {
+    "id": 243,
+    "nombre": "Siux Spartan Revolution 2 2023",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 280,
+    "img": "/assets/SIUX_SPARTAN_REVOLUTION_2_2023.jpg"
+  },
+  {
+    "id": 244,
+    "nombre": "Siux Spyder Lite 3 Hard",
+    "marca": "Siux",
+    "tipo": "Potencia",
+    "precio": 320,
+    "img": "/assets/SIUX_SPYDER_LITE_3_HARD.jpg"
+  },
+  {
+    "id": 245,
+    "nombre": "Siux Spyder Lite Ctrl 3 Hard",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 315,
+    "img": "/assets/SIUX_SPYDER_LITE_CTRL_3_HARD.jpg"
+  },
+  {
+    "id": 246,
+    "nombre": "Siux Stone Avant",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 275,
+    "img": "/assets/SIUX_STONE_AVANT.jpg"
+  },
+  {
+    "id": 247,
+    "nombre": "Siux Trilogy 3 Defensiva Racket",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 270,
+    "img": "/assets/SIUX_TRILOGY_3_Defensiva_RACKET.jpg"
+  },
+  {
+    "id": 248,
+    "nombre": "Siux Trilogy 4 Defensiva Lite Air W",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 290,
+    "img": "/assets/SIUX_TRILOGY_4_Defensiva_LITE_AIR_W.jpg"
+  },
+  {
+    "id": 249,
+    "nombre": "Siux Trilogy Go 4",
+    "marca": "Siux",
+    "tipo": "Defensiva",
+    "precio": 285,
+    "img": "/assets/SIUX_TRILOGY_GO_4.jpg"
+  },
+  {
+    "id": 250,
+    "nombre": "StarVie Aquila 2025",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/STARVIE_AQUILA_2025.jpg"
+  },
+  {
+    "id": 251,
+    "nombre": "StarVie Aquila Ultra Speed Soft 2024",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 315,
+    "img": "/assets/STARVIE_AQUILA_ULTRA_SPEED_SOFT_2024.jpg"
+  },
+  {
+    "id": 252,
+    "nombre": "StarVie Astrum 2025",
+    "marca": "StarVie",
+    "tipo": "Equilibrada",
+    "precio": 310,
+    "img": "/assets/STARVIE_ASTRUM_2025.jpg"
+  },
+  {
+    "id": 253,
+    "nombre": "StarVie Astrum Pro 2025",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/STARVIE_ASTRUM_PRO_2025.jpg"
+  },
+  {
+    "id": 254,
+    "nombre": "StarVie Basalto 2025",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/STARVIE_BASALTO_2025.jpg"
+  },
+  {
+    "id": 255,
+    "nombre": "StarVie Basalto Carbon Oro",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/STAR_VIE_BASALTO_CARBON_ORO.jpg"
+  },
+  {
+    "id": 256,
+    "nombre": "StarVie Brava 2025",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 300,
+    "img": "/assets/STARVIE_BRAVA_2025.jpg"
+  },
+  {
+    "id": 257,
+    "nombre": "StarVie Brava Pro 2025",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 320,
+    "img": "/assets/STARVIE_BRAVA_PRO_2025.jpg"
+  },
+  {
+    "id": 258,
+    "nombre": "StarVie Comet",
+    "marca": "StarVie",
+    "tipo": "Equilibrada",
+    "precio": 290,
+    "img": "/assets/STAR_VIE_COMET.jpg"
+  },
+  {
+    "id": 259,
+    "nombre": "StarVie Corvus Columns",
+    "marca": "StarVie",
+    "tipo": "Equilibrada",
+    "precio": 295,
+    "img": "/assets/STARVIE_CORVUS_COLUMNS.jpg"
+  },
+  {
+    "id": 260,
+    "nombre": "StarVie Drax 2025",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 310,
+    "img": "/assets/STARVIE_DRAX_2025.jpg"
+  },
+  {
+    "id": 261,
+    "nombre": "StarVie Drax Pro Touch 2025",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/STARVIE_DRAX_PRO_TOUCH_2025.jpg"
+  },
+  {
+    "id": 262,
+    "nombre": "StarVie Dronos Galaxy",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/STAR_VIE_DRONOS_GALAXY.jpg"
+  },
+  {
+    "id": 263,
+    "nombre": "StarVie Helion 2024",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 305,
+    "img": "/assets/STARVIE_HELION_2024.jpg"
+  },
+  {
+    "id": 264,
+    "nombre": "StarVie Junior 2024",
+    "marca": "StarVie",
+    "tipo": "Principiante",
+    "precio": 150,
+    "img": "/assets/STARVIE_JUNIOR_2024.jpg"
+  },
+  {
+    "id": 265,
+    "nombre": "StarVie Kenta 2025",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 300,
+    "img": "/assets/STARVIE_KENTA_2025.jpg"
+  },
+  {
+    "id": 266,
+    "nombre": "StarVie Kenta Pro 2025",
+    "marca": "StarVie",
+    "tipo": "Equilibrada",
+    "precio": 325,
+    "img": "/assets/STARVIE_KENTA_PRO_2025.jpg"
+  },
+  {
+    "id": 267,
+    "nombre": "StarVie Kraken Pro",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/STAR_VIE_KRAKEN_PRO.jpg"
+  },
+  {
+    "id": 268,
+    "nombre": "StarVie Metheora Dual 2025",
+    "marca": "StarVie",
+    "tipo": "Equilibrada",
+    "precio": 330,
+    "img": "/assets/STARVIE_METHEORA_DUAL_2025.jpg"
+  },
+  {
+    "id": 269,
+    "nombre": "StarVie Radar 2024",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 295,
+    "img": "/assets/STARVIE_RADAR_2024.jpg"
+  },
+  {
+    "id": 270,
+    "nombre": "StarVie Raptor Master Final",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 365,
+    "img": "/assets/STAR_VIE_RAPTOR_MASTER_FINAL.jpg"
+  },
+  {
+    "id": 271,
+    "nombre": "StarVie Raptor Pro Master Final",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 380,
+    "img": "/assets/STAR_VIE_RAPTOR_PRO_MASTER_FINAL.jpg"
+  },
+  {
+    "id": 272,
+    "nombre": "StarVie S2 Fluor Carbon Effect",
+    "marca": "StarVie",
+    "tipo": "Equilibrada",
+    "precio": 280,
+    "img": "/assets/STAR_VIE_S2_FLUOR_CARBON_EFFECT.jpg"
+  },
+  {
+    "id": 273,
+    "nombre": "StarVie Titania Lite 2025",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 310,
+    "img": "/assets/STARVIE_TITANIA_LITE_2025.jpg"
+  },
+  {
+    "id": 274,
+    "nombre": "StarVie Titania Pro 2025",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 335,
+    "img": "/assets/STARVIE_TITANIA_PRO_2025.jpg"
+  },
+  {
+    "id": 275,
+    "nombre": "StarVie Titania Soft 2024",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 315,
+    "img": "/assets/STARVIE_TITANIA_SOFT_2024.jpg"
+  },
+  {
+    "id": 276,
+    "nombre": "StarVie Titania Ultra Speed Soft 2024",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/STARVIE_TITANIA_ULTRA_SPEED_SOFT_2024.jpg"
+  },
+  {
+    "id": 277,
+    "nombre": "StarVie Tritón 2025",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 315,
+    "img": "/assets/STARVIE_TRIT+ôN_2025.jpg"
+  },
+  {
+    "id": 278,
+    "nombre": "StarVie Tritón Pro 2025",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 335,
+    "img": "/assets/STARVIE_TRIT+ôN_PRO_2025.jpg"
+  },
+  {
+    "id": 279,
+    "nombre": "StarVie Tritón Pro Touch 2025",
+    "marca": "StarVie",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/STARVIE_TRIT+ôN_PRO_TOUCH_2025.jpg"
+  },
+  {
+    "id": 280,
+    "nombre": "StarVie Triton Soft 2024",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 325,
+    "img": "/assets/STARVIE_TRITON_SOFT_2024.jpg"
+  },
+  {
+    "id": 281,
+    "nombre": "StarVie Vesta 2024",
+    "marca": "StarVie",
+    "tipo": "Defensiva",
+    "precio": 300,
+    "img": "/assets/STARVIE_VESTA_2024.jpg"
+  },
+  {
+    "id": 282,
+    "nombre": "Dunlop Aero-Star",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 250,
+    "img": "/assets/DUNLOP_AERO-STAR.jpg"
+  },
+  {
+    "id": 283,
+    "nombre": "Dunlop Aero-Star Junior",
+    "marca": "Dunlop",
+    "tipo": "Principiante",
+    "precio": 160,
+    "img": "/assets/DUNLOP_AERO-STAR_JUNIOR.jpg"
+  },
+  {
+    "id": 284,
+    "nombre": "Dunlop Aero-Star Lite",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 235,
+    "img": "/assets/DUNLOP_AERO-STAR_LITE.jpg"
+  },
+  {
+    "id": 285,
+    "nombre": "Dunlop Express Black White",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 220,
+    "img": "/assets/DUNLOP_EXPRESS_BLACKWHITE.jpg"
+  },
+  {
+    "id": 286,
+    "nombre": "Dunlop Express Black Yellow",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 220,
+    "img": "/assets/DUNLOP_EXPRESS_BLACKYELLOW.jpg"
+  },
+  {
+    "id": 287,
+    "nombre": "Dunlop Gravity",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 290,
+    "img": "/assets/DUNLOP_GRAVITY.jpg"
+  },
+  {
+    "id": 288,
+    "nombre": "Dunlop Impact Carbon Pro LTD Amarilla",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 310,
+    "img": "/assets/DUNLOP_IMPACT_CARBON_PRO_LTD_AMARILLA.jpg"
+  },
+  {
+    "id": 289,
+    "nombre": "Dunlop Impact Carbon Pro LTD Azul",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 310,
+    "img": "/assets/DUNLOP_IMPACT_CARBON_PRO_LTD_AZUL.jpg"
+  },
+  {
+    "id": 290,
+    "nombre": "Dunlop Impact Carbon Pro LTD Black",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 310,
+    "img": "/assets/DUNLOP_IMPACT_CARBON_PRO_LTD_BLK.jpg"
+  },
+  {
+    "id": 291,
+    "nombre": "Dunlop Impact Carbon Pro LTD Woman",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 300,
+    "img": "/assets/DUNLOP_IMPACT_CARBON_PRO_LTD_WOMAN.jpg"
+  },
+  {
+    "id": 292,
+    "nombre": "Dunlop Impact HL Red",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 240,
+    "img": "/assets/DUNLOP_IMPACT_HL_RED.jpg"
+  },
+  {
+    "id": 293,
+    "nombre": "Dunlop Impact HL Yellow",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 240,
+    "img": "/assets/DUNLOP_IMPACT_HL_YELLOW.jpg"
+  },
+  {
+    "id": 294,
+    "nombre": "Dunlop Impact Pro HL Green",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 250,
+    "img": "/assets/DUNLOP_IMPACT_PRO_HL_GREEN.jpg"
+  },
+  {
+    "id": 295,
+    "nombre": "Dunlop Impact Pro HL Orange",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 250,
+    "img": "/assets/DUNLOP_IMPACT_PRO_HL_ORANGE.jpg"
+  },
+  {
+    "id": 296,
+    "nombre": "Dunlop Impact Pro HL Pink",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 250,
+    "img": "/assets/DUNLOP_IMPACT_PRO_HL_PINK.jpg"
+  },
+  {
+    "id": 297,
+    "nombre": "Dunlop Impact Pro HL Yellow",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 250,
+    "img": "/assets/DUNLOP_IMPACT_PRO_HL_YELLOW.jpg"
+  },
+  {
+    "id": 298,
+    "nombre": "Dunlop Inferno Elite LTD Amarillo Azul",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 320,
+    "img": "/assets/DUNLOP_INFERNO_ELITE_LTD_AMARILLO_AZUL.jpg"
+  },
+  {
+    "id": 299,
+    "nombre": "Dunlop Inferno Elite LT G1 HL Azul Naranja",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 315,
+    "img": "/assets/DUNLOP_INFERNO_ELITE_LT_G1_HL_AZUL_NARANJA.jpg"
+  },
+  {
+    "id": 300,
+    "nombre": "Dunlop Inferno Elite LT G1 HL Naranja Azul",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 315,
+    "img": "/assets/DUNLOP_INFERNO_ELITE_LT_G1_HL_NARANJA_AZUL.jpg"
+  },
+  {
+    "id": 301,
+    "nombre": "Dunlop Inferno Gold",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 340,
+    "img": "/assets/DUNLOP_INFERNO_GOLD.jpg"
+  },
+  {
+    "id": 302,
+    "nombre": "Dunlop Inferno Silver",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 330,
+    "img": "/assets/DUNLOP_INFERNO_SILVER.jpg"
+  },
+  {
+    "id": 303,
+    "nombre": "Dunlop Infinity Pro G1 HL Metal",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 265,
+    "img": "/assets/DUNLOP_INFINITY_PRO_G1_HL_METAL.jpg"
+  },
+  {
+    "id": 304,
+    "nombre": "Dunlop Infinity Pro G1 HL Silver",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 265,
+    "img": "/assets/DUNLOP_INFINITY_PRO_G1_HL_SILVER.jpg"
+  },
+  {
+    "id": 305,
+    "nombre": "Dunlop Nemesis",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 295,
+    "img": "/assets/DUNLOP_NEMESIS.jpg"
+  },
+  {
+    "id": 306,
+    "nombre": "Dunlop Nemesis Carbon",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 320,
+    "img": "/assets/DUNLOP_NEMESIS_CARBON.jpg"
+  },
+  {
+    "id": 307,
+    "nombre": "Dunlop Nemesis Carbon Defensiva",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/DUNLOP_NEMESIS_CARBON_Defensiva.jpg"
+  },
+  {
+    "id": 308,
+    "nombre": "Dunlop Nemesis Defensiva",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 295,
+    "img": "/assets/DUNLOP_NEMESIS_Defensiva.jpg"
+  },
+  {
+    "id": 309,
+    "nombre": "Dunlop Renegade",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 280,
+    "img": "/assets/DUNLOP_RENEGADE.jpg"
+  },
+  {
+    "id": 310,
+    "nombre": "Dunlop Renegade Soft",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 275,
+    "img": "/assets/DUNLOP_RENEGADE_SOFT.jpg"
+  },
+  {
+    "id": 311,
+    "nombre": "Dunlop Samurai",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 290,
+    "img": "/assets/DUNLOP_SAMURAI.jpg"
+  },
+  {
+    "id": 312,
+    "nombre": "Dunlop Samurai Soft",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 285,
+    "img": "/assets/DUNLOP_SAMURAI_SOFT.jpg"
+  },
+  {
+    "id": 313,
+    "nombre": "Dunlop Skin Attack",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 300,
+    "img": "/assets/DUNLOP_SKIN_ATTACK.jpg"
+  },
+  {
+    "id": 314,
+    "nombre": "Dunlop Skin Attack Soft",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 295,
+    "img": "/assets/DUNLOP_SKIN_ATTACK_SOFT.jpg"
+  },
+  {
+    "id": 315,
+    "nombre": "Dunlop Skin Defensiva",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 290,
+    "img": "/assets/DUNLOP_SKIN_Defensiva.jpg"
+  },
+  {
+    "id": 316,
+    "nombre": "Dunlop Sonic",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 270,
+    "img": "/assets/DUNLOP_SONIC.jpg"
+  },
+  {
+    "id": 317,
+    "nombre": "Dunlop Sonic Soft",
+    "marca": "Dunlop",
+    "tipo": "Defensiva",
+    "precio": 265,
+    "img": "/assets/DUNLOP_SONIC_SOFT.jpg"
+  },
+  {
+    "id": 318,
+    "nombre": "Dunlop Strike Verde",
+    "marca": "Dunlop",
+    "tipo": "Equilibrada",
+    "precio": 255,
+    "img": "/assets/DUNLOP_STRIKE_VERDE.jpg"
+  },
+  {
+    "id": 319,
+    "nombre": "Dunlop Titan 2.0 Amarilla",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/DUNLOP_TITAN_2.0_AMARILLA.jpg"
+  },
+  {
+    "id": 320,
+    "nombre": "Dunlop Titan 2.0 Amarilla Azul",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/DUNLOP_TITAN_2.0_AMARILLA_AZUL.jpg"
+  },
+  {
+    "id": 321,
+    "nombre": "Dunlop Titan 2.0 Naranja",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/DUNLOP_TITAN_2.0_NARANJA.jpg"
+  },
+  {
+    "id": 322,
+    "nombre": "Dunlop Titan 2.0 Pink",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/DUNLOP_TITAN_2.0_PINK.jpg"
+  },
+  {
+    "id": 323,
+    "nombre": "Dunlop Titan 2.0 Verde",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 350,
+    "img": "/assets/DUNLOP_TITAN_2.0_VERDE.jpg"
+  },
+  {
+    "id": 324,
+    "nombre": "Dunlop Titan Killer 2.0 2024",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 370,
+    "img": "/assets/DUNLOP_TITAN_KILLER_2.0_2024.jpg"
+  },
+  {
+    "id": 325,
+    "nombre": "Dunlop Titan Pro Orange 2024",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 380,
+    "img": "/assets/DUNLOP_TITAN_PRO_ORANGE_2024.jpg"
+  },
+  {
+    "id": 326,
+    "nombre": "Dunlop Titan Pro White 2024",
+    "marca": "Dunlop",
+    "tipo": "Potencia",
+    "precio": 380,
+    "img": "/assets/DUNLOP_TITAN_PRO_WHITE_2024.jpg"
+  },
+  {
+    "id": 327,
+    "nombre": "Varlion Avant Difusor Carbon Black",
+    "marca": "Varlion",
+    "tipo": "Defensiva",
+    "precio": 290,
+    "img": "/assets/VARLION_AVANT_DIFUSOR_CARBON_BLACK.jpg"
+  },
+  {
+    "id": 328,
+    "nombre": "Varlion Bourne Carbon Titan",
+    "marca": "Varlion",
+    "tipo": "Potencia",
+    "precio": 330,
+    "img": "/assets/VARLION_BOURNE_CARBON_TITAN.jpg"
+  },
+  {
+    "id": 329,
+    "nombre": "Varlion Bourne One 2023",
+    "marca": "Varlion",
+    "tipo": "Equilibrada",
+    "precio": 310,
+    "img": "/assets/VARLION_BOURNE_ONE_2023.jpg"
+  },
+  {
+    "id": 330,
+    "nombre": "Varlion Bourne Prisma Airflow W Lima 2023",
+    "marca": "Varlion",
+    "tipo": "Defensiva",
+    "precio": 315,
+    "img": "/assets/VARLION_BOURNE_PRISMA_AIRFLOW_W_LIMA_2023.jpg"
+  },
+  {
+    "id": 331,
+    "nombre": "Varlion LW Carbon 8 Prisma Pansy Mujer",
+    "marca": "Varlion",
+    "tipo": "Defensiva",
+    "precio": 295,
+    "img": "/assets/VARLION_LW_CARBON_8_PRISMA_PANSY_MUJER.jpg"
+  },
+  {
+    "id": 332,
+    "nombre": "Varlion LW Carbon Alu",
+    "marca": "Varlion",
+    "tipo": "Potencia",
+    "precio": 325,
+    "img": "/assets/VARLION_LW_CARBON_ALU.jpg"
+  },
+  {
+    "id": 333,
+    "nombre": "Varlion LW Carbon Ti Mujer",
+    "marca": "Varlion",
+    "tipo": "Defensiva",
+    "precio": 320,
+    "img": "/assets/VARLION_LW_CARBON_TI_MUJER.jpg"
   }
 ]
