@@ -95,7 +95,7 @@ const Cart = () => {
                             <div className="flex justify-between">
                               <h3 className="text-sm font-medium">{item.nombre}</h3>
                               <p className="text-sm font-medium text-gray-900">
-                                {(item.price || item.precio).toFixed(2)} €
+                                {((item.price || item.precio || 0)).toFixed(2)} €
                               </p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">{item.tipo}</p>
