@@ -37,7 +37,7 @@
     "marca": "Adidas",
     "tipo": "Defensiva",
     "precio": 370,
-    "img": "/assets/ADIDAS_ADIPOWER_CTRL_MTW_PRO_EDT_BY_+üLEX_RUIZ.jpg"
+    "img": "/assets/ADIDAS_ADIPOWER_CTRL_MTW_PRO_EDT_BY_ALEX_RUIZ.jpg"
   },
   {
     "id": 7,
@@ -117,7 +117,7 @@
     "marca": "Siux",
     "tipo": "Equilibrada",
     "precio": 260,
-    "img": "/assets/SIUX_TRILOGY_Defensiva_PRO_4.jpg"
+    "img": "/assets/SIUX_TRILOGY_CONTROL_PRO_4.jpg"
   },
   
   {
@@ -371,7 +371,7 @@
     "marca": "Nox",
     "tipo": "Ofensiva",
     "precio": 395,
-    "img": "/assets/NOX_AT10_GENIUS_18K_BY_AGUST+ìN_TAPIA_23.jpg"
+    "img": "/assets/NOX_AT10_GENIUS_18K_BY_AGUSTIN_TAPIA_23.jpg"
   },
   {
     "id": 56,
@@ -452,7 +452,7 @@
     "marca": "Siux",
     "tipo": "Equilibrada",
     "precio": 300,
-    "img": "/assets/SIUX_TRILOGY_II_Defensiva_PATTY_PRO.jpg"
+    "img": "/assets/SIUX_TRILOGY_II_CONTROL_PATTY_PRO.jpg"
   },
   {
     "id": 68,
@@ -1104,11 +1104,11 @@
   },
   {
     "id": 149,
-    "nombre": "Bullpadel Ionic Defensiva 2023",
+    "nombre": "Bullpadel Ionic Control 2023",
     "marca": "Bullpadel",
     "tipo": "Defensiva",
     "precio": 310,
-    "img": "/assets/BULLPADEL_IONIC_Defensiva_2023.jpg"
+    "img": "/assets/BULLPADEL_IONIC_CONTROL_2023.jpg"
   },
   {
     "id": 150,
@@ -1204,7 +1204,7 @@
     "marca": "Bullpadel",
     "tipo": "Defensiva",
     "precio": 280,
-    "img": "/assets/BULLPADEL_RAIDER_Defensiva.jpg"
+    "img": "/assets/BULLPADEL_RAIDER_CONTROL.jpg"
   },
   {
     "id": 162,
@@ -1396,7 +1396,7 @@
     "marca": "Nox",
     "tipo": "Potencia",
     "precio": 390,
-    "img": "/assets/NOX_AT_GENIUS_ATTACK_18K_AGUST+ìN_TAPIA_2024.jpg"
+    "img": "/assets/NOX_AT_GENIUS_ATTACK_18K_AGUSTIN_TAPIA_2024.jpg"
   },
   {
     "id": 186,
@@ -1644,7 +1644,7 @@
     "marca": "Siux",
     "tipo": "Defensiva",
     "precio": 290,
-    "img": "/assets/SIUX_BEAT_Defensiva.jpg"
+    "img": "/assets/SIUX_BEAT_CONTROL.jpg"
   },
   {
     "id": 217,
@@ -1716,7 +1716,7 @@
     "marca": "Siux",
     "tipo": "Defensiva",
     "precio": 310,
-    "img": "/assets/SIUX_ELECTRA_ST2_Defensiva_RACKET.jpg"
+    "img": "/assets/SIUX_ELECTRA_ST2_CONTROL_RACKET.jpg"
   },
   {
     "id": 226,
@@ -1820,7 +1820,7 @@
     "marca": "Siux",
     "tipo": "Defensiva",
     "precio": 290,
-    "img": "/assets/SIUX_LIBERTY_Defensiva.jpg"
+    "img": "/assets/SIUX_LIBERTY_CONTROL.jpg"
   },
   {
     "id": 239,
@@ -1892,7 +1892,7 @@
     "marca": "Siux",
     "tipo": "Defensiva",
     "precio": 270,
-    "img": "/assets/SIUX_TRILOGY_3_Defensiva_RACKET.jpg"
+    "img": "/assets/SIUX_TRILOGY_3_CONTROL_RACKET.jpg"
   },
   {
     "id": 248,
@@ -1900,7 +1900,7 @@
     "marca": "Siux",
     "tipo": "Defensiva",
     "precio": 290,
-    "img": "/assets/SIUX_TRILOGY_4_Defensiva_LITE_AIR_W.jpg"
+    "img": "/assets/SIUX_TRILOGY_4_CONTROL_LITE_AIR_W.jpg"
   },
   {
     "id": 249,
@@ -2132,7 +2132,7 @@
     "marca": "StarVie",
     "tipo": "Defensiva",
     "precio": 315,
-    "img": "/assets/STARVIE_TRIT+ôN_2025.jpg"
+    "img": "/assets/STARVIE_TRITON_2025.jpg"
   },
   {
     "id": 278,
@@ -2140,7 +2140,7 @@
     "marca": "StarVie",
     "tipo": "Potencia",
     "precio": 335,
-    "img": "/assets/STARVIE_TRIT+ôN_PRO_2025.jpg"
+    "img": "/assets/STARVIE_TRITON_PRO_2025.jpg"
   },
   {
     "id": 279,
@@ -2148,7 +2148,7 @@
     "marca": "StarVie",
     "tipo": "Potencia",
     "precio": 350,
-    "img": "/assets/STARVIE_TRIT+ôN_PRO_TOUCH_2025.jpg"
+    "img": "/assets/STARVIE_TRITON_PRO_TOUCH_2025.jpg"
   },
   {
     "id": 280,
@@ -2436,7 +2436,7 @@
     "marca": "Dunlop",
     "tipo": "Defensiva",
     "precio": 290,
-    "img": "/assets/DUNLOP_SKIN_Defensiva.jpg"
+    "img": "/assets/DUNLOP_SKIN_CONTROL.jpg"
   },
   {
     "id": 316,
