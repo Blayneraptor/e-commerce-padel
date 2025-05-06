@@ -544,10 +544,6 @@ const PadelDetail = () => {
                             }
                             return null;
                           })}
-                          <li className="flex">
-                            <span className="w-36 flex-shrink-0 text-gray-600">Nivel:</span>
-                            <span className="text-gray-900 font-medium">{producto.nivel || "Avanzado"}</span>
-                          </li>
                         </ul>
                       </div>
                       

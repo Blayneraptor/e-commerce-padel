@@ -107,7 +107,9 @@ const PadelPage = () => {
       if (filtroTipo === "Principiante") {
         tipoCondicion = producto.atributos && 
           producto.atributos["Nivel de Juego"] && 
-          producto.atributos["Nivel de Juego"].toLowerCase().includes("iniciación");
+          (producto.atributos["Nivel de Juego"].toLowerCase().includes("iniciacion") || 
+           producto.atributos["Nivel de Juego"].toLowerCase().includes("iniciación") ||
+           producto.atributos["Nivel de Juego"].toLowerCase().includes("principiante"));
       } else if (filtroTipo === "Equilibrada") {
         tipoCondicion = producto.atributos && 
           producto.atributos["Tipo de Juego"] && 
