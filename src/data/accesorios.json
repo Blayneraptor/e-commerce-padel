@@ -2031,7 +2031,7 @@
     "precio": 75,
     "img": "/assets/CUBO_30_OVERGRIPS_ENEBE_RESPONSE_AMARILLO_FLUOR-1663898.jpg"
   },
-{
+  {
     "nombre": "Cubo 30 Overgrips Enebe Response Blanco",
     "marca": "Enebe",
     "tipo": "Overgrip",
@@ -2589,5 +2589,604 @@
     "tipo": "Protector",
     "precio": 26,
     "img": "/assets/PROTECTOR_Y_OVERGRIP_SHOCKOUT_100-0062_SMU-1613510.jpg"
-  }
-]
+  },
+  {
+    "id": 338,
+    "nombre": "Muñequeras Wilson Terry Negro",
+    "marca": "Wilson",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERAS_ANCHAS_WILSON_TERRY_NEGRO-1576262.jpg"
+  },
+  {
+    "id": 339,
+    "nombre": "Muñequeras Anchas Wilson Wide Terry Blanco",
+    "marca": "Wilson",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERAS_ANCHAS_WILSON_WIDE_TERRY_BLANCO-1576268.jpg"
+  },
+  {
+    "id": 340,
+    "nombre": "Muñequeras Ancha Wilson Wide Terry Azul Marino",
+    "marca": "Wilson",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERAS_ANCHA_WILSON_WIDE_TERRY_AZUL_MARINO-1576265.jpg"
+  },
+  {
+    "id": 341,
+    "nombre": "Muñequeras Asics Blanco Unisex",
+    "marca": "Asics",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERAS_ASICS_BLANCO_UNISEX-1610807.jpg"
+  },
+  {
+    "id": 342,
+    "nombre": "Muñequeras Blister Nox X2 Negro",
+    "marca": "Nox",
+    "tipo": "Muñequeras",
+    "precio": 14,
+    "img": "/assets/MUñEQUERAS_BLISTER_NOX_X2_NEGRO-193734.jpg"
+  },
+  {
+    "id": 343,
+    "nombre": "Muñequeras Blister Nox X2 Rosa",
+    "marca": "Nox",
+    "tipo": "Muñequeras",
+    "precio": 14,
+    "img": "/assets/MUñEQUERAS_BLISTER_NOX_X2_ROSA-193733.jpg"
+  },
+  {
+    "id": 344,
+    "nombre": "Muñequeras Cortas Con Lineas Mizuno Verdes Unisex",
+    "marca": "Mizuno",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERAS_CORTAS_CON_LINEAS_MIZUNO_VERDES_UNISEX-1602884.jpg"
+  },
+  {
+    "id": 345,
+    "nombre": "Muñequeras Cortas Con Linea Mizuno Azul Unisex",
+    "marca": "Mizuno",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERAS_CORTAS_CON_LINEA_MIZUNO_AZUL_UNISEX-1602731.jpg"
+  },
+  {
+    "id": 346,
+    "nombre": "Muñequeras Cortas Con Linea Mizuno Blancas Unisex",
+    "marca": "Mizuno",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERAS_CORTAS_CON_LINEA_MIZUNO_BLANCAS_UNISEX-1602887.jpg"
+  },
+  {
+    "id": 347,
+    "nombre": "Muñequeras Head 2.5 Azul",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERAS_HEAD_2.5_AZUL-194005.jpg"
+  },
+  {
+    "id": 348,
+    "nombre": "Muñequeras Head 2.5 Rojo",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERAS_HEAD_2.5_ROJO-194008.jpg"
+  },
+  {
+    "id": 349,
+    "nombre": "Muñequeras Largas Mizuno Negro Unisex",
+    "marca": "Mizuno",
+    "tipo": "Muñequeras",
+    "precio": 13,
+    "img": "/assets/MUñEQUERAS_LARGAS_MIZUNO_NEGRO_UNISEX-1602728.jpg"
+  },
+  {
+    "id": 350,
+    "nombre": "Muñequeras Largas Mizuno Unisex Blanco",
+    "marca": "Mizuno",
+    "tipo": "Muñequeras",
+    "precio": 13,
+    "img": "/assets/MUñEQUERAS_LARGAS_MIZUNO_UNISEX_BLANCO-1602725.jpg"
+  },
+  {
+    "id": 351,
+    "nombre": "Muñequeras Tecnifibre Azul",
+    "marca": "Tecnifibre",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERAS_TECNIFIBRE_AZUL-1656685.jpg"
+  },
+  {
+    "id": 352,
+    "nombre": "Muñequeras Tecnifibre Azul Marino",
+    "marca": "Tecnifibre",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERAS_TECNIFIBRE_AZUL_MARINO-1656688.jpg"
+  },
+  {
+    "id": 353,
+    "nombre": "Muñequeras Tecnifibre Blanco",
+    "marca": "Tecnifibre",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERAS_TECNIFIBRE_BLANCO-1656694.jpg"
+  },
+  {
+    "id": 354,
+    "nombre": "Muñequeras Tecnifibre Plateado",
+    "marca": "Tecnifibre",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERAS_TECNIFIBRE_PLATEADO-1656691.jpg"
+  },
+  {
+    "id": 355,
+    "nombre": "Muñequeras Tecnifibre Rojo",
+    "marca": "Tecnifibre",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERAS_TECNIFIBRE_ROJO-1656682.jpg"
+  },
+  {
+    "id": 356,
+    "nombre": "Muñequera Babolat Logo Blanco",
+    "marca": "Babolat",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_BABOLAT_LOGO_BLANCO-1623232.jpg"
+  },
+  {
+    "id": 357,
+    "nombre": "Muñequera Babolat Logo Jumbo Azul",
+    "marca": "Babolat",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_BABOLAT_LOGO_JUMBO_AZUL-1623229.jpg"
+  },
+  {
+    "id": 358,
+    "nombre": "Muñequera Bullpadel Blanco Piedra Vigoré",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU-PMR2507_BLANCOPIEDRA_VIGOR├ë-1615763.jpg"
+  },
+  {
+    "id": 359,
+    "nombre": "Muñequera Bullpadel Carbón Piedra Vigoré",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU-PMR2507_CARB├ôNPIEDRA_VIGOR├ë-1615766.jpg"
+  },
+  {
+    "id": 360,
+    "nombre": "Muñequera Bullpadel Malva Azul Noche",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU2405_MALVA_AZUL_NOCHE-369458.jpg"
+  },
+  {
+    "id": 361,
+    "nombre": "Muñequera Bullpadel Negro Geranio",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU2405_NEGRO_GERANIO-368492.jpg"
+  },
+  {
+    "id": 362,
+    "nombre": "Muñequera Bullpadel Verde Blanco",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU2405_VERDE_BLANCO-368491.jpg"
+  },
+  {
+    "id": 363,
+    "nombre": "Muñequera Bullpadel Azabache Blanco",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU243_AZABACHE_BLANCO-368496.jpg"
+  },
+  {
+    "id": 364,
+    "nombre": "Muñequera Bullpadel Azul Intenso Calabaza",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU243_AZUL_INTENSO_CALABAZA-368494.jpg"
+  },
+  {
+    "id": 365,
+    "nombre": "Muñequera Bullpadel Blanco Azul Marino",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU243_BLANCO_AZUL_MARINO-368493.jpg"
+  },
+  {
+    "id": 366,
+    "nombre": "Muñequera Bullpadel Negro Amarillo",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU243_NEGRO_AMARILLO-368495.jpg"
+  },
+  {
+    "id": 367,
+    "nombre": "Muñequera Bullpadel Blanco",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU252_012004_BLANCO-380241.jpg"
+  },
+  {
+    "id": 368,
+    "nombre": "Muñequera Bullpadel Naranja",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU252_531624_NARANJA-380242.jpg"
+  },
+  {
+    "id": 369,
+    "nombre": "Muñequera Bullpadel Azul",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU252_995420_AZUL-380243.jpg"
+  },
+  {
+    "id": 370,
+    "nombre": "Muñequera Bullpadel Azul",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU253_004012_AZUL-380244.jpg"
+  },
+  {
+    "id": 371,
+    "nombre": "Muñequera Bullpadel Rojo Azul Mujer",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU253_ROJO_AZUL_MUJER-380246.jpg"
+  },
+  {
+    "id": 372,
+    "nombre": "Muñequera Bullpadel Verde Negro Mujer",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU253_VERDE_NEGRO_MUJER-380245.jpg"
+  },
+  {
+    "id": 373,
+    "nombre": "Muñequera Bullpadel Blanco Negro",
+    "marca": "Bullpadel",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_BULLPADEL_BPMU254_BLANCO_NEGRO-380247.jpg"
+  },
+  {
+    "id": 374,
+    "nombre": "Muñequera Corta Drop Shot Blanco",
+    "marca": "Drop Shot",
+    "tipo": "Muñequeras",
+    "precio": 9,
+    "img": "/assets/MUñEQUERA_CORTA_DROP_SHOT_BLANCO-194345.jpg"
+  },
+  {
+    "id": 375,
+    "nombre": "Muñequera de Neopreno Softee Negro",
+    "marca": "Softee",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERA_DE_NEOPRENO_SOFTEE_NEGRO-193720.jpg"
+  },
+  {
+    "id": 376,
+    "nombre": "Muñequera Enebe Verde Logo Negro",
+    "marca": "Enebe",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_ENEBE_VERDE_LOGO_NEGRO-548.jpg"
+  },
+  {
+    "id": 377,
+    "nombre": "Muñequera Grande Adidas Tennis Rojo Gris",
+    "marca": "Adidas",
+    "tipo": "Muñequeras",
+    "precio": 14,
+    "img": "/assets/MUñEQUERA_GRANDE_ADIDAS_TENNIS_ROJO_GRIS-194093.jpg"
+  },
+  {
+    "id": 378,
+    "nombre": "Muñequera Head 2,5 Inch Negro",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_HEAD_2,5_INCH_NEGRO-193892.jpg"
+  },
+  {
+    "id": 379,
+    "nombre": "Muñequera Head 2.5 Rosa",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_HEAD_2.5_ROSA-194431.jpg"
+  },
+  {
+    "id": 380,
+    "nombre": "Muñequera Head 5 Azul",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_5_AZUL-194009.jpg"
+  },
+  {
+    "id": 381,
+    "nombre": "Muñequera Head 5 Inch Azul Marino",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_5_INCH_AZUL_MARINO-193894.jpg"
+  },
+  {
+    "id": 382,
+    "nombre": "Muñequera Head 5 Inch Gris",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_5_INCH_GRIS-193893.jpg"
+  },
+  {
+    "id": 383,
+    "nombre": "Muñequera Head Logo 5 Naranja",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_LOGO_5_NARANJA-194010.jpg"
+  },
+  {
+    "id": 384,
+    "nombre": "Muñequera Head Striped 2.5 LLWH",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_STRIPED_2.5_285865_LLWH-1642054.jpg"
+  },
+  {
+    "id": 385,
+    "nombre": "Muñequera Head Striped 2.5 Azul",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_STRIPED_2.5_AZUL-1642078.jpg"
+  },
+  {
+    "id": 386,
+    "nombre": "Muñequera Head Striped 2.5 Azul Marino",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_STRIPED_2.5_AZUL_MARINO-1642057.jpg"
+  },
+  {
+    "id": 387,
+    "nombre": "Muñequera Head Striped 2.5 Lila",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_STRIPED_2.5_LILA-1642081.jpg"
+  },
+  {
+    "id": 388,
+    "nombre": "Muñequera Head Striped 2.5 Lima",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_STRIPED_2.5_LIMA-1642072.jpg"
+  },
+  {
+    "id": 389,
+    "nombre": "Muñequera Head Striped 2.5 Negro",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_STRIPED_2.5_NEGRO-1642048.jpg"
+  },
+  {
+    "id": 390,
+    "nombre": "Muñequera Head Striped 2.5 Rosa",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_STRIPED_2.5_ROSA-1642063.jpg"
+  },
+  {
+    "id": 391,
+    "nombre": "Muñequera Head Striped 2.5 Verde",
+    "marca": "Head",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_HEAD_STRIPED_2.5_VERDE-1642051.jpg"
+  },
+  {
+    "id": 392,
+    "nombre": "Muñequera Jhayber Mate Azul",
+    "marca": "Jhayber",
+    "tipo": "Muñequeras",
+    "precio": 9,
+    "img": "/assets/MUñEQUERA_JHAYBER_MATE_AZUL-455.jpg"
+  },
+  {
+    "id": 393,
+    "nombre": "Muñequera Jhayber Mate Pistacho",
+    "marca": "Jhayber",
+    "tipo": "Muñequeras",
+    "precio": 9,
+    "img": "/assets/MUñEQUERA_JHAYBER_MATE_PISTACHO-456.jpg"
+  },
+  {
+    "id": 394,
+    "nombre": "Muñequera Kombat Hex Blanca",
+    "marca": "Kombat",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_KOMBAT_HEX_BLANCA-1572620.jpg"
+  },
+  {
+    "id": 395,
+    "nombre": "Muñequera Kombat Hex Marino",
+    "marca": "Kombat",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_KOMBAT_HEX_MARINO-1572623.jpg"
+  },
+  {
+    "id": 396,
+    "nombre": "Muñequera Kombat Hex Negra",
+    "marca": "Kombat",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_KOMBAT_HEX_NEGRA-1572626.jpg"
+  },
+  {
+    "id": 397,
+    "nombre": "Muñequera Larga Asics Blanco Unisex",
+    "marca": "Asics",
+    "tipo": "Muñequeras",
+    "precio": 12,
+    "img": "/assets/MUñEQUERA_LARGA_ASICS_BLANCO_UNISEX-1610798.jpg"
+  },
+  {
+    "id": 398,
+    "nombre": "Muñequera Larga Blister Nox X2",
+    "marca": "Nox",
+    "tipo": "Muñequeras",
+    "precio": 15,
+    "img": "/assets/MUñEQUERA_LARGA_BLISTER_NOX_X2-193735.jpg"
+  },
+  {
+    "id": 399,
+    "nombre": "Muñequera Larga Drop Shot Antracita",
+    "marca": "Drop Shot",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_LARGA_DROP_SHOT_ANTRACITA-1651141.jpg"
+  },
+  {
+    "id": 400,
+    "nombre": "Muñequera Larga Drop Shot Blanco",
+    "marca": "Drop Shot",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_LARGA_DROP_SHOT_BLANCO-194347.jpg"
+  },
+  {
+    "id": 401,
+    "nombre": "Muñequera Larga Drop Shot Naranja",
+    "marca": "Drop Shot",
+    "tipo": "Muñequeras",
+    "precio": 11,
+    "img": "/assets/MUñEQUERA_LARGA_DROP_SHOT_NARANJA-1651147.jpg"
+  },
+  {
+    "id": 402,
+    "nombre": "Muñequera LOK Play Black S",
+    "marca": "LOK",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_LOK_PLAY_BLACK_S-380316.jpg"
+  },
+  {
+    "id": 403,
+    "nombre": "Muñequera LOK Play Blue S",
+    "marca": "LOK",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_LOK_PLAY_BLUE_S-380317.jpg"
+  },
+  {
+    "id": 404,
+    "nombre": "Muñequera LOK Tyedye Corta Azul",
+    "marca": "LOK",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_LOK_TYEDYE_CORTA_AZUL-373054.jpg"
+  },
+  {
+    "id": 405,
+    "nombre": "Muñequera LOK Tyedye Corta Verde",
+    "marca": "LOK",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_LOK_TYEDYE_CORTA_VERDE-373055.jpg"
+  },
+  {
+    "id": 406,
+    "nombre": "Muñequera Match Corta Blanco",
+    "marca": "Match",
+    "tipo": "Muñequeras",
+    "precio": 9,
+    "img": "/assets/MUñEQUERA_MATCH_CORTA_BLANCO-373664.jpg"
+  },
+  {
+    "id": 407,
+    "nombre": "Muñequera Match Larga Blanco",
+    "marca": "Match",
+    "tipo": "Muñequeras",
+    "precio": 10,
+    "img": "/assets/MUñEQUERA_MATCH_LARGA_BLANCO-373663.jpg"
+  },
+  {
+    "id": 408,
+    "nombre": "Muñequera Neopreno Vibor-A Negro",
+    "marca": "Vibor-A",
+    "tipo": "Muñequeras",
+    "precio": 13,
+    "img": "/assets/MUñEQUERA_NEOPRENO_VIBOR-A_NEGRO-1567823.jpg"
+  },
+  {
+    "id": 409,
+    "nombre": "Muñequera Normal Softee Negro",
+    "marca": "Softee",
+    "tipo": "Muñequeras",
+    "precio": 8,
+    "img": "/assets/MUñEQUERA_NORMAL_SOFTEE_24202.001.1_NEGRO-1567826.jpg"
+  },
+  {
+    "id": 410,
+    "nombre": "Muñequera Normal Softee Rojo",
+    "marca": "Softee",
+    "tipo": "Muñequeras",
+    "precio": 8,
+    "img": "/assets/MUñEQUERA_NORMAL_SOFTEE_24202.003.1_ROJO-1567829.jpg"
+  },
+  {
+    "id": 411,
+    "nombre": "Muñequera Normal Softee Amarillo",
+    "marca": "Softee",
+    "tipo": "Muñequeras",
+    "precio": 8,
+    "img": "/assets/MUñEQUERA_NORMAL_SOFTEE_24202.005.1_AMARILLO-1567832.jpg"
+  },
+  {
+    "id": 412,
+    "nombre": "Muñequera Normal Softee Violeta",
+    "marca": "Softee",
+    "tipo": "Muñequeras",
+    "precio": 8,
+    "img": "/assets/MUñEQUERA_NORMAL_SOFTEE_24202.008.1_VIOLETA-1567835.jpg"
+  }]

@@ -50,7 +50,14 @@ const AccessorioDetail = () => {
     window.scrollTo(0, 0);
     setLoading(true);
 
-    const foundAccesorio = accesorios.find(a => a.id.toString() === id);
+    // Fix: Asegurarse de que el ID es válido para la comparación
+    const idParam = id ? id.toString() : '';
+    
+    // Fix: Manejo seguro para evitar errores con valores indefinidos
+    const foundAccesorio = accesorios.find(a => {
+      // Asegurarse de que 'a' y 'a.id' existen antes de llamar a toString()
+      return a && a.id !== undefined && a.id.toString() === idParam;
+    });
     
     if (foundAccesorio) {
       // Determinar si el producto está en stock basado en el ID (para que sea consistente)
@@ -63,8 +70,9 @@ const AccessorioDetail = () => {
         stock: stockQty
       });
       
+      // Fix: Asegurarse de manejar correctamente los productos relacionados
       const related = accesorios
-        .filter(a => a.id !== foundAccesorio.id && a.tipo === foundAccesorio.tipo)
+        .filter(a => a && a.id && a.id !== foundAccesorio.id && a.tipo === foundAccesorio.tipo)
         .slice(0, 4);
       
       setAccesoriosRelacionados(related);
