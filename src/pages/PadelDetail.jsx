@@ -41,6 +41,7 @@ const PadelDetail = () => {
   const [cantidad, setCantidad] = useState(1);
   const [activeTab, setActiveTab] = useState('descripcion');
   const [pageLoaded, setPageLoaded] = useState(false);
+  const [notFound, setNotFound] = useState(false);
   
   // Productos relacionados
   const [productosRelacionados, setProductosRelacionados] = useState([]);
@@ -52,34 +53,81 @@ const PadelDetail = () => {
   const [addedToCart, setAddedToCart] = useState(false);
 
   useEffect(() => {
+    // Obtener producto por ID
     window.scrollTo(0, 0);
     setLoading(true);
-
-    // Buscar el producto por ID
-    const foundProduct = productos.find(p => p.id.toString() === id);
+    
+    const foundProduct = productos.find(p => p.id === id);
     
     if (foundProduct) {
-      // Determinar si el producto está en stock basado en el ID (para que sea consistente)
-      // 80% en stock, 20% agotados
-      const isInStock = foundProduct.id % 5 !== 0; // Cada 5to producto estará agotado (20%)
-      const stockQty = isInStock ? Math.floor(Math.random() * 20) + 1 : 0; // Entre 1-20 unidades para productos en stock
+      // Define si el producto está en stock (cada 5to producto estará agotado)
+      const isInStock = parseInt(foundProduct.id) % 5 !== 0;
+      const stockQty = isInStock ? Math.floor(Math.random() * 20) + 1 : 0;
       
       setProducto({
         ...foundProduct,
         stock: stockQty
       });
       
-      // Encontrar productos relacionados (mismo tipo o misma marca)
-      const related = productos
-        .filter(p => p.id !== foundProduct.id && (p.tipo === foundProduct.tipo || p.marca === foundProduct.marca))
-        .slice(0, 4);
+      // Criterios directos para productos relacionados:
+      // 1. Mismo tipo de juego (Control, Potencia, Polivalente)
+      // 2. Mismo tipo de jugador (Hombre, Mujer, Junior)
+      // 3. Rango de precio similar (±30%)
+      const relacionados = productos.filter(p => {
+        if (p.id === foundProduct.id) return false; // Excluir producto actual
+        
+        // Verificar si tiene atributos
+        if (!p.atributos || !foundProduct.atributos) return false;
+        
+        // Calcular rango de precio similar
+        const precioMin = foundProduct.precio_actual * 0.7;
+        const precioMax = foundProduct.precio_actual * 1.3;
+        const precioSimilar = p.precio_actual >= precioMin && p.precio_actual <= precioMax;
+        
+        // Criterios de coincidencia
+        const mismoTipoJuego = p.atributos["Tipo de Juego"] === foundProduct.atributos["Tipo de Juego"];
+        const mismoJugador = p.atributos["Jugador"] && foundProduct.atributos["Jugador"] && 
+                            p.atributos["Jugador"].includes(foundProduct.atributos["Jugador"]);
+        
+        // Al menos debe cumplir con el precio similar y uno de los otros criterios
+        return precioSimilar && (mismoTipoJuego || mismoJugador);
+      });
       
-      setProductosRelacionados(related);
+      // Si no hay suficientes productos relacionados con estos criterios, agregar productos de la misma marca
+      let productosRelacionadosFinal = relacionados;
       
-      // Activar animación de entrada suave
+      if (relacionados.length < 4) {
+        const mismaMarca = productos.filter(p => {
+          return p.id !== foundProduct.id && 
+                p.atributos && 
+                p.atributos["Marca"] === foundProduct.atributos["Marca"] &&
+                !relacionados.some(rel => rel.id === p.id);
+        });
+        
+        productosRelacionadosFinal = [...relacionados, ...mismaMarca].slice(0, 4);
+      }
+      
+      // Si aún no hay suficientes, completar con productos de formato similar
+      if (productosRelacionadosFinal.length < 4) {
+        const mismaForma = productos.filter(p => {
+          return p.id !== foundProduct.id && 
+                p.atributos && 
+                p.atributos["Forma"] === foundProduct.atributos["Forma"] &&
+                !productosRelacionadosFinal.some(rel => rel.id === p.id);
+        });
+        
+        productosRelacionadosFinal = [...productosRelacionadosFinal, ...mismaForma].slice(0, 4);
+      }
+      
+      // Limitar a 4 productos
+      setProductosRelacionados(productosRelacionadosFinal.slice(0, 4));
+      
+      // Mostrar elementos cuando estén cargados
       setTimeout(() => {
         setPageLoaded(true);
-      }, 50);
+      }, 100);
+    } else {
+      setNotFound(true);
     }
     
     setLoading(false);
@@ -152,6 +200,16 @@ const PadelDetail = () => {
     ? ((producto.precio * 100) / (100 - producto.descuento)).toFixed(2)
     : null;
 
+  // Restaurar "Rendimiento" a su estado anterior
+  const rendimiento = [
+    { icon: "💪", name: "Potencia", value: producto.potencia || 8 },
+    { icon: "🎯", name: "Control", value: producto.control || 7 },
+    { icon: "🔄", name: "Spin", value: producto.spin || 8 },
+    { icon: "⚡", name: "Velocidad", value: producto.velocidad || 7 },
+    { icon: "💎", name: "Durabilidad", value: producto.durabilidad || 9 },
+    { icon: "🏆", name: "Nivel", value: producto.nivel || "Avanzado" },
+  ];
+
   return (
     <div className="bg-gray-50 min-h-screen pt-16">
       {/* Migas de pan */}
@@ -177,7 +235,7 @@ const PadelDetail = () => {
                   {/* Imagen principal */}
                   <div className="relative bg-gray-100 rounded-lg overflow-hidden p-8 flex items-center justify-center">
                     <img 
-                      src={producto.img} 
+                      src={producto.img.startsWith('/assets') ? producto.img : `/assets${producto.img}`}
                       alt={producto.nombre}
                       className="max-h-[500px] object-contain transform transition-transform duration-500 hover:scale-105"
                     />
@@ -209,7 +267,7 @@ const PadelDetail = () => {
                       ${selectedImage === 0 ? 'border-blue-500' : 'border-gray-200'}`}
                     >
                       <img 
-                        src={producto.img} 
+                        src={producto.img.startsWith('/assets') ? producto.img : `/assets${producto.img}`}
                         alt={`${producto.nombre} - vista 1`}
                         className="max-h-full max-w-full object-contain"
                       />
@@ -222,7 +280,7 @@ const PadelDetail = () => {
                       ${selectedImage === 1 ? 'border-blue-500' : 'border-gray-200'}`}
                     >
                       <img 
-                        src={producto.img} 
+                        src={producto.img.startsWith('/assets') ? producto.img : `/assets${producto.img}`}
                         alt={`${producto.nombre} - vista 2`}
                         className="max-h-full max-w-full object-contain transform rotate-45"
                       />
@@ -234,7 +292,7 @@ const PadelDetail = () => {
                       ${selectedImage === 2 ? 'border-blue-500' : 'border-gray-200'}`}
                     >
                       <img 
-                        src={producto.img} 
+                        src={producto.img.startsWith('/assets') ? producto.img : `/assets${producto.img}`}
                         alt={`${producto.nombre} - vista 3`}
                         className="max-h-full max-w-full object-contain transform -rotate-45"
                       />
@@ -271,15 +329,15 @@ const PadelDetail = () => {
                   </div>
                   
                   <div className="mt-4 flex items-end">
-                    <p className="text-3xl font-bold text-gray-900">{producto.precio}€</p>
-                    {precioAnterior && (
+                    <p className="text-3xl font-bold text-gray-900">{producto.precio_actual}€</p>
+                    {producto.precio_antiguo && (
                       <p className="ml-3 text-lg font-medium text-gray-500 line-through">
-                        {precioAnterior}€
+                        {producto.precio_antiguo}€
                       </p>
                     )}
-                    {producto.descuento && (
+                    {producto.precio_antiguo && (
                       <p className="ml-3 text-lg font-medium text-red-600">
-                        {producto.descuento}% dto.
+                        {Math.round(((producto.precio_antiguo - producto.precio_actual) / producto.precio_antiguo) * 100)}% dto.
                       </p>
                     )}
                   </div>
@@ -474,29 +532,21 @@ const PadelDetail = () => {
                       <div>
                         <h3 className="text-lg font-semibold text-gray-800 mb-3">Especificaciones</h3>
                         <ul className="space-y-2">
-                          <li className="flex">
-                            <span className="w-36 flex-shrink-0 text-gray-600">Marca:</span>
-                            <span className="text-gray-900 font-medium">{producto.marca || "Marca Premium"}</span>
-                          </li>
-                          <li className="flex">
-                            <span className="w-36 flex-shrink-0 text-gray-600">Forma:</span>
-                            <span className="text-gray-900 font-medium">{producto.forma || "Diamante"}</span>
-                          </li>
-                          <li className="flex">
-                            <span className="w-36 flex-shrink-0 text-gray-600">Peso:</span>
-                            <span className="text-gray-900 font-medium">{producto.peso || "370g"}</span>
-                          </li>
-                          <li className="flex">
-                            <span className="w-36 flex-shrink-0 text-gray-600">Balance:</span>
-                            <span className="text-gray-900 font-medium">{producto.balance || "Medio-Alto"}</span>
-                          </li>
+                          {Object.entries(producto.atributos || {}).map(([clave, valor]) => {
+                            // No mostrar los atributos que ya se muestran en Materiales
+                            if (clave !== 'Núcleo' && clave !== 'Cara' && valor && valor.toLowerCase() !== "unknow" && valor.toLowerCase() !== "none") {
+                              return (
+                                <li key={clave} className="flex">
+                                  <span className="w-36 flex-shrink-0 text-gray-600">{clave}:</span>
+                                  <span className="text-gray-900 font-medium">{valor}</span>
+                                </li>
+                              );
+                            }
+                            return null;
+                          })}
                           <li className="flex">
                             <span className="w-36 flex-shrink-0 text-gray-600">Nivel:</span>
                             <span className="text-gray-900 font-medium">{producto.nivel || "Avanzado"}</span>
-                          </li>
-                          <li className="flex">
-                            <span className="w-36 flex-shrink-0 text-gray-600">Tipo de juego:</span>
-                            <span className="text-gray-900 font-medium">{producto.tipo || "Ofensivo"}</span>
                           </li>
                         </ul>
                       </div>
@@ -506,28 +556,29 @@ const PadelDetail = () => {
                         <ul className="space-y-2">
                           <li className="flex">
                             <span className="w-36 flex-shrink-0 text-gray-600">Núcleo:</span>
-                            <span className="text-gray-900 font-medium">{producto.nucleo || "EVA Soft Performance"}</span>
+                            <span className="text-gray-900 font-medium">{producto.atributos?.Núcleo || "EVA Soft Performance"}</span>
                           </li>
                           <li className="flex">
                             <span className="w-36 flex-shrink-0 text-gray-600">Cara:</span>
-                            <span className="text-gray-900 font-medium">{producto.cara || "Fibra de carbono 12K"}</span>
+                            <span className="text-gray-900 font-medium">{producto.atributos?.Cara || "Fibra de carbono 12K"}</span>
                           </li>
                           <li className="flex">
                             <span className="w-36 flex-shrink-0 text-gray-600">Marco:</span>
-                            <span className="text-gray-900 font-medium">{producto.marco || "100% carbono reforzado"}</span>
+                            <span className="text-gray-900 font-medium">{producto.atributos?.Marco || "100% carbono reforzado"}</span>
                           </li>
                           <li className="flex">
                             <span className="w-36 flex-shrink-0 text-gray-600">Acabado:</span>
-                            <span className="text-gray-900 font-medium">{producto.acabado || "Rugoso"}</span>
+                            <span className="text-gray-900 font-medium">{producto.atributos?.Acabado || "Rugoso"}</span>
                           </li>
                         </ul>
                       </div>
                     </div>
                     
+                    {/* Renderizar los atributos en la sección de "Rendimiento" */}
                     <div className="mt-8">
                       <h3 className="text-lg font-semibold text-gray-800 mb-3">Rendimiento</h3>
                       <div className="space-y-4">
-                        {caracteristicas.filter(c => typeof c.value === "number").map((caracteristica) => (
+                        {rendimiento.filter(c => typeof c.value === "number").map((caracteristica) => (
                           <div key={caracteristica.name} className="flex items-center">
                             <span className="w-36 flex-shrink-0 text-gray-600">{caracteristica.name}:</span>
                             <div className="flex-grow">
@@ -554,7 +605,7 @@ const PadelDetail = () => {
                         {[...Array(5)].map((_, i) => (
                           <svg key={i} className={`w-6 h-6 ${i < (producto.rating || 4) ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                          </svg>
+                        </svg>
                         ))}
                       </div>
                       <span className="text-xl font-bold text-gray-900">{producto.rating || 4.5}</span>
@@ -688,7 +739,7 @@ const PadelDetail = () => {
                     {/* Imagen */}
                     <div className="aspect-square overflow-hidden bg-gray-50 p-4">
                       <img
-                        src={productoRel.img}
+                        src={productoRel.img.startsWith('/assets') ? productoRel.img : `/assets${productoRel.img}`}
                         alt={productoRel.nombre}
                         className="h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
                       />
@@ -697,7 +748,7 @@ const PadelDetail = () => {
                     {/* Detalles */}
                     <div className="p-4 bg-white">
                       <h3 className="text-sm text-gray-700 font-medium mb-1 line-clamp-2">{productoRel.nombre}</h3>
-                      <p className="text-base font-bold text-gray-900">{productoRel.precio}€</p>
+                      <p className="text-base font-bold text-gray-900">{productoRel.precio_actual}€</p>
                     </div>
                   </div>
                 </Link>

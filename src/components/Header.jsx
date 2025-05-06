@@ -15,6 +15,7 @@ import marcasImg from "../assets/potencia.png";
 import accesorioImg from "../assets/accesorios.png";
 
 import productos from "../data/productos.json";
+import accesorios from "../data/accesorios.json"; // Importando accesorios para categorías
 
 function Header() {
   const location = useLocation();
@@ -81,17 +82,33 @@ function Header() {
     Marcas: null, // no tipo filter for brands
   };
 
+  // Actualizado para coincidir exactamente con las categorías en los datos JSON
   const tipoMapAcc = {
-    Pelotas: "Pelotas",
-    Overgrip: "Overgrip",
-    Bolsas: "Bolsas",
-    Protector: "Protector",
-    Muñequeras: "Muñequeras",
-    Camisetas: "Ropa",
+    "Pelotas": "Pelotas",
+    "Overgrips": "Overgrips",
+    "Protectores": "Protectores De Palas",
+    "Muñequeras": "Muñequeras",
+    "Gorras y Viseras": "Gorras Y Viseras",
+    "Material Club": "Material Club Padel",
   };
 
-  // Lista de marcas únicas para submenu
-  const marcas = Array.from(new Set(productos.map((p) => p.marca)));
+  // Lista de marcas únicas para submenu de palas - corregido para acceder correctamente a la marca
+  const marcas = Array.from(
+    new Set(
+      productos
+        .map((p) => p.atributos?.Marca)
+        .filter((marca) => marca !== undefined)
+    )
+  ).sort();
+
+  // Lista de marcas únicas para accesorios
+  const marcasAccesorios = Array.from(
+    new Set(
+      accesorios
+        .map((a) => a.atributos?.Marca)
+        .filter((marca) => marca !== undefined)
+    )
+  ).sort();
 
   return (
     <header
@@ -380,10 +397,10 @@ function Header() {
                     item.name === "Marcas" ? (
                       <li
                         key={item.name}
-                        className="relative group transition-transform duration-500 hover:-translate-y-1"
+                        className="relative group/marcas transition-transform duration-500 hover:-translate-y-1"
                         style={{ animationDelay: `${index * 50}ms` }}
                       >
-                        <div className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                        <button className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer">
                           <div className="relative">
                             <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
                               <img
@@ -398,7 +415,7 @@ function Header() {
                             {item.name}
                           </span>
                           <svg
-                            className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-90"
+                            className="w-4 h-4 ml-1 transition-transform duration-300 group-hover/marcas:rotate-90"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -410,9 +427,9 @@ function Header() {
                               d="M9 5l7 7-7 7"
                             />
                           </svg>
-                        </div>
-                        <div className="absolute left-full top-32 transform -translate-y-1/2 ml-2 w-40 bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
-                          <ul className="space-y-2">
+                        </button>
+                        <div className="absolute left-full top-0 transform ml-2 w-52 bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg invisible opacity-0 group-hover/marcas:visible group-hover/marcas:opacity-100 transition-all duration-300">
+                          <ul className="space-y-2 max-h-60 overflow-y-auto">
                             {marcas.map((marca) => (
                               <li
                                 key={marca}
@@ -422,7 +439,19 @@ function Header() {
                                   to={`/palas-de-padel?marca=${encodeURIComponent(
                                     marca
                                   )}`}
-                                  className="text-gray-200 hover:text-white block"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    navigate(
+                                      `/palas-de-padel?marca=${encodeURIComponent(
+                                        marca
+                                      )}`
+                                    );
+                                    window.scrollTo({
+                                      top: 0,
+                                      behavior: "smooth",
+                                    });
+                                  }}
+                                  className="text-gray-200 hover:text-white block py-1"
                                 >
                                   {marca}
                                 </Link>
@@ -440,6 +469,14 @@ function Header() {
                         <Link
                           to={`/palas-de-padel?tipo=${tipoMap[item.name]}`}
                           className="flex flex-col items-center gap-2 px-5 py-3 rounded-lg hover:bg-white/10 transition-all duration-300"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate(`/palas-de-padel?tipo=${tipoMap[item.name]}`);
+                            window.scrollTo({
+                              top: 0,
+                              behavior: "smooth",
+                            });
+                          }}
                         >
                           <div className="relative">
                             <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
@@ -497,41 +534,109 @@ function Header() {
               <div className="bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg">
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    "Pelotas",
-                    "Overgrip",
-                    "Bolsas",
-                    "Protector",
-                    "Muñequeras",
-                    "Camisetas",
-                  ].map((name, index) => (
-                    <button
-                      key={name}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const query = `?tipo=${tipoMapAcc[name]}`;
-                        // Always navigate to filter, even if same, to ensure scroll handling
-                        navigate(`/accesorios${query}`);
-                        // Scroll to the products list
-                        const el = document.getElementById("productos-lista");
-                        if (el) el.scrollIntoView({ behavior: "smooth" });
-                      }}
-                      className="group/item flex flex-col items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-300"
-                    >
-                      <div className="relative">
-                        <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
-                          <img
-                            src={accesorioImg}
-                            alt={name}
-                            className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110"
-                          />
+                    { name: "Pelotas", tipo: "Pelotas" },
+                    { name: "Overgrips", tipo: "Overgrips" },
+                    { name: "Protectores", tipo: "Protectores De Palas" },
+                    { name: "Muñequeras", tipo: "Muñequeras" },
+                    { name: "Gorras y Viseras", tipo: "Gorras Y Viseras" },
+                    { name: "Accesorios Entrenamiento", tipo: "Accesorios Entrenamiento" },
+                  ].map((item, index) => 
+                    item.name === "Marcas" ? (
+                      <div key={item.name} className="group/marcasacc relative">
+                        <button
+                          className="group/item flex flex-col items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-300 w-full"
+                        >
+                          <div className="relative">
+                            <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
+                              <img
+                                src={accesorioImg}
+                                alt={item.name}
+                                className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110"
+                              />
+                            </div>
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500 to-teal-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
+                          </div>
+                          <span className="mt-1 text-sm font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300 flex items-center">
+                            {item.name}
+                            <svg
+                              className="w-4 h-4 ml-1 transition-transform duration-300 group-hover/marcasacc:rotate-90"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                        
+                        {/* Submenu de marcas para accesorios */}
+                        <div className="absolute left-full top-0 transform ml-2 w-52 bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg invisible opacity-0 group-hover/marcasacc:visible group-hover/marcasacc:opacity-100 transition-all duration-300">
+                          <ul className="space-y-2 max-h-60 overflow-y-auto">
+                            {marcasAccesorios.map((marca) => (
+                              <li
+                                key={marca}
+                                className="hover:translate-x-2 transition-transform duration-300"
+                              >
+                                <Link
+                                  to={`/accesorios?marca=${encodeURIComponent(
+                                    marca
+                                  )}`}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    navigate(
+                                      `/accesorios?marca=${encodeURIComponent(
+                                        marca
+                                      )}`
+                                    );
+                                    window.scrollTo({
+                                      top: 0,
+                                      behavior: "smooth",
+                                    });
+                                  }}
+                                  className="text-gray-200 hover:text-white block py-1"
+                                >
+                                  {marca}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500 to-teal-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
                       </div>
-                      <span className="mt-1 text-sm font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">
-                        {name}
-                      </span>
-                    </button>
-                  ))}
+                    ) : (
+                      <button
+                        key={item.name}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const query = `?tipo=${encodeURIComponent(item.tipo)}`;
+                          // Always navigate to filter, even if same, to ensure scroll handling
+                          navigate(`/accesorios${query}`);
+                          // Scroll to the products list
+                          const el = document.getElementById("productos-lista");
+                          if (el) el.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        className="group/item flex flex-col items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-300"
+                      >
+                        <div className="relative">
+                          <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
+                            <img
+                              src={accesorioImg}
+                              alt={item.name}
+                              className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110"
+                            />
+                          </div>
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500 to-teal-600 opacity-0 group-hover/item:opacity-30 blur-md transition-opacity duration-300"></div>
+                        </div>
+                        <span className="mt-1 text-sm font-medium text-gray-200 group-hover/item:text-white transition-colors duration-300">
+                          {item.name}
+                        </span>
+                      </button>
+                    )
+                  )}
                 </div>
               </div>
               <div className="absolute top-4 left-1/2 transform -translate-x-1/2 -translate-y-full w-4 h-4 rotate-45 bg-gray-900 border-t border-l border-gray-700"></div>

@@ -46,8 +46,10 @@ const PadelPage = () => {
   
   const productosPorPagina = 20;
 
-  // Lista de marcas únicas para el filtro de marcas
-  const marcas = Array.from(new Set(productos.map(p => p.marca)));
+  // Lista de marcas únicas para el filtro de marcas - CORREGIDO
+  const marcas = Array.from(new Set(productos
+    .filter(p => p.atributos && p.atributos.Marca)
+    .map(p => p.atributos.Marca)));
 
   // Efecto para la animación del banner
   useEffect(() => {
@@ -62,8 +64,15 @@ const PadelPage = () => {
     const params = new URLSearchParams(location.search);
     const tipoParam = params.get('tipo');
     const marcaParam = params.get('marca');
-    setFiltroTipo(tipoParam || "Todos");
-    setFiltroMarca(marcaParam || "Todos");
+    
+    if (tipoParam) {
+      setFiltroTipo(tipoParam);
+    }
+    
+    if (marcaParam) {
+      setFiltroMarca(marcaParam);
+    }
+
     setPaginaActual(1);
   }, [location.search]);
 
@@ -78,21 +87,65 @@ const PadelPage = () => {
     }
   }, [location.search]);
 
-  // Filtra las palas según el tipo, marca y la búsqueda
+  // Añadir manejo de especificaciones y limpieza de datos
+  const limpiarAtributos = (atributos) => {
+    const atributosLimpios = {};
+    for (const [clave, valor] of Object.entries(atributos)) {
+      if (valor && valor.toLowerCase() !== "unknown" && valor.toLowerCase() !== "none") {
+        atributosLimpios[clave] = valor;
+      }
+    }
+    return atributosLimpios;
+  };
+
+  // Modificar la función de filtrado para usar los valores correctos del JSON
   const filtrarProductos = () => {
     let filtrados = productos.filter((producto) => {
-      const tipoCondicion = filtroTipo === "Todos" || producto.tipo === filtroTipo;
-      const marcaCondicion = filtroMarca === "Todos" || producto.marca === filtroMarca;
+      // Adecuar los valores del filtro a los valores del JSON
+      let tipoCondicion = filtroTipo === "Todos";
+      
+      if (filtroTipo === "Principiante") {
+        tipoCondicion = producto.atributos && 
+          producto.atributos["Nivel de Juego"] && 
+          producto.atributos["Nivel de Juego"].toLowerCase().includes("iniciación");
+      } else if (filtroTipo === "Equilibrada") {
+        tipoCondicion = producto.atributos && 
+          producto.atributos["Tipo de Juego"] && 
+          producto.atributos["Tipo de Juego"].toLowerCase().includes("polivalente");
+      } else if (filtroTipo === "Ofensiva") {
+        tipoCondicion = producto.atributos && 
+          producto.atributos["Nivel de Juego"] && 
+          producto.atributos["Nivel de Juego"].toLowerCase().includes("avanzado");
+      } else if (filtroTipo === "Defensiva") {
+        tipoCondicion = producto.atributos && 
+          producto.atributos["Tipo de Juego"] && 
+          producto.atributos["Tipo de Juego"].toLowerCase().includes("control");
+      } else if (filtroTipo === "Potencia") {
+        tipoCondicion = producto.atributos && 
+          producto.atributos["Tipo de Juego"] && 
+          producto.atributos["Tipo de Juego"].toLowerCase().includes("potencia");
+      }
+      
+      // CORREGIDO: Comprobar la marca en el objeto atributos
+      const marcaCondicion = filtroMarca === "Todos" || 
+                            (producto.atributos && 
+                             producto.atributos.Marca === filtroMarca);
+      
       const busquedaCondicion = producto.nombre.toLowerCase().includes(busqueda.toLowerCase());
+      
       return tipoCondicion && marcaCondicion && busquedaCondicion;
     });
-    
-    // Ordena según el precio
+
+    // Ordenar por precio
     filtrados.sort((a, b) =>
-      ordenPrecio === "asc" ? a.precio - b.precio : b.precio - a.precio
+      ordenPrecio === "asc" ? a.precio_actual - b.precio_actual : b.precio_actual - a.precio_actual
     );
-    
-    return filtrados;
+
+    // Limpiar atributos de cada producto
+    return filtrados.map((producto) => ({
+      ...producto,
+      atributos: limpiarAtributos(producto.atributos),
+    }));
   };
 
   // count filtered products and pages
@@ -279,7 +332,7 @@ const PadelPage = () => {
                       {/* Imagen */}
                       <div className="aspect-square overflow-hidden bg-gray-50 p-4">
                         <img
-                          src={producto.img}
+                          src={producto.img.startsWith('/assets') ? producto.img : `/assets${producto.img}`}
                           alt={producto.nombre}
                           className="h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
                         />
@@ -288,7 +341,12 @@ const PadelPage = () => {
                       {/* Detalles */}
                       <div className="p-4 bg-white border-t border-gray-100">
                         <h3 className="text-sm text-gray-700 font-medium mb-1">{producto.nombre}</h3>
-                        <p className="text-base font-bold text-gray-900">{producto.precio}€</p>
+                        <div className="flex items-center">
+                          <p className="text-base font-bold text-gray-900">{producto.precio_actual}€</p>
+                          {producto.precio_antiguo && (
+                            <p className="ml-2 text-sm line-through text-gray-500">{producto.precio_antiguo}€</p>
+                          )}
+                        </div>
                         
                         <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="text-xs inline-flex items-center font-medium bg-blue-600 text-white px-3 py-1 rounded-full">
