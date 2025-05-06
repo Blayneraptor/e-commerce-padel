@@ -57,43 +57,43 @@
   },
   {
     "id": 15,
-    "nombre": "Bolsa Bullpadel Backpack",
-    "marca": "Bullpadel",
+    "nombre": "Bolsa Wilson Teaching Naranja",
+    "marca": "Wilson",
     "tipo": "Bolsas",
     "precio": 70,
-    "img": "/assets/accesorios.png"
+    "img": "/assets/BOLSA_WILSON_TEACHING_NARANJA-1642807.jpg"
   },
   {
     "id": 16,
-    "nombre": "Bolsa Head Tour",
-    "marca": "Head",
+    "nombre": "Bolsa Wilson Teaching Rojo",
+    "marca": "Wilson",
     "tipo": "Bolsas",
-    "precio": 60,
-    "img": "/assets/accesorios.png"
+    "precio": 65,
+    "img": "/assets/BOLSA_WILSON_TEACHING_ROJO-1642810.jpg"
   },
   {
     "id": 17,
-    "nombre": "Bolsa Wilson Pro Tournament",
-    "marca": "Wilson",
+    "nombre": "Bolsa ShockOut X4 Naranja",
+    "marca": "ShockOut",
     "tipo": "Bolsas",
     "precio": 75,
-    "img": "/assets/accesorios.png"
+    "img": "/assets/BOLSA_SHOCKOUT_X4_NARANJA-193738.jpg"
   },
   {
     "id": 18,
-    "nombre": "Bolsa Babolat RH X12",
-    "marca": "Babolat",
+    "nombre": "Bolsa ShockOut X4 Pink",
+    "marca": "ShockOut",
     "tipo": "Bolsas",
     "precio": 85,
-    "img": "/assets/accesorios.png"
+    "img": "/assets/BOLSA_SHOCKOUT_X4_PINK-193780.jpg"
   },
   {
     "id": 19,
-    "nombre": "Bolsa Nox Thermo",
-    "marca": "Nox",
+    "nombre": "Bolsa Head Beachtennis",
+    "marca": "Head",
     "tipo": "Bolsas",
     "precio": 65,
-    "img": "/assets/accesorios.png"
+    "img": "/assets/BOLSA_12_BOLAS_BEACHTENNIS_HEAD-1642372.jpg"
   },
   {
     "id": 20,
@@ -2102,5 +2102,493 @@
     "tipo": "Overgrip",
     "precio": 150,
     "img": "/assets/CUBO_60_OVERGRIPS_LISOS_BLACK_CROWN_A000404_COLORES-363389.jpg"
+  },
+  {
+    "id": 277,
+    "nombre": "Protector Adidas Antishock Tape Negro",
+    "marca": "Adidas",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_ADIDAS_ANTISHOCK_TAPE_NEGRO-330389.jpg"
+  },
+  {
+    "id": 278,
+    "nombre": "Protector Adidas Antishock Tape Transparente",
+    "marca": "Adidas",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_ADIDAS_ANTISHOCK_TAPE_TRANSPARENTE-331442.jpg"
+  },
+  {
+    "id": 279,
+    "nombre": "Protector Babolat X15",
+    "marca": "Babolat",
+    "tipo": "Protector",
+    "precio": 24,
+    "img": "/assets/PROTECTOR_BABOLAT_X15-193797.jpg"
+  },
+  {
+    "id": 280,
+    "nombre": "Protector Black Crown Adamantium Negro",
+    "marca": "Black Crown",
+    "tipo": "Protector",
+    "precio": 25,
+    "img": "/assets/PROTECTOR_BLACK_CROWN_ADAMANTIUM_NEGRO-351178.jpg"
+  },
+  {
+    "id": 281,
+    "nombre": "Protector Black Crown Ure Negro/Rojo",
+    "marca": "Black Crown",
+    "tipo": "Protector",
+    "precio": 25,
+    "img": "/assets/PROTECTOR_BLACK_CROWN_URE_NEGROROJO-331439.jpg"
+  },
+  {
+    "id": 282,
+    "nombre": "Protector Black Crown Ure Transparente",
+    "marca": "Black Crown",
+    "tipo": "Protector",
+    "precio": 25,
+    "img": "/assets/PROTECTOR_BLACK_CROWN_URE_TRANSPARENTE-351179.jpg"
+  },
+  {
+    "id": 283,
+    "nombre": "Protector Black Crown Vibranium Negro",
+    "marca": "Black Crown",
+    "tipo": "Protector",
+    "precio": 26,
+    "img": "/assets/PROTECTOR_BLACK_CROWN_VIBRANIUM_NEGRO-331440.jpg"
+  },
+  {
+    "id": 284,
+    "nombre": "Protector Black Crown Vibranium Transparente",
+    "marca": "Black Crown",
+    "tipo": "Protector",
+    "precio": 26,
+    "img": "/assets/PROTECTOR_BLACK_CROWN_VIBRANIUM_TRANSPARENTE-351180.jpg"
+  },
+  {
+    "id": 285,
+    "nombre": "Protector Bullpadel Frame 3 Unidades Negro",
+    "marca": "Bullpadel",
+    "tipo": "Protector",
+    "precio": 23,
+    "img": "/assets/PROTECTOR_BULLPADEL_FRAME_3_UNIDADES_NEGRO-249.jpg"
+  },
+  {
+    "id": 286,
+    "nombre": "Protector Codo Neopreno Carvic",
+    "marca": "Carvic",
+    "tipo": "Protector",
+    "precio": 18,
+    "img": "/assets/PROTECTOR_CODO_NEOPRENO_CARVIC-1567901.jpg"
+  },
+  {
+    "id": 287,
+    "nombre": "Protector Dentado Blanco Softee",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_DENTADO_BLANCO_SOFTEE-1567904.jpg"
+  },
+  {
+    "id": 288,
+    "nombre": "Protector Dentado Negro Softee",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_DENTADO_NEGRO_SOFTEE-1567907.jpg"
+  },
+  {
+    "id": 289,
+    "nombre": "Protector Dentado Softee Transparente",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_DENTADO_SOFTEE_TRANSPARENTE-1567910.jpg"
+  },
+  {
+    "id": 290,
+    "nombre": "Protector Enebe Response Oro",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_ENEBE_RESPONSE_ORO-453.jpg"
+  },
+  {
+    "id": 291,
+    "nombre": "Protector Enebe Response Oro 0013789",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_ENEBE_RESPONSE_ORO_0013789-460.jpg"
+  },
+  {
+    "id": 292,
+    "nombre": "Protector Padel Enebe Supra Naranja",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 21,
+    "img": "/assets/PROTECTOR_PADEL_ENEBE_SUPRA_NARANJA-418.jpg"
+  },
+  {
+    "id": 293,
+    "nombre": "Protector Pala Padel Enebe Response 3K A000531",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 23,
+    "img": "/assets/PROTECTOR_PALA_PADEL_ENEBE_RESPONSE_3K_A000531-381401.jpg"
+  },
+  {
+    "id": 294,
+    "nombre": "Protector Pala Padel Enebe Supra 3K",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_PALA_PADEL_ENEBE_SUPRA_3K-381403.jpg"
+  },
+  {
+    "id": 295,
+    "nombre": "Protector Pala Padel Vibor-A Mamba Elite 3K",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 24,
+    "img": "/assets/PROTECTOR_PALA_PADEL_VIBOR-A_MAMBA_ELITE_3K-380109.jpg"
+  },
+  {
+    "id": 296,
+    "nombre": "Protector Pala Padel Vibor-A Naya Xtreme",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 23,
+    "img": "/assets/PROTECTOR_PALA_PADEL_VIBOR-A_NAYA_XTREME-381404.jpg"
+  },
+  {
+    "id": 297,
+    "nombre": "Protector Pala Pudel Enebe Combat A000534",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 21,
+    "img": "/assets/PROTECTOR_PALA_PUDEL_ENEBE_COMBAT_A000534-381400.jpg"
+  },
+  {
+    "id": 298,
+    "nombre": "Protector Pala Pudel Enebe Spitfire Verde",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_PALA_PUDEL_ENEBE_SPITFIRE_VERDE-381402.jpg"
+  },
+  {
+    "id": 299,
+    "nombre": "Protector Pala Pudel Vibor-A Yarara Radical",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 24,
+    "img": "/assets/PROTECTOR_PALA_PUDEL_VIBOR-A_YARARA_RADICAL-381538.jpg"
+  },
+  {
+    "id": 300,
+    "nombre": "Protector Pudel Enebe Arox Azul",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 20,
+    "img": "/assets/PROTECTOR_PUDEL_ENEBE_AROX_AZUL-415.jpg"
+  },
+  {
+    "id": 301,
+    "nombre": "Protector Pudel Enebe Combat Amarillo",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 20,
+    "img": "/assets/PROTECTOR_PUDEL_ENEBE_COMBAT_AMARILLO-416.jpg"
+  },
+  {
+    "id": 302,
+    "nombre": "Protector Pudel Enebe Massive Rojo",
+    "marca": "Enebe",
+    "tipo": "Protector",
+    "precio": 20,
+    "img": "/assets/PROTECTOR_PUDEL_ENEBE_MASSIVE_ROJO-417.jpg"
+  },
+  {
+    "id": 303,
+    "nombre": "Protector Shockout Shockskin Transparente",
+    "marca": "Shockout",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_SHOCKOUT_SHOCKSKIN_TRANSPARENTE-1622473.jpg"
+  },
+  {
+    "id": 304,
+    "nombre": "Protector Shockout Shockskin Transparente Azul",
+    "marca": "Shockout",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_SHOCKOUT_SHOCKSKIN_TRANSPARENTEAZUL-1622476.jpg"
+  },
+  {
+    "id": 305,
+    "nombre": "Protector Shockout Shockskin Transparente Negro",
+    "marca": "Shockout",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_SHOCKOUT_SHOCKSKIN_TRANSPARENTENEGRO-1622479.jpg"
+  },
+  {
+    "id": 306,
+    "nombre": "Protector Shockout Shockskin Transparente Rojo",
+    "marca": "Shockout",
+    "tipo": "Protector",
+    "precio": 22,
+    "img": "/assets/PROTECTOR_SHOCKOUT_SHOCKSKIN_TRANSPARENTEROJO-1622482.jpg"
+  },
+  {
+    "id": 307,
+    "nombre": "Protector Shock Out 100-0057 Transparente",
+    "marca": "Shock Out",
+    "tipo": "Protector",
+    "precio": 21,
+    "img": "/assets/PROTECTOR_SHOCK_OUT_100-0057_TRANSPARENTE-363955.jpg"
+  },
+  {
+    "id": 308,
+    "nombre": "Protector Shock Out Bolas",
+    "marca": "Shock Out",
+    "tipo": "Protector",
+    "precio": 21,
+    "img": "/assets/PROTECTOR_SHOCK_OUT_BOLAS-194084.jpg"
+  },
+  {
+    "id": 309,
+    "nombre": "Protector Shock Out Serious",
+    "marca": "Shock Out",
+    "tipo": "Protector",
+    "precio": 21,
+    "img": "/assets/PROTECTOR_SHOCK_OUT_SERIOUS-452.jpg"
+  },
+  {
+    "id": 310,
+    "nombre": "Protector Shock Out Transparente",
+    "marca": "Shock Out",
+    "tipo": "Protector",
+    "precio": 20,
+    "img": "/assets/PROTECTOR_SHOCK_OUT_TRANSPARENTE-194312.jpg"
+  },
+  {
+    "id": 311,
+    "nombre": "Protector Softee Padel Blanco Rojo",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_BLANCO_ROJO-419.jpg"
+  },
+  {
+    "id": 312,
+    "nombre": "Protector Softee Padel Dorado",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_DORADO-423.jpg"
+  },
+  {
+    "id": 313,
+    "nombre": "Protector Softee Padel Geometria Azul",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_GEOMETRIA_AZUL-445.jpg"
+  },
+  {
+    "id": 314,
+    "nombre": "Protector Softee Padel Geometria Oro",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_GEOMETRIA_ORO-446.jpg"
+  },
+  {
+    "id": 315,
+    "nombre": "Protector Softee Padel Geometria Plata",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_GEOMETRIA_PLATA-451.jpg"
+  },
+  {
+    "id": 316,
+    "nombre": "Protector Softee Padel Geometria Plata 14038",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_GEOMETRIA_PLATA_14038-447.jpg"
+  },
+  {
+    "id": 317,
+    "nombre": "Protector Softee Padel Geometria Rojo",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_GEOMETRIA_ROJO-448.jpg"
+  },
+  {
+    "id": 318,
+    "nombre": "Protector Softee Padel Rojo Blanco",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_ROJO_BLANCO-425.jpg"
+  },
+  {
+    "id": 319,
+    "nombre": "Protector Softee Padel Rombos Azul",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_ROMBOS_AZUL-194080.jpg"
+  },
+  {
+    "id": 320,
+    "nombre": "Protector Softee Padel Rombos Oro",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_ROMBOS_ORO-194081.jpg"
+  },
+  {
+    "id": 321,
+    "nombre": "Protector Softee Padel Rombos Plata 3T",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_ROMBOS_PLATA_3T-194082.jpg"
+  },
+  {
+    "id": 322,
+    "nombre": "Protector Softee Padel Rombos Rojo",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 19,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_ROMBOS_ROJO-449.jpg"
+  },
+  {
+    "id": 323,
+    "nombre": "Protector Softee Padel Transparente",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 18,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_TRANSPARENTE-421.jpg"
+  },
+  {
+    "id": 324,
+    "nombre": "Protector Softee Padel Transparente Azul",
+    "marca": "Softee",
+    "tipo": "Protector",
+    "precio": 18,
+    "img": "/assets/PROTECTOR_SOFTEE_PADEL_TRANSPARENTE_AZUL-424.jpg"
+  },
+  {
+    "id": 325,
+    "nombre": "Protector StarVie PVC Azul",
+    "marca": "StarVie",
+    "tipo": "Protector",
+    "precio": 23,
+    "img": "/assets/PROTECTOR_STARVIE_PVC_AZUL-194148.jpg"
+  },
+  {
+    "id": 326,
+    "nombre": "Protector StarVie PVC Blanco",
+    "marca": "StarVie",
+    "tipo": "Protector",
+    "precio": 23,
+    "img": "/assets/PROTECTOR_STARVIE_PVC_BLANCO-378764.jpg"
+  },
+  {
+    "id": 327,
+    "nombre": "Protector StarVie PVC Negro",
+    "marca": "StarVie",
+    "tipo": "Protector",
+    "precio": 23,
+    "img": "/assets/PROTECTOR_STARVIE_PVC_NEGRO-378763.jpg"
+  },
+  {
+    "id": 328,
+    "nombre": "Protector Star Vie PVC Rojo",
+    "marca": "StarVie",
+    "tipo": "Protector",
+    "precio": 23,
+    "img": "/assets/PROTECTOR_STAR_VIE_PVC_ROJO-534.jpg"
+  },
+  {
+    "id": 329,
+    "nombre": "Protector Vibor-A Black Mamba Xtreme",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 25,
+    "img": "/assets/PROTECTOR_VIBOR-A_BLACK_MAMBA_XTREME-380108.jpg"
+  },
+  {
+    "id": 330,
+    "nombre": "Protector Vibor-A Cobra Rojo Negro",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 24,
+    "img": "/assets/PROTECTOR_VIBOR-A_COBRA_ROJO_NEGRO-411.jpg"
+  },
+  {
+    "id": 331,
+    "nombre": "Protector Vibor-A Mamba Amarillo",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 24,
+    "img": "/assets/PROTECTOR_VIBOR-A_MAMBA_AMARILLO-414.jpg"
+  },
+  {
+    "id": 332,
+    "nombre": "Protector Vibor-A Transparente",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 23,
+    "img": "/assets/PROTECTOR_VIBOR-A_TRANSPARENTE-614.jpg"
+  },
+  {
+    "id": 333,
+    "nombre": "Protector Vibor-A Yarara Azul",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 24,
+    "img": "/assets/PROTECTOR_VIBOR-A_YARARA_AZUL-412.jpg"
+  },
+  {
+    "id": 334,
+    "nombre": "Protector Vibor-A Yarara Naranja",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 24,
+    "img": "/assets/PROTECTOR_VIBOR-A_YARARA_NARANJA-413.jpg"
+  },
+  {
+    "id": 335,
+    "nombre": "Protector Vibor-A Yarara Oro 0013788",
+    "marca": "Vibor-A",
+    "tipo": "Protector",
+    "precio": 25,
+    "img": "/assets/PROTECTOR_VIBOR-A_YARARA_ORO_0013788-459.jpg"
+  },
+  {
+    "id": 336,
+    "nombre": "Protector Vibora Pro Elite",
+    "marca": "Vibora",
+    "tipo": "Protector",
+    "precio": 25,
+    "img": "/assets/PROTECTOR_VIBORA_PRO_ELITE-613.jpg"
+  },
+  {
+    "id": 337,
+    "nombre": "Protector y Overgrip Shockout 100-0062 SMU",
+    "marca": "Shockout",
+    "tipo": "Protector",
+    "precio": 26,
+    "img": "/assets/PROTECTOR_Y_OVERGRIP_SHOCKOUT_100-0062_SMU-1613510.jpg"
   }
 ]
