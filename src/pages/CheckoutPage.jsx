@@ -77,7 +77,7 @@ const CheckoutPage = () => {
             {cart.map(item => (
               <li key={item.id} className="flex justify-between">
                 <span>{item.nombre} x{item.quantity}</span>
-                <span>{(item.precio * item.quantity).toFixed(2)} €</span>
+                <span>{(item.precio_actual * item.quantity).toFixed(2)} €</span>
               </li>
             ))}
           </ul>

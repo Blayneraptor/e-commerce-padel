@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import accesorios from "../data/accesorios.json";
+import pelotas from "../data/pelotas.json";
 import accesoriospadel from "../assets/accesoriospadel.png";
 import flechaIcon from '../assets/flecha.png';
 import useInView from "../hooks/useInView";
@@ -64,23 +65,88 @@ const Accesorios = () => {
     }
   }, [location.search]);
 
-  // Filtra los accesorios según el tipo y la búsqueda
+  // Añadir manejo de especificaciones y limpieza de datos
+  const limpiarAtributos = (atributos) => {
+    const atributosLimpios = {};
+    for (const [clave, valor] of Object.entries(atributos)) {
+      if (valor && valor.toLowerCase() !== "unknown" && valor.toLowerCase() !== "none") {
+        atributosLimpios[clave] = valor;
+      }
+    }
+    return atributosLimpios;
+  };
+
+  // Asignar tipo a cada producto basado en sus atributos
+  const procesarProductos = () => {
+    // Asignar tipo a los productos basado en atributos
+    return [...accesorios, ...pelotas].map(producto => {
+      let tipo = "Otro";
+      
+      // Si es una pelota, le asignamos el tipo "Pelotas"
+      if (producto.atributos && producto.atributos["Producto"] === "Pelotas") {
+        tipo = "Pelotas";
+      }
+      // Si es un accesorio, procesamos su tipo específico
+      else if (producto.atributos && producto.atributos["Producto"] === "Accesorios") {
+        // Verificamos si tiene un tipo de accesorio específico
+        if (producto.atributos["Accesorios para Palas y Pelotas"] === "Protectores De Palas") {
+          tipo = "Protectores De Palas";
+        } else if (producto.atributos["Accesorios Textil"] === "Muñequeras") {
+          tipo = "Muñequeras";
+        } else if (producto.atributos["Accesorios Textil"] === "Gorras Y Viseras") {
+          tipo = "Gorras Y Viseras";
+        } else if (producto.atributos["Accesorios para Palas y Pelotas"] === "Overgrips") {
+          tipo = "Overgrips";
+        } else if (producto.atributos["Accesorios Entrenamiento"] === "Material Club Padel") {
+          tipo = "Material Club Padel";
+        } else if (producto.atributos["Accesorios Entrenamiento"] === "Prevención Y Lesiones") {
+          tipo = "Prevención Y Lesiones";
+        }
+      }
+      
+      return {
+        ...producto,
+        tipo: tipo
+      };
+    });
+  };
+
+  // Procesar los productos una vez al cargar el componente
+  const todosLosProductos = procesarProductos();
+
+  // Obtener categorías únicas para filtrar
+  const categorias = Array.from(
+    new Set([
+      ...todosLosProductos.map(item => item.tipo),
+      "Accesorios Entrenamiento" // Añadimos manualmente esta categoría
+    ])
+  ).sort();
+
+  // Modificar la función de filtrado para trabajar con los tipos asignados
   const filtrarAccesorios = () => {
-    let filtrados = accesorios.filter((accesorio) => {
-      const tipoCondicion =
-        filtroTipo === "Todos" || accesorio.tipo === filtroTipo;
-      const busquedaCondicion = accesorio.nombre
-        .toLowerCase()
-        .includes(busqueda.toLowerCase());
+    let filtrados = todosLosProductos.filter((item) => {
+      // Para "Accesorios Entrenamiento" mostrar todos los productos que tengan ese atributo
+      if (filtroTipo === "Accesorios Entrenamiento") {
+        return item.atributos && item.atributos["Accesorios Entrenamiento"] && 
+               item.nombre.toLowerCase().includes(busqueda.toLowerCase());
+      } 
+      
+      // Para otros tipos, filtrar como antes
+      const tipoCondicion = filtroTipo === "Todos" || item.tipo === filtroTipo;
+      const busquedaCondicion = item.nombre.toLowerCase().includes(busqueda.toLowerCase());
       return tipoCondicion && busquedaCondicion;
     });
-    
-    // Ordena según el precio
+
+    // Ordenar por precio - usar precio_actual en vez de precio
     filtrados.sort((a, b) =>
-      ordenPrecio === "asc" ? a.precio - b.precio : b.precio - a.precio
+      ordenPrecio === "asc" ? a.precio_actual - b.precio_actual : b.precio_actual - a.precio_actual
     );
-    
-    return filtrados;
+
+    // Limpiar atributos de cada producto
+    return filtrados.map((item) => ({
+      ...item,
+      atributos: limpiarAtributos(item.atributos || {}),
+    }));
   };
   
   // Dynamic page count based on filtered results
@@ -164,17 +230,16 @@ const Accesorios = () => {
                   }}
                   className="appearance-none bg-white pl-4 pr-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
                 >
-                  <option value="Todos">Todos los tipos</option>
-                  <option value="Pelotas">Pelotas</option>
-                  <option value="Overgrip">Overgrip</option>
-                  <option value="Bolsas">Bolsas</option>
-                  <option value="Protector">Protector</option>
-                  <option value="Muñequeras">Muñequeras</option>
-                  <option value="Ropa">Camisetas</option>
+                  <option value="Todos">Todos los productos</option>
+                  {categorias.map((categoria) => (
+                    <option key={categoria} value={categoria}>
+                      {categoria}
+                    </option>
+                  ))}
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0-1.414z" clipRule="evenodd"></path>
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0-1.414 0l-4-4a1 1 0-1.414z" clipRule="evenodd"></path>
                   </svg>
                 </div>
               </div>
@@ -190,7 +255,7 @@ const Accesorios = () => {
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0-1.414z" clipRule="evenodd"></path>
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0-1.414 0l-4-4a1 1 0-1.414z" clipRule="evenodd"></path>
                   </svg>
                 </div>
               </div>
@@ -241,7 +306,7 @@ const Accesorios = () => {
                       {/* Imagen */}
                       <div className="aspect-square overflow-hidden bg-gray-50 p-4">
                         <img
-                          src={accesorio.img}
+                          src={accesorio.img.startsWith('/assets') ? accesorio.img : `/assets${accesorio.img}`}
                           alt={accesorio.nombre}
                           className="h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
                         />
@@ -250,7 +315,12 @@ const Accesorios = () => {
                       {/* Detalles */}
                       <div className="p-4 bg-white border-t border-gray-100">
                         <h3 className="text-sm text-gray-700 font-medium mb-1">{accesorio.nombre}</h3>
-                        <p className="text-base font-bold text-gray-900">{accesorio.precio}€</p>
+                        <div className="flex items-center">
+                          <p className="text-base font-bold text-gray-900">{accesorio.precio_actual}€</p>
+                          {accesorio.precio_antiguo && (
+                            <p className="ml-2 text-sm line-through text-gray-500">{accesorio.precio_antiguo}€</p>
+                          )}
+                        </div>
                         
                         <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="text-xs inline-flex items-center font-medium bg-blue-600 text-white px-3 py-1 rounded-full">
