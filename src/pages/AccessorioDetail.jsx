@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import accesorios from "../data/accesorios.json";
+import pelotas from "../data/pelotas.json";
 import useInView from "../hooks/useInView";
 import { useCart } from "../contexts/CartContext";
 
@@ -50,40 +51,107 @@ const AccessorioDetail = () => {
     window.scrollTo(0, 0);
     setLoading(true);
 
-    // Fix: Asegurarse de que el ID es válido para la comparación
-    const idParam = id ? id.toString() : '';
+    // Combinar ambos arrays de productos
+    const todosLosAccesorios = [...accesorios, ...pelotas];
+
+    // Buscar el producto por ID en ambos arrays
+    const foundProduct = todosLosAccesorios.find(p => p.id.toString() === id);
     
-    // Fix: Manejo seguro para evitar errores con valores indefinidos
-    const foundAccesorio = accesorios.find(a => {
-      // Asegurarse de que 'a' y 'a.id' existen antes de llamar a toString()
-      return a && a.id !== undefined && a.id.toString() === idParam;
-    });
-    
-    if (foundAccesorio) {
-      // Determinar si el producto está en stock basado en el ID (para que sea consistente)
-      // 80% en stock, 20% agotados
-      const isInStock = foundAccesorio.id % 5 !== 0; // Cada 5to producto estará agotado (20%)
-      const stockQty = isInStock ? Math.floor(Math.random() * 20) + 1 : 0; // Entre 1-20 unidades para productos en stock
+    if (foundProduct) {
+      // Determinar si el producto está en stock
+      const isInStock = foundProduct.id % 5 !== 0; // Cada 5to producto estará agotado (20%)
+      const stockQty = isInStock ? Math.floor(Math.random() * 20) + 1 : 0;
+      
+      // Determinar el tipo de producto basado en atributos
+      let tipo = foundProduct.tipo || "Accesorio";
+      if (foundProduct.atributos) {
+        if (foundProduct.atributos["Producto"] === "Pelotas") {
+          tipo = "Pelotas";
+        } else if (foundProduct.atributos["Producto"] === "Accesorios") {
+          if (foundProduct.atributos["Accesorios para Palas y Pelotas"]) {
+            tipo = foundProduct.atributos["Accesorios para Palas y Pelotas"];
+          } else if (foundProduct.atributos["Tipo"]) {
+            tipo = foundProduct.atributos["Tipo"];
+          }
+        }
+      }
       
       setAccesorio({
-        ...foundAccesorio,
-        stock: stockQty
+        ...foundProduct,
+        stock: stockQty,
+        tipo: tipo
       });
       
-      // Fix: Asegurarse de manejar correctamente los productos relacionados
-      const related = accesorios
-        .filter(a => a && a.id && a.id !== foundAccesorio.id && a.tipo === foundAccesorio.tipo)
-        .slice(0, 4);
+      // Filtrar productos relacionados por criterios específicos:
+      // 1. Mismo tipo de accesorio (por "Accesorios para Palas y Pelotas" o "Accesorios Entrenamiento")
+      // 2. Precio similar (±30%)
+      let accesoriosRelacionados = todosLosAccesorios.filter(p => {
+        // Excluir el producto actual
+        if (p.id === foundProduct.id) return false;
+        
+        // Verificar si ambos productos tienen atributos
+        if (!p.atributos || !foundProduct.atributos) return false;
+        
+        // Determinar si coincide la categoría principal (ej: "Accesorios", "Pelotas")
+        const mismaCategoria = p.atributos["Producto"] === foundProduct.atributos["Producto"];
+        
+        // Determinar si coincide la subcategoría específica
+        let mismaSubcategoria = false;
+        if (foundProduct.atributos["Accesorios para Palas y Pelotas"] && 
+            p.atributos["Accesorios para Palas y Pelotas"] === foundProduct.atributos["Accesorios para Palas y Pelotas"]) {
+          mismaSubcategoria = true;
+        } else if (foundProduct.atributos["Accesorios Entrenamiento"] && 
+                  p.atributos["Accesorios Entrenamiento"] === foundProduct.atributos["Accesorios Entrenamiento"]) {
+          mismaSubcategoria = true;
+        } else if (foundProduct.atributos["Tipo"] && 
+                  p.atributos["Tipo"] === foundProduct.atributos["Tipo"]) {
+          mismaSubcategoria = true;
+        }
+        
+        // Determinar si el precio es similar (±30%)
+        const precioMin = foundProduct.precio_actual * 0.7;
+        const precioMax = foundProduct.precio_actual * 1.3;
+        const precioSimilar = p.precio_actual >= precioMin && p.precio_actual <= precioMax;
+        
+        // Criterio de selección: misma subcategoría Y precio similar, O misma categoría Y precio similar
+        return (mismaSubcategoria || mismaCategoria) && precioSimilar;
+      });
       
-      setAccesoriosRelacionados(related);
+      // Si no hay suficientes productos relacionados, completar con productos de la misma marca
+      if (accesoriosRelacionados.length < 4) {
+        const mismaMarca = todosLosAccesorios.filter(p => {
+          return p.id !== foundProduct.id && 
+                p.marca === foundProduct.marca &&
+                !accesoriosRelacionados.some(rel => rel.id === p.id);
+        });
+        
+        accesoriosRelacionados = [...accesoriosRelacionados, ...mismaMarca].slice(0, 4);
+      }
+      
+      // Si aún necesitamos más productos, agregar más productos del mismo rango de precio
+      if (accesoriosRelacionados.length < 4) {
+        const precioMin = foundProduct.precio_actual * 0.7;
+        const precioMax = foundProduct.precio_actual * 1.3;
+        
+        const precioSimilar = todosLosAccesorios.filter(p => {
+          return p.id !== foundProduct.id && 
+                p.precio_actual >= precioMin && 
+                p.precio_actual <= precioMax &&
+                !accesoriosRelacionados.some(rel => rel.id === p.id);
+        });
+        
+        accesoriosRelacionados = [...accesoriosRelacionados, ...precioSimilar].slice(0, 4);
+      }
+      
+      // Limitar a 4 productos
+      setAccesoriosRelacionados(accesoriosRelacionados.slice(0, 4));
       
       setTimeout(() => {
-        setIsProductVisible(true);
-      }, 100);
+        setPageLoaded(true);
+      }, 50);
     }
     
     setLoading(false);
-    setPageLoaded(true);
   }, [id]);
 
   const handleCantidad = (accion) => {
@@ -166,7 +234,7 @@ const AccessorioDetail = () => {
                 <div className="space-y-4">
                   <div className="relative bg-gray-100 rounded-lg overflow-hidden p-8 flex items-center justify-center">
                     <img
-                      src={accesorio.img}
+                      src={accesorio.img.startsWith('/assets') ? accesorio.img : `/assets${accesorio.img}`}
                       alt={accesorio.nombre}
                       className="max-h-[500px] object-contain transform transition-transform duration-500 hover:scale-105"
                     />
@@ -191,7 +259,11 @@ const AccessorioDetail = () => {
                         key={i}
                         onClick={() => setSelectedImage(i)}
                         className={`flex-shrink-0 border-2 rounded-md w-20 h-20 flex items-center justify-center ${selectedImage===i?'border-blue-500':'border-gray-200'}`}>
-                        <img src={accesorio.img} alt={`${accesorio.nombre} - vista ${i+1}`} className="max-h-full max-w-full object-contain" />
+                        <img 
+                          src={accesorio.img.startsWith('/assets') ? accesorio.img : `/assets${accesorio.img}`} 
+                          alt={`${accesorio.nombre} - vista ${i+1}`} 
+                          className="max-h-full max-w-full object-contain" 
+                        />
                       </button>
                     ))}
                   </div>
@@ -203,7 +275,7 @@ const AccessorioDetail = () => {
                 <div>
                   <div className="flex items-center mb-1">
                     <span className="text-sm font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">
-                      {accesorio.tipo || "Premium"}
+                      {accesorio.tipo || (accesorio.atributos && accesorio.atributos.Producto) || "Premium"}
                     </span>
                     <span className="ml-2 text-sm text-gray-500">Ref: {accesorio.id}</span>
                   </div>
@@ -211,9 +283,17 @@ const AccessorioDetail = () => {
 
                   <div className="flex items-center mb-4">
                     <div className="mt-4 flex items-end">
-                      <p className="text-3xl font-bold text-gray-900">{accesorio.precio}€</p>
-                      {precioAnterior && <p className="ml-3 text-lg font-medium text-gray-500 line-through">{precioAnterior}€</p>}
-                      {accesorio.descuento && <p className="ml-3 text-lg font-medium text-red-600">{accesorio.descuento}% dto.</p>}
+                      <p className="text-3xl font-bold text-gray-900">{accesorio.precio_actual}€</p>
+                      {accesorio.precio_antiguo && (
+                        <p className="ml-3 text-lg font-medium text-gray-500 line-through">
+                          {accesorio.precio_antiguo}€
+                        </p>
+                      )}
+                      {accesorio.precio_antiguo && (
+                        <p className="ml-3 text-lg font-medium text-red-600">
+                          {Math.round(((accesorio.precio_antiguo - accesorio.precio_actual) / accesorio.precio_antiguo) * 100)}% dto.
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -331,12 +411,24 @@ const AccessorioDetail = () => {
                 {/* Características */}
                 {activeTab==='caracteristicas' && (
                   <div className="space-y-4">
-                    <ul className="space-y-2">
-                      <li className="flex"><span className="w-40 font-medium text-gray-600">Marca:</span><span className="ml-2 text-gray-800">{accesorio.marca}</span></li>
-                      <li className="flex"><span className="w-40 font-medium text-gray-600">Tipo:</span><span className="ml-2 text-gray-800">{accesorio.tipo}</span></li>
-                      <li className="flex"><span className="w-40 font-medium text-gray-600">Precio:</span><span className="ml-2 text-gray-800">{accesorio.precio}€</span></li>
-                      {accesorio.descuento && <li className="flex"><span className="w-40 font-medium text-gray-600">Descuento:</span><span className="ml-2 text-gray-800">-{accesorio.descuento}%</span></li>}
-                    </ul>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-800 mb-3">Especificaciones</h3>
+                        <ul className="space-y-2">
+                          {Object.entries(accesorio.atributos || {}).map(([clave, valor]) => {
+                            if (valor && valor.toLowerCase() !== "unknown" && valor.toLowerCase() !== "none") {
+                              return (
+                                <li key={clave} className="flex">
+                                  <span className="w-36 flex-shrink-0 text-gray-600">{clave}:</span>
+                                  <span className="text-gray-900 font-medium">{valor}</span>
+                                </li>
+                              );
+                            }
+                            return null;
+                          })}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 )}
                 {/* Opiniones */}
@@ -447,11 +539,20 @@ const AccessorioDetail = () => {
                 <div key={item.id} className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
                   <Link to={`/accesorios/${item.id}`}>
                     <div className="aspect-square overflow-hidden bg-gray-50 p-4 flex items-center justify-center">
-                      <img src={item.img} alt={item.nombre} className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" />
+                      <img 
+                        src={item.img.startsWith('/assets') ? item.img : `/assets${item.img}`} 
+                        alt={item.nombre} 
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" 
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="text-sm font-medium text-gray-700 mb-1">{item.nombre}</h3>
-                      <p className="text-base font-bold text-gray-900">{item.precio}€</p>
+                      <div className="flex items-center">
+                        <p className="text-base font-bold text-gray-900">{item.precio_actual}€</p>
+                        {item.precio_antiguo && (
+                          <p className="ml-2 text-sm line-through text-gray-500">{item.precio_antiguo}€</p>
+                        )}
+                      </div>
                     </div>
                   </Link>
                 </div>

@@ -189,7 +189,7 @@ const CartPage = () => {
                         <div className="flex flex-grow md:w-2/5">
                           <div className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-lg overflow-hidden border">
                             <motion.img
-                              src={item.img}
+                              src={item.img.startsWith('/assets') ? item.img : `/assets${item.img}`}
                               alt={item.nombre}
                               className="w-full h-full object-cover"
                               whileHover={{ scale: 1.1 }}

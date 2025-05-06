@@ -178,7 +178,7 @@ const ProductPage = () => {
                     <h3 className="text-lg font-semibold text-gray-800 mb-1">{pala.nombre}</h3>
                     <p className="text-sm text-gray-500 mb-4">{pala.descripcion?.substring(0, 70)}...</p>
                     <div className="flex items-center justify-between mt-auto">
-                      <span className="text-xl font-bold text-gray-800">{pala.precio}€</span>
+                      <span className="text-xl font-bold text-gray-800">{pala.precio_actual}€</span>
                       <span className="text-blue-600 text-sm font-medium">Ver detalles</span>
                     </div>
                   </div>
@@ -240,7 +240,7 @@ const ProductPage = () => {
                   <div className="p-4 flex flex-col flex-grow bg-gray-50">
                     <h3 className="text-base font-semibold text-gray-800 mb-2">{accesorio.nombre}</h3>
                     <div className="flex items-center justify-between mt-2">
-                      <span className="text-lg font-bold text-gray-800">{accesorio.precio}€</span>
+                      <span className="text-lg font-bold text-gray-800">{accesorio.precio_actual}€</span>
                       <span className="text-blue-600 text-sm font-medium">Ver detalles</span>
                     </div>
                   </div>

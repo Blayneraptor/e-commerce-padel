@@ -26,8 +26,8 @@ export const CartProvider = ({ children }) => {
       // Normalizar el objeto para asegurar que tenga la propiedad 'price'
       const normalizedProduct = {
         ...product,
-        // Si el producto tiene 'price', úsalo, si no, usa 'precio'
-        price: product.price || product.precio
+        // Usar precio_actual que es el campo correcto en el JSON
+        price: product.precio_actual || product.price || product.precio || 0
       };
       
       const existingItem = prevCart.find(item => item.id === normalizedProduct.id);
@@ -83,8 +83,8 @@ export const CartProvider = ({ children }) => {
   // Calculate cart subtotal
   const getCartSubtotal = () => {
     return cart.reduce((total, item) => {
-      // Usar price o precio, lo que esté disponible
-      const itemPrice = item.price || item.precio || 0;
+      // Usar price (normalizado en addToCart) o buscar precio_actual
+      const itemPrice = item.price || item.precio_actual || item.precio || 0;
       return total + (itemPrice * item.quantity);
     }, 0);
   };
