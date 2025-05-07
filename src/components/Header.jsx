@@ -16,6 +16,66 @@ import accesorioImg from "../assets/accesorios.png";
 
 import productos from "../data/productos.json";
 import accesorios from "../data/accesorios.json"; // Importando accesorios para categorías
+import pelotas from "../data/pelotas.json"; // Importando pelotas para obtener imágenes
+
+// Función para obtener una imagen representativa de cada categoría
+const getRepresentativeImage = (category) => {
+  let img;
+  
+  switch(category) {
+    case "Pelotas":
+      // Obtener imagen de una pelota de pelotas.json
+      img = pelotas.length > 0 ? pelotas[0].img : accesorioImg;
+      break;
+    case "Overgrips":
+      // Buscar producto con overgrip en accesorios.json
+      img = accesorios.find(item => 
+        item.nombre.toLowerCase().includes("overgrip") || 
+        (item.atributos && item.atributos["Producto"]?.toLowerCase().includes("overgrip"))
+      )?.img || accesorioImg;
+      break;
+    case "Protectores De Palas":
+      // Buscar producto con protector en accesorios.json
+      img = accesorios.find(item => 
+        item.nombre.toLowerCase().includes("protector") || 
+        (item.atributos && item.atributos["Producto"]?.toLowerCase().includes("protector"))
+      )?.img || accesorioImg;
+      break;
+    case "Muñequeras":
+      // Buscar producto con muñequera en accesorios.json
+      img = accesorios.find(item => 
+        item.nombre.toLowerCase().includes("muñequera") || 
+        (item.atributos && item.atributos["Producto"]?.toLowerCase().includes("muñequera"))
+      )?.img || accesorioImg;
+      break;
+    case "Gorras Y Viseras":
+      // Buscar producto con gorra o visera en accesorios.json
+      img = accesorios.find(item => 
+        item.nombre.toLowerCase().includes("gorra") || 
+        item.nombre.toLowerCase().includes("visera") || 
+        (item.atributos && (
+          item.atributos["Producto"]?.toLowerCase().includes("gorra") || 
+          item.atributos["Producto"]?.toLowerCase().includes("visera")
+        ))
+      )?.img || accesorioImg;
+      break;
+    case "Accesorios Entrenamiento":
+      // Buscar producto con entrenamiento o material en accesorios.json
+      img = accesorios.find(item => 
+        item.nombre.toLowerCase().includes("entrenamiento") || 
+        item.nombre.toLowerCase().includes("material") || 
+        (item.atributos && (
+          item.atributos["Producto"]?.toLowerCase().includes("material club") || 
+          item.atributos["Producto"]?.toLowerCase().includes("entrenamiento")
+        ))
+      )?.img || accesorioImg;
+      break;
+    default:
+      img = accesorioImg;
+  }
+  
+  return img;
+};
 
 function Header() {
   const location = useLocation();
@@ -624,7 +684,7 @@ function Header() {
                         <div className="relative">
                           <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-1">
                             <img
-                              src={accesorioImg}
+                              src={getRepresentativeImage(item.tipo)}
                               alt={item.name}
                               className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover/item:scale-110"
                             />
