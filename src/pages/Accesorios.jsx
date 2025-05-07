@@ -51,6 +51,110 @@ const Accesorios = () => {
   
   const accesoriosPorPagina = 20;
 
+  // Añadir manejo de especificaciones y limpieza de datos
+  const limpiarAtributos = (atributos) => {
+    const atributosLimpios = {};
+    for (const [clave, valor] of Object.entries(atributos)) {
+      if (valor && valor.toLowerCase() !== "unknown" && valor.toLowerCase() !== "none") {
+        atributosLimpios[clave] = valor;
+      }
+    }
+    return atributosLimpios;
+  };
+
+  // Asignar tipo a cada producto basado en sus atributos
+  const procesarProductos = () => {
+    // Asignar tipo a los productos basado en atributos
+    return [...accesorios, ...pelotas].map(producto => {
+      let tipo = "Otro";
+      
+      // Si es una pelota, le asignamos el tipo "Pelotas"
+      if (producto.atributos && producto.atributos["Producto"] === "Pelotas") {
+        tipo = "Pelotas";
+      }
+      // Si es un accesorio, procesamos su tipo específico
+      else if (producto.atributos && producto.atributos["Producto"] === "Accesorios") {
+        // Verificamos si tiene un tipo de accesorio específico
+        if (producto.atributos["Accesorios para Palas y Pelotas"] === "Protectores De Palas") {
+          tipo = "Protectores De Palas";
+        } else if (producto.atributos["Accesorios para Palas y Pelotas"] === "Overgrips") {
+          tipo = "Overgrips";
+        } else if (producto.atributos["Accesorios Textil"] === "Muñequeras") {
+          tipo = "Muñequeras";
+        } else if (producto.atributos["Accesorios Textil"] === "Gorras Y Viseras") {
+          tipo = "Gorras Y Viseras";
+        } else if (producto.atributos["Accesorios Entrenamiento"] === "Material Club Padel") {
+          tipo = "Material Club Padel";
+        } else if (producto.atributos["Accesorios Entrenamiento"] === "Prevención Y Lesiones") {
+          tipo = "Prevención Y Lesiones";
+        }
+      }
+      
+      // Guardar los atributos originales y el tipo asignado
+      return {
+        ...producto,
+        tipo: tipo,
+        atributosOriginales: { ...producto.atributos } // Mantener una copia de los atributos originales
+      };
+    });
+  };
+
+  // Procesar los productos una vez al cargar el componente
+  const todosLosProductos = procesarProductos();
+
+  // Modificar la función de filtrado para trabajar con los tipos asignados
+  const filtrarAccesorios = () => {
+    let filtrados = todosLosProductos.filter((item) => {
+      // Para "Accesorios Entrenamiento" mostrar todos los productos que tengan ese atributo
+      if (filtroTipo === "Accesorios Entrenamiento") {
+        return item.atributosOriginales && 
+               item.atributosOriginales["Accesorios Entrenamiento"] && 
+               item.nombre.toLowerCase().includes(busqueda.toLowerCase());
+      }
+      
+      // Para "Overgrips" incluir todos los que tengan este valor específico
+      if (filtroTipo === "Overgrips") {
+        return item.atributosOriginales && 
+               item.atributosOriginales["Accesorios para Palas y Pelotas"] === "Overgrips" &&
+               item.nombre.toLowerCase().includes(busqueda.toLowerCase());
+      }
+
+      // Para "Protectores De Palas" incluir todos los que tengan este valor específico
+      if (filtroTipo === "Protectores De Palas") {
+        return item.atributosOriginales && 
+               item.atributosOriginales["Accesorios para Palas y Pelotas"] === "Protectores De Palas" &&
+               item.nombre.toLowerCase().includes(busqueda.toLowerCase());
+      }
+
+      // Para "Muñequeras" y "Gorras Y Viseras" filtrar por estos valores específicos
+      if (filtroTipo === "Muñequeras" || filtroTipo === "Gorras Y Viseras") {
+        return item.atributosOriginales && 
+               item.atributosOriginales["Accesorios Textil"] === filtroTipo &&
+               item.nombre.toLowerCase().includes(busqueda.toLowerCase());
+      }
+      
+      // Para otros tipos, filtrar como antes
+      const tipoCondicion = filtroTipo === "Todos" || item.tipo === filtroTipo;
+      const busquedaCondicion = item.nombre.toLowerCase().includes(busqueda.toLowerCase());
+      return tipoCondicion && busquedaCondicion;
+    });
+
+    // Ordenar por precio - usar precio_actual en vez de precio
+    filtrados.sort((a, b) =>
+      ordenPrecio === "asc" ? a.precio_actual - b.precio_actual : b.precio_actual - a.precio_actual
+    );
+
+    return filtrados;
+  };
+
+  // Obtener categorías únicas para filtrar
+  const categorias = Array.from(
+    new Set([
+      ...todosLosProductos.map(item => item.tipo),
+      "Accesorios Entrenamiento" // Añadimos manualmente esta categoría
+    ])
+  ).sort();
+
   // Efecto para la animación del banner
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -114,31 +218,85 @@ const Accesorios = () => {
 
   // Efecto para desplazarse al accesorio visto por última vez
   useEffect(() => {
-    // Asegurarse que los accesorios ya se cargaron y que existe un accesorio visto anteriormente
-    if (accesoriosVisibles.length > 0 && lastViewedAccesorio) {
-      const accesorioElement = accesorioRefs.current[lastViewedAccesorio];
-      if (accesorioElement) {
-        // Pequeño retraso para asegurar que la renderización esté completa
-        setTimeout(() => {
-          accesorioElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          // Opcional: Destacar el producto para que sea más fácil de identificar
-          accesorioElement.classList.add('ring-2', 'ring-blue-500', 'ring-offset-2');
+    // Solo proceder si tenemos un accesorio para mostrar
+    if (lastViewedAccesorio) {
+      // Buscar el producto en todos los accesorios filtrados
+      const todosLosAccesoriosFiltrados = filtrarAccesorios();
+      const accesorioIndex = todosLosAccesoriosFiltrados.findIndex(p => p.id === lastViewedAccesorio);
+      
+      // Si encontramos el accesorio en los accesorios filtrados
+      if (accesorioIndex !== -1) {
+        // Calcular en qué página debería estar
+        const paginaDelAccesorio = Math.floor(accesorioIndex / accesoriosPorPagina) + 1;
+        
+        // Si no está en la página actual, cambiar a esa página
+        if (paginaDelAccesorio !== paginaActual) {
+          console.log(`Producto encontrado en página ${paginaDelAccesorio}, cambiando desde página ${paginaActual}`);
+          setPaginaActual(paginaDelAccesorio);
+          return; // Salir y esperar a que el cambio de página actualice accesoriosVisibles
+        }
+
+        // Si está en la página actual, asegurarnos de que los accesorios estén cargados
+        if (accesoriosVisibles.length > 0) {
+          // Verificar si el accesorio está en los accesorios visibles
+          const accesorioEncontrado = accesoriosVisibles.find(p => p.id === lastViewedAccesorio);
+          if (!accesorioEncontrado) {
+            console.log("Accesorio no encontrado en la página actual aunque debería estar. Recargando...");
+            return; // Esperar a la siguiente actualización
+          }
+          
+          // Si llegamos aquí, el accesorio está en los accesorios visibles
           setTimeout(() => {
-            accesorioElement.classList.remove('ring-2', 'ring-blue-500', 'ring-offset-2');
-          }, 2000); // Quitar el destacado después de 2 segundos
-        }, 300);
-        // Limpiar después de desplazarse
+            const accesorioElement = accesorioRefs.current[lastViewedAccesorio];
+            if (accesorioElement) {
+              console.log("Desplazándose al accesorio:", lastViewedAccesorio);
+              
+              // Scroll a la sección de productos primero
+              const productosListaElement = document.getElementById("productos-lista");
+              if (productosListaElement) {
+                productosListaElement.scrollIntoView({ behavior: 'smooth' });
+                
+                // Luego scroll al producto específico
+                setTimeout(() => {
+                  accesorioElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center'
+                  });
+                  
+                  // Destacar el accesorio de forma más visible
+                  accesorioElement.style.transition = "all 0.5s ease";
+                  accesorioElement.classList.add('ring-4', 'ring-blue-500', 'ring-offset-2', 'shadow-lg');
+                  
+                  // Animar para llamar la atención y luego quitar el estilo
+                  setTimeout(() => {
+                    accesorioElement.classList.remove('ring-4', 'ring-blue-500', 'ring-offset-2', 'shadow-lg');
+                  }, 3000); // Mantener el resaltado por 3 segundos
+                }, 300);
+              }
+            } else {
+              console.log("Elemento de accesorio no encontrado en el DOM:", lastViewedAccesorio);
+            }
+            
+            // Limpiar después de desplazarse
+            setLastViewedAccesorio(null);
+          }, 500);
+        }
+      } else {
+        console.log("Accesorio no encontrado con los filtros actuales:", lastViewedAccesorio);
         setLastViewedAccesorio(null);
       }
     }
-  }, [accesoriosVisibles, lastViewedAccesorio]);
+  }, [lastViewedAccesorio, accesoriosVisibles, paginaActual, accesoriosPorPagina]);
 
   // Efecto para desplazarse al primer elemento cuando cambia el filtro
   useEffect(() => {
     if (accesoriosVisibles.length > 0) {
-      // Solo hacemos scroll al primer elemento cuando cambia el filtro de tipo (no al cargar inicialmente)
-      // Y solo si no hay un producto específico que ver (lastViewedAccesorio)
-      if (filtroTipo !== "Todos" && !lastViewedAccesorio) {
+      // Solo hacemos scroll al primer elemento cuando cambia el filtro de tipo
+      // Y SOLO si no hay un producto específico que ver (lastViewedAccesorio)
+      // Y SOLO si no estamos volviendo de una página de detalles
+      const volviendoDeDetalles = localStorage.getItem('lastViewedAccesorioProduct') !== null;
+      
+      if (filtroTipo !== "Todos" && !lastViewedAccesorio && !volviendoDeDetalles) {
         // Esperar a que la UI se actualice
         setTimeout(() => {
           const productosListaElement = document.getElementById("productos-lista");
@@ -159,110 +317,6 @@ const Accesorios = () => {
     }
   }, [filtroTipo, accesoriosVisibles, lastViewedAccesorio]);
 
-  // Añadir manejo de especificaciones y limpieza de datos
-  const limpiarAtributos = (atributos) => {
-    const atributosLimpios = {};
-    for (const [clave, valor] of Object.entries(atributos)) {
-      if (valor && valor.toLowerCase() !== "unknown" && valor.toLowerCase() !== "none") {
-        atributosLimpios[clave] = valor;
-      }
-    }
-    return atributosLimpios;
-  };
-
-  // Asignar tipo a cada producto basado en sus atributos
-  const procesarProductos = () => {
-    // Asignar tipo a los productos basado en atributos
-    return [...accesorios, ...pelotas].map(producto => {
-      let tipo = "Otro";
-      
-      // Si es una pelota, le asignamos el tipo "Pelotas"
-      if (producto.atributos && producto.atributos["Producto"] === "Pelotas") {
-        tipo = "Pelotas";
-      }
-      // Si es un accesorio, procesamos su tipo específico
-      else if (producto.atributos && producto.atributos["Producto"] === "Accesorios") {
-        // Verificamos si tiene un tipo de accesorio específico
-        if (producto.atributos["Accesorios para Palas y Pelotas"] === "Protectores De Palas") {
-          tipo = "Protectores De Palas";
-        } else if (producto.atributos["Accesorios para Palas y Pelotas"] === "Overgrips") {
-          tipo = "Overgrips";
-        } else if (producto.atributos["Accesorios Textil"] === "Muñequeras") {
-          tipo = "Muñequeras";
-        } else if (producto.atributos["Accesorios Textil"] === "Gorras Y Viseras") {
-          tipo = "Gorras Y Viseras";
-        } else if (producto.atributos["Accesorios Entrenamiento"] === "Material Club Padel") {
-          tipo = "Material Club Padel";
-        } else if (producto.atributos["Accesorios Entrenamiento"] === "Prevención Y Lesiones") {
-          tipo = "Prevención Y Lesiones";
-        }
-      }
-      
-      // Guardar los atributos originales y el tipo asignado
-      return {
-        ...producto,
-        tipo: tipo,
-        atributosOriginales: { ...producto.atributos } // Mantener una copia de los atributos originales
-      };
-    });
-  };
-
-  // Procesar los productos una vez al cargar el componente
-  const todosLosProductos = procesarProductos();
-
-  // Obtener categorías únicas para filtrar
-  const categorias = Array.from(
-    new Set([
-      ...todosLosProductos.map(item => item.tipo),
-      "Accesorios Entrenamiento" // Añadimos manualmente esta categoría
-    ])
-  ).sort();
-
-  // Modificar la función de filtrado para trabajar con los tipos asignados
-  const filtrarAccesorios = () => {
-    let filtrados = todosLosProductos.filter((item) => {
-      // Para "Accesorios Entrenamiento" mostrar todos los productos que tengan ese atributo
-      if (filtroTipo === "Accesorios Entrenamiento") {
-        return item.atributosOriginales && 
-               item.atributosOriginales["Accesorios Entrenamiento"] && 
-               item.nombre.toLowerCase().includes(busqueda.toLowerCase());
-      }
-      
-      // Para "Overgrips" incluir todos los que tengan este valor específico
-      if (filtroTipo === "Overgrips") {
-        return item.atributosOriginales && 
-               item.atributosOriginales["Accesorios para Palas y Pelotas"] === "Overgrips" &&
-               item.nombre.toLowerCase().includes(busqueda.toLowerCase());
-      }
-
-      // Para "Protectores De Palas" incluir todos los que tengan este valor específico
-      if (filtroTipo === "Protectores De Palas") {
-        return item.atributosOriginales && 
-               item.atributosOriginales["Accesorios para Palas y Pelotas"] === "Protectores De Palas" &&
-               item.nombre.toLowerCase().includes(busqueda.toLowerCase());
-      }
-
-      // Para "Muñequeras" y "Gorras Y Viseras" filtrar por estos valores específicos
-      if (filtroTipo === "Muñequeras" || filtroTipo === "Gorras Y Viseras") {
-        return item.atributosOriginales && 
-               item.atributosOriginales["Accesorios Textil"] === filtroTipo &&
-               item.nombre.toLowerCase().includes(busqueda.toLowerCase());
-      }
-      
-      // Para otros tipos, filtrar como antes
-      const tipoCondicion = filtroTipo === "Todos" || item.tipo === filtroTipo;
-      const busquedaCondicion = item.nombre.toLowerCase().includes(busqueda.toLowerCase());
-      return tipoCondicion && busquedaCondicion;
-    });
-
-    // Ordenar por precio - usar precio_actual en vez de precio
-    filtrados.sort((a, b) =>
-      ordenPrecio === "asc" ? a.precio_actual - b.precio_actual : b.precio_actual - a.precio_actual
-    );
-
-    return filtrados;
-  };
-  
   // Dynamic page count based on filtered results
   const filteredCount = filtrarAccesorios().length;
   const paginas = Math.ceil(filteredCount / accesoriosPorPagina);
