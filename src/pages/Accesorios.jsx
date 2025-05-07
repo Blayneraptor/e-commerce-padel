@@ -46,6 +46,8 @@ const Accesorios = () => {
   const [bannerVisible, setBannerVisible] = useState(false);
   const [lastViewedAccesorio, setLastViewedAccesorio] = useState(null);
   const accesorioRefs = useRef({});
+  // Referencia para rastrear el primer montaje
+  const firstMount = useRef(true);
   
   const accesoriosPorPagina = 20;
 
@@ -57,11 +59,28 @@ const Accesorios = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Recuperar la página guardada y el último accesorio visto cuando el componente se monta
+  // Recuperar la página guardada, filtros, y el último accesorio visto cuando el componente se monta
   useEffect(() => {
+    // Recuperar la página guardada
     const savedPage = localStorage.getItem('accesoriosPage');
     if (savedPage) {
       setPaginaActual(parseInt(savedPage));
+    }
+    
+    // Recuperar los filtros guardados
+    const savedFiltroTipo = localStorage.getItem('accesoriosFiltroTipo');
+    if (savedFiltroTipo) {
+      setFiltroTipo(savedFiltroTipo);
+    }
+    
+    const savedOrdenPrecio = localStorage.getItem('accesoriosOrdenPrecio');
+    if (savedOrdenPrecio) {
+      setOrdenPrecio(savedOrdenPrecio);
+    }
+    
+    const savedBusqueda = localStorage.getItem('accesoriosBusqueda');
+    if (savedBusqueda) {
+      setBusqueda(savedBusqueda);
     }
     
     // Recuperar el accesorio visto por última vez
@@ -72,6 +91,9 @@ const Accesorios = () => {
     
     // Limpiar el localStorage después de usarlo
     localStorage.removeItem('accesoriosPage');
+    localStorage.removeItem('accesoriosFiltroTipo');
+    localStorage.removeItem('accesoriosOrdenPrecio');
+    localStorage.removeItem('accesoriosBusqueda');
     localStorage.removeItem('lastViewedAccesorioProduct');
   }, []);
 
@@ -79,8 +101,13 @@ const Accesorios = () => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const tipoParam = params.get('tipo');
-    if (tipoParam) {
+    
+    // Solo actualizar desde URL si estamos en la primera carga y hay parámetros
+    if (firstMount.current && tipoParam) {
       setFiltroTipo(tipoParam);
+      // Marcar que ya no estamos en el primer montaje
+      firstMount.current = false;
+      // Solo reseteamos la página a 1 en la primera carga con parámetros
       setPaginaActual(1);
     }
   }, [location.search]);
@@ -110,7 +137,8 @@ const Accesorios = () => {
   useEffect(() => {
     if (accesoriosVisibles.length > 0) {
       // Solo hacemos scroll al primer elemento cuando cambia el filtro de tipo (no al cargar inicialmente)
-      if (filtroTipo !== "Todos") {
+      // Y solo si no hay un producto específico que ver (lastViewedAccesorio)
+      if (filtroTipo !== "Todos" && !lastViewedAccesorio) {
         // Esperar a que la UI se actualice
         setTimeout(() => {
           const productosListaElement = document.getElementById("productos-lista");
@@ -129,7 +157,7 @@ const Accesorios = () => {
         }, 300);
       }
     }
-  }, [filtroTipo, accesoriosVisibles]);
+  }, [filtroTipo, accesoriosVisibles, lastViewedAccesorio]);
 
   // Añadir manejo de especificaciones y limpieza de datos
   const limpiarAtributos = (atributos) => {
@@ -254,9 +282,21 @@ const Accesorios = () => {
     document.getElementById("productos-lista").scrollIntoView({ behavior: "smooth" });
   };
 
-  // Función para guardar la página actual y el ID del accesorio antes de navegar a los detalles
+  // Función para guardar la página actual, el filtro y el ID del accesorio antes de navegar a los detalles
   const handleAccesorioClick = (accesorioId) => {
+    // Guardar la página actual
     localStorage.setItem('accesoriosPage', paginaActual.toString());
+    
+    // Guardar el filtro actual
+    localStorage.setItem('accesoriosFiltroTipo', filtroTipo);
+    localStorage.setItem('accesoriosOrdenPrecio', ordenPrecio);
+    
+    // Si hay búsqueda, también la guardamos
+    if (busqueda) {
+      localStorage.setItem('accesoriosBusqueda', busqueda);
+    }
+    
+    // Guardar el ID del producto visualizado
     localStorage.setItem('lastViewedAccesorioProduct', accesorioId);
   };
 
@@ -347,7 +387,7 @@ const Accesorios = () => {
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1-1.414z" clipRule="evenodd"></path>
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1-1.414 0l-4-4a1 1-1.414z" clipRule="evenodd"></path>
                   </svg>
                 </div>
               </div>

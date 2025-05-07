@@ -45,6 +45,8 @@ const PadelPage = () => {
   const [bannerVisible, setBannerVisible] = useState(false);
   const [lastViewedProduct, setLastViewedProduct] = useState(null);
   const productoRefs = useRef({});
+  // Referencia para rastrear el primer montaje
+  const firstMount = useRef(true);
   
   const productosPorPagina = 20;
 
@@ -61,11 +63,33 @@ const PadelPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Recuperar la página guardada y el último producto visto cuando el componente se monta
+  // Recuperar la página guardada, filtros y el último producto visto cuando el componente se monta
   useEffect(() => {
+    // Recuperar la página guardada
     const savedPage = localStorage.getItem('padelPage');
     if (savedPage) {
       setPaginaActual(parseInt(savedPage));
+    }
+    
+    // Recuperar los filtros guardados
+    const savedFiltroTipo = localStorage.getItem('padelFiltroTipo');
+    if (savedFiltroTipo) {
+      setFiltroTipo(savedFiltroTipo);
+    }
+    
+    const savedFiltroMarca = localStorage.getItem('padelFiltroMarca');
+    if (savedFiltroMarca) {
+      setFiltroMarca(savedFiltroMarca);
+    }
+    
+    const savedOrdenPrecio = localStorage.getItem('padelOrdenPrecio');
+    if (savedOrdenPrecio) {
+      setOrdenPrecio(savedOrdenPrecio);
+    }
+    
+    const savedBusqueda = localStorage.getItem('padelBusqueda');
+    if (savedBusqueda) {
+      setBusqueda(savedBusqueda);
     }
     
     // Recuperar el producto visto por última vez
@@ -76,6 +100,10 @@ const PadelPage = () => {
     
     // Limpiar el localStorage después de usarlo
     localStorage.removeItem('padelPage');
+    localStorage.removeItem('padelFiltroTipo');
+    localStorage.removeItem('padelFiltroMarca');
+    localStorage.removeItem('padelOrdenPrecio');
+    localStorage.removeItem('padelBusqueda');
     localStorage.removeItem('lastViewedPadelProduct');
   }, []);
 
@@ -125,24 +153,22 @@ const PadelPage = () => {
     const tipoParam = params.get('tipo');
     const marcaParam = params.get('marca');
     
-    // Solo actualizar el estado y resetear la página si hay un cambio real en los filtros
-    let cambioRealizado = false;
-    
-    if (tipoParam && tipoParam !== filtroTipo) {
-      setFiltroTipo(tipoParam);
-      cambioRealizado = true;
-    }
-    
-    if (marcaParam && marcaParam !== filtroMarca) {
-      setFiltroMarca(marcaParam);
-      cambioRealizado = true;
-    }
-
-    // Solo cambiar a página 1 si hubo un cambio en los filtros
-    if (cambioRealizado) {
+    // Solo actualizar desde URL si estamos en la primera carga y hay parámetros
+    if (firstMount.current && (tipoParam || marcaParam)) {
+      if (tipoParam) {
+        setFiltroTipo(tipoParam);
+      }
+      
+      if (marcaParam) {
+        setFiltroMarca(marcaParam);
+      }
+      
+      // Marcar que ya no estamos en el primer montaje
+      firstMount.current = false;
+      // Solo reseteamos la página a 1 en la primera carga con parámetros
       setPaginaActual(1);
     }
-  }, [location.search, filtroTipo, filtroMarca]);
+  }, [location.search]);
 
   // Hacer scroll suave al tope de la lista de productos al cambiar filtros (solo cuando hay query)
   useEffect(() => {
@@ -237,9 +263,22 @@ const PadelPage = () => {
     document.getElementById("productos-lista").scrollIntoView({ behavior: "smooth" });
   };
 
-  // Función para guardar la página actual y el ID del producto antes de navegar a los detalles
+  // Función para guardar la página actual, los filtros y el ID del producto antes de navegar a los detalles
   const handleProductClick = (productId) => {
+    // Guardar la página actual
     localStorage.setItem('padelPage', paginaActual.toString());
+    
+    // Guardar los filtros actuales
+    localStorage.setItem('padelFiltroTipo', filtroTipo);
+    localStorage.setItem('padelFiltroMarca', filtroMarca);
+    localStorage.setItem('padelOrdenPrecio', ordenPrecio);
+    
+    // Si hay búsqueda, también la guardamos
+    if (busqueda) {
+      localStorage.setItem('padelBusqueda', busqueda);
+    }
+    
+    // Guardar el ID del producto visualizado
     localStorage.setItem('lastViewedPadelProduct', productId);
   };
 
