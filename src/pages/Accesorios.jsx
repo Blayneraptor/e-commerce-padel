@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import accesorios from "../data/accesorios.json";
 import pelotas from "../data/pelotas.json";
@@ -44,6 +44,8 @@ const Accesorios = () => {
   const [paginaActual, setPaginaActual] = useState(1);
   const [accesoriosVisibles, setAccesoriosVisibles] = useState([]);
   const [bannerVisible, setBannerVisible] = useState(false);
+  const [lastViewedAccesorio, setLastViewedAccesorio] = useState(null);
+  const accesorioRefs = useRef({});
   
   const accesoriosPorPagina = 20;
 
@@ -55,25 +57,44 @@ const Accesorios = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Recuperar la página guardada cuando el componente se monta
+  // Recuperar la página guardada y el último accesorio visto cuando el componente se monta
   useEffect(() => {
     const savedPage = localStorage.getItem('accesoriosPage');
     if (savedPage) {
       setPaginaActual(parseInt(savedPage));
-      // Limpiar el localStorage después de usarlo
-      localStorage.removeItem('accesoriosPage');
     }
+    
+    // Recuperar el accesorio visto por última vez
+    const savedAccesorioId = localStorage.getItem('lastViewedAccesorioProduct');
+    if (savedAccesorioId) {
+      setLastViewedAccesorio(savedAccesorioId);
+    }
+    
+    // Limpiar el localStorage después de usarlo
+    localStorage.removeItem('accesoriosPage');
+    localStorage.removeItem('lastViewedAccesorioProduct');
   }, []);
 
-  // Leer parámetro tipo de la URL y aplicar filtro
+  // Efecto para desplazarse al accesorio visto por última vez
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const tipoParam = params.get('tipo');
-    if (tipoParam) {
-      setFiltroTipo(tipoParam);
-      setPaginaActual(1);
+    // Asegurarse que los accesorios ya se cargaron y que existe un accesorio visto anteriormente
+    if (accesoriosVisibles.length > 0 && lastViewedAccesorio) {
+      const accesorioElement = accesorioRefs.current[lastViewedAccesorio];
+      if (accesorioElement) {
+        // Pequeño retraso para asegurar que la renderización esté completa
+        setTimeout(() => {
+          accesorioElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Opcional: Destacar el producto para que sea más fácil de identificar
+          accesorioElement.classList.add('ring-2', 'ring-blue-500', 'ring-offset-2');
+          setTimeout(() => {
+            accesorioElement.classList.remove('ring-2', 'ring-blue-500', 'ring-offset-2');
+          }, 2000); // Quitar el destacado después de 2 segundos
+        }, 300);
+        // Limpiar después de desplazarse
+        setLastViewedAccesorio(null);
+      }
     }
-  }, [location.search]);
+  }, [accesoriosVisibles, lastViewedAccesorio]);
 
   // Añadir manejo de especificaciones y limpieza de datos
   const limpiarAtributos = (atributos) => {
@@ -178,9 +199,10 @@ const Accesorios = () => {
     document.getElementById("productos-lista").scrollIntoView({ behavior: "smooth" });
   };
 
-  // Función para guardar la página actual antes de navegar a los detalles
-  const handleAccesorioClick = () => {
+  // Función para guardar la página actual y el ID del accesorio antes de navegar a los detalles
+  const handleAccesorioClick = (accesorioId) => {
     localStorage.setItem('accesoriosPage', paginaActual.toString());
+    localStorage.setItem('lastViewedAccesorioProduct', accesorioId);
   };
 
   return (
@@ -315,8 +337,9 @@ const Accesorios = () => {
                     className="group relative"
                   >
                     <Link 
+                      ref={el => accesorioRefs.current[accesorio.id] = el}
                       to={`/accesorios/${accesorio.id}`}
-                      onClick={handleAccesorioClick}
+                      onClick={() => handleAccesorioClick(accesorio.id)}
                       className="block h-full overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:shadow-lg border border-gray-100"
                     >
                       {/* Imagen */}

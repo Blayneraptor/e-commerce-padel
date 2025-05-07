@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import productos from "../data/productos.json";
 import palaspadel from "../assets/palaspadel.png";
@@ -43,6 +43,8 @@ const PadelPage = () => {
   const [paginaActual, setPaginaActual] = useState(1);
   const [productosVisibles, setProductosVisibles] = useState([]);
   const [bannerVisible, setBannerVisible] = useState(false);
+  const [lastViewedProduct, setLastViewedProduct] = useState(null);
+  const productoRefs = useRef({});
   
   const productosPorPagina = 20;
 
@@ -59,15 +61,63 @@ const PadelPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Recuperar la página guardada cuando el componente se monta
+  // Recuperar la página guardada y el último producto visto cuando el componente se monta
   useEffect(() => {
     const savedPage = localStorage.getItem('padelPage');
     if (savedPage) {
       setPaginaActual(parseInt(savedPage));
-      // Limpiar el localStorage después de usarlo
-      localStorage.removeItem('padelPage');
     }
+    
+    // Recuperar el producto visto por última vez
+    const savedProductId = localStorage.getItem('lastViewedPadelProduct');
+    if (savedProductId) {
+      setLastViewedProduct(savedProductId);
+    }
+    
+    // Limpiar el localStorage después de usarlo
+    localStorage.removeItem('padelPage');
+    localStorage.removeItem('lastViewedPadelProduct');
   }, []);
+
+  // Efecto para desplazarse al producto visto por última vez
+  useEffect(() => {
+    if (productosVisibles.length > 0 && lastViewedProduct) {
+      // Asegurarnos de que el producto visto está entre los productos cargados
+      const productoEncontrado = productosVisibles.find(p => p.id === lastViewedProduct);
+      if (!productoEncontrado) {
+        console.log("Producto no encontrado en la página actual:", lastViewedProduct);
+        return;
+      }
+
+      // Un retraso mayor para asegurar que el DOM está completamente renderizado
+      setTimeout(() => {
+        const productElement = productoRefs.current[lastViewedProduct];
+        if (productElement) {
+          console.log("Desplazándose al producto:", lastViewedProduct);
+          
+          // Usar scrollIntoView con opciones más suaves
+          productElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center'
+          });
+          
+          // Destacar el producto de forma más visible
+          productElement.style.transition = "all 0.5s ease";
+          productElement.classList.add('ring-4', 'ring-blue-500', 'ring-offset-2', 'shadow-lg');
+          
+          // Animar para llamar la atención y luego quitar el estilo
+          setTimeout(() => {
+            productElement.classList.remove('ring-4', 'ring-blue-500', 'ring-offset-2', 'shadow-lg');
+          }, 3000); // Mantener el resaltado por 3 segundos
+        } else {
+          console.log("Elemento de producto no encontrado en el DOM:", lastViewedProduct);
+        }
+        
+        // Limpiar después de desplazarse
+        setLastViewedProduct(null);
+      }, 500); // Aumentar el tiempo de espera a 500ms
+    }
+  }, [productosVisibles, lastViewedProduct]);
 
   // Leer parámetros tipo y marca de la URL y aplicar filtros
   useEffect(() => {
@@ -75,16 +125,24 @@ const PadelPage = () => {
     const tipoParam = params.get('tipo');
     const marcaParam = params.get('marca');
     
-    if (tipoParam) {
+    // Solo actualizar el estado y resetear la página si hay un cambio real en los filtros
+    let cambioRealizado = false;
+    
+    if (tipoParam && tipoParam !== filtroTipo) {
       setFiltroTipo(tipoParam);
+      cambioRealizado = true;
     }
     
-    if (marcaParam) {
+    if (marcaParam && marcaParam !== filtroMarca) {
       setFiltroMarca(marcaParam);
+      cambioRealizado = true;
     }
 
-    setPaginaActual(1);
-  }, [location.search]);
+    // Solo cambiar a página 1 si hubo un cambio en los filtros
+    if (cambioRealizado) {
+      setPaginaActual(1);
+    }
+  }, [location.search, filtroTipo, filtroMarca]);
 
   // Hacer scroll suave al tope de la lista de productos al cambiar filtros (solo cuando hay query)
   useEffect(() => {
@@ -179,9 +237,10 @@ const PadelPage = () => {
     document.getElementById("productos-lista").scrollIntoView({ behavior: "smooth" });
   };
 
-  // Función para guardar la página actual antes de navegar a los detalles
-  const handleProductClick = () => {
+  // Función para guardar la página actual y el ID del producto antes de navegar a los detalles
+  const handleProductClick = (productId) => {
     localStorage.setItem('padelPage', paginaActual.toString());
+    localStorage.setItem('lastViewedPadelProduct', productId);
   };
 
   return (
@@ -334,8 +393,9 @@ const PadelPage = () => {
                     className="group relative"
                   >
                     <Link 
+                      ref={el => productoRefs.current[producto.id] = el}
                       to={`/palas-de-padel/${producto.id}`}
-                      onClick={handleProductClick}
+                      onClick={() => handleProductClick(producto.id)}
                       className="block h-full overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:shadow-lg border border-gray-100"
                     >
                       {/* Etiqueta de descuento si existe */}
