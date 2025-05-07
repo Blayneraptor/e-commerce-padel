@@ -11,7 +11,7 @@ import intermedioImg from "../assets/intermedio.png";
 import avanzadoImg from "../assets/avanzado.png";
 import controlImg from "../assets/control.png";
 import potenciaImg from "../assets/potencia.png";
-import marcasImg from "../assets/potencia.png";
+import marcasImg from "../assets/todas.png";
 import accesorioImg from "../assets/accesorios.png";
 
 import productos from "../data/productos.json";
