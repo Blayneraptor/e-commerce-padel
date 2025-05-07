@@ -55,6 +55,16 @@ const Accesorios = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Recuperar la página guardada cuando el componente se monta
+  useEffect(() => {
+    const savedPage = localStorage.getItem('accesoriosPage');
+    if (savedPage) {
+      setPaginaActual(parseInt(savedPage));
+      // Limpiar el localStorage después de usarlo
+      localStorage.removeItem('accesoriosPage');
+    }
+  }, []);
+
   // Leer parámetro tipo de la URL y aplicar filtro
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -166,6 +176,11 @@ const Accesorios = () => {
     setPaginaActual(nuevaPagina);
     // Scroll al inicio de los productos
     document.getElementById("productos-lista").scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Función para guardar la página actual antes de navegar a los detalles
+  const handleAccesorioClick = () => {
+    localStorage.setItem('accesoriosPage', paginaActual.toString());
   };
 
   return (
@@ -301,6 +316,7 @@ const Accesorios = () => {
                   >
                     <Link 
                       to={`/accesorios/${accesorio.id}`}
+                      onClick={handleAccesorioClick}
                       className="block h-full overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:shadow-lg border border-gray-100"
                     >
                       {/* Imagen */}

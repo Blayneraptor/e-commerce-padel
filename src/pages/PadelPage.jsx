@@ -59,6 +59,16 @@ const PadelPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Recuperar la página guardada cuando el componente se monta
+  useEffect(() => {
+    const savedPage = localStorage.getItem('padelPage');
+    if (savedPage) {
+      setPaginaActual(parseInt(savedPage));
+      // Limpiar el localStorage después de usarlo
+      localStorage.removeItem('padelPage');
+    }
+  }, []);
+
   // Leer parámetros tipo y marca de la URL y aplicar filtros
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -167,6 +177,11 @@ const PadelPage = () => {
     setPaginaActual(nuevaPagina);
     // Scroll al inicio de los productos
     document.getElementById("productos-lista").scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Función para guardar la página actual antes de navegar a los detalles
+  const handleProductClick = () => {
+    localStorage.setItem('padelPage', paginaActual.toString());
   };
 
   return (
@@ -320,6 +335,7 @@ const PadelPage = () => {
                   >
                     <Link 
                       to={`/palas-de-padel/${producto.id}`}
+                      onClick={handleProductClick}
                       className="block h-full overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:shadow-lg border border-gray-100"
                     >
                       {/* Etiqueta de descuento si existe */}
