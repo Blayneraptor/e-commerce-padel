@@ -487,9 +487,8 @@ function Header() {
                               d="M9 5l7 7-7 7"
                             />
                           </svg>
-                        </button>
-                        <div className="absolute left-full top-0 transform ml-2 w-52 bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg invisible opacity-0 group-hover/marcas:visible group-hover/marcas:opacity-100 transition-all duration-300">
-                          <ul className="space-y-2 max-h-60 overflow-y-auto">
+                        </button>                        <div className="absolute left-full top-0 transform ml-2 w-52 bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg invisible opacity-0 group-hover/marcas:visible group-hover/marcas:opacity-100 transition-all duration-300">
+                          <ul className="space-y-2 max-h-80 overflow-x-hidden overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full hover:scrollbar-thumb-blue-400">
                             {marcas.map((marca) => (
                               <li
                                 key={marca}
@@ -634,9 +633,8 @@ function Header() {
                           </span>
                         </button>
                         
-                        {/* Submenu de marcas para accesorios */}
-                        <div className="absolute left-full top-0 transform ml-2 w-52 bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg invisible opacity-0 group-hover/marcasacc:visible group-hover/marcasacc:opacity-100 transition-all duration-300">
-                          <ul className="space-y-2 max-h-60 overflow-y-auto">
+                        {/* Submenu de marcas para accesorios */}                        <div className="absolute left-full top-0 transform ml-2 w-52 bg-gradient-to-br from-gray-900 to-black p-3 rounded-xl shadow-xl border border-gray-700 backdrop-blur-lg invisible opacity-0 group-hover/marcasacc:visible group-hover/marcasacc:opacity-100 transition-all duration-300">
+                          <ul className="space-y-2 max-h-80 overflow-x-hidden overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full hover:scrollbar-thumb-green-400">
                             {marcasAccesorios.map((marca) => (
                               <li
                                 key={marca}
