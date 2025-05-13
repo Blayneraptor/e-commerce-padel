@@ -79,11 +79,11 @@ const AboutUs = () => {
           {/* Sección de estadísticas */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center mb-12">
             <div>
-              <h4 className="text-3xl font-bold text-blue-600">200+</h4>
+              <h4 className="text-3xl font-bold text-blue-600">1500+</h4>
               <p className="text-gray-600">Productos</p>
             </div>
             <div>
-              <h4 className="text-3xl font-bold text-blue-600">1500+</h4>
+              <h4 className="text-3xl font-bold text-blue-600">30000+</h4>
               <p className="text-gray-600">Clientes satisfechos</p>
             </div>
             <div>
