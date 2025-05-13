@@ -74,7 +74,7 @@ function Layout() {
             }`}
           >
             <h1 className="text-center text-5xl font-bold tracking-tight text-gray-900 animate-smoothPulse">
-              PADEL SHOP EN DESARROLLO
+              PADEL SHOP BLAYNE
             </h1>
           </div>
         )}
