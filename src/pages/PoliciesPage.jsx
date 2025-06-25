@@ -55,14 +55,14 @@ const PoliciesPage = () => {
       <div className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openSection === 'legal' ? 'max-h-[400px] pt-4' : 'max-h-0'}`}>
         <p className="mb-4">En cumplimiento con el artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa a los usuarios de:</p>
         <ul className="list-disc list-inside mb-4 space-y-2">
-          <li><strong>Titular:</strong> Blayne Padel Shop.</li>
+          <li><strong>Titular:</strong> Padel Zone Premium.</li>
           <li><strong>Domicilio social:</strong> Calle Falsa 123, 28080 Madrid, España.</li>
           <li><strong>CIF:</strong> B-12345678.</li>
-          <li><strong>Correo electrónico:</strong> info@blaynepadel.com.</li>
+          <li><strong>Correo electrónico:</strong> info@padelzonepremium.com.</li>
           <li><strong>Teléfono de contacto:</strong> +34 912 345 678.</li>
         </ul>
-        <p className="mb-4">Blayne Padel Shop ofrece sus servicios conforme a la legislación vigente en España y la Unión Europea. El acceso al sitio implica la aceptación de las condiciones de uso y esta información legal.</p>
-        <p>Los contenidos y la marca son propiedad de Blayne Padel Shop, quedando prohibida su reproducción total o parcial sin consentimiento expreso.</p>
+        <p className="mb-4">Padel Zone Premium ofrece sus servicios conforme a la legislación vigente en España y la Unión Europea. El acceso al sitio implica la aceptación de las condiciones de uso y esta información legal.</p>
+        <p>Los contenidos y la marca son propiedad de Padel Zone Premium, quedando prohibida su reproducción total o parcial sin consentimiento expreso.</p>
       </div>
      </section>
 
@@ -72,15 +72,15 @@ const PoliciesPage = () => {
         <span className={`transform transition-transform ${openSection === 'terms' ? 'rotate-180' : ''}`}>▼</span>
       </div>
       <div className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openSection === 'terms' ? 'max-h-[450px] pt-4' : 'max-h-0'}`}>
-        <p className="mb-4">Estas condiciones regulan el acceso y uso de la plataforma de comercio electrónico de Blayne Padel Shop. Al realizar un pedido, el usuario manifiesta su plena conformidad con los siguientes términos:</p>
+        <p className="mb-4">Estas condiciones regulan el acceso y uso de la plataforma de comercio electrónico de Padel Zone Premium. Al realizar un pedido, el usuario manifiesta su plena conformidad con los siguientes términos:</p>
         <ul className="list-disc list-inside mb-4 space-y-2">
           <li><strong>Objeto:</strong> comercialización y venta de material de pádel.</li>
           <li><strong>Proceso de compra:</strong> se formaliza un contrato de compraventa al aceptar el pedido y recibir confirmación por correo.</li>
           <li><strong>Precios:</strong> incluidos impuestos (IVA) y sin gastos de envío salvo que se especifique.</li>
           <li><strong>Disponibilidad:</strong> los productos aparecen en stock en tiempo real, pudiendo variar por alta demanda.</li>
-          <li><strong>Modificaciones:</strong> Blayne Padel Shop se reserva el derecho a actualizar precios, productos y condiciones sin previo aviso.</li>
+          <li><strong>Modificaciones:</strong> Padel Zone Premium se reserva el derecho a actualizar precios, productos y condiciones sin previo aviso.</li>
         </ul>
-        <p className="mb-4">Para cualquier incidencia o consulta, contacta con nuestro servicio de atención en info@blaynepadel.com antes de iniciar reclamaciones formales.</p>
+        <p className="mb-4">Para cualquier incidencia o consulta, contacta con nuestro servicio de atención en info@padelzonepremium.com antes de iniciar reclamaciones formales.</p>
       </div>
      </section>
 
@@ -90,11 +90,11 @@ const PoliciesPage = () => {
         <span className={`transform transition-transform ${openSection === 'privacy' ? 'rotate-180' : ''}`}>▼</span>
       </div>
       <div className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openSection === 'privacy' ? 'max-h-[550px] pt-4' : 'max-h-0'}`}>
-        <p className="mb-4">De acuerdo con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), Blayne Padel Shop trata tus datos personales como responsable del tratamiento:</p>
+        <p className="mb-4">De acuerdo con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), Padel Zone Premium trata tus datos personales como responsable del tratamiento:</p>
         <ul className="list-disc list-inside mb-4 space-y-2">
           <li><strong>Finalidades:</strong> gestión de pedidos, facturación, envío de comunicaciones comerciales solo con tu consentimiento.</li>
           <li><strong>Legitimación:</strong> ejecución de contrato y consentimiento.</li>
-          <li><strong>Derechos:</strong> acceso, rectificación, supresión, oposición, limitación y portabilidad. Para ejercerlos, escribe a <a href="mailto:datos@blaynepadel.com" className="underline">datos@blaynepadel.com</a>.</li>
+          <li><strong>Derechos:</strong> acceso, rectificación, supresión, oposición, limitación y portabilidad. Para ejercerlos, escribe a <a href="mailto:datos@padelzonepremium.com" className="underline">datos@padelzonepremium.com</a>.</li>
           <li><strong>Conservación:</strong> los datos se mantienen mientras exista relación comercial y según plazos legales.</li>
           <li><strong>Cesiones:</strong> ninguna, salvo a transportistas y proveedores de pago para la correcta ejecución del servicio.</li>
         </ul>
@@ -127,7 +127,7 @@ const PoliciesPage = () => {
       <div className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openSection === 'returns' ? 'max-h-[500px] pt-4' : 'max-h-0'}`}>
         <p className="mb-4">Según el Real Decreto Legislativo 1/2007, tienes derecho a desistir del contrato sin penalización ni necesidad de justificación en un plazo de 14 días naturales desde la entrega:</p>
         <ul className="list-disc list-inside mb-4 space-y-2">
-          <li><strong>Procedimiento:</strong> notifica tu decisión por <a href="mailto:devoluciones@blaynepadel.com" className="underline">devoluciones@blaynepadel.com</a> o formulario web.</li>
+          <li><strong>Procedimiento:</strong> notifica tu decisión por <a href="mailto:devoluciones@padelzonepremium.com" className="underline">devoluciones@padelzonepremium.com</a> o formulario web.</li>
           <li><strong>Plazo de devolución:</strong> dispones de otros 14 días para enviar el producto.</li>
           <li><strong>Estado:</strong> sin usar, con etiquetas y embalaje original.</li>
           <li><strong>Gastos:</strong> de devolución a tu cargo, salvo error o defecto.</li>
@@ -151,7 +151,7 @@ const PoliciesPage = () => {
         <h4 className="font-semibold mb-2">Gestión del pedido</h4>
         <p className="mb-2">Todos los pagos se realizan en Euros (EUR) e incluyen IVA aplicado según la regulación española. El cargo se efectuará al confirmar el pedido y antes de su expedición.</p>
         <h4 className="font-semibold mb-2">Seguridad y privacidad</h4>
-        <p>Los datos bancarios se transmiten de forma segura mediante cifrado SSL. Blayne Padel Shop no almacena datos de tarjeta.</p>
+        <p>Los datos bancarios se transmiten de forma segura mediante cifrado SSL. Padel Zone Premium no almacena datos de tarjeta.</p>
       </div>
      </section>
    </div>

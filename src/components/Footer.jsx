@@ -18,7 +18,7 @@ const Footer = () => {
             
           <div className="flex items-center mb-2">
             
-            <h3 className="text-white text-base sm:text-lg font-semibold">BLAYNE PADEL SHOP</h3>
+            <h3 className="text-white text-base sm:text-lg font-semibold">PADEL ZONE PREMIUM</h3>
           </div>
           <p className="text-xs sm:text-sm">Desde principiantes hasta profesionales confían en nuestra selección de palas y accesorios de alta calidad</p>
         </div>
@@ -46,7 +46,7 @@ const Footer = () => {
         <div>
           <h4 className="text-white text-base sm:text-lg font-medium mb-2">Soporte</h4>
           <ul className="space-y-1 text-sm">
-            <li><a href="mailto:info@blaynepadel.com" className="hover:text-white">info@blaynepadel.com</a></li>
+            <li><a href="mailto:info@padelzonepremium.com" className="hover:text-white">info@padelzonepremium.com</a></li>
             <li><a href="tel:+34123456789" className="hover:text-white">+34 123 456 789</a></li>
           </ul>
         </div>
@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-gray-700 mt-4 pt-2 pb-0 text-center text-xs">
-        © {year} Jose P. Couso. Todos los derechos reservados.
+        © {year} cousoworks. Todos los derechos reservados.
       </div>
     </footer>
   );

@@ -1,7 +1,5 @@
 # 🏓 Tienda E-Commerce de Pádel
 
-
-
 ## 📋 Descripción General
 
 Esta es una plataforma moderna de comercio electrónico especializada en equipamiento y accesorios de pádel. Construida con React y Vite, la aplicación ofrece una experiencia de compra fluida con características como filtrado de productos, gestión del carrito y proceso de pago.
@@ -18,19 +16,20 @@ Esta es una plataforma moderna de comercio electrónico especializada en equipam
 
 ## 🧰 Tecnologías
 
-- **Frontend**: 
+- **Frontend**:
+
   - React 18
   - React Router 7
   - Tailwind CSS
   - Material Tailwind
   - HeroIcons
   - AOS (Animate On Scroll)
-  
-- **Herramientas de Desarrollo**: 
+- **Herramientas de Desarrollo**:
+
   - Vite
   - ESLint
-  
 - **Gestión de Estado**:
+
   - React Context API
 
 ## 🚀 Comenzando
@@ -43,22 +42,23 @@ Esta es una plataforma moderna de comercio electrónico especializada en equipam
 ### Instalación
 
 1. Clona el repositorio:
+
    ```bash
    git clone https://github.com/tuusuario/e-commerce-padel.git
    cd e-commerce-padel
    ```
-
 2. Instala las dependencias:
+
    ```bash
    npm install
    ```
-
 3. Inicia el servidor de desarrollo:
+
    ```bash
    npm run dev
    ```
-
 4. Abre tu navegador y navega a:
+
    ```
    http://localhost:5173
    ```
@@ -116,10 +116,9 @@ Los archivos compilados estarán en el directorio `dist`, listos para ser desple
 - Integración con pasarelas de pago
 - Panel de administración para gestión de productos
 
-
 ## 👨‍💻 Autor
 
-Creado por Blayneraptor
+Creado por cousoworks
 
 ---
 

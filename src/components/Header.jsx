@@ -306,7 +306,7 @@ function Header() {
                   <div className="flex flex-col md:flex-row items-center md:justify-between">
                     <div className="mb-6 md:mb-0 md:mr-8">
                       <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-                        Bienvenido a Padel Shop Blayne
+                        Bienvenido a Padel Zone Premium
                       </h1>
                       <p className="text-lg text-gray-100 max-w-2xl">
                         Descubre nuestra selección de palas y accesorios premium
@@ -359,7 +359,7 @@ function Header() {
               src={logo}
             />
             <span className="text-2xl text-white font-semibold tracking-wider transition-all duration-300 group-hover:text-gray-300">
-              Blayne Padel
+              Padel Zone Premium
             </span>
           </div>
         </a>

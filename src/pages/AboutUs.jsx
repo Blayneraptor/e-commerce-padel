@@ -27,7 +27,7 @@ const AboutUs = () => {
     e.preventDefault();
     const subject = `Contacto de ${contactName}`;
     const body = `Nombre: ${contactName}\nEmail: ${contactEmail}\nMensaje: ${contactMessage}`;
-    window.location.href = `mailto:info@blaynepadel.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:info@padelzonepremium.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setIsModalOpen(false);
   };
 
@@ -93,7 +93,7 @@ const AboutUs = () => {
           </div>
 
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Blayne Padel Shop</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Padel Zone Premium</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
           </div>
           
@@ -101,7 +101,7 @@ const AboutUs = () => {
             <div className="bg-white p-8 rounded-xl shadow-md transform hover:-translate-y-1 transition-transform duration-300">
               <h3 className="text-2xl font-semibold mb-4 text-gray-800">Nuestra Misión</h3>
               <p className="text-gray-600 leading-relaxed">
-                En Blayne Padel nos dedicamos a ofrecer productos de la más alta calidad para los amantes del pádel. Nacimos en 2018 de la mano de jugadores profesionales con una visión clara: acercar la excelencia deportiva a todos los niveles. Seleccionamos cuidadosamente cada pala, accesorio y prenda para garantizar el máximo rendimiento en la pista.
+                En Padel Zone Premium nos dedicamos a ofrecer productos de la más alta calidad para los amantes del pádel. Nacimos en 2018 de la mano de jugadores profesionales con una visión clara: acercar la excelencia deportiva a todos los niveles. Seleccionamos cuidadosamente cada pala, accesorio y prenda para garantizar el máximo rendimiento en la pista.
               </p>
             </div>
             
@@ -151,7 +151,7 @@ const AboutUs = () => {
           <div className="text-center mb-10">
             <h3 className="text-2xl font-semibold mb-6 text-gray-800">Nuestro Equipo</h3>
             <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Detrás de Blayne hay un equipo apasionado de jugadores, entrenadores y especialistas en material deportivo. Nos une la pasión por el pádel y el compromiso de ayudarte a encontrar exactamente lo que necesitas para mejorar tu juego y disfrutar al máximo de este maravilloso deporte.
+              Detrás de Padel Zone Premium hay un equipo apasionado de jugadores, entrenadores y especialistas en material deportivo. Nos une la pasión por el pádel y el compromiso de ayudarte a encontrar exactamente lo que necesitas para mejorar tu juego y disfrutar al máximo de este maravilloso deporte.
             </p>
           </div>
           
